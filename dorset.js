@@ -219,6 +219,7 @@ var rFC = '';
 var rEP = '';
 var rFD = '';
 var rEQ = '';
+var rER = '';
 //Clean Data = cl
 var clAL = 0.10;
 var clGC = 0.00;
@@ -3905,9 +3906,14 @@ else
 
 var clGX = "";
 //=IF(OR(AND(ISNONTEXT('Raw data'!ER58),NOT(ISNUMBER('Raw data'!ER58))),'Raw data'!ER58=""), 0, VLOOKUP('Raw data'!ER58, TimeAlone, 2, FALSE))
-
-
-
+if(((ISNONTEXT(rER)&& NOT_ISNUMBER(rER))||rER ===""))
+{
+  clGX = 0;
+}
+else
+{
+  clGX = VLOOKUP(rER, TimeAlone, 2, FALSE)
+}
 
 
 
@@ -4066,6 +4072,7 @@ console.log('rFC', rFC);
 console.log('rEP', rEP);
 console.log('rFD', rFD);
 console.log('rEQ', rEQ);
+console.log('rER', rER);
 console.log('----clean----')
 console.log('clG', clG);
 console.log('clH', clH);
@@ -4267,6 +4274,7 @@ console.log('clGT', clGT);
 console.log('clGU', clGU);
 console.log('clGV', clGV);
 console.log('clGQ', clGQ);
+console.log('clGX', clGX);
 //James reference
 
 //IF(this = that, true, false) -> 
