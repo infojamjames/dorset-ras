@@ -220,6 +220,7 @@ var rEP = '';
 var rFD = '';
 var rEQ = '';
 var rER = '';
+var rES = '';
 //Clean Data = cl
 var clAL = 0.10;
 var clGC = 0.00;
@@ -3915,8 +3916,21 @@ else
   clGX = VLOOKUP(rER, TimeAlone, 2, FALSE)
 }
 
-
-
+var clGY = "";
+//=IF('Raw data'!ES58="Yes", 1,
+// IF('Raw data'!ES58="No", 0, 0))
+if(rES == "Yes")
+{
+  clGY = 1;
+}
+else if(rES = "No")
+{
+  clGY = 0;
+}
+else
+{
+  clGY = 0;
+}
 
 
 
@@ -4073,6 +4087,7 @@ console.log('rEP', rEP);
 console.log('rFD', rFD);
 console.log('rEQ', rEQ);
 console.log('rER', rER);
+console.log('rES', rES);
 console.log('----clean----')
 console.log('clG', clG);
 console.log('clH', clH);
@@ -4275,6 +4290,7 @@ console.log('clGU', clGU);
 console.log('clGV', clGV);
 console.log('clGQ', clGQ);
 console.log('clGX', clGX);
+console.log('clGY', clGY);
 //James reference
 
 //IF(this = that, true, false) -> 
