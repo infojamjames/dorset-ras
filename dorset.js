@@ -5,7 +5,7 @@ NOTES
 == 0 IS THE SAME AS == "" -> Replaced all == "" with ===""
 
 
-Some notes here
+Some notes here some more notes
 
 */
 
