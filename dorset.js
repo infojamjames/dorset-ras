@@ -3875,7 +3875,30 @@ else
   clGV = 0;
 }
 
+var clGW = "";
+//=IF(OR('Raw data'!FD58="No",'Raw data'!EQ58="NotDueToCaring",'Raw data'!EQ58="NoChallenge",'Raw data'!EQ58="n/a",'Raw data'!EQ58="YesLittle",'Raw data'!EQ58="YesModerate"),0,
+//IF('Raw data'!EQ58="YesSignificant",1,
+//IF('Raw data'!EQ58="YesSevere",1.25,0)))
+if(rFD == "No" || rEQ == "NotDueToCaring" || rEQ == "NoChallenge" || rEQ == "n/a" || rEQ == "YesLittle" || rEQ == "YesModerate")
+{
+  clGQ = 0;
+}
+else if(rEQ == "YesSignificant")
+{
+  clGQ = 1;
+}
+else if(rEQ == "YesSevere")
+{
+  clGQ = 1.25;
+}
+else
+{
+  clGQ = 0;
+}
 
+
+var clGX = "";
+//=IF(OR(AND(ISNONTEXT('Raw data'!ER58),NOT(ISNUMBER('Raw data'!ER58))),'Raw data'!ER58=""), 0, VLOOKUP('Raw data'!ER58, TimeAlone, 2, FALSE))
 
 
 
