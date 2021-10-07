@@ -222,6 +222,7 @@ var rEQ = '';
 var rER = '';
 var rES = '';
 var rET = '';
+var rEU = '';
 //Clean Data = cl
 var clAL = 0.10;
 var clGC = 0.00;
@@ -3960,12 +3961,31 @@ else
 }
 
 
-
-
-
-
-
-
+var clHA = "";
+//=IF('Raw data'!EU58=1, 1,
+// IF('Raw data'!EU58=2, 2,
+// IF('Raw data'!EU58=3, 3, 
+//IF('Raw data'!EU58=4, 4, 0))))
+if(rEU == 1)
+{
+  clHA = 1;
+}
+else if(rEU == 2)
+{
+  clHA = 2;
+}
+else if(rEU == 3)
+{
+  clHA = 3;
+}
+else if(rEU == 4)
+{
+  clHA = 4;
+}
+else
+{
+  clHA = 0;
+}
 
 
 
@@ -4129,6 +4149,7 @@ console.log('rEQ', rEQ);
 console.log('rER', rER);
 console.log('rES', rES);
 console.log('rET', rET);
+console.log('rEU', rEU);
 console.log('----clean----')
 console.log('clG', clG);
 console.log('clH', clH);
@@ -4333,6 +4354,7 @@ console.log('clGQ', clGQ);
 console.log('clGX', clGX);
 console.log('clGY', clGY);
 console.log('clGZ', clGZ);
+console.log('clHA', clHA);
 //James reference
 
 //IF(this = that, true, false) -> 
