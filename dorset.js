@@ -221,6 +221,7 @@ var rFD = '';
 var rEQ = '';
 var rER = '';
 var rES = '';
+var rET = '';
 //Clean Data = cl
 var clAL = 0.10;
 var clGC = 0.00;
@@ -3931,7 +3932,45 @@ else
 {
   clGY = 0;
 }
-//test
+
+var clGZ = "";
+//=IF('Raw data'!ET58=1, 1, 
+//IF('Raw data'!ET58=2, 2,
+// IF('Raw data'!ET58=3, 3, 
+//IF('Raw data'!ET58=4, 4, 0))))
+if(rET == 1)
+{
+  clGZ = 1;
+}
+else if(rET == 2)
+{
+  clGZ = 2;
+}
+else if(rET == 3)
+{
+  clGZ == 3;
+}
+else if(rET == 4)
+{
+  clGZ = 4;
+}
+else
+{
+  clGZ = 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4089,6 +4128,7 @@ console.log('rFD', rFD);
 console.log('rEQ', rEQ);
 console.log('rER', rER);
 console.log('rES', rES);
+console.log('rET', rET);
 console.log('----clean----')
 console.log('clG', clG);
 console.log('clH', clH);
@@ -4292,6 +4332,7 @@ console.log('clGV', clGV);
 console.log('clGQ', clGQ);
 console.log('clGX', clGX);
 console.log('clGY', clGY);
+console.log('clGZ', clGZ);
 //James reference
 
 //IF(this = that, true, false) -> 
