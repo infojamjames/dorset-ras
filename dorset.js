@@ -4004,9 +4004,31 @@ else
   clHB = "";
 }
 
-
-
-
+var clHC = "";
+//=IF(OR(AND(ISNONTEXT('Raw data'!CP58),NOT(ISNUMBER('Raw data'!CP58))),'Raw data'!CP58=""),0,
+//IF('Raw data'!CP58="NoNeed","NoNeed",
+//IF(OR(AND(AV58>=2,'Raw data'!CI58="Yes"),AND(OR(BA58>=2,BC58>=2),'Raw data'!CJ58="Yes"),AND(BI58>=2,'Raw data'!CK58="Yes")),'Raw data'!CP58,
+//IF(OR(AND(AV58>=2,'Raw data'!CI58="No"),AND(OR(BA58>=2,BC58>=2),'Raw data'!CJ58="No"),AND(BI58>=2,'Raw data'!CK58="No")),0,0))))
+if(((ISNONTEXT(rCP)&& NOT_ISNUMBER(rCP))||rCP ===""))
+{
+  clHC = 0;
+}
+else if(rCP == "NoNeed")
+{
+  clHC = "NoNeed";
+}
+else if(clAV >= 2 || rCI == "Yes" && clBA >= 2 || clBC >= 2 || rCJ == "Yes" && clBI >= 2 && rCK == "Yes")
+{
+  clHC = rCP;
+}
+else if(clAV >= 2 || rCI == "No" && clBA >= 2 || clBC >= 2 || rCJ == "No" && clBI >= 2 && rCK == "No")
+{
+  clHC = 0;
+}
+else
+{
+  clHC = 0;
+}
 
 
 
@@ -4381,6 +4403,7 @@ console.log('clGY', clGY);
 console.log('clGZ', clGZ);
 console.log('clHA', clHA);
 console.log('clHB', clHB);
+console.log('clHC', clHC);
 //James reference
 
 //IF(this = that, true, false) -> 
