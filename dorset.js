@@ -4104,7 +4104,7 @@ else
 var clHG = "";
 //=IF(OR(AND(ISNONTEXT(DY58),NOT(ISNUMBER(DY58))),DY58=""), 0, 
 //IF('Raw data'!CK58="Yes",VLOOKUP(DY58, Informal0to7, 2, FALSE),0))
-if(((ISNONTEXT(clDY)&& NOT_ISNUMBER(clDUY))||clDY ===""))
+if(((ISNONTEXT(clDY)&& NOT_ISNUMBER(clDY))||clDY ===""))
 {
   clHG = 0;
 }
@@ -4116,6 +4116,14 @@ else
 {
   clHG = 0;
 }
+
+var clHH = "";
+//=IF(OR(AND(ISNONTEXT(DX58),NOT(ISNUMBER(DX58))),DX58=""), 0, 
+//IF(AND('Raw data'!CM58="Yes",'Raw data'!CO58="Yes"), VLOOKUP(DX58, Informal0to7, 3, FALSE)*2,
+// IF(OR('Raw data'!CM58="Yes",'Raw data'!CO58="Yes"), VLOOKUP(DX58, Informal0to7, 3, FALSE),
+// IF('Raw data'!CN58="Yes", VLOOKUP(DX58, Informal0to7, 5, FALSE), 0))))
+if(((ISNONTEXT(clDX)&& NOT_ISNUMBER(clDUY))||clDY ===""))
+
 
 
 
