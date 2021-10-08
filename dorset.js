@@ -4212,11 +4212,16 @@ else
 }
 
 
-
-
-
-
-
+var clHN = "";
+//=IF('Raw data'!CU58="Yes",2,0)
+if(rCU == "Yes")
+{
+  clHN = 2;
+}
+else
+{
+  clHN = 0;
+}
 
 
 
@@ -4592,6 +4597,7 @@ console.log('clHJ', clHJ);
 console.log('clHK', clHK);
 console.log('clHL', clHL);
 console.log('clHM', clHM);
+console.log('clHN', clHN);
 //James reference
 
 //IF(this = that, true, false) -> 
