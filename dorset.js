@@ -4122,7 +4122,24 @@ var clHH = "";
 //IF(AND('Raw data'!CM58="Yes",'Raw data'!CO58="Yes"), VLOOKUP(DX58, Informal0to7, 3, FALSE)*2,
 // IF(OR('Raw data'!CM58="Yes",'Raw data'!CO58="Yes"), VLOOKUP(DX58, Informal0to7, 3, FALSE),
 // IF('Raw data'!CN58="Yes", VLOOKUP(DX58, Informal0to7, 5, FALSE), 0))))
-if(((ISNONTEXT(clDX)&& NOT_ISNUMBER(clDUY))||clDY ===""))
+if(((ISNONTEXT(clDX)&& NOT_ISNUMBER(clDX))||clDX ===""))
+{
+  clHH = 0; 
+}
+else if(rCM == "Yes" && rCO == "Yes")
+{
+  clHH =  VLOOKUP(clDX, Informal0to7, 3, FALSE)*2
+}
+else if(rCM == "Yes" || rCO == "Yes")
+{
+  clHH = VLOOKUP(clDX, Informal0to7, 3, FALSE)
+}
+
+
+
+
+
+
 
 
 
@@ -4496,6 +4513,7 @@ console.log('clHD', clHD);
 console.log('clHE', clHE);
 console.log('clHF', clHF);
 console.log('clHG', clHG);
+console.log('clHH', clHH);
 //James reference
 
 //IF(this = that, true, false) -> 
