@@ -4031,6 +4031,38 @@ else
 }
 
 
+var clHD = "";
+//=IF(OR(AND(ISNONTEXT('Raw data'!CR58),NOT(ISNUMBER('Raw data'!CR58))),'Raw data'!CR58=""),0,
+//IF('Raw data'!CR58="NoNeed","NoNeed",
+//IF(OR(AND(AX58>=2,'Raw data'!CI58="Yes"),AND(OR(BA58>=2,BC58>=2),'Raw data'!CJ58="Yes"),AND(BI58>=2,'Raw data'!CK58="Yes")),'Raw data'!CR58,
+//IF(OR(AND(AX58>=2,'Raw data'!CI58="No"),AND(BI58>=2,'Raw data'!CK58="No")),0,
+//0))))
+if(((ISNONTEXT(rCR)&& NOT_ISNUMBER(rCR))||rCR ===""))
+{
+  clHD = 0;
+}
+else if(rCR == "NoNeed")
+{
+  clHD = "NoNeed";
+}
+else if(clAX >= 2 || rCI == "Yes" && clBA >= 2 || clBC >= 2 || rCJ == "Yes" && clBI >= 2 && rCK == "Yes")
+{
+  clHD = rCR;
+}
+else if(clAX >= 2 || rCI == "No" && clBI >= 2 && rCK == "No")
+{
+  clHD = 0;
+}
+else 
+{
+  clHD = 0;
+}
+
+//=IF(OR(AND(ISNONTEXT(HC58),NOT(ISNUMBER(HC58))),HC58=""), 0,
+// IF(OR('Raw data'!CI58="Yes", 'Raw data'!CJ58="Yes", 'Raw data'!CK58="Yes"), VLOOKUP(HC58, Informal0to7, 2, FALSE), 0))
+
+
+
 
 
 
@@ -4404,6 +4436,7 @@ console.log('clGZ', clGZ);
 console.log('clHA', clHA);
 console.log('clHB', clHB);
 console.log('clHC', clHC);
+console.log('clHD', clHD);
 //James reference
 
 //IF(this = that, true, false) -> 
