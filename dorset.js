@@ -4249,6 +4249,42 @@ else
 
 
 
+var clHQ = "";
+//=IF('Raw data'!CX58="6to7act",21,
+//IF('Raw data'!CX58="4to5act",15,
+//IF('Raw data'!CX58="2to3act",6,
+//IF('Raw data'!CX58="1act",3,
+//IF('Raw data'!CX58="2nd carer",15,0)))))
+if(rCX == "6to7act")
+{
+  clHQ = 21;
+}
+else if(rCX == "4to5act")
+{
+  clHQ = 15;
+}
+else if(rCX == "2to3act")
+{
+  clHQ = 6;
+}
+else if(rCX == "1act")
+{
+  clHQ = 3;
+}
+else if(rCX == "2nd carer")
+{
+  clHQ = 15;
+}
+else
+{
+  clHQ = 0;
+}
+
+
+
+
+
+
 
 
 
@@ -4626,6 +4662,7 @@ console.log('clHM', clHM);
 console.log('clHN', clHN);
 console.log('clHO', clHO);
 console.log('clHP', clHP);
+console.log('clHQ', clHQ);
 //James reference
 
 //IF(this = that, true, false) -> 
