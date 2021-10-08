@@ -4496,6 +4496,30 @@ else
 }
 
 
+var clIC = "";
+//=IF('Raw data'!FD58="Yes", 1,
+// IF('Raw data'!FD58="No", 0, ""))
+if(rFD == "Yes")
+{
+  clIC = 1;
+}
+else if(rFD == "No")
+{
+  clIC = 0;
+}
+else
+{
+  clIC = "";
+}
+
+
+
+
+
+
+
+
+
 
 
 console.log('----RAW----')
@@ -4884,6 +4908,7 @@ console.log('clHY', clHY);
 console.log('clHZ', clHZ);
 console.log('clIA', clIA);
 console.log('clIB', clIB);
+console.log('clIC', clIC);
 //James reference
 
 //IF(this = that, true, false) -> 
