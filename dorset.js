@@ -4314,6 +4314,22 @@ else
 
 
 
+var clHS = "";
+//=IF(OR(AND(ISNONTEXT('Raw data'!CZ58),NOT(ISNUMBER('Raw data'!CZ58))),'Raw data'!CZ58=""), 0, VLOOKUP('Raw data'!CZ58, Ongoing_Company, 2, FALSE))
+if(((ISNONTEXT(rCZ)&& NOT_ISNUMBER(rCZ))||rCZ ===""))
+{
+  clHS = 0;
+}
+else
+{
+  clHS = VLOOKUP(rCZ, Ongoing_Company, 2, FALSE)
+}
+
+
+
+
+
+
 
 
 
@@ -4693,6 +4709,7 @@ console.log('clHO', clHO);
 console.log('clHP', clHP);
 console.log('clHQ', clHQ);
 console.log('clHR', clHR);
+console.log('clHS', clHS);
 //James reference
 
 //IF(this = that, true, false) -> 
