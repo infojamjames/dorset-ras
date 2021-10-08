@@ -4151,7 +4151,31 @@ else
   clHI = 0;
 }
 
-
+var clHJ = "";
+//=IF(OR(AND(ISNONTEXT(EA58),NOT(ISNUMBER(EA58))),EA58=""), 0, 
+//IF(AND('Raw data'!CM58="Yes",'Raw data'!CO58="Yes"), VLOOKUP(EA58, Informal0to7, 3, FALSE)*2,
+// IF(OR('Raw data'!CM58="Yes",'Raw data'!CO58="Yes"), VLOOKUP(EA58, Informal0to7, 3, FALSE),
+// IF('Raw data'!CN58="Yes", VLOOKUP(EA58, Informal0to7, 5, FALSE), 0))))
+if(((ISNONTEXT(clEA)&& NOT_ISNUMBER(clEA))||clEA ===""))
+{
+  clHJ = 0;
+}
+else if(rCM == "Yes" && rCO == "Yes")
+{
+  clHJ =  VLOOKUP(clEA, Informal0to7, 3, FALSE)*2
+}
+else if(rCM == "Yes" || rCO == "Yes")
+{
+  clHJ =  VLOOKUP(clEA, Informal0to7, 3, FALSE)
+}
+else if(rCN == "Yes")
+{
+  clHJ = VLOOKUP(clEA, Informal0to7, 5, FALSE)
+}
+else 
+{
+  clHJ = 0;
+}
 
 
 
@@ -4523,6 +4547,7 @@ console.log('clHF', clHF);
 console.log('clHG', clHG);
 console.log('clHH', clHH);
 console.log('clHI', clHI);
+console.log('clHJ', clHJ);
 //James reference
 
 //IF(this = that, true, false) -> 
