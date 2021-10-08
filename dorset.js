@@ -4135,13 +4135,21 @@ else if(rCM == "Yes" || rCO == "Yes")
   clHH = VLOOKUP(clDX, Informal0to7, 3, FALSE)
 }
 
-
-
-
-
-
-
-
+var clHI = "";
+//=IF(OR(AND(ISNONTEXT(HD58),NOT(ISNUMBER(HD58))),HD58=""), 0, 
+//IF(OR('Raw data'!CI58="Yes",'Raw data'!CK58="Yes"),VLOOKUP(HD58, Informal0to7, 2, FALSE),0))
+if(((ISNONTEXT(clHD)&& NOT_ISNUMBER(clHD))||clHD ===""))
+{
+  clHI = 0;
+}
+else if(rCI == "Yes" || rCK == "Yes")
+{
+  clHI = VLOOKUP(clHD, Informal0to7, 2, FALSE)
+}
+else
+{
+  clHI = 0;
+}
 
 
 
@@ -4514,6 +4522,7 @@ console.log('clHE', clHE);
 console.log('clHF', clHF);
 console.log('clHG', clHG);
 console.log('clHH', clHH);
+console.log('clHI', clHI);
 //James reference
 
 //IF(this = that, true, false) -> 
