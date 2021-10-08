@@ -226,6 +226,7 @@ var rEU = '';
 var rEV = '';
 var rFE = '';
 var rFF = '';
+var rFG = '';
 //Clean Data = cl
 var clAL = 0.10;
 var clGC = 0.00;
@@ -4549,6 +4550,25 @@ else
 }
 
 
+var clIF = "";
+//=IF('Raw data'!FG58="Yes",1,
+//IF(OR('Raw data'!FG58="No",'Raw data'!FG58="n/a"),0,""))
+if(rFG == "Yes")
+{
+  clIF = 1;
+}
+else if(rFG == "No" || rFG == "n/a")
+{
+  clIF = 0;
+}
+else
+{
+  clIF = "";
+}
+
+
+
+
 
 
 
@@ -4710,6 +4730,7 @@ console.log('rEU', rEU);
 console.log('rEV', rEV);
 console.log('rFE', rFE);
 console.log('rFF', rFF);
+console.log('rFG', rFG);
 console.log('----clean----')
 console.log('clG', clG);
 console.log('clH', clH);
@@ -4945,6 +4966,7 @@ console.log('clIB', clIB);
 console.log('clIC', clIC);
 console.log('clID', clID);
 console.log('clIE', clIE);
+console.log('clIF', clIF);
 //James reference
 
 //IF(this = that, true, false) -> 
