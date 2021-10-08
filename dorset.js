@@ -4075,13 +4075,31 @@ else
 }
 
 
-
+var clHF = "";
 //=IF(OR(AND(ISNONTEXT(DU58),NOT(ISNUMBER(DU58))),DU58=""), 0, 
 //IF(AND('Raw data'!CM58="Yes",'Raw data'!CO58="Yes"), VLOOKUP(DU58, Informal0to7, 3, FALSE)*2,
 // IF(OR('Raw data'!CM58="Yes",'Raw data'!CO58="Yes"), VLOOKUP(DU58, Informal0to7, 3, FALSE),
 // IF('Raw data'!CN58="Yes", VLOOKUP(DU58, Informal0to7, 5, FALSE), 0))))
-
-
+if(((ISNONTEXT(clDU)&& NOT_ISNUMBER(clDU))||clDU ===""))
+{
+  clHF = 0;
+}
+else if(rCM == "Yes" && rCO == "Yes")
+{
+  clHF = VLOOKUP(clDU, Informal0to7, 3, FALSE)*2
+}
+else if(rCM == "Yes" && rCO == "Yes")
+{
+  clHF = VLOOKUP(clDU, Informal0to7, 3, FALSE)
+}
+else if(rCN == "Yes")
+{
+  clHF = VLOOKUP(clDU, Informal0to7, 5, FALSE)
+}
+else
+{
+  clHF = 0;
+}
 
 
 
@@ -4450,6 +4468,7 @@ console.log('clHB', clHB);
 console.log('clHC', clHC);
 console.log('clHD', clHD);
 console.log('clHE', clHE);
+console.log('clHF', clHF);
 //James reference
 
 //IF(this = that, true, false) -> 
