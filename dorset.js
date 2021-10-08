@@ -4396,7 +4396,21 @@ else
   clHV = "";
 }
 
-
+var clHW = "";
+//=IF('Raw data'!EX58="Yes", 1,
+// IF('Raw data'!EX58="No", 0, ""))
+if(rEX == "Yes")
+{
+  clHW = 1;
+}
+else if(rEX == "No")
+{
+  clHW = 0;
+}
+else
+{
+  clHW =  "";
+}
 
 
 
@@ -4783,6 +4797,7 @@ console.log('clHS', clHS);
 console.log('clHT', clHT);
 console.log('clHU', clHU);
 console.log('clHV', clHV);
+console.log('clHW', clHW);
 //James reference
 
 //IF(this = that, true, false) -> 
