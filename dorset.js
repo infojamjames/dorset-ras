@@ -4571,13 +4571,6 @@ else
 }
 
 
-
-
-
-
-
-
-
 console.log('----RAW----')
 console.log('rN', rN);
 console.log('rO', rO);
@@ -4728,13 +4721,8 @@ console.log('rEP', rEP);
 console.log('rFD', rFD);
 console.log('rEQ', rEQ);
 console.log('rER', rER);
-console.log('rES', rES);
 console.log('rET', rET);
 console.log('rEU', rEU);
-console.log('rEV', rEV);
-console.log('rFE', rFE);
-console.log('rFF', rFF);
-console.log('rFG', rFG);
 console.log('----clean----')
 console.log('clG', clG);
 console.log('clH', clH);
@@ -4914,6 +4902,7 @@ console.log('clFY', clFY);
 console.log('clFZ', clFZ);
 console.log('clGA', clGA);
 console.log('clGB', clGB);
+console.log('clGC', clGC);
 console.log('clGD', clGD);
 console.log('clGE', clGE);
 console.log('clGF', clGF);
@@ -4935,40 +4924,22 @@ console.log('clGU', clGU);
 console.log('clGV', clGV);
 console.log('clGW', clGW);
 console.log('clGX', clGX);
-console.log('clGY', clGY);
 console.log('clGZ', clGZ);
 console.log('clHA', clHA);
-console.log('clHB', clHB);
-console.log('clHC', clHC);
-console.log('clHD', clHD);
-console.log('clHE', clHE);
-console.log('clHF', clHF);
-console.log('clHG', clHG);
-console.log('clHH', clHH);
-console.log('clHI', clHI);
-console.log('clHJ', clHJ);
-console.log('clHK', clHK);
-console.log('clHL', clHL);
-console.log('clHM', clHM);
-console.log('clHN', clHN);
-console.log('clHO', clHO);
-console.log('clHP', clHP);
-console.log('clHQ', clHQ);
-console.log('clHR', clHR);
-console.log('clHS', clHS);
-console.log('clHT', clHT);
-console.log('clHU', clHU);
-console.log('clHV', clHV);
-console.log('clHW', clHW);
-console.log('clHX', clHX);
-console.log('clHY', clHY);
-console.log('clHZ', clHZ);
-console.log('clIA', clIA);
-console.log('clIB', clIB);
-console.log('clIC', clIC);
-console.log('clID', clID);
-console.log('clIE', clIE);
-console.log('clIF', clIF);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //James reference
 
 //IF(this = that, true, false) -> 
