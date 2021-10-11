@@ -231,6 +231,10 @@ var rFE='' ;
 var rFF='' ;
 var rFG='' ;
 
+var scD = 0;
+
+
+
 //Clean Data = cl
 var clAL = 0.10;
 var clGC = 0.00;
@@ -242,6 +246,7 @@ var ModelType = 1;
 var OUT_DSTNeedsProfile = 0;
 var Appointments = 0;
 var ModelType = 1;
+
 
 
 
@@ -3926,27 +3931,12 @@ else
   clGX = VLOOKUP(rER, TimeAlone, 2, FALSE)
 }
 
-var clGY = "";
-//=IF('Raw data'!ES58="Yes", 1,
-// IF('Raw data'!ES58="No", 0, 0))
-if(rES == "Yes")
-{
-  clGY = 1;
-}
-else if(rES = "No")
-{
-  clGY = 0;
-}
-else
-{
-  clGY = 0;
-}
 
 var clGZ = "";
-//=IF('Raw data'!ET58=1, 1, 
-//IF('Raw data'!ET58=2, 2,
-// IF('Raw data'!ET58=3, 3, 
-//IF('Raw data'!ET58=4, 4, 0))))
+//=IF('Raw data'!ET58=1, 1,
+// IF('Raw data'!ET58=2, 2,
+// IF('Raw data'!ET58=3, 3,
+// IF('Raw data'!ET58=4, 4, 0))))
 if(rET == 1)
 {
   clGZ = 1;
@@ -3957,7 +3947,7 @@ else if(rET == 2)
 }
 else if(rET == 3)
 {
-  clGZ == 3;
+  clGZ = 3;
 }
 else if(rET == 4)
 {
@@ -3969,11 +3959,11 @@ else
 }
 
 
-var clHA = "";
-//=IF('Raw data'!EU58=1, 1,
-// IF('Raw data'!EU58=2, 2,
-// IF('Raw data'!EU58=3, 3, 
-//IF('Raw data'!EU58=4, 4, 0))))
+  var clHA = "";
+  //=IF('Raw data'!EU58=1, 1,
+  // IF('Raw data'!EU58=2, 2,
+  // IF('Raw data'!EU58=3, 3,
+  // IF('Raw data'!EU58=4, 4, 0))))
 if(rEU == 1)
 {
   clHA = 1;
@@ -3995,580 +3985,84 @@ else
   clHA = 0;
 }
 
-var clHB = "";
-//=IF('Raw data'!EV58="Yes", 1,
-// IF('Raw data'!EV58="No", 0, ""))
-if(rEV == "Yes")
+//Scores
+var scD = "";
+//=IF(AND(ModelType>=2,NOT(OUT_DSTNeedsProfile=1), OR('Clean data'!CV58=1,'Clean data'!CT58>=3,AND('Clean data'!CE58>=5,'Clean data'!AQ58=1),'Clean data'!CW58>=4,'Clean data'!DG58=1)),2,
+//IF(AND(ModelType>=2,NOT(OUT_DSTNeedsProfile=1), OR('Clean data'!CN58>=1,'Clean data'!BN58>=2,'Clean data'!AS58=1,'Clean data'!AQ58=1,'Clean data'!BT58=1,'Clean data'!BX58=1,'Clean data'!CE58>=4,'Clean data'!CT58>=2,'Clean data'!DE58>=3,'Clean data'!DA58>=4,'Clean data'!J58>=4)),1,0))
+if(ModelType >= 2 && OUT_DSTNeedsProfile != 1 ||  clCV == 1 || clCT >= 3 || clCE >= 5 || clAQ == 1 || clCW >= 4 || clDG == 1 )
 {
-  clHB = 1;
+  scD = 2;
 }
-else if(rEV == "No")
+else if(ModelType >= 2 && OUT_DSTNeedsProfile != 1 ||  clCN == 1 || clBN >= 3 || clAS >= 5 || clAQ == 1 || clBT >= 4 || clBX == 1 )
 {
-  clHB = 0;
-}
-else
-{
-  clHB = "";
-}
-
-var clHC = "";
-//=IF(OR(AND(ISNONTEXT('Raw data'!CP58),NOT(ISNUMBER('Raw data'!CP58))),'Raw data'!CP58=""),0,
-//IF('Raw data'!CP58="NoNeed","NoNeed",
-//IF(OR(AND(AV58>=2,'Raw data'!CI58="Yes"),AND(OR(BA58>=2,BC58>=2),'Raw data'!CJ58="Yes"),AND(BI58>=2,'Raw data'!CK58="Yes")),'Raw data'!CP58,
-//IF(OR(AND(AV58>=2,'Raw data'!CI58="No"),AND(OR(BA58>=2,BC58>=2),'Raw data'!CJ58="No"),AND(BI58>=2,'Raw data'!CK58="No")),0,0))))
-if(((ISNONTEXT(rCP)&& NOT_ISNUMBER(rCP))||rCP ===""))
-{
-  clHC = 0;
-}
-else if(rCP == "NoNeed")
-{
-  clHC = "NoNeed";
-}
-else if(clAV >= 2 || rCI == "Yes" && clBA >= 2 || clBC >= 2 || rCJ == "Yes" && clBI >= 2 && rCK == "Yes")
-{
-  clHC = rCP;
-}
-else if(clAV >= 2 || rCI == "No" && clBA >= 2 || clBC >= 2 || rCJ == "No" && clBI >= 2 && rCK == "No")
-{
-  clHC = 0;
+  scD = 1;
 }
 else
 {
-  clHC = 0;
-}
-
-
-var clHD = "";
-//=IF(OR(AND(ISNONTEXT('Raw data'!CR58),NOT(ISNUMBER('Raw data'!CR58))),'Raw data'!CR58=""),0,
-//IF('Raw data'!CR58="NoNeed","NoNeed",
-//IF(OR(AND(AX58>=2,'Raw data'!CI58="Yes"),AND(OR(BA58>=2,BC58>=2),'Raw data'!CJ58="Yes"),AND(BI58>=2,'Raw data'!CK58="Yes")),'Raw data'!CR58,
-//IF(OR(AND(AX58>=2,'Raw data'!CI58="No"),AND(BI58>=2,'Raw data'!CK58="No")),0,
-//0))))
-if(((ISNONTEXT(rCR)&& NOT_ISNUMBER(rCR))||rCR ===""))
-{
-  clHD = 0;
-}
-else if(rCR == "NoNeed")
-{
-  clHD = "NoNeed";
-}
-else if(clAX >= 2 || rCI == "Yes" && clBA >= 2 || clBC >= 2 || rCJ == "Yes" && clBI >= 2 && rCK == "Yes")
-{
-  clHD = rCR;
-}
-else if(clAX >= 2 || rCI == "No" && clBI >= 2 && rCK == "No")
-{
-  clHD = 0;
-}
-else 
-{
-  clHD = 0;
-}
-
-var clHE = "";
-//=IF(OR(AND(ISNONTEXT(HC58),NOT(ISNUMBER(HC58))),HC58=""), 0,
-// IF(OR('Raw data'!CI58="Yes", 'Raw data'!CJ58="Yes", 'Raw data'!CK58="Yes"), VLOOKUP(HC58, Informal0to7, 2, FALSE), 0))
-if(((ISNONTEXT(clHC)&& NOT_ISNUMBER(clHC))||clHC ===""))
-{
-  clHE = 0;
-}
-else if(rCI == "Yes" || rCJ == "Yes" || rCK == "Yes")
-{
-  clHE = VLOOKUP(clHC, Informal0to7, 2, FALSE)
-}
-else
-{
-  clHE = 0;
-}
-
-
-var clHF = "";
-//=IF(OR(AND(ISNONTEXT(DU58),NOT(ISNUMBER(DU58))),DU58=""), 0, 
-//IF(AND('Raw data'!CM58="Yes",'Raw data'!CO58="Yes"), VLOOKUP(DU58, Informal0to7, 3, FALSE)*2,
-// IF(OR('Raw data'!CM58="Yes",'Raw data'!CO58="Yes"), VLOOKUP(DU58, Informal0to7, 3, FALSE),
-// IF('Raw data'!CN58="Yes", VLOOKUP(DU58, Informal0to7, 5, FALSE), 0))))
-if(((ISNONTEXT(clDU)&& NOT_ISNUMBER(clDU))||clDU ===""))
-{
-  clHF = 0;
-}
-else if(rCM == "Yes" && rCO == "Yes")
-{
-  clHF = VLOOKUP(clDU, Informal0to7, 3, FALSE)*2
-}
-else if(rCM == "Yes" && rCO == "Yes")
-{
-  clHF = VLOOKUP(clDU, Informal0to7, 3, FALSE)
-}
-else if(rCN == "Yes")
-{
-  clHF = VLOOKUP(clDU, Informal0to7, 5, FALSE)
-}
-else
-{
-  clHF = 0;
-}
-
-var clHG = "";
-//=IF(OR(AND(ISNONTEXT(DY58),NOT(ISNUMBER(DY58))),DY58=""), 0, 
-//IF('Raw data'!CK58="Yes",VLOOKUP(DY58, Informal0to7, 2, FALSE),0))
-if(((ISNONTEXT(clDY)&& NOT_ISNUMBER(clDY))||clDY ===""))
-{
-  clHG = 0;
-}
-else if(rCK == "Yes")
-{
-  clHG = VLOOKUP(clDY, Informal0to7, 2, FALSE)
-}
-else
-{
-  clHG = 0;
-}
-
-var clHH = "";
-//=IF(OR(AND(ISNONTEXT(DX58),NOT(ISNUMBER(DX58))),DX58=""), 0, 
-//IF(AND('Raw data'!CM58="Yes",'Raw data'!CO58="Yes"), VLOOKUP(DX58, Informal0to7, 3, FALSE)*2,
-// IF(OR('Raw data'!CM58="Yes",'Raw data'!CO58="Yes"), VLOOKUP(DX58, Informal0to7, 3, FALSE),
-// IF('Raw data'!CN58="Yes", VLOOKUP(DX58, Informal0to7, 5, FALSE), 0))))
-if(((ISNONTEXT(clDX)&& NOT_ISNUMBER(clDX))||clDX ===""))
-{
-  clHH = 0; 
-}
-else if(rCM == "Yes" && rCO == "Yes")
-{
-  clHH =  VLOOKUP(clDX, Informal0to7, 3, FALSE)*2
-}
-else if(rCM == "Yes" || rCO == "Yes")
-{
-  clHH = VLOOKUP(clDX, Informal0to7, 3, FALSE)
-}
-
-var clHI = "";
-//=IF(OR(AND(ISNONTEXT(HD58),NOT(ISNUMBER(HD58))),HD58=""), 0, 
-//IF(OR('Raw data'!CI58="Yes",'Raw data'!CK58="Yes"),VLOOKUP(HD58, Informal0to7, 2, FALSE),0))
-if(((ISNONTEXT(clHD)&& NOT_ISNUMBER(clHD))||clHD ===""))
-{
-  clHI = 0;
-}
-else if(rCI == "Yes" || rCK == "Yes")
-{
-  clHI = VLOOKUP(clHD, Informal0to7, 2, FALSE)
-}
-else
-{
-  clHI = 0;
-}
-
-var clHJ = "";
-//=IF(OR(AND(ISNONTEXT(EA58),NOT(ISNUMBER(EA58))),EA58=""), 0, 
-//IF(AND('Raw data'!CM58="Yes",'Raw data'!CO58="Yes"), VLOOKUP(EA58, Informal0to7, 3, FALSE)*2,
-// IF(OR('Raw data'!CM58="Yes",'Raw data'!CO58="Yes"), VLOOKUP(EA58, Informal0to7, 3, FALSE),
-// IF('Raw data'!CN58="Yes", VLOOKUP(EA58, Informal0to7, 5, FALSE), 0))))
-if(((ISNONTEXT(clEA)&& NOT_ISNUMBER(clEA))||clEA ===""))
-{
-  clHJ = 0;
-}
-else if(rCM == "Yes" && rCO == "Yes")
-{
-  clHJ =  VLOOKUP(clEA, Informal0to7, 3, FALSE)*2
-}
-else if(rCM == "Yes" || rCO == "Yes")
-{
-  clHJ =  VLOOKUP(clEA, Informal0to7, 3, FALSE)
-}
-else if(rCN == "Yes")
-{
-  clHJ = VLOOKUP(clEA, Informal0to7, 5, FALSE)
-}
-else 
-{
-  clHJ = 0;
-}
-
-var clHK = "";
-//=IF('Raw data'!CL58="Yes",1,0)
-if(rCL == "Yes")
-{
-  clHK = 1;
-}
-else
-{
-  clHK = 0;
-}
-
-var clHL = "";
-//=IF(OR(AND(ISNONTEXT('Raw data'!CS58),NOT(ISNUMBER('Raw data'!CS58))),'Raw data'!CS58=""), 0, VLOOKUP('Raw data'!CS58, Informal0to7, 4, FALSE))
-if(((ISNONTEXT(clCS)&& NOT_ISNUMBER(clCS))||clCS ===""))
-{
-  clHL = 0;
-}
-else 
-{
-  clHL =  VLOOKUP(rCS, Informal0to7, 4, FALSE)
-}
-
-
-var clHM = "";
-//=IF('Raw data'!CT58="Yes",2,0)
-if(rCT == "Yes")
-{
-  clHM = 2;
-}
-else
-{
-  clHM = 0;
-}
-
-
-var clHN = "";
-//=IF('Raw data'!CU58="Yes",2,0)
-if(rCU == "Yes")
-{
-  clHN = 2;
-}
-else
-{
-  clHN = 0;
-}
-
-
-var clHO = "";
-//=IF('Raw data'!CV58="Yes",2,0)
-if(rCV == "Yes")
-{
-  clHO = 2;
-}
-else
-{
-  clHO = 0;
-}
-
-
-var clHP = "";
-//=IF('Raw data'!CW58="Yes",1,0)
-if(rCW == "Yes")
-{
-  clHP = 1;
-}
-else 
-{
-  clHP = 0;
+  scD = 0;
 }
 
 
 
-var clHQ = "";
-//=IF('Raw data'!CX58="6to7act",21,
-//IF('Raw data'!CX58="4to5act",15,
-//IF('Raw data'!CX58="2to3act",6,
-//IF('Raw data'!CX58="1act",3,
-//IF('Raw data'!CX58="2nd carer",15,0)))))
-if(rCX == "6to7act")
-{
-  clHQ = 21;
-}
-else if(rCX == "4to5act")
-{
-  clHQ = 15;
-}
-else if(rCX == "2to3act")
-{
-  clHQ = 6;
-}
-else if(rCX == "1act")
-{
-  clHQ = 3;
-}
-else if(rCX == "2nd carer")
-{
-  clHQ = 15;
-}
-else
-{
-  clHQ = 0;
-}
-
-
-var clHR = "";
-//=IF('Raw data'!CY58="6to7act",21,
-//IF('Raw data'!CY58="4to5act",15,
-//IF('Raw data'!CY58="2to3act",6,
-//IF('Raw data'!CY58="1act",3,
-//IF('Raw data'!CY58="2nd carer",15,0)))))
-if(rCY == "6to7act")
-{
-  clHR = 21;
-}
-else if(rCY == "4to5act")
-{
-  clHR = 15;
-}
-else if(rCY == "2to3act")
-{
-  clHR = 6;
-}
-else if(rCY == "1act")
-{
-  clHR = 3;
-}
-else if(rCY == "2nd carer")
-{
-  clHR = 15;
-}
-else
-{
-  clHR = 0;
-}
 
 
 
-var clHS = "";
-//=IF(OR(AND(ISNONTEXT('Raw data'!CZ58),NOT(ISNUMBER('Raw data'!CZ58))),'Raw data'!CZ58=""), 0, VLOOKUP('Raw data'!CZ58, Ongoing_Company, 2, FALSE))
-if(((ISNONTEXT(rCZ)&& NOT_ISNUMBER(rCZ))||rCZ ===""))
-{
-  clHS = 0;
-}
-else
-{
-  clHS = VLOOKUP(rCZ, Ongoing_Company, 2, FALSE)
-}
 
 
-var clHT = "";
-//=IF(OR(AND(ISNONTEXT('Raw data'!DA58),NOT(ISNUMBER('Raw data'!DA58))),'Raw data'!DA58=""), 0, VLOOKUP('Raw data'!DA58, Ongoing_Childcare, 2, FALSE))
-if(((ISNONTEXT(rDA)&& NOT_ISNUMBER(rDA))||rDA ===""))
-{
-  clHT = 0;
-}
-else
-{
-  clHT = VLOOKUP(rDA, Ongoing_Childcare, 2, FALSE)
-}
 
 
-var clHU = "";
-//=IF(DJ58<6,0,
-//IF(FD58=100,105,
-//IF(FD58=90,97,
-//IF(FD58=75,81,
-//IF(FD58=50,65,
-//IF(FD58=25,49,
-//IF(FD58=10,30,0)))))))
-if(clDJ < 6 )
-{
-  clHU = 0;
-}
-else if(clFD == 100)
-{
-  clHU = 105;
-}
-else if(clFD == 90)
-{
-  clHU = 97
-}
-else if(clFD == 75)
-{
-  clHU = 81;
-}
-else if(clFD == 50)
-{
-  clHU = 65;
-}
-else if(clFD == 25)
-{
-  clHU = 49;
-}
-else if(clFD == 10)
-{
-  clHU = 30;
-}
-else
-{
-  clHU = 0;
-}
 
 
-var clHV = "";
-//=IF('Raw data'!EW58="Yes", 1,
-// IF('Raw data'!EW58="No", 0, ""))
-if(rEW == "Yes")
-{
-  clHV = 1;
-}
-else if(rEW == "No")
-{
-  clHV = 0;
-}
-else
-{
-  clHV = "";
-}
-
-var clHW = "";
-//=IF('Raw data'!EX58="Yes", 1,
-// IF('Raw data'!EX58="No", 0, ""))
-if(rEX == "Yes")
-{
-  clHW = 1;
-}
-else if(rEX == "No")
-{
-  clHW = 0;
-}
-else
-{
-  clHW =  "";
-}
-
-var clHX = "";
-//=IF('Raw data'!EY58="Yes", 1,
-// IF('Raw data'!EY58="No", 0, ""))
-if(rEY == "Yes")
-{
-  clHX = 1;
-}
-else if(rEY == "No")
-{
-  clHX = 0;
-}
-else
-{
-  clHX = "";
-}
 
 
-var clHY = "";
-//=IF('Raw data'!EZ58="Yes", 1,
-// IF('Raw data'!EZ58="No", 0, ""))
-if(rEZ == "Yes")
-{
-  clHY = 1;
-}
-else if(rEZ == "No")
-{
-  clHY = 0;
-}
-else
-{
-  clHY = "";
-}
-
-var clHZ = "";
-//=IF('Raw data'!FA58="Yes", 1, 
-//IF('Raw data'!FA58="No", 0, ""))
-if(rFA == "Yes")
-{
-  clHZ = 1;
-}
-else if(rFA == "No")
-{
-  clHZ = 0;
-}
-else
-{
-  clHZ = "";
-}
 
 
-var clIA = ""
-//=IF('Raw data'!FB58="Yes", 1, 
-//IF('Raw data'!FB58="No", 0, ""))
-if(rFB == "Yes")
-{
-  clIA = 1;
-}
-else if(rFB == "No")
-{
-  clIA = 0;
-}
-else
-{
-  clIA = "";
-}
 
 
-var clIB = "";
-//=IF('Raw data'!FC58="Yes", 1, 
-//IF('Raw data'!FC58="No", 0, ""))
-if(rFC == "Yes")
-{
-  clIB = 1;
-}
-else if(rFC == "No")
-{
-  clIB = 0;
-}
-else
-{
-  clIB = "";
-}
 
 
-var clIC = "";
-//=IF('Raw data'!FD58="Yes", 1,
-// IF('Raw data'!FD58="No", 0, ""))
-if(rFD == "Yes")
-{
-  clIC = 1;
-}
-else if(rFD == "No")
-{
-  clIC = 0;
-}
-else
-{
-  clIC = "";
-}
 
 
-var clID = "";
-//=IF('Raw data'!FE58="Yes", 1, 
-//IF('Raw data'!FE58="No", 0, ""))
-if(rFE == "Yes")
-{
-  clID = 1;
-}
-else if(rFE == "No")
-{
-  clID = 0;
-}
-else
-{
-  clID = "";
-}
 
 
-var clIE = "";
-//=IF('Raw data'!FF58="Yes", 1, 
-//IF('Raw data'!FF58="No", 0, ""))
-if(rFF == "Yes")
-{
-  clIE = 1;
-}
-else if(rFF == "No")
-{
-  clIE = 0;
-}
-else
-{
-  clIE = "";
-}
 
 
-var clIF = "";
-//=IF('Raw data'!FG58="Yes",1,
-//IF(OR('Raw data'!FG58="No",'Raw data'!FG58="n/a"),0,""))
-if(rFG == "Yes")
-{
-  clIF = 1;
-}
-else if(rFG == "No" || rFG == "n/a")
-{
-  clIF = 0;
-}
-else
-{
-  clIF = "";
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 console.log('----RAW----')
@@ -4926,7 +4420,7 @@ console.log('clGW', clGW);
 console.log('clGX', clGX);
 console.log('clGZ', clGZ);
 console.log('clHA', clHA);
-
+console.log('scD', scD);
 
 
 
