@@ -231,7 +231,6 @@ var rFE='' ;
 var rFF='' ;
 var rFG='' ;
 
-var scD = 0;
 
 
 
@@ -3989,11 +3988,11 @@ else
 var scD = "";
 //=IF(AND(ModelType>=2,NOT(OUT_DSTNeedsProfile=1), OR('Clean data'!CV58=1,'Clean data'!CT58>=3,AND('Clean data'!CE58>=5,'Clean data'!AQ58=1),'Clean data'!CW58>=4,'Clean data'!DG58=1)),2,
 //IF(AND(ModelType>=2,NOT(OUT_DSTNeedsProfile=1), OR('Clean data'!CN58>=1,'Clean data'!BN58>=2,'Clean data'!AS58=1,'Clean data'!AQ58=1,'Clean data'!BT58=1,'Clean data'!BX58=1,'Clean data'!CE58>=4,'Clean data'!CT58>=2,'Clean data'!DE58>=3,'Clean data'!DA58>=4,'Clean data'!J58>=4)),1,0))
-if(ModelType >= 2 && OUT_DSTNeedsProfile != 1 ||  clCV == 1 || clCT >= 3 || clCE >= 5 || clAQ == 1 || clCW >= 4 || clDG == 1 )
+if(ModelType >= 2 && OUT_DSTNeedsProfile != 1 &&  (clCV == 1 || clCT >= 3 || (clCE >= 5 && clAQ == 1) || clCW >= 4 || clDG == 1 ))
 {
   scD = 2;
 }
-else if(ModelType >= 2 && OUT_DSTNeedsProfile != 1 ||  clCN == 1 || clBN >= 3 || clAS >= 5 || clAQ == 1 || clBT >= 4 || clBX == 1 )
+else if(ModelType >= 2 && OUT_DSTNeedsProfile != 1 &&  (clCN >= 1 || clBN >= 2 || clAS == 1 || clAQ == 1 || clBT == 1 || clBX == 1 || clCE >= 4 || clCT >= 2 || clDE >= 3 || clDA >= 4 || clJ >= 4))
 {
   scD = 1;
 }
