@@ -4353,7 +4353,67 @@ else
 }
 
 
+var scP = "";
+//=IF(AND(ModelType=3, CHC_LD_SafetySocial_Switch=1, N58="1to1",'Clean data'!V58>=3, OR('Clean data'!BZ58=13, 'Clean data'!CA58=13, 'Clean data'!BZ58=30, 'Clean data'!CA58=30, 'Clean data'!BZ58=3, 'Clean data'!CA58=3, 'Clean data'!BZ58=4, 'Clean data'!CA58=4)), LD_Work_edu_1to1,
+//IF(AND(ModelType=3, CHC_LD_SafetySocial_Switch=0, N58="1to1",OUT_DSTNeedsProfile=1,'Clean data'!V58>=3,E58=0), Default_Work_edu_1to1,
+//IF(AND(N58="1to1",ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!V58>=3,E58=1),Tier2_Work_edu_1to1,
+//IF(AND(N58="1to1",ModelType>=2,OUT_DSTNeedsProfile=1, 'Clean data'!V58>=3,E58=2),Tier3_Work_edu_1to1,
+//IF(AND(ModelType=3, CHC_LD_SafetySocial_Switch=0, N58="1to1",'Clean data'!V58>=3,D58=0), Default_Work_edu_1to1,
+//IF(AND(N58="1to1",ModelType>=2,'Clean data'!V58>=3,D58=1),Tier2_Work_edu_1to1,
+//IF(AND(N58="1to1",ModelType>=2,'Clean data'!V58>=3,D58=2),Tier3_Work_edu_1to1,
+//IF(AND(N58="1to1",'Clean data'!V58>=3,B58=0,C58=0),Default_Work_edu_1to1,
+//IF(AND(N58="1to1",'Clean data'!V58>=3,B58=0,C58=1),WA_Work_edu_1to1,
+//IF(AND(N58="1to1",'Clean data'!V58>=3,B58=1),LD_Work_edu_1to1,
+//IF(AND(N58="1to1",'Clean data'!V58>=3,B58=2),MH_Work_edu_1to1,0)))))))))))
+if(ModelType == 3 && CHC_LD_Safety_Switch == 1 && clN == "1to1" && clV > 3 ( clBZ == 13 || clCA == 13 || clBZ == 30 || clCA == 30 || clBZ == 3 || clCA == 3 || clBZ == 4 || clCA == 4))
+{
+  scP = LD_Work_edu_1to1;
+}
+else if(ModelType == 3 && CHC_LD_Safety_Switch == 0 && clN == "1to1" && OUT_DSTNeedsProfile == 1 && clV > 3 && clE == 0 )
+{
+  scP = Default_Work_edu_1to1;
+}
+else if(clJ == "1to1" && ModelType >= 2 && OUT_DSTNeedsProfile == 1 && clV > 3 && clE == 1)
+{
+  scP  = Tier2_Work_edu_1to1;
+}
+else if(clJ == "1to1" && ModelType >= 2 && OUT_DSTNeedsProfile == 1 &&  clV > 3 && clE == 2)
+{
+  scP = Tier3_Work_edu_1to1;
+}
+else if(ModelType == 3 && CHC_LD_SafetySocial_Switch == 0 && clN == "1to1" &&  clD == 0)
+{
+  scP = Default_Work_edu_1to1;
+}
+else if(clN == "1to1" && ModelType >= 2 && clV >= 3 && clD == 1)
+{
+  scP = Tier2_Work_edu_1to1;
+}
+else if(clN == "1to1" && ModelType >= 2 &&  clV >= 3 && clD == 2 )
+{
+  scP = Tier3_Work_edu_1to1;
+}
+else if(clN == "1to1" && clV == 3 && clB == 0 && clC == 0)
+{
+  scP  = Default_Work_edu_1to1;
+}
+else if(clN == "1to1" && clV >= 3 && clB == 0 && clC == 1)
+{
+  scP = WA_Work_edu_1to1;
+}
 
+else if(clN =="1to1" && clV >= 3 && clB == 1)
+{
+  scP = LD_Work_edu_1to1;
+}
+else if(clN == "1to1" && clV >= 3 && clB == 2)
+{
+  scP = MH_Work_edu_1to1;
+}
+else
+{
+  scP = 0;
+}
 
 
 
@@ -4736,7 +4796,7 @@ console.log('scL', scL);
 console.log('scM', scM);
 console.log('scN', scN);
 console.log('scO', scO);
-
+console.log('scP', scP);
 
 
 
