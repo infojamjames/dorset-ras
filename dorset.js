@@ -4214,7 +4214,6 @@ else
 
 var scM = "";
 //=IF(AND(ModelType=3, CHC_LD_SafetySocial_Switch=1, J58="1to1", 'Clean data'!O58=4, OR('Clean data'!BZ58=13, 'Clean data'!CA58=13, 'Clean data'!BZ58=30, 'Clean data'!CA58=30, 'Clean data'!BZ58=3, 'Clean data'!CA58=3, 'Clean data'!BZ58=4, 'Clean data'!CA58=4)),LD_Social_1to1,
-
 //IF(AND(ModelType=3, CHC_LD_SafetySocial_Switch=0, J58="1to1", OUT_DSTNeedsProfile=1, 'Clean data'!O58=4,E58=0), Default_Social_1to1,
 //IF(AND(J58="1to1",ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!O58=4,E58=1),Tier2_Social_1to1,
 //IF(AND(J58="1to1",ModelType>=2,OUT_DSTNeedsProfile=1, 'Clean data'!O58=4,E58=2),Tier3_Social_1to1,
@@ -4225,54 +4224,54 @@ var scM = "";
 //IF(AND(J58="1to1",'Clean data'!O58=4,B58=0,C58=1),WA_Social_1to1,
 //IF(AND(J58="1to1",'Clean data'!O58=4,B58=1),LD_Social_1to1,
 //IF(AND(J58="1to1",'Clean data'!O58=4,B58=2),MH_Social_1to1,0)))))))))))
-if(ModelType == 3 && CHC_LD_Safety_Switch == 1 && clJ == "1to1" && clO == 4 (clBZ == 13 || clCA == 13 || clCA == 13 || clBZ == 30 || clCA == 30 || clBZ == 3 || clCA == 3 || clBZ == 4 || clCA == 4))
+if(ModelType == 3 && CHC_LD_Safety_Switch == 1 && clJ == "1to1" && clO == 4 (clBZ == 13 || clCA == 13 || clBZ == 30 || clCA == 30 || clBZ == 3 || clBZ == 3 || clCA == 3 || clBZ == 4 || clCA == 4))
 {
-  scL = LD_Social_1to1;
+  scM = LD_Social_1to1;
+}
+else if(ModelType == 3 && CHC_LD_Safety_Switch == 0 && clJ == "1to1" && OUT_DSTNeedsProfile == 1 && clO == 4 && clE == 0 )
+{
+  scM = Default_Social_1to1;
+}
+else if(clJ == "1to1" && ModelType >= 2 && OUT_DSTNeedsProfile == 1 && clO == 4 && clE == 1)
+{
+  scM = Tier2_Social_1to1;
+}
+else if(clJ == "1to1" && ModelType >= 2 && OUT_DSTNeedsProfile == 1 && clO == 4 && clE == 2)
+{
+  scM= Tier3_Social_1to1;
+}
+else if(ModelType == 3 && CHC_LD_SafetySocial_Switch == 0 && clJ == "1to1" && clO == 4 && clD == 0)
+{
+  scM = Default_Social_1to1;
+}
+else if(clJ == "1to1" && ModelType >= 2 && cl0 >= 4 && clD == 1)
+{
+  scM = Tier2_Social_1to1;
 }
 
-else if(ModelType == 3 && CHC_LD_Safety_Switch == 0 && clJ == "1to1" && OUT_DSTNeedsProfile == 1 && clO >= 3 && clE == 0 )
+else if(clJ == "1to1" && ModelType >= 2 && clO == 4 && clD == 2)
 {
-  scL = Default_Social_1to1;
+  scM = Tier3_Social_1to1;
 }
-else if(clJ == "1to1" && ModelType >= 2 && OUT_DSTNeedsProfile == 1 && clO >= 3 && clE == 1)
+else if(clJ == "1to1" && clO == 4 && clB == 0 && clC == 0)
 {
-  scL = Tier2_Social_1to1;
+  scM = Default_Social_1to1;
 }
-else if(clJ ==  "1to1" && ModelType >= 2 && OUT_DSTNeedsProfile == 1 && clO >= 3 && clE == 2)
+else if(clJ == "1to1" && clO == 4 && clB == 0 && clC == 1)
 {
-  scL= Tier3_Social_1to1;
+  scM = WA_Social_1to1;
 }
-else if(ModelType == 3 && CHC_LD_SafetySocial_Switch == 0 && clJ == "1to1" && clO == 3 && clD == 0)
+else if(clJ == "1to1" && clO == 4 && clB == 1)
 {
-  scL = Default_Social_1to1;
+  scM = LD_Social_1to1;
 }
-else if(clJ == "1to1" && ModelType >= 2 && cl0 >= 3 && clD == 1)
+else if(clJ == "1to1" && clO == 4 && clB == 2)
 {
-  scL = Tier2_Social_1to1;
-}
-else if(clJ == "1to1" && ModelType >= 2 && clO >= 3 && clD == 2)
-{
-  scL = Tier3_Social_1to1;
-}
-else if(clJ == "1to1" && clO >= 3 && clB == 0 && clC == 0)
-{
-  scL = Default_Social_1to1;
-}
-else if(clJ == "1to1" && clO >= 3 && clB == 0 && clC == 1)
-{
-  scL = WA_Social_1to1;
-}
-else if(clJ == "1to1" && clO >= 3 && clB == 1)
-{
-  scL = LD_Social_1to1;
-}
-else if(clJ == "1to1" && clO >= 3 && clB == 2)
-{
-  scL = MH_Social_1to1
+  scM = MH_Social_1to1
 }
 else
 {
-  scL = 0;
+  scM = 0;
 }
 
 
@@ -4649,7 +4648,7 @@ console.log('scI', scI);
 console.log('scJ', scJ);
 console.log('scK', scK);
 console.log('scL', scL);
-
+console.log('scM', scM);
 
 
 
