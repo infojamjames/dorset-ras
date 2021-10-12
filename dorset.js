@@ -4248,7 +4248,6 @@ else if(clJ == "1to1" && ModelType >= 2 && cl0 >= 4 && clD == 1)
 {
   scM = Tier2_Social_1to1;
 }
-
 else if(clJ == "1to1" && ModelType >= 2 && clO == 4 && clD == 2)
 {
   scM = Tier3_Social_1to1;
@@ -4289,6 +4288,83 @@ else
 {
   scN = "Background";
 }
+
+var scO = "";
+//=IF(AND(ModelType=3,CHC_LD_SafetySocial_Switch=1, N58="Background",OR('Clean data'!BZ58=13,'Clean data'!CA58=13,'Clean data'!BZ58=30,'Clean data'!CA58=30,'Clean data'!BZ58=3,'Clean data'!CA58=3,'Clean data'!BZ58=4,'Clean data'!CA58=4)),LD_Work_edu_Background,
+//IF(AND(ModelType=3,CHC_LD_SafetySocial_Switch=0, N58="Background",OUT_DSTNeedsProfile=1,E58=0), Default_Work_edu_Background,
+//IF(AND(N58="Background",ModelType>=2,OUT_DSTNeedsProfile=1,E58=1),Tier2_Work_edu_Background,
+//IF(AND(N58="Background",ModelType>=2,OUT_DSTNeedsProfile=1,E58=2),Tier3_Work_edu_Background,
+//IF(AND(ModelType=3,CHC_LD_SafetySocial_Switch=0, N58="Background",D58=0), Default_Work_edu_Background,
+//IF(AND(N58="Background",ModelType>=2,D58=1),Tier2_Work_edu_Background,
+//IF(AND(N58="Background",ModelType>=2,D58=2),Tier3_Work_edu_Background,
+//IF(AND(N58="Background",B58=0,C58=0),Default_Work_edu_Background,
+//IF(AND(N58="Background",B58=0,C58=1),WA_Work_edu_Background,
+//IF(AND(N58="Background",B58=1),LD_Work_edu_Background,
+//IF(AND(N58="Background",B58=2),MH_Work_edu_Background,0)))))))))))
+if(ModelType == 3 && CHC_LD_Safety_Switch == 1 && clN == "Background" && (clBZ == 13 || clCA == 13 || clBZ == 30 || clCA == 30 || clBZ == 3 || clCA == 3 || clBZ == 4 || clCA == 4))
+{
+  scO = LD_Work_edu_Background;
+}
+else if(ModelType == 3 && CHC_LD_Safety_Switch == 0 && clN == "Background" && OUT_DSTNeedsProfile == 1 && clE == 0 )
+{
+  scO = Default_Work_edu_Background;
+}
+else if(clJ == "Background" && ModelType >= 2 && OUT_DSTNeedsProfile == 1 && clE == 1)
+{
+  scO  = Tier2_Work_edu_Background;
+}
+else if(clJ == "Background" && ModelType >= 2 && OUT_DSTNeedsProfile == 1 &&  clE == 2)
+{
+  scO = Tier3_Work_edu_Background;
+}
+else if(ModelType == 3 && CHC_LD_SafetySocial_Switch == 0 && clN == "Background" &&  clD == 0)
+{
+  scO = Default_Work_edu_Background;
+}
+else if(clN == "Background" && ModelType >= 2 && clD == 1)
+{
+  scO = Tier2_Work_edu_Background;
+}
+else if(clN == "Background" && ModelType >= 2 &&  clD == 2)
+{
+  scO = Tier3_Social_1to1;
+}
+else if(clN == "Background" && clB == 0 && clC == 0)
+{
+  scO = Default_Work_edu_Background;
+}
+
+else if(clN == "Background" && clB == 0 && clC == 1)
+{
+  scO = WA_Work_edu_Background;
+}
+
+else if(clN == "Background" && clB == 1)
+{
+  scO = LD_Work_edu_Background;
+}
+else if(clN == "Background" && clB == 2)
+{
+  scO =MH_Work_edu_Background;
+}
+else
+{
+  scO = 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4659,7 +4735,7 @@ console.log('scK', scK);
 console.log('scL', scL);
 console.log('scM', scM);
 console.log('scN', scN);
-
+console.log('scO', scO);
 
 
 
