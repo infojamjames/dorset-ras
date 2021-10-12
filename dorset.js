@@ -4004,51 +4004,151 @@ else
 
 
 
+var scE = "";
+//=IF(AND(ModelType>=2, OUT_DSTNeedsProfile=1, OR('Clean data'!GB58>=3,'Clean data'!GC58>=3,'Clean data'!GJ58>=4,'Clean data'!GK58>=4,'Clean data'!GL58>=3)),2,
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,OR('Clean data'!GB58=2,'Clean data'!GC58=2,'Clean data'!GD58=2,'Clean data'!GE58>=2,'Clean data'!GF58>=2,'Clean data'!GG58=3,'Clean data'!GI58=4,'Clean data'!GJ58=3,'Clean data'!GK58=2,'Clean data'!GK58=3)),1,0))
+if(ModelType >= 2 && OUT_DSTNeedsProfile == 1 || clGB >= 3 || clGC >= 3 || clGJ >= 4 || clGK >= 4 || clGL >= 3)
+{
+  scE = 2;
+}
+else if(ModelType >= 2 && OUT_DSTNeedsProfile == 1 || clGB == 2 || clGC == 2 || clGD == 2 || clGE >= 2 || clGF >= 2 || clGG == 3 || clGI == 4 || clGJ == 3 || clGK == 2 || clGK == 3)
+{
+  scE = 1;
+}
+else
+{
+  scE = 0;
+}
+
+var scF = "";
+//=IF(OR('Clean data'!FW58=12,'Clean data'!FW58=15),1,0)
+if(clFW == 12 || clFW == 15)
+{
+  scF = 1;
+}
+else
+{
+  scF = 0;
+}
+
+var scG = "";
+//=IF(OR('Clean data'!FW58=7,'Clean data'!FW58=9),1,0)
+if(clFW == 7 || clFW == 9)
+{
+  scG = 1;
+}
+else
+{
+  scG = 0;
+}
 
 
+var scH = "";
+//=IF(AND('Clean data'!CY58>=3,OR('Clean data'!BZ58=7,'Clean data'!CA58=7,'Clean data'!FU58=3)),1,0)
+if(clCY >= 3 || clBZ == 7 || clCA == 7 || clFU == 3)
+{
+  scH = 1;
+}
+else
+{
+  scH = 0;
+}
 
 
+var scI = "";
+//=IF(AND(ModelType<=2,SUM('Clean data'!FI58:FR58)<2),0,
+//IF(AND(ModelType<=2,SUM('Clean data'!FI58:FR58)>1,'Clean data'!FT58=0),0,1))
+if(ModelType <= 2 , (clFI + clFJ + clFK + clFL + clFM + clFN + clFO + clFP + clFQ + clFR)<2)
+{
+  scI = 0;
+}
+else if(ModelType <= 2 ,  (clFI + clFJ + clFK + clFL + clFM + clFN + clFO + clFP + clFQ + clFR && clFT == 0)>1 )
+{
+  scI = 0;
+}
+else
+{
+  scI = 1;
+}
 
 
+var scJ = "";
+//=IF('Clean data'!O58=1,"Transport", 
+//IF('Clean data'!O58>2,"1to1","Background"))
+if(clO == 1)
+{
+  scJ = "Transport";
+}
+else if(clO > 2)
+{
+  scJ = "1to1";
+}
+else
+{
+  scJ = "Background";
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+var scK = "";
+//=IF(AND(ModelType=3,CHC_LD_SafetySocial_Switch=1,J58="Background",OR('Clean data'!BZ58=13,'Clean data'!CA58=13,'Clean data'!BZ58=30,'Clean data'!CA58=30,'Clean data'!BZ58=3,'Clean data'!CA58=3,'Clean data'!BZ58=4,'Clean data'!CA58=4)),LD_Social_Background,
+//IF(AND(ModelType=3,CHC_LD_SafetySocial_Switch=0,J58="Background",OUT_DSTNeedsProfile=1,E58=0),Default_Social_Background,
+//IF(AND(J58="Background",ModelType>=2,OUT_DSTNeedsProfile=1,E58=1),Tier2_Social_Background,
+//IF(AND(J58="Background",ModelType>=2,OUT_DSTNeedsProfile=1,E58=2),Tier3_Social_Background,
+//IF(AND(ModelType=3,CHC_LD_SafetySocial_Switch=0,J58="Background",D58=0),Default_Social_Background,
+//IF(AND(J58="Background",ModelType>=2,D58=1),Tier2_Social_Background,
+//IF(AND(J58="Background",ModelType>=2,D58=2),Tier3_Social_Background,
+//IF(AND(J58="Background",B58=0,C58=0),Default_Social_Background,
+//IF(AND(J58="Background",B58=0,C58=1),WA_Social_Background,
+//IF(AND(J58="Background",B58=1),LD_Social_Background,
+//IF(AND(J58="Background",B58=2),MH_Social_Background,0)))))))))))
+if(ModelType == 3 && CHC_LD_Safety_Switch == 1 && clJ == "Background"&& ( clBZ == 13 || clCA == 13 || clBZ == 30 || clCA == 30 || clBZ == 3 || clCA == 3 || clBZ == 4 || clCA == 4))
+{
+  scK = LD_Social_Background;
+}
+else if(ModelType == 3 && CHC_LD_Safety_Switch == 0 && clJ == "Background" && OUT_DSTNeedsProfile == 1 && clE == 0 )
+{
+  scK = Default_Social_Background;
+}
+else if(clJ == "Background" && ModelType >= 2 && OUT_DSTNeedsProfile == 1 && clE == 1)
+{
+  scK = Tier2_Social_Background;
+}
+else if(clJ == "Background" && ModelType >= 2 && OUT_DSTNeedsProfile == 1 && clE == 2)
+{
+  scK = Tier3_Social_Background;
+}
+else if(ModelType == 3 && CHC_LD_SafetySocial_Switch == 0 && clJ == "Background" && clD == 0)
+{
+  scK = Default_Social_Background;
+}
+else if(clJ == "Background" && ModelType >= 2 && clD == 1)
+{
+  scK = Tier2_Social_Background;
+}
+else if(clJ == "Background" && ModelType >= 2 && clD == 2)
+{
+  scK = Tier3_Social_Background;
+}
+else if(clJ == "Background" && clB == 0 && clC == 0)
+{
+  scK = Default_Social_Background;
+}
+else if(clJ == "Background" && clB == 0 && clC == 1)
+{
+  scK = WA_Social_Background;
+}
+else if(clJ == "Background" && clB == 1)
+{
+  scK = LD_Social_Background;
+}
+else if(clJ == "Background" && clB == 2)
+{
+  scK = MH_Social_Background;
+}
+else
+{
+  scK = 0;
+}
 
 
 
@@ -4420,8 +4520,13 @@ console.log('clGX', clGX);
 console.log('clGZ', clGZ);
 console.log('clHA', clHA);
 console.log('scD', scD);
-
-
+console.log('scE', scE);
+console.log('scF', scF);
+console.log('scG', scG);
+console.log('scH', scH);
+console.log('scI', scI);
+console.log('scJ', scJ);
+console.log('scK', scK);
 
 
 
