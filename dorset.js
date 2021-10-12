@@ -4274,12 +4274,21 @@ else
   scM = 0;
 }
 
-
-
-
-
-
-
+var scN = "";
+//=IF('Clean data'!V58=1,"Transport", 
+//IF('Clean data'!V58>2,"1to1","Background"))
+if(clV == 1)
+{
+  scN = "Transport";
+}
+else if((clV > 2))
+{
+  scN = "1to1";
+}
+else
+{
+  scN = "Background";
+}
 
 
 
@@ -4649,7 +4658,7 @@ console.log('scJ', scJ);
 console.log('scK', scK);
 console.log('scL', scL);
 console.log('scM', scM);
-
+console.log('scN', scN);
 
 
 
