@@ -4427,7 +4427,6 @@ var scQ = "";
 //IF(AND(N58="1to1",'Clean data'!V58=4,B58=0,C58=0),Default_Work_edu_1to1,
 //IF(AND(N58="1to1",'Clean data'!V58=4,B58=0,C58=1),WA_Work_edu_1to1,
 //IF(AND(N58="1to1",'Clean data'!V58=4,B58=1),LD_Work_edu_1to1,
-
 //IF(AND(N58="1to1",'Clean data'!V58=4,B58=2),MH_Work_edu_1to1,0)))))))))))
 if(ModelType == 3 && CHC_LD_Safety_Switch == 1 && clN == "1to1" && clV == 4 ( clBZ == 13 || clCA == 13 || clBZ == 30 || clCA == 30 || clBZ == 3 || clCA == 3 || clBZ == 4 || clCA == 4))
 {
@@ -4478,10 +4477,16 @@ else
   scQ = 0;
 }
 
-
-
-
-
+var scR = "";
+//=IF(OR('Clean data'!DJ58>=8, 'Clean data'!O58>=3), "High", "Standard")
+if(clDJ >= 8 || clO >= 3)
+{
+  scR =  "High";
+}
+else
+{
+  scR = "Standard";
+}
 
 
 
@@ -4857,7 +4862,7 @@ console.log('scN', scN);
 console.log('scO', scO);
 console.log('scP', scP);
 console.log('scQ', scQ);
-
+console.log('scR', scR);
 
 
 
