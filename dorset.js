@@ -245,7 +245,7 @@ var ModelType = 1;
 var OUT_DSTNeedsProfile = 0;
 var Appointments = 0;
 var ModelType = 1;
-
+var CHC_LD_SafetySocial_Switch = 0;
 
 
 
@@ -4488,6 +4488,48 @@ else
   scR = "Standard";
 }
 
+var scS = "";
+//=IF(AND(ModelType=3,CHC_LD_SafetySocial_Switch=1,R58="Standard",OR('Clean data'!BZ58=13,'Clean data'!CA58=13,'Clean data'!BZ58=30,'Clean data'!CA58=30,'Clean data'!BZ58=3,'Clean data'!CA58=3,'Clean data'!BZ58=4,'Clean data'!CA58=4)),LD_Safety_Day_Standard,
+//IF(AND(ModelType=3,CHC_LD_SafetySocial_Switch=0,R58="Standard",OUT_DSTNeedsProfile=1,E58=0),Default_Safety_Day_Standard,
+//IF(AND(ModelType=3,CHC_LD_SafetySocial_Switch=0,R58="Standard",D58=0),Default_Safety_Day_Standard,
+//IF(AND(R58="Standard",B58=0,C58=0),Default_Safety_Day_Standard,
+//IF(AND(R58="Standard",B58=0,C58=1),WA_Safety_Day_Standard,
+//IF(AND(R58="Standard",B58=1),LD_Safety_Day_Standard,
+//IF(AND(R58="Standard",B58=2),MH_Safety_Day_Standard,0)))))))
+if(ModelType == 3 && CHC_LD_SafetySocial_Switch == 1 && scR == "Standard"&& (clBZ == 13 || clCA == 13 || clBZ == 30 || clCA == 30 || clBZ == 3 || clCA == 3 || clBZ == 4 || clCA == 4))
+{
+  scS = LD_Safety_Day_Standard;
+}
+else if(ModelType == 3 && CHC_LD_SafetySocial_Switch == 0 && scR == "Standard" && OUT_DSTNeedsProfile == 1 && scE == 0 )
+{
+  scS = Default_Safety_Day_Standard;
+}
+else if(ModelType == 3 && CHC_LD_SafetySocial_Switch == 0 && scR == "Standard" && scD == 0)
+{
+  scS = Default_Safety_Day_Standard;
+}
+else if(scR == "Standard" && scB == 0 && scC == 0)
+{
+  scS = Default_Safety_Day_Standard;
+}
+else if(csR == "Standard" && scB == 0 && scC == 1)
+{
+  scS = WA_Safety_Day_Standard;
+}
+else if(scR == "Standard" && scB == 1 )
+{
+  scS = LD_Safety_Day_Standard;
+}
+else if(scR == "Standard" && scB == 2)
+{
+  scS = MH_Safety_Day_Standard;
+}
+else
+{
+  scS = 0;
+}
+
+
 
 
 
@@ -4863,7 +4905,7 @@ console.log('scO', scO);
 console.log('scP', scP);
 console.log('scQ', scQ);
 console.log('scR', scR);
-
+console.log('scS', scS);
 
 
 
