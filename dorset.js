@@ -232,8 +232,6 @@ var rFF='' ;
 var rFG='' ;
 
 
-
-
 //Clean Data = cl
 var clAL = 0.10;
 var clGC = 0.00;
@@ -246,10 +244,16 @@ var OUT_DSTNeedsProfile = 0;
 var Appointments = 0;
 var ModelType = 1;
 var CHC_LD_SafetySocial_Switch = 0;
-
-
-
+var MH_Safety_Day_Standard = 116;
+var WA_Safety_Day_Standard = 116;
+var Default_Social_Transport = 10;
 var clG = "";
+var Extracare_Homecare_rate = 0;
+var SH_Homecare_rate = 0;
+var Homecare_Rate = 18.38;
+var LD_Homecare_Rate = 15.4;
+var MH_Homecare_Rate = 15.4;
+var PA_Homecare_rate = 0;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -3985,6 +3989,34 @@ else
 }
 
 //Scores
+var scB = "";
+//=IF('Clean data'!FU58=7,1,
+//IF('Clean data'!FU58=8,2,0))
+if(clFU == 7)
+{
+  scB = 1;
+}
+else if(clFU == 8)
+{
+ scB = 2;
+}
+else
+{
+  scB = 0;
+}
+
+var scC = "";
+//=IF(AND(B58=0,'Clean data'!F58>0,'Clean data'!F58<7),1,0)
+if(scB == 0 && clFS > 0 && clFS < 7)
+{
+  scC = 1;
+}
+else
+{
+  scC = 0;
+}
+
+
 var scD = "";
 //=IF(AND(ModelType>=2,NOT(OUT_DSTNeedsProfile=1), OR('Clean data'!CV58=1,'Clean data'!CT58>=3,AND('Clean data'!CE58>=5,'Clean data'!AQ58=1),'Clean data'!CW58>=4,'Clean data'!DG58=1)),2,
 //IF(AND(ModelType>=2,NOT(OUT_DSTNeedsProfile=1), OR('Clean data'!CN58>=1,'Clean data'!BN58>=2,'Clean data'!AS58=1,'Clean data'!AQ58=1,'Clean data'!BT58=1,'Clean data'!BX58=1,'Clean data'!CE58>=4,'Clean data'!CT58>=2,'Clean data'!DE58>=3,'Clean data'!DA58>=4,'Clean data'!J58>=4)),1,0))
@@ -4512,7 +4544,7 @@ else if(scR == "Standard" && scB == 0 && scC == 0)
 {
   scS = Default_Safety_Day_Standard;
 }
-else if(csR == "Standard" && scB == 0 && scC == 1)
+else if(scR == "Standard" && scB == 0 && scC == 1)
 {
   scS = WA_Safety_Day_Standard;
 }
@@ -4528,6 +4560,390 @@ else
 {
   scS = 0;
 }
+
+
+var scT = "";
+//=IF(AND(ModelType=3,CHC_LD_SafetySocial_Switch=1,R58="High",OR('Clean data'!BZ58=13,'Clean data'!CA58=13,'Clean data'!BZ58=30,'Clean data'!CA58=30,'Clean data'!BZ58=3,'Clean data'!CA58=3,'Clean data'!BZ58=4,'Clean data'!CA58=4)),LD_Safety_Day_High,
+//IF(AND(ModelType=3,CHC_LD_SafetySocial_Switch=0,R58="High",OUT_DSTNeedsProfile=1,E58=0),Default_Safety_Day_High,
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,E58=1),Enhanced_Tier2_Safety_Day,
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,E58=2),Enhanced_Tier3_Safety_Day,
+//IF(AND(ModelType=3,CHC_LD_SafetySocial_Switch=0,R58="High",D58=0),Default_Safety_Day_High,
+//IF(AND(ModelType>=2,D58=1),Enhanced_Tier2_Safety_Day,
+//IF(AND(ModelType>=2,D58=2),Enhanced_Tier3_Safety_Day,
+//IF(AND(R58="High",B58=0,C58=0),Default_Safety_Day_High,
+//IF(AND(R58="High",B58=0,C58=1),WA_Safety_Day_High,
+//IF(AND(R58="High",B58=1),LD_Safety_Day_High,
+//IF(AND(R58="High",B58=2),MH_Safety_Day_High,0)))))))))))
+if(ModelType == 3 && CHC_LD_SafetySocial_Switch == 1 && scR == "High" && (clBZ == 13 || clCA == 13 || clBZ == 30 || clCA == 30 || clBZ == 3 || clCA == 3 || clBZ == 4 || clCA == 4))
+{
+  scT = LD_Safety_Day_High;
+}
+else if(ModelType == 3 && CHC_LD_SafetySocial_Switch == 0 && scR == "High" && OUT_DSTNeedsProfile == 1 && scE == 0)
+{
+  scT = Default_Safety_Day_High;
+}
+else if(ModelType >= 2 && OUT_DSTNeedsProfile == 1 && scE == 1)
+{
+  scT = Enhanced_Tier2_Safety_Day;
+}
+else if(ModelType >= 2 && OUT_DSTNeedsProfile == 1 && scE == 2)
+{
+  scT = Enhanced_Tier3_Safety_Day;
+}
+else if(ModelType == 3 && CHC_LD_SafetySocial_Switch == 0 && scR == "High" && scD == 0)
+{
+  scT = Default_Safety_Day_High;
+}
+else if(ModelType >= 2 && scD == 1)
+{
+  scT = Enhanced_Tier2_Safety_Day;
+}
+else if(ModelType >= 2 && scD == 2)
+{
+  scT = Enhanced_Tier3_Safety_Day;
+}
+else if(scR == "High" && scB == 0 && scC == 0)
+{
+  scT = Default_Safety_Day_High;
+}
+else if(scR == "High" && scB == 0 && scC == 1)
+{
+  scT = WA_Safety_Day_High
+}
+else if(scR == "High" && scB == 1)
+{
+  scT = LD_Safety_Day_High;
+}
+else if(scR == "High" && scB == 2)
+{
+  scT = MH_Safety_Day_High;
+}
+else
+{
+  scT = 0;
+}
+
+var scU = "";
+//=IF(J58="Transport",Default_Social_Transport,MAX(K58,L58))
+if(scJ == "Transport")
+{
+  scU = Default_Social_Transport;
+}
+else
+{
+  scU = Math.max(scK, scL)
+}
+
+ var scV = "";
+//=IF(N58="Transport",Default_Work_edu_Transport,MAX(O58,P58))
+if(scN == "Transport")
+{
+  scV = Default_Work_edu_Transport;
+}
+else
+{
+  scV = Math.max(scO, scP)
+}
+
+var scW = "";
+//=MAX(S58,T58)
+{
+  scW = Math.max(scS, scT)
+}
+var scZ =  "";
+//=IF(B58=1,LD_Homecare_Rate,
+//IF(B58=2,MH_Homecare_Rate,Homecare_Rate))
+if(scB == 1)
+{
+  scZ = LD_Homecare_Rate;
+}
+else if(scB == 2)
+{
+  scZ = MH_Homecare_Rate;
+}
+else
+{
+  scZ = Homecare_Rate;
+}
+
+var scX = "";
+//=IF(Extracare_Homecare_rate>0,Extracare_Homecare_rate,Z58)
+if(Extracare_Homecare_rate > 0 )
+{
+  scX = Extracare_Homecare_rate;
+}
+else
+{
+  scX = scZ;
+}
+
+var scY = "";
+//=IF(SH_Homecare_rate>0,SH_Homecare_rate,Z58)
+if(SH_Homecare_rate > 0 )
+{
+  scY = SH_Homecare_rate;
+}
+else
+{
+  scY = scZ;
+}
+
+var scAA = "";
+//=IF(PA_Homecare_rate>0,PA_Homecare_rate,Z58)
+if(PA_Homecare_rate > 0)
+{
+  scAA = PA_Homecare_rate;
+}
+else 
+{
+  scAA = scZ;
+}
+
+
+var scAB = "";
+//=IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,E58=2),Enhanced_Tier3_Homecare_rate,
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,E58=1),Enhanced_Tier2_Homecare_rate,
+//IF(AND(ModelType>=2,D58=2),Enhanced_Tier3_Homecare_rate,
+//IF(AND(ModelType>=2,D58=1),Enhanced_Tier2_Homecare_rate,Z58))))
+if(ModelType >= 2 && OUT_DSTNeedsProfile == 1 && scE == 2)
+{
+  scAB = Enhanced_Tier3_Homecare_rate;
+}
+else if(ModelType>= 2 && OUT_DSTNeedsProfile == 1 && scE == 1)
+{
+  scAB = Enhanced_Tier2_Homecare_rate;
+}
+else if(ModelType >= 2 && scD == 2)
+{
+  scAB = Enhanced_Tier3_Homecare_rate;
+}
+else if(ModelType >=2 && scD == 1)
+{
+  scAB = Enhanced_Tier2_Homecare_rate;
+}
+else
+{
+  scAB = scZ;
+}
+
+var scAC = "";
+//=MAX(Z58:AB58)
+{
+  scAC = Math.max(scZ, scAB)
+}
+
+var scAD = "";
+//=IF('Clean data'!AN58=0,0,
+//IF('Clean data'!AN58=2,1.5,
+//IF('Clean data'!AN58=3,3,
+//IF('Clean data'!AN58=4,3,
+//IF('Clean data'!AN58=5,6,0)))))
+if(clAN == 0)
+{
+  scAD = 0;
+}
+else if(clAN == 2)
+{
+  scAD = 1.5;
+}
+else if(clAN == 3)
+{
+  scAD = 3;
+}
+else if(clAN == 4)
+{
+  scAD = 3
+}
+else if(clAN == 5)
+{
+  scAD = 6
+}
+else
+{
+  scAD = 0;
+}
+
+var scAE = "";
+//=IF('Clean data'!AV58=0,0,
+//IF('Clean data'!AV58=2,1.5,
+//IF('Clean data'!AV58=3,3,
+//IF('Clean data'!AV58=4,3,
+//IF('Clean data'!AV58=5,6,0)))))
+if(clAV == 0)
+{
+  scAE = 0;
+}
+else if(clAV == 2)
+{
+  scAE = 1.5;
+}
+else if(clAV == 3)
+{
+  scAE = 3;
+}
+else if(clAV == 4)
+{
+  scAE = 3;
+}
+else if(clAV == 5)
+{
+  scAE = 6;
+}
+else 
+{
+  scAE = 0;
+}
+
+scAF = "";
+//=IF('Clean data'!AX58=0,0,
+//IF('Clean data'!AX58=2,1.5,
+//IF('Clean data'!AX58=3,3,
+//IF('Clean data'!AX58=4,3,
+//IF('Clean data'!AX58=5,6,0)))))
+if(clAX == 0)
+{
+  scAF = 0;
+}
+else if(clAX == 2)
+{
+  scAF = 1.5;
+}
+else if(clAX == 3)
+{
+  scAF = 3;
+}
+else if(clAX == 4)
+{
+  scAF = 3;
+}
+else if(clAX == 5)
+{
+  scAF = 6;
+}
+else
+{
+  scAF = 0;
+}
+
+var scAG = "";
+//=IF('Clean data'!BA58=0,0,
+//IF('Clean data'!BA58=2,1.5,
+//IF('Clean data'!BA58=3,3,
+//IF('Clean data'!BA58=4,3,
+//IF('Clean data'!BA58=5,6,0)))))
+if(clBA == 0)
+{
+  scAG = 0;
+}
+else if(clBA == 2)
+{
+  scAG = 1.5;
+}
+else if(clBA == 3)
+{
+  scAG = 3;
+}
+else if(clBA == 4)
+{
+  scAG = 3;
+}
+else if(clBA == 5)
+{
+  scAG = 6;
+}
+else 
+{
+  scAG = 0;
+}
+
+var scAH = "";
+//=IF('Clean data'!DV58="NoNeed",0,
+//IF('Clean data'!BC58=0,0,
+//IF(AND('Clean data'!BC58>=2,'Clean data'!BF58>=6),3,
+//IF(AND('Clean data'!BC58>=2,'Clean data'!BF58=0.1),0,
+//IF(AND('Clean data'!BC58>=2,'Clean data'!BF58>=1,'Clean data'!BF58<6),'Clean data'!BF58/2,0)))))
+if(clDV == "NoNeed" )
+{
+  scAH = 0;
+}
+else if(clBC == 0)
+{
+  scAH = 0;
+}
+else if(clBC >= 2 && clBF >= 6)
+{
+  scAH = 3;
+}
+else if(clBC >= 2 && clBF == 0.1)
+{
+  scAH = 0;
+}
+else if(clBC >= 2 && clBF >= 1 && clBF < 6)
+{
+  scAH = clBF/2
+}
+else
+{
+  scAH = 0;
+}
+
+var scAI = "";
+//=IF('Clean data'!BI58=0,0,
+//IF(AND('Clean data'!BI58>=2,'Clean data'!BL58>=7),3,
+//IF(AND('Clean data'!BI58>=2,'Clean data'!BL58<7),('Clean data'!BL58/7)*3,0)))
+if(clBI == 0)
+{
+  scAI = 0;
+}
+else if(clBI >= 2 && clBL >= 7)
+{
+  scAI = 3;
+}
+else if(clBI >= 2 && clBL < 7)
+{
+  scAI = (clBL/7)*3
+}
+else
+{
+  scAI = 0;
+}
+
+var scAJ = "";
+//=IF('Clean data'!BQ58=0,0,
+//IF('Clean data'!BQ58=2,1.5,
+//IF('Clean data'!BQ58=3,3,
+//IF('Clean data'!BQ58=4,3,
+//IF('Clean data'!BQ58=5,6,0)))))
+if(clBQ == 0)
+{
+  scAJ = 0;
+}
+else if(clBQ == 2)
+{
+  scAJ = 1.5;
+}
+else if(clBQ == 3)
+{
+  scAJ = 3;
+}
+else if(clBQ == 4)
+{
+  scAJ = 3;
+}
+else if(clBQ == 5)
+{
+  scAJ = 6;
+}
+else
+{
+  scAJ = 0;
+}
+
+var sc
+//=IF(AND(OR('Clean data'!BL58>=0.05,  'Clean data'!BF58>0.05),'Clean data'!BL58<=7, 'Clean data'!BF58<=7, 'Clean data'!EI58=100, 'Clean data'!EM58=100), 1,
+// IF(AND(OR('Clean data'!BL58>=0.05,  'Clean data'!BF58>0.05),'Clean data'!BL58<=7, 'Clean data'!BF58<=7, NOT(AND(AE58>=1.5, AF58>=1.5)), 'Clean data'!EE58=100, 'Clean data'!EM58=100), 2,
+// IF(AND(OR('Clean data'!BL58>=0.05,  'Clean data'!BF58>0.05),'Clean data'!BL58<=7, 'Clean data'!BF58<=7, NOT(AND(AE58>=1.5, AF58>=1.5)),'Clean data'!EE58=100, 'Clean data'!EI58=100), 3, 1)))
+
 
 
 
@@ -4890,6 +5306,8 @@ console.log('clGW', clGW);
 console.log('clGX', clGX);
 console.log('clGZ', clGZ);
 console.log('clHA', clHA);
+console.log('scB', scB);
+console.log('scC', scC);
 console.log('scD', scD);
 console.log('scE', scE);
 console.log('scF', scF);
@@ -4906,9 +5324,23 @@ console.log('scP', scP);
 console.log('scQ', scQ);
 console.log('scR', scR);
 console.log('scS', scS);
-
-
-
+console.log('scT', scT);
+console.log('scU', scU);
+console.log('scV', scV);
+console.log('scW', scW);
+console.log('scX', scX);
+console.log('scY', scY);
+console.log('scZ', scZ);
+console.log('scAA', scAA);
+console.log('scAB', scAB);
+console.log('scAC', scAC);
+console.log('scAD', scAD);
+console.log('scAE', scAE);
+console.log('scAF', scAF);
+console.log('scAG', scAG);
+console.log('scAH', scAH);
+console.log('scAI', scAI);
+console.log('scAJ', scAJ);
 //James reference
 
 //IF(this = that, true, false) -> 
