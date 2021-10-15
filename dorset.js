@@ -4940,7 +4940,7 @@ else
 }
 
 var sc
-//=IF(AND(OR('Clean data'!BL58>=0.05,  'Clean data'!BF58>0.05),'Clean data'!BL58<=7, 'Clean data'!BF58<=7, 'Clean data'!EI58=100, 'Clean data'!EM58=100), 1,
+///=IF(AND(OR('Clean data'!BL58>=0.05,  'Clean data'!BF58>0.05),'Clean data'!BL58<=7, 'Clean data'!BF58<=7, 'Clean data'!EI58=100, 'Clean data'!EM58=100), 1,
 // IF(AND(OR('Clean data'!BL58>=0.05,  'Clean data'!BF58>0.05),'Clean data'!BL58<=7, 'Clean data'!BF58<=7, NOT(AND(AE58>=1.5, AF58>=1.5)), 'Clean data'!EE58=100, 'Clean data'!EM58=100), 2,
 // IF(AND(OR('Clean data'!BL58>=0.05,  'Clean data'!BF58>0.05),'Clean data'!BL58<=7, 'Clean data'!BF58<=7, NOT(AND(AE58>=1.5, AF58>=1.5)),'Clean data'!EE58=100, 'Clean data'!EI58=100), 3, 1)))
 
