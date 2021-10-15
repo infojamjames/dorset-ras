@@ -4939,15 +4939,26 @@ else
   scAJ = 0;
 }
 
-var sc
+var scAK = "";
 ///=IF(AND(OR('Clean data'!BL58>=0.05,  'Clean data'!BF58>0.05),'Clean data'!BL58<=7, 'Clean data'!BF58<=7, 'Clean data'!EI58=100, 'Clean data'!EM58=100), 1,
 // IF(AND(OR('Clean data'!BL58>=0.05,  'Clean data'!BF58>0.05),'Clean data'!BL58<=7, 'Clean data'!BF58<=7, NOT(AND(AE58>=1.5, AF58>=1.5)), 'Clean data'!EE58=100, 'Clean data'!EM58=100), 2,
 // IF(AND(OR('Clean data'!BL58>=0.05,  'Clean data'!BF58>0.05),'Clean data'!BL58<=7, 'Clean data'!BF58<=7, NOT(AND(AE58>=1.5, AF58>=1.5)),'Clean data'!EE58=100, 'Clean data'!EI58=100), 3, 1)))
-
-
-
-
-
+if((clBL >= 0.05 || clBF > 0.05)&& clBL <= 7 && clBF <= 7 && clEI == 100 && clEM == 100)
+{
+  scAK = 1;
+}
+else if((clBL >= 0.05 || clBF > 0.05)&& clBL <= 7 && clBF <= 7 && ((scAE<1.5||scAF<1.5))&& clEE == 100 && clEM == 100)
+{
+  scAK = 2;
+}
+else if((clBL >= 0.05 || clBF > 0.05)&& clBL <= 7 && clBF <= 7 && ((scAE>=1.5||scAF>=1.5))&& clEE == 100 && clEM == 100)
+{
+  scAK = 3;
+}
+else
+{
+  scAK = 1;
+}
 
 
 
@@ -5341,6 +5352,7 @@ console.log('scAG', scAG);
 console.log('scAH', scAH);
 console.log('scAI', scAI);
 console.log('scAJ', scAJ);
+console.log('scAK', scAK);
 //James reference
 
 //IF(this = that, true, false) -> 
