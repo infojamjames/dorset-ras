@@ -4962,6 +4962,37 @@ else
 
 
 
+var scAL = "";
+//=IF('Clean data'!DV58="NoNeed",0,
+//IF(AND(AK58=1,OR('Clean data'!AV58>=3,'Clean data'!BA58>=3,AND('Clean data'!BC58>=3,'Clean data'!BF58>=7),AND('Clean data'!BI58>=3,'Clean data'!BL58>=7))),1,
+//IF(AND(AK58=1,OR('Clean data'!AV58=2,'Clean data'!BA58=2,'Clean data'!BI58=2,AND('Clean data'!BI58>=3,'Clean data'!BL58=0.1))),0.5,
+///IF(AND(AK58=1,'Clean data'!BC58>=2,'Clean data'!AV58=0,'Clean data'!BA58=0,'Clean data'!BI58=0),'Clean data'!BF58/7,0))))
+if(clDV == "NoNeed")
+{
+  scAL = 0;
+}
+else if(scAK == 1 || (clAV >= 3 || clBA >= 3 && clBC >= 3 && clBF >= 7 && clBI >= 3 && clBL >= 7))
+{
+  scAL = 1;
+}
+else if(scAK == 1 || (clAV == 2 || clBA == 2 || clBI == 2 && clBI >= 3 && clBL == 0.1))
+{
+  scAL = 0.5;
+}
+else if(scAK == 1 && clBC >= 2 && clAV == 0 && clBA == 0 && clBI == 0 )
+{
+  scAL = clBF/7
+}
+else
+{
+  scAL = 0;
+}
+
+
+
+
+
+
 console.log('----RAW----')
 console.log('rN', rN);
 console.log('rO', rO);
@@ -5353,6 +5384,7 @@ console.log('scAH', scAH);
 console.log('scAI', scAI);
 console.log('scAJ', scAJ);
 console.log('scAK', scAK);
+console.log('scAL', scAL);
 //James reference
 
 //IF(this = that, true, false) -> 
