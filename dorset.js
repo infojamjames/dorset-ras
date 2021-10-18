@@ -5015,6 +5015,17 @@ else
   scAN = 0;
 }
 
+var scAO = "";
+//=IF(OR('Clean data'!BL58>=35), 1, 0)
+if(clBL >= 35)
+{
+  scAO = 1;
+}
+else
+{
+  scAO = 0;
+}
+
 
 
 
@@ -5412,6 +5423,7 @@ console.log('scAK', scAK);
 console.log('scAL', scAL);
 console.log('scAM', scAM);
 console.log('scAN', scAN);
+console.log('scAO', scAO);
 //James reference
 
 //IF(this = that, true, false) -> 
