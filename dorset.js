@@ -5088,6 +5088,69 @@ var scAS = "";
 }
 
 
+var scAT = "";
+//=IF('Clean data'!DV58="NoNeed",0,
+//IF(AND('Clean data'!AV58>=3,'Clean data'!BA58=0,OR('Clean data'!BC58=0,'Clean data'!BF58<=0.1),'Clean data'!BI58=0),3.5,
+//IF(AND('Clean data'!AV58=2,'Clean data'!BA58=0,OR('Clean data'!BC58=0,'Clean data'!BF58<=0.1),'Clean data'!BI58=0),1.5,
+//IF(AND('Clean data'!AV58=0,'Clean data'!BA58>=3,OR('Clean data'!BC58=0,'Clean data'!BF58<=0.1),'Clean data'!BI58=0),3.5,
+//IF(AND('Clean data'!AV58=0,'Clean data'!BA58=2,OR('Clean data'!BC58=0,'Clean data'!BF58<=0.1),'Clean data'!BI58=0),1.5,
+//IF(AND('Clean data'!AV58=0,'Clean data'!BA58<=2,'Clean data'!BC58>=2,'Clean data'!BF58>=7,'Clean data'!BI58=0),3.5,
+//IF(AND('Clean data'!AV58=0,'Clean data'!BA58=0,'Clean data'!BC58>=2,'Clean data'!BF58=0.1,'Clean data'!BI58=0),0,
+//IF(AND('Clean data'!AV58=0,'Clean data'!BA58=0,'Clean data'!BC58>=2,'Clean data'!BF58<7,'Clean data'!BI58=0),('Clean data'!BF58/2),
+//IF(AND('Clean data'!AV58=0,'Clean data'!BA58=0,OR('Clean data'!BC58=0,'Clean data'!BF58<=0.1),'Clean data'!BI58>=2,'Clean data'!BL58>=7),3.5,
+//IF(AND('Clean data'!AV58=0,'Clean data'!BA58=0,OR('Clean data'!BC58=0,'Clean data'!BF58<=0.1),'Clean data'!BI58>=2,'Clean data'!BL58<7),1.5,0))))))))))
+if(clDV == "NoNeed")
+{
+  scAT = 0;
+}
+else if(clAV >= 3 && clBA == 0 &&(clBC == 0 || clBF <= 0.1) && clBI == 0)
+{
+  scAT = 3.5;
+}
+else if(clAV == 2 && clBA == 0 &&(clBC == 0 || clBF <= 0.1) && clBI == 0)
+{
+  scAT = 1.5;
+}
+else if(clAV == 0 && clBA >= 3 &&(clBC == 0 || clBF <= 0.1) && clBI == 0)
+{
+  scAT = 3.5;
+}
+else if(clAV == 0 && clBA == 2 &&(clBC == 0 || clBF <= 0.1) && clBI == 0)
+{
+  scAT = 1.5;
+}
+else if(clAV == 0 && clBA <= 2 && clBC >= 2 && clBF >= 7 && clBI == 0)
+{
+  scAT = 3.5;
+}
+else if(clAV == 0 && clBA == 0 && clBC >= 2 && clBF == 0.1 && clBI == 0)
+{
+  scAT = 0;
+}
+else if(clAV == 0 && clBA == 0 && clBC >= 2 && clBF < 7 && clBI == 0 )
+{
+  scAT = (clBF/2)
+}
+else if(clAV == 0 && clBA == 0 (clBC == 0 || clBF <= 0.1)&& clBI >= 2 && clBL >= 7)
+{
+  scAT = 3.5;
+}
+else if(clAV == 0 && clBA == 0 (clBC == 0 || clBF <= 0.1)&& clBI >= 2 && clBL < 7)
+{
+  scAT = 1.5;
+}
+else
+{
+  scAT = 0;
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -5490,6 +5553,7 @@ console.log('scAP', scAP);
 console.log('scAQ', scAQ);
 console.log('scAR', scAR);
 console.log('scAS', scAS);
+console.log('scAT', scAT);
 //James reference
 
 //IF(this = that, true, false) -> 
