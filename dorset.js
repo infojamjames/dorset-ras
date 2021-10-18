@@ -4999,7 +4999,21 @@ else
   scAM = 0;
 }
 
-
+var scAN = "";
+//=IF('Clean data'!DY58="NoNeed",0,
+//IF(OR('Clean data'!BL58>=21,AK58=2),1,0))
+if(clDY == "NoNeed")
+{
+  scAN = 0;
+}
+else if(clBL >= 21 || scAK == 2)
+{
+  scAN = 1;
+}
+else
+{
+  scAN = 0;
+}
 
 
 
@@ -5397,6 +5411,7 @@ console.log('scAJ', scAJ);
 console.log('scAK', scAK);
 console.log('scAL', scAL);
 console.log('scAM', scAM);
+console.log('scAN', scAN);
 //James reference
 
 //IF(this = that, true, false) -> 
