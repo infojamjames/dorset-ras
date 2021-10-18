@@ -5038,9 +5038,54 @@ else
 }
 
 
+var scAQ = "";
+//=IF('Clean data'!EB58="NoNeed",0,
+//IF(AND(AK58=3,OR('Clean data'!AX58>=3,'Clean data'!BA58>=3,'Clean data'!BC58>=3,AND('Clean data'!BI58>=3,'Clean data'!BL58>=7))),1,
+//IF(AND(AK58=3,OR('Clean data'!AX58=2,'Clean data'!BA58=2,'Clean data'!BI58=2,AND('Clean data'!BI58>=3,'Clean data'!BL58=0.1))),0.5,
+//IF(AND(AK58=3,'Clean data'!BC58>=2,'Clean data'!AX58=0,'Clean data'!BA58=0,'Clean data'!BI58=0),'Clean data'!BF58/7,
+//IF(OR('Clean data'!AX58>=3,'Clean data'!BF58>=14,'Clean data'!BL58>=14),1,
+//IF('Clean data'!AX58=2,0.5,0))))))
+if(clEB == "NoNeed")
+{
+  scAQ = 0;
+}
+else if(scAK == 3 && (clAX >= 3 || clBA >= 3 || clBC >= 3 &&(clBI >= 3 && clBL >= 7)))
+{
+  scAQ = 1;
+}
+else if(scAK == 3 && (clAX == 2 || clBA == 2 || clBI == 2 &&(clBI >= 3 && clBL == 0.1)))
+{
+  scAQ = 0.5;
+}
+else if(scAK == 3 && clBC >= 2 && clAX == 0 && clBA == 0 && clBI == 0)
+{
+  scAQ = clBF/7;
+}
+else if(clAX >= 3 || clBF >= 14 || clBL >= 14)
+{
+  scAQ = 1;
+}
+else if(clAX == 2)
+{
+  scAQ = 0.5;
+}
+else
+{
+  scAQ = 0;
+}
 
 
+var scAR = "";
+//=SUM(AM58:AP58)
+{
+  scAR = (scAM + scAN + scAO + scAP);
+}
 
+var scAS = "";
+//=SUM(AQ58)
+{
+  scAS = scAQ;
+}
 
 
 
@@ -5442,6 +5487,9 @@ console.log('scAM', scAM);
 console.log('scAN', scAN);
 console.log('scAO', scAO);
 console.log('scAP', scAP);
+console.log('scAQ', scAQ);
+console.log('scAR', scAR);
+console.log('scAS', scAS);
 //James reference
 
 //IF(this = that, true, false) -> 
