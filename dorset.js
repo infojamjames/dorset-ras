@@ -4971,21 +4971,32 @@ if(clDV == "NoNeed")
 {
   scAL = 0;
 }
-else if(scAK == 1 || (clAV >= 3 || clBA >= 3 && clBC >= 3 && clBF >= 7 && clBI >= 3 && clBL >= 7))
+else if(scAK == 1 && (clAV >= 3 || clBA >= 3 || (clBC >= 3 && clBF >= 7 )&& (clBI >= 3 && clBL >= 7)))
 {
   scAL = 1;
 }
-else if(scAK == 1 || (clAV == 2 || clBA == 2 || clBI == 2 && clBI >= 3 && clBL == 0.1))
+else if(scAK == 1 && (clAV == 2 || clBA == 2 || (clBI == 2 && clBI >= 3) && clBL == 0.1))
 {
   scAL = 0.5;
 }
-else if(scAK == 1 && clBC >= 2 && clAV == 0 && clBA == 0 && clBI == 0 )
+else if(scAK == 1 && (clBC >= 2 && clAV == 0 && (clBA == 0 && clBI == 0 )))
 {
   scAL = clBF/7
 }
 else
 {
   scAL = 0;
+}
+
+var scAM = "";
+//=IF(OR('Clean data'!BL58>=42), 1, 0)
+if(clBL >= 42)
+{
+  scAM = 1;
+}
+else
+{
+  scAM = 0;
 }
 
 
@@ -5385,6 +5396,7 @@ console.log('scAI', scAI);
 console.log('scAJ', scAJ);
 console.log('scAK', scAK);
 console.log('scAL', scAL);
+console.log('scAM', scAM);
 //James reference
 
 //IF(this = that, true, false) -> 
