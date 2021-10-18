@@ -5026,6 +5026,23 @@ else
   scAO = 0;
 }
 
+var scAP = "";
+//=IF(OR('Clean data'!BL58>=28),1,0)
+if(clBL >= 28)
+{
+  scAP = 1;
+}
+else
+{
+  scAP = 0;
+}
+
+
+
+
+
+
+
 
 
 
@@ -5424,6 +5441,7 @@ console.log('scAL', scAL);
 console.log('scAM', scAM);
 console.log('scAN', scAN);
 console.log('scAO', scAO);
+console.log('scAP', scAP);
 //James reference
 
 //IF(this = that, true, false) -> 
