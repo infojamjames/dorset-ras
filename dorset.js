@@ -5273,6 +5273,24 @@ else
 }
 
 
+var scAZ = "";
+//=IF(AND('Clean data'!BC58>=2,'Clean data'!BF58>7),7,
+//IF(AND('Clean data'!BC58>=2,'Clean data'!BF58<=7),'Clean data'!BF58,0))
+if(clBC >= 2 && clBF > 7)
+{
+  scAZ = 7;
+}
+else if(clBC >= 2 && clBF <= 7)
+{
+  scAZ = clBF;
+}
+else
+{
+  scAZ = 0;
+}
+
+
+
 
 console.log('----RAW----')
 console.log('rN', rN);
@@ -5679,6 +5697,7 @@ console.log('scAV', scAV);
 console.log('scAW', scAW);
 console.log('scAX', scAX);
 console.log('scAY', scAY);
+console.log('scAZ', scAZ);
 //James reference
 
 //IF(this = that, true, false) -> 
