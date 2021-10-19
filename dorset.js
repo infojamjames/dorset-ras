@@ -5261,7 +5261,16 @@ else
   scAX = 0;
 }
 
-
+var scAY = "";
+//=IF(AND(AL58>=0.05,AL58<=1,AQ58>=0.05,AQ58<=1,SUM(AL58:AQ58)>=0.1,SUM(AL58:AQ58)<=2),1,0)
+if(scAL >= 0.05 && scAL <= 1 && scAQ >= 0.05 && scAQ <= 1 && (scAL + scAM + scAN + scAO + scAP + scAQ)>= 0.1 && (scAL + scAM + scAN + scAO + scAP + scAQ)<= 2)
+{
+  scAY = 1;
+}
+else
+{
+  scAY = 0;
+}
 
 
 
@@ -5669,6 +5678,7 @@ console.log('scAU', scAU);
 console.log('scAV', scAV);
 console.log('scAW', scAW);
 console.log('scAX', scAX);
+console.log('scAY', scAY);
 //James reference
 
 //IF(this = that, true, false) -> 
