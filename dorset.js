@@ -5176,6 +5176,74 @@ else
 }
 
 
+var scAV = "";
+//=IF('Clean data'!DV58="NoNeed",0,
+//IF(AT58>0,AT58,
+//IF(OR(AE58=3,AG58=3,AH58=3,AI58=3),3.5,
+//IF((Dressing1*AE58)+(WashingBody1*AH58)+(Toileting1*AI58)>3.5,3.5,
+//IF(AND(AH58>0,AH58<=1.5,MAX(AE58,AG58)=1.5),1.5,
+//IF(AND(AH58>1.5,MAX(AE58,AG58)=1.5),AH58,
+//(Dressing1*AE58)+(WashingBody1*AH58)+(Appearance1*AG58)+(Toileting1*AI58)))))))
+if(clDV == "NoNeed")
+{
+  scAV = 0; 
+}
+else if(scAT > 0)
+{
+  scAV = scAT;
+}
+else if(scAE == 3 || scAG == 3 || scAH == 3 || scAI == 3)
+{
+  scAV = 3.5;
+}
+else if(Dressing1*scAE + WashingBody1*scAH + Toileting1*scAI > 3.5)
+{
+  scAV = 3.5;
+}
+else if(scAH > 0 && scAH <= 1.5 && Math.max(scAE, scAG)== 1.5)
+{
+  scAV = 1.5;
+}
+else if(scAH > 1.5 && Math.max(scAE, scAG)== 1.5)
+{
+  scAV = scAH;
+}
+else
+{
+  (Dressing1*scAE)+(WashingBody1*scAH)+(Appearance1*scAG)+(Toileting1*scAI)
+}
+
+var scAW = "";
+//=IF('Clean data'!EB58="NoNeed",0,
+//IF(AU58>0,AU58,
+//IF(AND('Clean data'!BC58>=2,'Clean data'!BF58>=14),3.5,
+//IF(OR(AND(AI58=3,'Clean data'!BL58>=14),AF58=3),3.5,
+//IF(AND('Clean data'!BL58>=14,"NoNeed",3.5,0)))))
+if(clEB == "NoNeed")
+{
+  scAW = 0;
+}
+else if(scAU > 0)
+{
+  scAW = scAU;
+}
+else if(clBC >= 2 && clBF >= 14)
+{
+  scAW = 3.5;
+}
+else if(scAI == 3 || clBL >= 14&&(scAF == 3))
+{
+  scAW = 3.5;
+}
+else if(clBL >= 14 && "NoNeed")
+{
+  scAW = 3.5;
+}
+else
+{
+  scAW = 0;
+}
+
 
 
 
@@ -5580,6 +5648,8 @@ console.log('scAR', scAR);
 console.log('scAS', scAS);
 console.log('scAT', scAT);
 console.log('scAU', scAU);
+console.log('scAV', scAV);
+console.log('scAW', scAW);
 //James reference
 
 //IF(this = that, true, false) -> 
