@@ -5144,11 +5144,36 @@ else
   scAT = 0;
 }
 
-
-
-
-
-
+var scAU = "";
+//=IF('Clean data'!EB58="NoNeed",0,
+//IF(AND('Clean data'!AX58>=3,OR('Clean data'!BI58=0,'Clean data'!BL58<14)),3.5,
+//IF(AND('Clean data'!AX58=2,OR('Clean data'!BI58=0,'Clean data'!BL58<14)),1.5,
+//IF(AND('Clean data'!AX58=0,'Clean data'!BI58>=2,'Clean data'!BL58>=14),3.5,
+//IF(AND('Clean data'!AX58=0,'Clean data'!BC58>=2,'Clean data'!BF58>=14,OR('Clean data'!BI58=0,'Clean data'!BL58<14)),3.5,0)))))
+if(clEB == "NoNeed")
+{
+  scAU = 0;
+}
+else if(clAX >= 3 &&(clBI == 0 || clBL < 14))
+{
+  scAU = 3.5;
+}
+else if(clAX == 2 &&(clBI == 0 || clBL < 14))
+{
+  scAU = 1.5;
+}
+else if(clAX == 0 && clBI >= 2 && clBL >= 14)
+{
+  scAU = 3.5;
+}
+else if(clAX == 0 && clBC >= 2 && clBF >= 14 && (clBI == 0 || clBL < 14))
+{
+  scAU = 3.5;
+}
+else
+{
+  scAU = 0;
+}
 
 
 
@@ -5554,6 +5579,7 @@ console.log('scAQ', scAQ);
 console.log('scAR', scAR);
 console.log('scAS', scAS);
 console.log('scAT', scAT);
+console.log('scAU', scAU);
 //James reference
 
 //IF(this = that, true, false) -> 
