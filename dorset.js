@@ -5245,6 +5245,24 @@ else
 }
 
 
+var scAX = "";
+//=IF(AND(AQ58=0.5,AL58>=0.05,AL58<=0.5),0,
+//IF(AND(OR(AL58>=0.05,AL58<=1),OR(AQ58>=0.05,AQ58<=1),SUM(AL58:AQ58)>=0.05,SUM(AL58:AQ58)<=1),1,0))
+if(scAQ == 0.5 && scAL >= 0.05 && scAL <= 0.5)
+{
+  scAX = 0;
+}
+else if((scAL >= 0.05 || scAL <= 1)&& ((scAQ >= 0.05 || scAQ <= 1)) &&(scAL + scAM + scAN + scAO + scAP + scAQ)<=1)
+{
+  scAX = 1;
+}
+else
+{
+  scAX = 0;
+}
+
+
+
 
 
 console.log('----RAW----')
@@ -5650,6 +5668,7 @@ console.log('scAT', scAT);
 console.log('scAU', scAU);
 console.log('scAV', scAV);
 console.log('scAW', scAW);
+console.log('scAX', scAX);
 //James reference
 
 //IF(this = that, true, false) -> 
