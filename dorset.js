@@ -254,6 +254,8 @@ var Homecare_Rate = 18.38;
 var LD_Homecare_Rate = 15.4;
 var MH_Homecare_Rate = 15.4;
 var PA_Homecare_rate = 0;
+var Medication_Visit_Adjustment = 0;
+var Prep_Visit_Adjustment = 0;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -5424,6 +5426,31 @@ else
   scBF = 0;
 }
 
+var scBG = "";
+//=IF(OR('Clean data'!BL58>=42,AND(Medication_Visit_Adjustment>0,'Clean data'!CG58>=42), AND(Prep_Visit_Adjustment>0,'Clean data'!AL58>=42)), 1, 0)
+if(clBL >= 42 || (Medication_Visit_Adjustment >0 && clCG >= 42) || ((Prep_Visit_Adjustment >0 && clAL > 42)))
+{
+  scBG = 1;
+}
+else
+{
+  scBG = 0;
+}
+
+var scBH = "";
+//=IF(OR('Clean data'!BL58>=21,AND(Medication_Visit_Adjustment>0,'Clean data'!CG58>=21),OR('Clean data'!AN58>=3,AND(Prep_Visit_Adjustment>0,'Clean data'!AL58=7), AND(Prep_Visit_Adjustment>0,'Clean data'!AL58>=21))),1,0)
+if(clBL >= 21 || (Medication_Visit_Adjustment >0 && clCG >= 21) || clAN >= 3 && (Prep_Visit_Adjustment >0 && clAL == 7) && Prep_Visit_Adjustment >0 && clAL >= 21)
+{
+  scBH = 1;
+}
+else
+{
+  scBH = 0;
+}
+
+
+
+
 
 
 
@@ -5840,6 +5867,8 @@ console.log('scBC', scBC);
 console.log('scBD', scBD);
 console.log('scBE', scBE);
 console.log('scBF', scBF);
+console.log('scBG', scBG);
+console.log('scBH', scBH);
 //James reference
 
 //IF(this = that, true, false) -> 
