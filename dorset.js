@@ -5502,7 +5502,16 @@ else
   scBK = 0;
 }
 
-
+var scBL = "";
+//=IF('Clean data'!EE58=50, 0, 'Clean data'!EE58)
+if(clEE == 50)
+{
+  scBL = 0;
+}
+else
+{
+  scBL = clEE;
+}
 
 
 
@@ -5923,6 +5932,7 @@ console.log('scBH', scBH);
 console.log('scBI', scBI);
 console.log('scBJ', scBJ);
 console.log('scBK', scBK);
+console.log('scBL', scBL);
 //James reference
 
 //IF(this = that, true, false) -> 
