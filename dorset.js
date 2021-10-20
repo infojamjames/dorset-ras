@@ -5486,7 +5486,21 @@ else
   scBJ = 0;
 }
 
-
+var scBK = "";
+//=IF(OR('Clean data'!AX58>=3, 'Clean data'!BF58>=14,'Clean data'!BL58>=14,AND(Medication_Visit_Adjustment>0,'Clean data'!CG58>=14),AND(Prep_Visit_Adjustment>0,'Clean data'!AL58>=28)), 1, 
+//IF('Clean data'!AX58=2,0.5,0))
+if(clAX >= 3 || clBF >= 14 || clBL >= 14 && (Medication_Visit_Adjustment >0 && clCG >= 14) && (Prep_Visit_Adjustment >0 && clAL >= 28))
+{
+  scBK = 1;
+}
+else if(clAX == 2)
+{
+  scBK = 0.5;
+}
+else
+{
+  scBK = 0;
+}
 
 
 
@@ -5908,6 +5922,7 @@ console.log('scBG', scBG);
 console.log('scBH', scBH);
 console.log('scBI', scBI);
 console.log('scBJ', scBJ);
+console.log('scBK', scBK);
 //James reference
 
 //IF(this = that, true, false) -> 
