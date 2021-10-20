@@ -5331,9 +5331,28 @@ else
 }
 
 
+var scBB = "";
+//=IF(AND('Clean data'!BC58>=2,'Clean data'!AV58<=2,AD58=0,AF58=0,AG58=0,AI58=0,AJ58=0),1,0)
+if(clBC >= 2 && clAV <= 2 && scAD == 0 && scAF == 0 && scAG == 0 && scAI == 0 && scAJ == 0)
+{
+  scBB = 1;
+}
+else
+{
+  scBB = 0;
+}
 
 
-
+var scBC = "";
+//=IF(AND('Clean data'!AV58=2,AD58=0,AF58=0,AG58=0,AH58=0,AI58=0,AJ58=0),1,0)
+if(clAV == 2 && scAD == 0 && scAF == 0 && scAG == 0 && scAH == 0 && scAI == 0 && scAJ == 0)
+{
+  scBC = 1;
+}
+else
+{
+  scBC = 0;
+}
 
 
 
@@ -5746,6 +5765,8 @@ console.log('scAX', scAX);
 console.log('scAY', scAY);
 console.log('scAZ', scAZ);
 console.log('scBA', scBA);
+console.log('scBB', scBB);
+console.log('scBC', scBC);
 //James reference
 
 //IF(this = that, true, false) -> 
