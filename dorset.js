@@ -5541,10 +5541,37 @@ else
 }
 
 
+var scBN = "";
+//=IF('Clean data'!EM59=50, 0, 'Clean data'!EM59)
+if(clEM == 50)
+{
+  scBN = 0;
+}
+else
+{
+  scBN = clEM;
+}
 
-
-
-
+var scBO = "";
+//=IF(AK59=1,BL59,
+//IF(AK59=2,BM59,
+//IF(AK59=3,BN59,0)))
+if(scAK == 1)
+{
+  scBO = scBL;
+}
+else if(scAK == 2)
+{
+  scBO = scBM;
+}
+else if(scAK == 3)
+{
+  scBO = scBN
+}
+else
+{
+  scBO = 0;
+}
 
 
 
@@ -5966,7 +5993,10 @@ console.log('scBI', scBI);
 console.log('scBJ', scBJ);
 console.log('scBK', scBK);
 console.log('scBL', scBL);
+//moved onto cl line 59 as did wrong RAW data
 console.log('scBM', scBM);
+console.log('scBN', scBN);
+console.log('scBO', scBO);
 //James reference
 
 //IF(this = that, true, false) -> 
