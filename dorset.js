@@ -5289,6 +5289,53 @@ else
   scAZ = 0;
 }
 
+var scBA = "";
+//=IF(AZ58=0,0,
+//IF('Clean data'!DV58="",0,
+//IF(AND(AK58=1,VLOOKUP('Clean data'!DV58,Informal_support,3,FALSE)/AZ58>1),1,
+//IF(AND(AK58=2,VLOOKUP('Clean data'!DY58,Informal_support,3,FALSE)/AZ58>1),1,
+//IF(AND(AK58=3,VLOOKUP('Clean data'!EB58,Informal_support,3,FALSE)/AZ58>1),1,
+//IF(AK58=2,VLOOKUP('Clean data'!DY58,Informal_support,3,FALSE)/AZ58,
+//IF(AK58=3,VLOOKUP('Clean data'!EB58,Informal_support,3,FALSE)/AZ58,VLOOKUP('Clean data'!DV58,Informal_support,3,FALSE)/AZ58)))))))
+if(scAZ == 0)
+{
+  scBA = 0;
+}
+else if(clDV == "")
+{
+  scBA = 0;
+}
+else if(scAK == 1 && VLOOKUP(clDV,Informal_support,3,FALSE)/scAZ > 1)
+{
+  scBA = 1;
+}
+else if(scAK == 2 && VLOOKUP(clDY,Informal_support,3,FALSE)/scAZ > 1)
+{
+  scBA = 1;
+}
+else if(scAK == 3 && VLOOKUP(clEB,Informal_support,3,FALSE)/scAZ > 1)
+{
+  scBA = 1;
+}
+else if(scAK == 2)
+{
+  scBA = VLOOKUP(clDY,Informal_support,3,FALSE)/scAZ;
+}
+else if(scAK == 3)
+{
+  scBA = VLOOKUP(clEB,Informal_support,3,FALSE)/scAZ;
+}
+else
+{
+  scBA = VLOOKUP(clDV,Informal_support,3,FALSE)/scAZ;
+}
+
+
+
+
+
+
+
 
 
 
@@ -5698,6 +5745,7 @@ console.log('scAW', scAW);
 console.log('scAX', scAX);
 console.log('scAY', scAY);
 console.log('scAZ', scAZ);
+console.log('scBA', scBA);
 //James reference
 
 //IF(this = that, true, false) -> 
