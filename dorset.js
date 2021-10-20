@@ -5573,6 +5573,34 @@ else
   scBO = 0;
 }
 
+var scBP = "";
+//=IF(AND(AR59=1,AS59<=1),((BL59*0.4)+(BM59*0.2)+(BN59*0.4))/100,
+//IF(AND(AR59=2,AS59=1),((BL59*0.3333)+(BM59*0.3334)+(BN59*0.3333))/100,
+//IF(AND(AR59=3,AS59=1),((BL59*0.286)+(BM59*0.428)+(BN59*0.286))/100,
+//IF(AND(AR59=4,AS59=1),((BL59*0.25)+(BM59*0.5)+(BN59*0.25))/100,0))))
+if(scAR == 1 && scAS <= 1)
+{
+  scBP = ((scBL*0.4) + (scBM*0.2) + (scBN*0.4))/100
+}
+else if(scAR == 2 && scAS == 1)
+{
+  scBP = ((scBL*0.3333) + (scBM*0.3334) + (scBN*0.3333))/100
+}
+else if(scAR == 3 && scAS == 1)
+{
+  scBP = ((scBL*0.286) + (scBM*0.428) + (scBN*0.286))/100
+}
+else if(scAR == 4 && scAS == 1)
+{
+  scBP = ((scBL*0.25) + (scBM*0.5) + (scBN*0.25))/100
+}
+else 
+{
+  scBP = 0;
+}
+
+
+
 
 
 console.log('----RAW----')
@@ -5997,6 +6025,7 @@ console.log('scBL', scBL);
 console.log('scBM', scBM);
 console.log('scBN', scBN);
 console.log('scBO', scBO);
+console.log('scBP', scBP);
 //James reference
 
 //IF(this = that, true, false) -> 
