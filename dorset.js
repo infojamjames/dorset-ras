@@ -5448,6 +5448,43 @@ else
   scBH = 0;
 }
 
+var scBI = "";
+//=IF(OR('Clean data'!BL58>=35,AND(Medication_Visit_Adjustment>0,'Clean data'!CG58>=35), AND(Prep_Visit_Adjustment>0,'Clean data'!AL58>=35)), 1, 0)
+if(clBL >= 35 || (Medication_Visit_Adjustment >0 && clCG >= 35)&& Prep_Visit_Adjustment >0 && clAL >= 35 )
+{
+  scBI = 1;
+}
+else
+{
+  scBI = 0;
+}
+
+
+var scBJ = "";
+//=IF(OR('Clean data'!BL58>=28,AND(Medication_Visit_Adjustment>0,'Clean data'!CG58>=28),AND(AQ58=0,Prep_Visit_Adjustment>0,'Clean data'!AL58>=14)),1,
+//IF(AND(AQ58=0,Prep_Visit_Adjustment>0,'Clean data'!AL58=14,BF58=0),1,
+//IF(AND(AQ58=0,Prep_Visit_Adjustment>0,'Clean data'!AL58=14,BH58=0),1,
+//IF(AND(Prep_Visit_Adjustment>0,'Clean data'!AL58>=28),1,0))))
+if(clBL >= 28 || (Medication_Visit_Adjustment >0 && clCG >= 28 || (scAQ == 0 && Prep_Visit_Adjustment >0 &&clAL >= 14)))
+{
+  scBJ = 1;
+}
+else if(scAQ == 0 && Prep_Visit_Adjustment >0 && clAL == 14 && scBF == 0)
+{
+  scBJ = 1;
+}
+else if(scAQ == 0 && Prep_Visit_Adjustment >0 && clAL == 14 && clBH == 0 )
+{
+  scBJ = 1;
+}
+else if(Prep_Visit_Adjustment >0 && clAL >= 28)
+{
+  scBJ = 1;
+}
+else
+{
+  scBJ = 0;
+}
 
 
 
@@ -5869,6 +5906,8 @@ console.log('scBE', scBE);
 console.log('scBF', scBF);
 console.log('scBG', scBG);
 console.log('scBH', scBH);
+console.log('scBI', scBI);
+console.log('scBJ', scBJ);
 //James reference
 
 //IF(this = that, true, false) -> 
