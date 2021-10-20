@@ -5376,6 +5376,58 @@ else
 }
 
 
+var scBE = "";
+//=IF(AND('Clean data'!CG58>=0.05, 'Clean data'!CG58<=7, 'Clean data'!EJ58=100,'Clean data'!EN58=100), 1, 
+//IF(AND('Clean data'!CG58>=0.05, 'Clean data'!CG58<=7, 'Clean data'!EF58=100,'Clean data'!EN58=100), 2, 
+//IF(AND('Clean data'!CG58>=0.05, 'Clean data'!CG58<=7, 'Clean data'!EF58=100,'Clean data'!EJ58=100), 3, 1)))
+if(clCG >= 0.05 && clCG <= 7 && clEJ == 100 && clEN == 100)
+{
+  scBE = 1;
+}
+else if(clCG >= 0.05 && clCG <= 7 && clEF == 100)
+{
+  scBE = 2;
+}
+else if(clCG >= 0.05 && clCG <= 7 && clEF == 100 && clEJ == 100)
+{
+  scBE = 3;
+}
+else
+{
+  scBE = 1;
+}
+
+
+ var scBF = "";
+//=IF(OR('Clean data'!AV58>=3,'Clean data'!BA58>=3,'Clean data'!BI58>=3,AND(Prep_Visit_Adjustment>0,'Clean data'!AL58>=14)),1,
+//IF(OR('Clean data'!AV58=2,'Clean data'!BA58=2,'Clean data'!BI58=2,AND(Medication_Visit_Adjustment>0,'Clean data'!CE58=2,'Clean data'!AJ58=0)),0.5,
+//IF(AND(Medication_Visit_Adjustment>0,'Clean data'!CE58>=3,'Clean data'!AJ58=0),1,
+//IF(AND('Clean data'!BC58>=2,'Clean data'!AV58=0,'Clean data'!BA58=0,'Clean data'!BI58=0,'Clean data'!CE58=0),'Clean data'!BF58/7,0))))
+if(clAV >= 3 || clBA >= 3 || clBI >= 3 &&(Prep_Visit_Adjustment >0 && clAL >= 14))
+{
+  scBF = 1;
+}
+else if(clAV == 2 || clBA == 2 || clBI == 2 &&(Medication_Visit_Adjustment>0 && clCE == 2 && clAJ == 0))
+{
+  scBF = 0.5;
+}
+else if(Medication_Visit_Adjustment >0 && clCE >= 3 && clAJ == 0)
+{
+  scBF = 1;
+}
+else if(clBC >= 2 && clAV == 0 && clBA == 0 && clBI == 0 && clCE == 0)
+{
+  scBF = clBF/7;
+}
+else
+{
+  scBF = 0;
+}
+
+
+
+
+
 console.log('----RAW----')
 console.log('rN', rN);
 console.log('rO', rO);
@@ -5786,6 +5838,8 @@ console.log('scBA', scBA);
 console.log('scBB', scBB);
 console.log('scBC', scBC);
 console.log('scBD', scBD);
+console.log('scBE', scBE);
+console.log('scBF', scBF);
 //James reference
 
 //IF(this = that, true, false) -> 
