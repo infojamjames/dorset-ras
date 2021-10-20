@@ -256,6 +256,7 @@ var MH_Homecare_Rate = 15.4;
 var PA_Homecare_rate = 0;
 var Medication_Visit_Adjustment = 0;
 var Prep_Visit_Adjustment = 0;
+var FullTime_Education_switch = 1;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -5513,6 +5514,38 @@ else
   scBL = clEE;
 }
 
+var scBM = "";
+//=IF(AND(FullTime_Education_switch=1,'Clean data'!T58=2,'Clean data'!FZ58=1,'Clean data'!DY58>=2, 'Clean data'!BL58>14, NOT('Clean data'!DY58="2nd carer")),100,
+//IF(AND(FullTime_Education_switch=1,'Clean data'!T58=2,'Clean data'!FZ58=1,'Clean data'!DY58=1, 'Clean data'!BL58>14),57.1429,
+//IF(AND(FullTime_Education_switch=1,'Clean data'!T58=2,'Clean data'!FZ58=1,'Clean data'!DY58=0,  'Clean data'!BL58>14),0,
+//IF('Clean data'!EI58=50,0,'Clean data'!EI58))))
+if(FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && clDY >= 2 && clBL > 14 != clDY == "2nd carer" )
+{
+  scBM = 100;
+}
+else if(FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && clDY == 1 && clBL > 14)
+{
+  scBM = 57.1429
+}
+else if(FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && clDY == 0 && clBL > 14)
+{
+  scBM = 0;
+}
+else if(clEI == 50)
+{
+  scBM = 0;
+}
+else
+{
+  scBM = clEI;
+}
+
+
+
+
+
+
+
 
 
 console.log('----RAW----')
@@ -5933,6 +5966,7 @@ console.log('scBI', scBI);
 console.log('scBJ', scBJ);
 console.log('scBK', scBK);
 console.log('scBL', scBL);
+console.log('scBM', scBM);
 //James reference
 
 //IF(this = that, true, false) -> 
