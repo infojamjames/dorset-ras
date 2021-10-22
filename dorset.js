@@ -66,6 +66,7 @@ var Informal_Support_Emotional = "Informal_Support_Emotional";
 var Work_Degree = "Work_Degree";
 var Meds_Freq = "Meds_Freq";
 var Wash_Freq = "Wash_Freq";
+var Homecare_30_min_minimum = 1;
 //Raw Data
 var rA='TCT8' ;
 var rB='' ;
@@ -5645,6 +5646,72 @@ else
   scBQ = 0;
 }
 
+var scBR = "";
+//=IF(BB59=1,BA59,
+//IF(AX59=1,(BO59/100),
+//IF(AND(AW59=1.5,AV59>1.5,AY59=1),((BL59*7)+(BN59*3))/1000,
+//IF(AY59=1,((BL59)+(BN59))/200,
+//IF(Homecare_30_min_minimum=1,BQ59,BP59)))))
+if(scBB == 1)
+{
+  scBR = scBA;
+}
+else if(scAX == 1)
+{
+  scBR = scBO/100;
+}
+else if(scAW == 1.5 && scAV > 1.5 && scAY == 1)
+{
+  scBR = ((scBL*7)+(scBN*3))/1000;
+}
+else if(scAY == 1)
+{
+  scBR = ((scBL)+(scBN))/200
+}
+else if(Homecare_30_min_minimum ==1)
+{
+  scBR = scBQ;
+}
+else
+{
+  scBR = scBP;
+}
+
+var scBS = "";
+//=IF(AND('Clean data'!DJ59>=6, OR('Clean data'!EE59=100, AL59=0),OR(AR59=0, 'Clean data'!EI59>=25),OR(AR59=0, 'Clean data'!EI59<100),OR('Clean data'!EM59=100, AQ59=0)),1,0)
+if(clDJ >= 6 && (clEE == 100 || scAL == 0) && (scAR == 0 || clEI >= 25) && (scAR == 0 || clEI < 100) && (clEM == 100 || scAQ == 0))
+{
+  scBS = 1;
+}
+else
+{
+  scBS = 0;
+}
+
+var scBT = "";
+//=IF(OR('Clean data'!AL59=7, 'Clean data'!AL59=21, 'Clean data'!AL59=28), 1, 
+//IF('Clean data'!AL59=35, 2, 
+//IF('Clean data'!AL59>=42, 3, 0)))
+if(clAL == 7 || clAL == 21 || clAL == 28)
+{
+  scBT = 1;
+}
+else if(clAL == 35)
+{
+  scBT = 2;
+}
+else if(clAL >= 42)
+{
+  scBT = 3;
+}
+else
+{
+  scBT = 0;
+}
+
+
+
+
 
 console.log('----RAW----')
 console.log('rN', rN);
@@ -6070,6 +6137,9 @@ console.log('scBN', scBN);
 console.log('scBO', scBO);
 console.log('scBP', scBP);
 console.log('scBQ', scBQ);
+console.log('scBR', scBR);
+console.log('scBS', scBS);
+console.log('scBT', scBT);
 //James reference
 
 //IF(this = that, true, false) -> 
