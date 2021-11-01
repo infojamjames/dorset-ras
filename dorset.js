@@ -6017,7 +6017,57 @@ else
   scCF = scCE;
 }
 
+var scCG = "";
+//=IF(BY59=0,0,
+//IF(AND(BY59=1,Prep_Visit_Adjustment<2),(Prep_Visit_Adjustment*0.25)*7,
+//IF(AND(BY59=1,Prep_Visit_Adjustment=2),(1*0.25)*7,
+//IF(AND(BY59=2,Prep_Visit_Adjustment=2,'Clean data'!AN59=2),(1*0.25)*7,
+//IF(AND(BY59=2,Prep_Visit_Adjustment<2,'Clean data'!AN59=2),(1*0.25)*7,
+//IF(AND(BY59=2,'Clean data'!AN59>=3),(1*0.25)*7,
+//IF(AND(BY59=3),(1*0.25)*7,0)))))))
+if(scBY == 0)
+{
+  scCG = 0;
+}
+else if(scBY == 1 && Prep_Visit_Adjustment <2)
+{
+  scCG = (Prep_Visit_Adjustment*0.25)*7;
+}
+else if(scBY == 1 && Prep_Visit_Adjustment ==2 )
+{
+  scCG = (1*0.25)*7;
+}
+else if(scBY == 2 && Prep_Visit_Adjustment == 2 && clAN == 2 )
+{
+  scCG = (1*0.25)*7;
+}
+else if(scBY == 2 && Prep_Visit_Adjustment <2 && clAN == 2)
+{
+  scCG = (1*0.25)*7;
+}
+else if(scBY == 2 && clAN >= 3)
+{
+  scCG = (1*0.25)*7;
+}
+else if(scBY == 3)
+{
+  scCG = (1*0.25)*7;
+}
+else
+{
+  scCG = 0;
+}
 
+var scCH = "";
+//=IF(AND(FullTime_Education_switch=1,CG59>0,'Clean data'!T59=2,'Clean data'!FZ59=1),(CG59/7)*2,CG59)
+if(FullTime_Education_switch ==1 && clT == 2 && clFZ == 1)
+{
+  scCH = (scCG/7)*2;
+}
+else
+{
+  scCH = scCG;
+}
 
 
 
@@ -6462,6 +6512,8 @@ console.log('scCC', scCC);
 console.log('scCD', scCD);
 console.log('scCE', scCE);
 console.log('scCF', scCF);
+console.log('scCG', scCG);
+console.log('scCH', scCH);
 //James reference
 
 //IF(this = that, true, false) -> 
