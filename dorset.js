@@ -6069,6 +6069,50 @@ else
   scCH = scCG;
 }
 
+var scCI = "";
+//=IF(BZ59=0,0,
+//IF(AND(BZ59=1,Prep_Visit_Adjustment<2),(Prep_Visit_Adjustment*0.25)*7,
+//IF(AND(BZ59=1,Prep_Visit_Adjustment=2),(1*0.25)*7,
+//IF(AND(BZ59=2,Prep_Visit_Adjustment=2,'Clean data'!AN59=2),(1*0.25)*7,
+//IF(AND(BZ59=2,Prep_Visit_Adjustment<2,'Clean data'!AN59=2),(1*0.25)*7,
+//IF(AND(BZ59=2,'Clean data'!AN59>=3),(1*0.25)*7,
+//IF(AND(BZ59=3),(1*0.25)*7,0)))))))
+if(scBZ == 0)
+{
+  scCI = 0;
+}
+else if(scBZ == 1 && Prep_Visit_Adjustment <2)
+{
+  scCI = (Prep_Visit_Adjustment*0.25)*7;
+}
+else if(scBZ == 1 && Prep_Visit_Adjustment ==2)
+{
+  scCI = (1*0.25)*7;
+}
+else if(scBZ == 2 && Prep_Visit_Adjustment ==2 && clAN == 2)
+{
+  scCI = (1*0.25)*7;
+}
+else if(scBZ == 2 && Prep_Visit_Adjustment <2 && clAN == 2)
+{
+  scCI = (1*0.25)*7;
+}
+else if(scBZ == 2 && clAN >= 3)
+{
+  scCI = (1*0.25)*7;
+}
+else if(scBZ == 3)
+{
+  scCI = (1*0.25)*7;
+}
+else
+{
+  scCI = 0;
+}
+
+
+
+
 
 
 
@@ -6514,6 +6558,7 @@ console.log('scCE', scCE);
 console.log('scCF', scCF);
 console.log('scCG', scCG);
 console.log('scCH', scCH);
+console.log('scCI', scCI);
 //James reference
 
 //IF(this = that, true, false) -> 
