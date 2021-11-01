@@ -5730,6 +5730,80 @@ else
   scBU = 0;
 }
 
+var scBV = "";
+//=IF('Clean data'!DU59="NoNeed",0,
+//IF(AND(OR(AND('Clean data'!AL59=7,BD59=1),'Clean data'!AL59>=14),NOT(BU59=1),'Clean data'!AN59>=2,'Clean data'!AR59=1),3,
+//IF(AND(OR(AND('Clean data'!AL59=7,BD59=1),'Clean data'!AL59>=14),NOT(BU59=1),'Clean data'!AN59>=2,'Clean data'!AR59=0),2,
+//IF(AND(OR(AND('Clean data'!AL59=7,BD59=1),'Clean data'!AL59>=14),NOT(BU59=1),'Clean data'!AJ59>=2),1,0))))
+if(clDU == "NoNeed")
+{
+  scBV = 0;
+}
+else if(((clAL == 7 && scBD == 1) || (clAL >= 14)) && scBU != 1 && clAN >= 2 && clAR == 1)
+{
+  scBV = 3;
+}
+else if(((clAL == 7 && scBD == 1) || (clAL >= 14)) && scBU != 1 && clAN >= 2 && clAR == 0)
+{
+  scBV = 2;
+}
+else if(((clAL == 7 && scBD == 1) || (clAL >= 14)) && scBU != 1 && clAJ >= 2)
+{
+  scBV = 1;
+}
+else
+{
+  scBV = 0;
+}
+
+ var scBW = "";
+//=IF(AND('Clean data'!AL59>=42,'Clean data'!AN59>=2,'Clean data'!AR59=1),3,
+//IF(AND('Clean data'!AL59>=42,'Clean data'!AN59>=3,'Clean data'!AR59=0),2,
+//IF(AND('Clean data'!AL59>=42,'Clean data'!AJ59>=2),1,0)))
+if(clAL >= 42 && clAN >= 2 && clAR == 1)
+{
+  scBW = 3;
+}
+else if(clAL >= 42 && clAN >= 3 && clAR == 0)
+{
+  scBW = 2;
+}
+else if(clAL >= 42 && clAJ >= 2)
+{
+  scBW = 1;
+}
+else
+{
+  scBW = 0;
+}
+
+var scBX = "";
+//=IF('Clean data'!DX59="NoNeed",0,
+//IF(AND(OR(AND('Clean data'!AL59=7,BD59=2),'Clean data'!AL59>=21,AND('Clean data'!AL59>=14,NOT(BU59=2))),'Clean data'!AN59>=2,'Clean data'!AR59=1),3,
+//IF(AND(OR(AND('Clean data'!AL59=7,BD59=2),'Clean data'!AL59>=21,AND('Clean data'!AL59>=14,BU59=2)),NOT(BU59=2),'Clean data'!AN59>=2,'Clean data'!AR59=0),2,
+//IF(AND(OR(AND('Clean data'!AL59=7,BD59=2),'Clean data'!AL59>=21,AND('Clean data'!AL59>=14,NOT(BU59=2))),NOT(BU59=2),NOT(BT59=0),'Clean data'!AJ59>=2),1,0))))
+if(clDX == "NoNeed")
+{
+  scBX = 0;
+}
+else if(((clAL == 7 && scBD == 2) || clAL >= 21 || (clAL >= 14 && scBU != 2) && clAN >= 2 && clAR == 1))
+{
+  scBX = 3;
+}
+else if(((clAL == 7 && scBD == 2) || clAL >= 21 || (clAL >= 14 && scBU == 2) && scBU != 2  && clAN >=2 && clAR == 0)) 
+{
+  scBX = 2;
+}
+else if(((clAL == 7 && scBD == 2) || clAL >= 21 || (clAL >= 14 && scBU != 2) && scBU != 2 && scBT != 0 && clAJ >=2))
+{
+  scBX = 1;
+} 
+else
+{
+  scBX = 0;
+}
+
+
 
 
 
@@ -6164,6 +6238,9 @@ console.log('scBR', scBR);
 console.log('scBS', scBS);
 console.log('scBT', scBT);
 console.log('scBU', scBU);
+console.log('scBV', scBV);
+console.log('scBW', scBW);
+console.log('scBX', scBX);
 //James reference
 
 //IF(this = that, true, false) -> 
