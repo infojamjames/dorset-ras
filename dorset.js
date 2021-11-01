@@ -5954,6 +5954,16 @@ else
   scCC = 0;
 }
 
+var scCD = "";
+//=IF(AND(FullTime_Education_switch=1,CC59>0,'Clean data'!T59=2,'Clean data'!FZ59=1),(CC59/7)*2,CC59)
+if(FullTime_Education_switch ==1 && scCC >0 && clT == 2 && clFZ == 1)
+{
+  scCD = (scCC/7)*2;
+}
+else
+{
+  scCD = scCC;
+}
 
 
 
@@ -6396,6 +6406,7 @@ console.log('scBZ', scBZ);
 console.log('scCA', scCA);
 console.log('scCB', scCB);
 console.log('scCC', scCC);
+console.log('scCD', scCD);
 //James reference
 
 //IF(this = that, true, false) -> 
