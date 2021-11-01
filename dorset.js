@@ -5829,6 +5829,31 @@ else
   scBY = 0;
 }
 
+var scBZ = "";
+//=IF('Clean data'!EA59="NoNeed",0,
+//IF(AND('Clean data'!AL59>=28,'Clean data'!AN59>=2,'Clean data'!AR59=1),3,
+//IF(AND('Clean data'!AL59>=28,'Clean data'!AN59>=3,'Clean data'!AR59=0),2,
+//IF(AND('Clean data'!AL59>=28,'Clean data'!AJ59>=2),1,0))))
+if(clEA == "NoNeed")
+{
+  scBZ = 0;
+}
+else if(clAL >= 28 && clAN >= 2 && clAR == 1)
+{
+  scBZ = 3;
+}
+else if(clAL >= 28 && clAN >= 3 && clAR == 0)
+{
+  scBZ = 2;
+}
+else if(clAL >= 28 && clAJ >= 2)
+{
+  scBZ = 1;
+}
+else
+{
+  scBZ = 0;
+}
 
 
 
@@ -6266,6 +6291,7 @@ console.log('scBV', scBV);
 console.log('scBW', scBW);
 console.log('scBX', scBX);
 console.log('scBY', scBY);
+console.log('scBZ', scBZ);
 //James reference
 
 //IF(this = that, true, false) -> 
