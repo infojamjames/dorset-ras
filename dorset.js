@@ -5855,6 +5855,28 @@ else
   scBZ = 0;
 }
 
+var scCA = "";
+//=IF(AND(OR(AND('Clean data'!AL59=7,BD59=3),'Clean data'!AL59>=14),NOT(BU59=3),'Clean data'!AN59>=2,'Clean data'!AR59=1),3,
+//IF(AND(OR(AND('Clean data'!AL59=7,BD59=3),'Clean data'!AL59>=14),NOT(BU59=3),'Clean data'!AN59>=2,'Clean data'!AR59=0),2,
+//IF(AND(OR(AND('Clean data'!AL59=7,BD59=3),'Clean data'!AL59>=14),NOT(BU59=3),'Clean data'!AJ59>=2),1,0)))
+
+if(((clAL == 7 && scBD == 3) || clAL >= 14) && scBU != 3 && clAN >= 2 && clAR == 1)
+{
+  scCA = 3;
+}
+else if(((clAL == 7 && scBD == 3) || clAL >= 14 && scBU != 3 && clAN >= 2 && clAR == 0))
+{
+  scCA = 2;
+}
+else if(((clAL == 7 && scBD == 3) || clAL >= 14 && scBU != 3 && clAJ >= 2 ))
+{
+  scCA = 1;
+}
+else 
+{
+  scCA = 0;
+}
+
 
 
 
@@ -6292,6 +6314,7 @@ console.log('scBW', scBW);
 console.log('scBX', scBX);
 console.log('scBY', scBY);
 console.log('scBZ', scBZ);
+console.log('scCA', scCA);
 //James reference
 
 //IF(this = that, true, false) -> 
