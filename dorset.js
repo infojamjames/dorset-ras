@@ -5917,6 +5917,45 @@ else
   scCB = 0;
 }
 
+var scCC = "";
+//=IF(BW59=0,0,
+//IF(AND(BW59=1,Prep_Visit_Adjustment<2),(Prep_Visit_Adjustment*0.25)*7,
+//IF(AND(BW59=1,Prep_Visit_Adjustment=2),(1*0.25)*7,
+//IF(AND(BW59=2,Prep_Visit_Adjustment=2,'Clean data'!AN59=2),(1*0.25)*7,
+//IF(AND(BW59=2,Prep_Visit_Adjustment<2,'Clean data'!AN59=2),(1*0.25)*7,
+//IF(AND(BW59=2,'Clean data'!AN59>=3),(1*0.25)*7,
+//IF(AND(BW59=3),(1*0.25)*7,0)))))))
+if(scBW == 0)
+{
+  scCC = 0;
+}
+else if(scBW == 1 && Prep_Visit_Adjustment <2)
+{
+  scCC = (Prep_Visit_Adjustment*0.25)*7;
+}
+else if(scBW == 1 && Prep_Visit_Adjustment == 2)
+{
+  scCC = (1*0.25)*7
+}
+else if(scBW == 2 && Prep_Visit_Adjustment  == 2  && clAN == 2)
+{
+  scCC = (1*0.25)*7;
+}
+else if(scBW == 2 && clAN >= 3)
+{
+  scCC = (1*0.25)*7;
+}
+else if(scBW == 3)
+{
+  scCC = (1*0.25)*7;
+}
+else
+{
+  scCC = 0;
+}
+
+
+
 
 
 
@@ -6356,6 +6395,7 @@ console.log('scBY', scBY);
 console.log('scBZ', scBZ);
 console.log('scCA', scCA);
 console.log('scCB', scCB);
+console.log('scCC', scCC);
 //James reference
 
 //IF(this = that, true, false) -> 
