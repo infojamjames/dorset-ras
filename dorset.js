@@ -5859,7 +5859,6 @@ var scCA = "";
 //=IF(AND(OR(AND('Clean data'!AL59=7,BD59=3),'Clean data'!AL59>=14),NOT(BU59=3),'Clean data'!AN59>=2,'Clean data'!AR59=1),3,
 //IF(AND(OR(AND('Clean data'!AL59=7,BD59=3),'Clean data'!AL59>=14),NOT(BU59=3),'Clean data'!AN59>=2,'Clean data'!AR59=0),2,
 //IF(AND(OR(AND('Clean data'!AL59=7,BD59=3),'Clean data'!AL59>=14),NOT(BU59=3),'Clean data'!AJ59>=2),1,0)))
-
 if(((clAL == 7 && scBD == 3) || clAL >= 14) && scBU != 3 && clAN >= 2 && clAR == 1)
 {
   scCA = 3;
@@ -5875,6 +5874,47 @@ else if(((clAL == 7 && scBD == 3) || clAL >= 14 && scBU != 3 && clAJ >= 2 ))
 else 
 {
   scCA = 0;
+}
+
+var scCB = "";
+//=IF(BV59=0,0,
+//IF(AND(BV59=1,Prep_Visit_Adjustment<2),(Prep_Visit_Adjustment*0.25)*7,
+//IF(AND(BV59=1,Prep_Visit_Adjustment=2),(Prep_Visit_Adjustment*0.25)*7,
+//IF(AND(BV59=2,Prep_Visit_Adjustment=2,'Clean data'!AN59=2),(1*0.5)*7,
+//IF(AND(BV59=2,Prep_Visit_Adjustment<2,'Clean data'!AN59=2),(1*0.375)*7,
+//IF(AND(BV59=2,'Clean data'!AN59>=3),(1*0.5)*7,
+//IF(AND(BV59=3),(1*0.75)*7,0)))))))
+if(scBV == 0)
+{
+  scCB = 0;
+}
+else if(scBV == 1 && Prep_Visit_Adjustment <2)
+{
+  scCB = (Prep_Visit_Adjustment*0.25)*7;
+}
+else if(scBV == 1 && Prep_Visit_Adjustment == 2 )
+{
+  scCB = (Prep_Visit_Adjustment*0.25)*7;
+}
+else if(scBV == 2 && Prep_Visit_Adjustment == 2 && clAN == 2)
+{
+  scCB = (1*0.5)*7;
+}
+else if(scBV == 2 && Prep_Visit_Adjustment <2 && clAN == 2)
+{
+  scCB = (1*0.375)*7;
+}
+else if(scBV == 2 && clAN >= 3)
+{
+  scCB = (1*0.5)*7;
+}
+else if(scBV == 3)
+{
+  scCB = (1*0.75)*7;
+}
+else 
+{
+  scCB = 0;
 }
 
 
@@ -6315,6 +6355,7 @@ console.log('scBX', scBX);
 console.log('scBY', scBY);
 console.log('scBZ', scBZ);
 console.log('scCA', scCA);
+console.log('scCB', scCB);
 //James reference
 
 //IF(this = that, true, false) -> 
