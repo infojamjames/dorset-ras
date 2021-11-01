@@ -258,6 +258,7 @@ var PA_Homecare_rate = 0;
 var Medication_Visit_Adjustment = 0;
 var Prep_Visit_Adjustment = 0;
 var FullTime_Education_switch = 1;
+var Eating_addition_adj = 0.25;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -6110,6 +6111,120 @@ else
   scCI = 0;
 }
 
+var scCJ = "";
+//=IF(CA59=0,0,
+//IF(AND(CA59=1,Prep_Visit_Adjustment<2),(Prep_Visit_Adjustment*0.25)*7,
+//IF(AND(CA59=1,Prep_Visit_Adjustment=2),(Prep_Visit_Adjustment*0.25)*7,
+//IF(AND(CA59=2,Prep_Visit_Adjustment=2,'Clean data'!AN59=2),(1*0.5)*7,
+//IF(AND(CA59=2,Prep_Visit_Adjustment<2,'Clean data'!AN59=2),(1*0.375)*7,
+//IF(AND(CA59=2,'Clean data'!AN59>=3),(1*0.5)*7,
+//IF(AND(CA59=3),(1*0.75)*7,0)))))))
+if(scCA == 0)
+{
+  scCJ = 0;
+}
+else if(scCA == 1 && Prep_Visit_Adjustment <2 )
+{
+  scCJ = (Prep_Visit_Adjustment*0.25)*7;
+}
+else if(scCA == 1 && Prep_Visit_Adjustment == 2 )
+{
+  scCJ = (Prep_Visit_Adjustment*0.25)*7;
+}
+else if(scCA == 2 && Prep_Visit_Adjustment == 2 && clAN == 2)
+{
+  scCJ = (1*0.5)*7;
+}
+else if(scCA == 2 && Prep_Visit_Adjustment <2 && clAN == 2)
+{
+  scCJ = (1*0.375)*7;
+}
+else if(scCA == 2 && clAN >= 3)
+{
+  scCJ = (1*0.5)*7;
+}
+else if(scCA == 3)
+{
+  scCJ = (1*0.75)*7;
+}
+else
+{
+  scCJ = 0;
+}
+
+var scCK = "";
+//=IF(CB59=0,0,
+//IF(AND(AL59>=0.5,BV59=1),CB59*Meals_addition_adj,
+//IF(AND(AL59>=0.5,BV59=2),CB59*Eating_addition_adj,
+//IF(AND(AL59>=0.5,BV59=3),CB59*Extend_addition_adj,CB59))))
+if(scCB == 0)
+{
+  scCK = 0;
+}
+else if(scAL >= 0.5 && scBV == 1)
+{
+  scCK = scCB*Meals_addition_adj;
+}
+else if(scAL >= 0.5 && scBV == 2)
+{
+  scCK = scCB*Eating_addition_adj
+}
+else if(scAL >= 0.5 && scBV == 3)
+{
+  scCK = scCB*Extend_addition_adj
+}
+else
+{
+  scCK = scCB;
+}
+
+var scCL = "";
+//=IF(CD59=0,0,
+//IF(AND(AM59=1,BW59=1),CD59*Meals_addition_adj,
+//IF(AND(AM59=1,BW59=2),CD59*Eating_addition_adj,
+//IF(AND(AM59=1,BW59=3),CD59*Extend_snacks_addition_adj,CD59))))
+if(scCD == 0)
+{
+  scCL = 0;
+}
+else if(scAM == 1 && scBW == 1)
+{
+  scCL = scCD*Meals_addition_adj;
+}
+else if(scAM == 1 && scBW == 2)
+{
+  scCL = scCD*Eating_addition_adj;
+}
+else if(scAM == 1 && scBW == 3)
+{
+  scCL = scCD*Extend_snacks_addition_adj;
+}
+else
+{
+  scCL = scCD;
+}
+
+var scCM = "";
+//=IF(CF59=0,0,
+//IF(AND(AN59=1,BX59=1),CF59*Meals_addition_adj,
+//IF(AND(AN59=1,BX59=2),CF59*Eating_addition_adj,
+//IF(AND(AN59=1,BX59=3),CF59*Extend_snacks_addition_adj,CF59))))
+if(scAN == 1 && scBX == 1)
+{
+  scCM = scCF*Meals_addition_adj;
+}
+else if(scAN == 1 && scBX == 2)
+{
+  scCM = scCF*Eating_addition_adj;
+}
+else if(scAN == 1 && scBX == 3)
+{
+  scCM = scCF*Extend_snacks_addition_adj;
+}
+else
+{
+  scCM = scCF;
+}
 
 
 
@@ -6559,6 +6674,10 @@ console.log('scCF', scCF);
 console.log('scCG', scCG);
 console.log('scCH', scCH);
 console.log('scCI', scCI);
+console.log('scCJ', scCJ);
+console.log('scCK', scCK);
+console.log('scCL', scCL);
+console.log('scCM', scCM);
 //James reference
 
 //IF(this = that, true, false) -> 
