@@ -6873,7 +6873,26 @@ else
   scDV = 0;
 }
 
-
+var scDW = "";
+//=IF(Scores!BW59=3, Scores!CL59, 
+//IF(Scores!BW59=1, 0, 
+//IF(AND(Scores!BW59=2, CD59>0), 7*0.0625, 0)))
+if(scBW == 3)
+{
+  scDW = scCL;
+}
+else if(scBW == 1)
+{
+  scDW = 0;
+}
+else if(scBW == 2 && scCD > 0)
+{
+  scDW = 7*0.0625;
+}
+else
+{
+  scDW = 0;
+}
 
 
 
@@ -7358,6 +7377,7 @@ console.log('scDS', scDS);
 console.log('scDT', scDT);
 console.log('scDU', scDU);
 console.log('scDV', scDV);
+console.log('scDW', scDW);
 //James reference
 
 //IF(this = that, true, false) -> 
