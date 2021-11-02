@@ -6496,7 +6496,7 @@ if(clCG == 0.1)
 {
   scCZ = 0;
 } 
-else if((scBE = 2 && clCG >= 7) || clCG >= 21 && clCE >= 2)
+else if((scBE == 2 && clCG >= 7) || clCG >= 21 && clCE >= 2)
 {
   scCZ = ((7*0.25)*Medication_Visit_Adjustment);
 }
@@ -6559,7 +6559,21 @@ else
   scDD = 0;
 }
 
-
+var scDE = "";
+//=IF('Clean data'!CG59=0.1,0,
+//IF(AND(OR(AND(BE59=3,'Clean data'!CG59>=7),'Clean data'!CG59>=14),'Clean data'!CE59>=2),((7*0.25)*Medication_Visit_Adjustment),0))
+if(clCG == 0.1)
+{
+  scDE = 0;
+}
+else if((scBE == 3 && clCG >= 7) || clCG >= 14 && clCE >= 2)
+{
+  scDE = ((7*0.25)*Medication_Visit_Adjustment);
+}
+else
+{
+  scDE = 0;
+}
 
 
 
@@ -7028,6 +7042,7 @@ console.log('scDA', scDA);
 console.log('scDB', scDB);
 console.log('scDC', scDC);
 console.log('scDD', scDD);
+console.log('scDE', scDE);
 //James reference
 
 //IF(this = that, true, false) -> 
