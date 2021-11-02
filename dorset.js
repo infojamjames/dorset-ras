@@ -6982,6 +6982,39 @@ var scEB = "";
 //=SUM(DV59:EA59)
 scEB = (scDV + scEA)
 
+var scEC = "";
+//=IF(AND('Clean data'!BD59=1,'Clean data'!BF59>=7),3.5,
+//IF(AND('Clean data'!BD59=1,'Clean data'!BF59<7),'Clean data'!BF59*0.5,0))
+if(clBD == 1 && clBF >= 7)
+{
+  scEC = 3.5;
+}
+else if(clBD == 1 && clBF < 7)
+{
+  scEC = clBF*0.5;
+}
+else
+{
+  scEC = 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7475,6 +7508,7 @@ console.log('scDY', scDY);
 console.log('scDZ', scDZ);
 console.log('scEA', scEA);
 console.log('scEB', scEB);
+console.log('scEC', scEC);
 //James reference
 
 //IF(this = that, true, false) -> 
