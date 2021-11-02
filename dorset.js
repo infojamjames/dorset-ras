@@ -6532,10 +6532,16 @@ else
   scDB = 0;
 }
 
-
-
-
-
+var scDC = "";
+//=IF(AND(FullTime_Education_switch=1,DB59>0,'Clean data'!T59=2,'Clean data'!FZ59=1),(DB59/7)*2,DB59)
+if(FullTime_Education_switch == 1 && scDB > 0 && clT == 2 && clFZ == 1)
+{
+  scDC = (scDB/7)*2
+}
+else
+{
+  scDC = scDB;
+}
 
 
 
@@ -7006,6 +7012,7 @@ console.log('scCY', scCY);
 console.log('scCZ', scCZ);
 console.log('scDA', scDA);
 console.log('scDB', scDB);
+console.log('scDC', scDC);
 //James reference
 
 //IF(this = that, true, false) -> 
