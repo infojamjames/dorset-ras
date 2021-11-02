@@ -6612,6 +6612,23 @@ else
   scDG = scCY;
 }
 
+var scDH = "";
+//=IF(DA59=0,0,
+//IF(AND(AN59=1),0,DA59))
+if(scDA == 0)
+{
+  scDH = 0;
+}
+else if(scAN == 1)
+{
+  scDH = 0;
+}
+else
+{
+  scDH = scDA;
+}
+
+
 
 
 
@@ -7087,6 +7104,7 @@ console.log('scDD', scDD);
 console.log('scDE', scDE);
 console.log('scDF', scDF);
 console.log('scDG', scDG);
+console.log('scDH', scDH);
 //James reference
 
 //IF(this = that, true, false) -> 
