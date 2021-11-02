@@ -6796,6 +6796,25 @@ else
   scDP = scDI;
 }
 
+var scDQ = "";
+//=IF(AND(DL59=0,'Clean data'!DQ59=1),DJ59*(1-('Clean data'!EN59/100)),
+//IF(DL59=1,DD59,DJ59))
+if(scDL == 0 && clDQ == 1)
+{
+  scDQ = scDJ*(1-(clEN/100));
+}
+else if(scDL == 1)
+{
+  scDQ = scDD;
+}
+else 
+{
+  scDQ = scDJ;
+}
+
+
+
+
 
 
 
@@ -7278,6 +7297,7 @@ console.log('scDM', scDM);
 console.log('scDN', scDN);
 console.log('scDO', scDO);
 console.log('scDP', scDP);
+console.log('scDQ', scDQ);
 //James reference
 
 //IF(this = that, true, false) -> 
