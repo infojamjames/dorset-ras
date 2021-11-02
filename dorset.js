@@ -7283,6 +7283,52 @@ else
   scEL = 0;
 }
 
+var scEM = "";
+//=IF(EJ59=7, 0,
+//IF(EJ59=6, 2, 
+//IF(EJ59=5,4, 
+//IF(EJ59=4, 6, 
+//IF(EJ59=3,8, 
+//IF(EJ59=2, 10,
+// IF(EJ59=1, 12, 
+//IF(EJ59=0, 14,0))))))))
+if(scEJ == 7)
+{
+  scEM = 0;
+}
+else if(scEJ == 6)
+{
+  scEM = 2;
+}
+else if(scEJ == 5)
+{
+  scEM = 4;
+}
+else if(scEJ == 4)
+{
+  scEM = 6;
+}
+else if(scEJ == 3)
+{
+  scEM = 8;
+}
+else if(scEJ == 2)
+{
+  scEM = 10;
+}
+else if(scEJ == 1)
+{
+  scEM = 12;
+}
+else if(scEJ == 0)
+{
+  scEM = 14;
+}
+else
+{
+  scEM = 0;
+}
+
 
 
 
@@ -7785,6 +7831,7 @@ console.log('scEI', scEI);
 console.log('scEJ', scEJ);
 console.log('scEK', scEK);
 console.log('scEL', scEL);
+console.log('scEM', scEM);
 //James reference
 
 //IF(this = that, true, false) -> 
