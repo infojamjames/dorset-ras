@@ -6358,7 +6358,7 @@ var scCS = "";
 //IF(AND(FullTime_Education_switch=1,'Clean data'!T59=2,'Clean data'!FZ59=1,CF59<CE59,'Clean data'!DX59=0),CM59,
 //IF(AND(BX59=1,'Clean data'!DR59=1),CM59*(1-('Clean data'!EH59/100)),
 //IF(AND(OR(BX59=2,BX59=3),'Clean data'!DT59=1),CM59*(1-('Clean data'!EH59/100)),CM59)))))
-if((FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scCF < scCE && clDX >= 2 && (clDX == "2nd carer")))
+if((FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scCF < scCE && clDX >= 2 && (clDX != "2nd carer")))
 {
   scCS = 0;
 }
@@ -6382,6 +6382,19 @@ else
 {
   scCS = scCM;
 }
+
+var scCT = "";
+//=IF(AND(FullTime_Education_switch=1,'Clean data'!T59=2,'Clean data'!FZ59=1,CH59<CG59,'Clean data'!DX59>=2, NOT('Clean data'!DX59="2nd carer")),0,
+//IF(AND(FullTime_Education_switch=1,'Clean data'!T59=2,'Clean data'!FZ59=1,CH59<CG59,OR('Clean data'!DX59=1, 'Clean data'!DX59="2nd carer")),CN59/2,
+//IF(AND(FullTime_Education_switch=1,'Clean data'!T59=2,'Clean data'!FZ59=1,CH59<CG59,'Clean data'!DX59=0),CN59,
+//IF(AND(BY59=1,'Clean data'!DS59=1),CN59*(1-('Clean data'!EH59/100)),
+//IF(AND(OR(BY59=2,BY59=3),'Clean data'!DT59=1),CN59*(1-('Clean data'!EH59/100)),CN59)))))
+if(FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scCH < scCG && clDX >= 2)
+
+
+
+
+
 
 
 
