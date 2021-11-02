@@ -6430,6 +6430,22 @@ else
   scCU = scCO;
 }
 
+var scCV = "";
+//=IF(AND(CA59=1,'Clean data'!DS59=1),CP59*(1-('Clean data'!EL59/100)),
+//IF(AND(OR(CA59=2,CA59=3),'Clean data'!DT59=1),CP59*(1-('Clean data'!EL59/100)),CP59))
+if(scCA == 1&& clDS == 1)
+{
+  scCV = scCP*(1-(clEL/100));
+}
+else if(((scCA == 2 || scCA == 3) && clDT == 1))
+{
+  scCV = scCP*(1-(clEL/100));
+}
+else
+{
+  scCV = scCP;
+}
+
 
 
 
@@ -6894,6 +6910,7 @@ console.log('scCR', scCR);
 console.log('scCS', scCS);
 console.log('scCT', scCT);
 console.log('scCU', scCU);
+console.log('scCV', scCV);
 //James reference
 
 //IF(this = that, true, false) -> 
