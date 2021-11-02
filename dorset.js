@@ -6446,6 +6446,22 @@ else
   scCV = scCP;
 }
 
+var scCW = "";
+//=IF('Clean data'!CG59=0.1,0,
+//IF(AND(OR(AND(BE59=1,'Clean data'!CG59>=7),'Clean data'!CG59>=14),'Clean data'!CE59>=2),((7*0.25)*Medication_Visit_Adjustment),0))
+if(clCG == 0.1)
+{
+  scCW = 0;
+}
+else if((scBE == 1 && clCG >= 7) || clCG >= 14 && clCE >= 2)  
+{
+  scCW = ((7*0.25)*Medication_Visit_Adjustment)
+}
+else
+{
+  scCW = 0;
+}
+
 
 
 
@@ -6911,6 +6927,7 @@ console.log('scCS', scCS);
 console.log('scCT', scCT);
 console.log('scCU', scCU);
 console.log('scCV', scCV);
+console.log('scCW', scCW);
 //James reference
 
 //IF(this = that, true, false) -> 
