@@ -6389,7 +6389,35 @@ var scCT = "";
 //IF(AND(FullTime_Education_switch=1,'Clean data'!T59=2,'Clean data'!FZ59=1,CH59<CG59,'Clean data'!DX59=0),CN59,
 //IF(AND(BY59=1,'Clean data'!DS59=1),CN59*(1-('Clean data'!EH59/100)),
 //IF(AND(OR(BY59=2,BY59=3),'Clean data'!DT59=1),CN59*(1-('Clean data'!EH59/100)),CN59)))))
-if(FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scCH < scCG && clDX >= 2)
+if((FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scCH < scCG && clDX >= 2 && (clDX != "2nd carer")))
+{
+  scCT = 0;
+}
+else if((FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scCH < scCG && (clDX == 1 || clDX == "2nd carer")))
+{
+  scCT = scCN/2
+}
+else if(FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scCH < scCG && clDX == 0)
+{
+  scCT = scCN;
+}
+else if(scBY == 1 && clDS == 1)
+{
+  scCT = scCN*(1-(clEH/100))
+}
+else if(((scBY == 2 || scBY == 3)&& clDT == 1))
+{
+  scCT = scCN*(1-(clEH/100))
+}
+else
+{
+  scCT = scCN;
+}
+
+
+
+
+
 
 
 
@@ -6855,6 +6883,7 @@ console.log('scCP', scCP);
 console.log('scCQ', scCQ);
 console.log('scCR', scCR);
 console.log('scCS', scCS);
+console.log('scCT', scCT);
 //James reference
 
 //IF(this = that, true, false) -> 
