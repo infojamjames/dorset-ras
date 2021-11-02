@@ -6304,6 +6304,25 @@ else
   scCP = scCP;
 }
 
+var scCQ = "";
+//=IF(AND(BV59=1,'Clean data'!DR59=1),CK59*(1-('Clean data'!ED59/100)),
+//IF(AND(OR(BV59=2,BV59=3),'Clean data'!DT59=1),CK59*(1-('Clean data'!ED59/100)),CK59))
+if(scBV == 1 && clDR == 1)
+{
+  scCQ = scCK*(1-(clED/100));
+}
+else if(((scBV == 2 || scBV == 3) && clDT == 1))
+{
+  scCQ = scCK*(1-(clED/100));
+}
+else
+{
+  scCQ = scCK;
+}
+
+
+
+
 
 
 console.log('----RAW----')
@@ -6755,6 +6774,7 @@ console.log('scCM', scCM);
 console.log('scCN', scCN);
 console.log('scCO', scCO);
 console.log('scCP', scCP);
+console.log('scCQ', scCQ);
 //James reference
 
 //IF(this = that, true, false) -> 
