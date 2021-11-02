@@ -6957,12 +6957,26 @@ else
   scDZ = 0;
 }
 
-
-
-
-
-
-
+var scEA = "";
+//=IF(Scores!CA59=3, Scores!CP59, 
+//IF(Scores!CA59=1, 0,
+//IF(AND(Scores!CA59=2,CJ59>0), 0.25*7, 0)))
+if(scCA == 3)
+{
+  scEA = scCP;
+}
+else if(scCA == 1)
+{
+  scEA = 0;
+}
+else if(scCA == 2 && scCJ > 0)
+{
+  scEA = 0.25*7;
+}
+else 
+{
+  scEA = 0;
+}
 
 
 
@@ -7458,6 +7472,7 @@ console.log('scDW', scDW);
 console.log('scDX', scDX);
 console.log('scDY', scDY);
 console.log('scDZ', scDZ);
+console.log('scEA', scEA);
 //James reference
 
 //IF(this = that, true, false) -> 
