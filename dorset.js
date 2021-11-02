@@ -6828,8 +6828,9 @@ else
   scDR = scDK;
 }
 
-
-
+var scDS = "";
+//=MAX(CK59,DF59)+MAX(CL59,DG59)+MAX(CM59,DH59)+MAX(CN59,DI59)+MAX(CO59,DJ59)+MAX(CP59,DK59)
+ scDS = Math.max(scCK, scDF) + Math.max(scCL, scDG) + Math.max(scCM, scDH) + Math.max(scCN, scDI) + Math.max(scCO, scDJ) + Math.max(scCP, scDK);
 
 
 
@@ -7313,6 +7314,7 @@ console.log('scDO', scDO);
 console.log('scDP', scDP);
 console.log('scDQ', scDQ);
 console.log('scDR', scDR);
+console.log('scDS', scDS);
 //James reference
 
 //IF(this = that, true, false) -> 
