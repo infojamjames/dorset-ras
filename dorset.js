@@ -7191,11 +7191,51 @@ else
   scEJ = 0;
 }
 
-
-
-
-
-
+var scEK = "";
+//=IF('Clean data'!FD59=0.5,0,
+//IF('Clean data'!FD59=100,7,
+//IF('Clean data'!FD59=90,6,
+//IF('Clean data'!FD59=75,4,
+//IF('Clean data'!FD59=50,2,
+//IF('Clean data'!FD59=25,0,
+//IF('Clean data'!FD59=10,0,
+//IF('Clean data'!FD59=0,0,0))))))))
+if(clFD == 0.5)
+{
+  scEK = 0;
+}
+else if(clFD == 100)
+{
+  scEK = 7;
+}
+else if(clFD == 90)
+{
+  scEK = 6;
+}
+else if(clFD == 75)
+{
+  scEK = 4;
+}
+else if(clFD == 50)
+{
+  scEK = 2;
+}
+else if(clFD == 25)
+{
+  scEK = 0;
+}
+else if(clFD == 10)
+{
+  scEK = 0;
+}
+else if(clFD == 0)
+{
+  scEK = 0;
+}
+else 
+{
+  scEK = 0;
+}
 
 
 
@@ -7698,6 +7738,7 @@ console.log('scEG', scEG);
 console.log('scEH', scEH);
 console.log('scEI', scEI);
 console.log('scEJ', scEJ);
+console.log('scEK', scEK);
 //James reference
 
 //IF(this = that, true, false) -> 
