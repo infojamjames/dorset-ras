@@ -6978,8 +6978,9 @@ else
   scEA = 0;
 }
 
-
-
+var scEB = "";
+//=SUM(DV59:EA59)
+scEB = (scDV + scEA)
 
 
 
@@ -7473,6 +7474,7 @@ console.log('scDX', scDX);
 console.log('scDY', scDY);
 console.log('scDZ', scDZ);
 console.log('scEA', scEA);
+console.log('scEB', scEB);
 //James reference
 
 //IF(this = that, true, false) -> 
