@@ -6703,6 +6703,38 @@ else
   scDM = scDF;
 }
 
+var scDN = "";
+//=IF(AND(FullTime_Education_switch=1,'Clean data'!T59=2,'Clean data'!FZ59=1,CY59<CX59,'Clean data'!DW59>=2, NOT('Clean data'!DW59="2nd carer"), NOT(DL59=1)),0,
+//IF(AND(FullTime_Education_switch=1,'Clean data'!T59=2,'Clean data'!FZ59=1,CY59<CX59,OR('Clean data'!DW59=1, 'Clean data'!DW59="2nd carer"), NOT(DL59=1)),DG59/2,
+//IF(AND(FullTime_Education_switch=1,'Clean data'!T59=2,'Clean data'!FZ59=1,CY59<CX59,'Clean data'!DW59=0, NOT(DL59=1)),DG59,
+//IF(AND(DL59=0,'Clean data'!DQ59=1),DG59*(1-('Clean data'!EF59/100)),
+//IF(DL59=1,CY59,DG59)))))
+if((FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scCY < scCX && clDW >= 2 && (clDW != "2nd carer") && (scDL != 1)))
+{
+  scDN = 0;
+}
+else if((FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scCY < scCX && (clDW == 1 || clDW == "2nd carer") && (scDL == 1)))
+{
+  scDN = scDG/2;
+}
+else if(FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scCY < scCX && clDW == 0 && scDL != 1 )
+{
+  scDN = scDG;
+}
+else if(scDL == 0 && clDQ == 1)
+{
+  scDN = scDG*(1-(clEF/100));
+}
+else if(scDL == 1)
+{
+  scDN = scCY;
+}
+else
+{
+  scDN = scDG;
+}
+
+
 
 
 
@@ -7180,6 +7212,7 @@ console.log('scDJ', scDJ);
 console.log('scDK', scDK);
 console.log('scDL', scDL);
 console.log('scDM', scDM);
+console.log('scDN', scDN);
 //James reference
 
 //IF(this = that, true, false) -> 
