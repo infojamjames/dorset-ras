@@ -6320,7 +6320,37 @@ else
   scCQ = scCK;
 }
 
-
+var scCR = "";
+//=IF(AND(FullTime_Education_switch=1,'Clean data'!T59=2,'Clean data'!FZ59=1,CD59<CC59,'Clean data'!DU59>=2, NOT('Clean data'!DU59="2nd carer")),0,
+//IF(AND(FullTime_Education_switch=1,'Clean data'!T59=2,'Clean data'!FZ59=1,CD59<CC59,OR('Clean data'!DU59=1, 'Clean data'!DU59="2nd carer")),CL59/2,
+//IF(AND(FullTime_Education_switch=1,'Clean data'!T59=2,'Clean data'!FZ59=1,CD59<CC59,'Clean data'!DU59=0),CL59,
+//IF(AND(BW59=1,'Clean data'!DS59=1),CL59*(1-('Clean data'!ED59/100)),
+//IF(AND(OR(BW59=2,BW59=3),'Clean data'!DT59=1),CL59*(1-('Clean data'!ED59/100)),
+//CL59)))))
+if((FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scCD < scCC && clDU >= 2 && (clDU != "2nd carer")))
+{
+  scCR = 0;
+}
+else if((FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scCD < scCC && (clDU == 1 || clDU == "2nd carer")))
+{
+  scCR = scCL/2;
+}
+else if(FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scCD < scCC && clDU == 1 && clDU == "2nd carer")
+{
+  scCR = scCL;
+}
+else if(scBW == 1 && clDS == 1)
+{
+  scCR = scCL*(1-(clED/100));
+}
+else if(((scBW == 2 || scBW == 3) && clDT == 1))
+{
+  scCR = scCL*(1-(clED/100));
+}
+else 
+{
+  scCR = scCL;
+}
 
 
 
@@ -6775,6 +6805,7 @@ console.log('scCN', scCN);
 console.log('scCO', scCO);
 console.log('scCP', scCP);
 console.log('scCQ', scCQ);
+console.log('scCR', scCR);
 //James reference
 
 //IF(this = that, true, false) -> 
