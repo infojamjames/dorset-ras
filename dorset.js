@@ -6894,6 +6894,42 @@ else
   scDW = 0;
 }
 
+var scDX = "";
+//=IF(Scores!BX59=3, Scores!CM59, 
+//IF(Scores!BX59=1, 0, 
+//IF(AND(Scores!BX59=2), 0.25*7, 0)))
+if(scBX == 3)
+{
+  scDX = scCM;
+}
+else if(scBX == 1)
+{
+  scDX = 0;
+}
+else if(scBX == 2)
+{
+  scDX = 0.25*7;
+}
+else
+{
+  scDX = 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 console.log('----RAW----')
@@ -7378,6 +7414,7 @@ console.log('scDT', scDT);
 console.log('scDU', scDU);
 console.log('scDV', scDV);
 console.log('scDW', scDW);
+console.log('scDX', scDX);
 //James reference
 
 //IF(this = that, true, false) -> 
