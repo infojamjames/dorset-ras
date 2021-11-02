@@ -6395,7 +6395,7 @@ if((FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scCH < scCG && cl
 }
 else if((FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scCH < scCG && (clDX == 1 || clDX == "2nd carer")))
 {
-  scCT = scCN/2
+  scCT = scCN/2;
 }
 else if(FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scCH < scCG && clDX == 0)
 {
@@ -6403,23 +6403,32 @@ else if(FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scCH < scCG &
 }
 else if(scBY == 1 && clDS == 1)
 {
-  scCT = scCN*(1-(clEH/100))
+  scCT = scCN*(1-(clEH/100));
 }
 else if(((scBY == 2 || scBY == 3)&& clDT == 1))
 {
-  scCT = scCN*(1-(clEH/100))
+  scCT = scCN*(1-(clEH/100));
 }
 else
 {
   scCT = scCN;
 }
 
-
-
-
-
-
-
+var scCU = "";
+//=IF(AND(BZ59=1,'Clean data'!DR59=1),CO59*(1-('Clean data'!EL59/100)),
+//IF(AND(OR(BZ59=2,BZ59=3),'Clean data'!DT59=1),CO59*(1-('Clean data'!EL59/100)),CO59))
+if(scBZ == 1 && clDR == 1)
+{
+  scCU = scCO*(1-(clEL/100));
+}
+else if(((scBZ == 2 || scBZ == 3) && clDT == 1))
+{
+  scCU = scCO*(1-(clEL/100));
+}
+else
+{
+  scCU = scCO;
+}
 
 
 
@@ -6884,6 +6893,7 @@ console.log('scCQ', scCQ);
 console.log('scCR', scCR);
 console.log('scCS', scCS);
 console.log('scCT', scCT);
+console.log('scCU', scCU);
 //James reference
 
 //IF(this = that, true, false) -> 
