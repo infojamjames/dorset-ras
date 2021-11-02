@@ -6644,6 +6644,25 @@ else
   scDI = scDC;
 }
 
+var scDJ = "";
+//=IF(DD59=0,0,
+//IF(AND(AP59=1),0,DD59))
+if(scDD == 0)
+{
+  scDJ = 0;
+}
+else if(scAP == 1)
+{
+  scDJ = 0;
+}
+else
+{
+  scDJ = scDD;
+}
+
+
+
+
 
 
 
@@ -7115,6 +7134,7 @@ console.log('scDF', scDF);
 console.log('scDG', scDG);
 console.log('scDH', scDH);
 console.log('scDI', scDI);
+console.log('scDJ', scDJ);
 //James reference
 
 //IF(this = that, true, false) -> 
