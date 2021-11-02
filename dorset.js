@@ -6832,6 +6832,22 @@ var scDS = "";
 //=MAX(CK59,DF59)+MAX(CL59,DG59)+MAX(CM59,DH59)+MAX(CN59,DI59)+MAX(CO59,DJ59)+MAX(CP59,DK59)
  scDS = Math.max(scCK, scDF) + Math.max(scCL, scDG) + Math.max(scCM, scDH) + Math.max(scCN, scDI) + Math.max(scCO, scDJ) + Math.max(scCP, scDK);
 
+var scDT = "";
+//=IF(AND(Scores!B59=1,Scores!G59=1,'Clean data'!DJ59=6,'Clean data'!FY59>1),DS59*SH_LD_Personal_Care_multiplier,
+//IF(Scores!B59=1,DS59*LD_Personal_Care_multiplier,DS59))
+if(scB == 1 && scG == 1 && clDJ == 6 && clFY > 1)
+{
+  scDT = scDS*SH_LD_Personal_Care_multiplier;
+}
+else if(scB == 1)
+{
+  scDT = scDS*LD_Personal_Care_multiplier;
+}
+else
+{
+  scDT = scDS;
+}
+
 
 
 
@@ -7315,6 +7331,7 @@ console.log('scDP', scDP);
 console.log('scDQ', scDQ);
 console.log('scDR', scDR);
 console.log('scDS', scDS);
+console.log('scDT', scDT);
 //James reference
 
 //IF(this = that, true, false) -> 
