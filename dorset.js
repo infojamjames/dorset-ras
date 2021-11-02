@@ -7083,7 +7083,6 @@ var scEI = "";
 //IF(AND(AR59=1,AS59<=1),((EF59*0.3333)+(EG59*0.3334)+(EH59*0.3333))/100,
 //IF(AND(AR59=2,AS59=1),((EF59*0.25)+(EG59*0.5)+(EH59*0.25))/100,
 //IF(AND(AR59=3,AS59=1),((EF59*0.2)+(EG59*0.6)+(EH59*0.2))/100,
-
 //IF(AND(AR59=4,AS59=1),((EF59*0.167)+(EG59*0.667)+(EH59*0.167))/100,Calculator!L59))))))))))))))
 if(clDV == "NoNeed" && clEB == "NoNeed")
 {
@@ -7145,6 +7144,57 @@ else
 {
   scEI = calL;
 }
+
+var scEJ = "";
+//=IF('Clean data'!FD59=0.5,0,
+//IF('Clean data'!FD59=100,7,
+//IF('Clean data'!FD59=90,7,
+//IF('Clean data'!FD59=75,7,
+//IF('Clean data'!FD59=50,7,
+//IF('Clean data'!FD59=25,7,
+//IF('Clean data'!FD59=10,4,
+//IF('Clean data'!FD59=0,0,0))))))))
+if(clFD == 0.5)
+{
+  scEJ = 0;
+}
+else if(clFD == 100)
+{
+  scEJ = 7;
+}
+else if(clFD == 90)
+{
+  scEJ = 7;
+}
+else if(clFD == 75)
+{
+  scEJ = 7;
+}
+else if(clFD == 50)
+{
+  scEJ = 7;
+}
+else if(clFD == 25)
+{
+  scEJ = 7;
+}
+else if(clFD == 10)
+{
+  scEJ = 4;
+}
+else if(clFD == 0)
+{
+  scEJ = 0;
+}
+else
+{
+  scEJ = 0;
+}
+
+
+
+
+
 
 
 
@@ -7647,6 +7697,7 @@ console.log('scEF', scEF);
 console.log('scEG', scEG);
 console.log('scEH', scEH);
 console.log('scEI', scEI);
+console.log('scEJ', scEJ);
 //James reference
 
 //IF(this = that, true, false) -> 
