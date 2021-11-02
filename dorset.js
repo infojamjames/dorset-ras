@@ -6575,6 +6575,29 @@ else
   scDE = 0;
 }
 
+var scDF = "";
+//=IF(CW59=0,0,
+//IF(AND(AL59>0,AL59<1),CW59*(1-AL59),
+//IF(AND(AL59=1),0,CW59)))
+if(scCW == 0)
+{
+  scDF = 0;
+}
+else if(scAL > 0 && scAL < 1)
+{
+  scDF = scCW*(1-scAL)
+}
+else if(scAL == 1)
+{
+  scDF = 0;
+}
+else
+{
+  scDF = scCW;
+}
+
+
+
 
 
 
@@ -7043,6 +7066,7 @@ console.log('scDB', scDB);
 console.log('scDC', scDC);
 console.log('scDD', scDD);
 console.log('scDE', scDE);
+console.log('scDF', scDF);
 //James reference
 
 //IF(this = that, true, false) -> 
