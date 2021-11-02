@@ -7020,9 +7020,16 @@ else
   scEE = 0;
 }
 
-
-
-
+var scEF = "";
+//=IF('Clean data'!EE59=50, 100, 'Clean data'!EE59)
+if(clEE == 50)
+{
+  scEF = 100;
+}
+else
+{
+  scEF = clEE;
+}
 
 
 
@@ -7531,6 +7538,7 @@ console.log('scEB', scEB);
 console.log('scEC', scEC);
 console.log('scED', scED);
 console.log('scEE', scEE);
+console.log('scEF', scEF);
 //James reference
 
 //IF(this = that, true, false) -> 
