@@ -7031,15 +7031,31 @@ else
   scEF = clEE;
 }
 
-
-
-
-
-
-
-
-
-
+var scEG = "";
+//=IF(AND(FullTime_Education_switch=1,'Clean data'!T59=2,'Clean data'!FZ59=1,'Clean data'!DY59>=2,NOT('Clean data'!DY59="2nd carer"), 'Clean data'!BL59>14),100,
+//IF(AND(FullTime_Education_switch=1,'Clean data'!T59=2,'Clean data'!FZ59=1,'Clean data'!DY59=1,'Clean data'!BL59>14),57.1429,
+//IF(AND(FullTime_Education_switch=1,'Clean data'!T59=2,'Clean data'!FZ59=1,'Clean data'!DY59=0,'Clean data'!BL59>14),0,
+//IF('Clean data'!EI59=50,100,'Clean data'!EI59))))
+if((FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && clDY >= 2 && (clDY != "2nd carer") && clBL > 14))
+{
+  scEG = 100;
+}
+else if(FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && clDY == 1 && clBL > 14)
+{
+  scEG = 57.1429;
+}
+else if(FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && clDY == 0 && clBL > 14)
+{
+  scEG = 0;
+}
+else if(clEI == 50)
+{
+  scEG = 100;
+}
+else
+{
+  scEG = clEI;
+}
 
 
 
@@ -7539,6 +7555,7 @@ console.log('scEC', scEC);
 console.log('scED', scED);
 console.log('scEE', scEE);
 console.log('scEF', scEF);
+console.log('scEG', scEG);
 //James reference
 
 //IF(this = that, true, false) -> 
