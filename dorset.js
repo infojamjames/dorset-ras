@@ -259,6 +259,7 @@ var Medication_Visit_Adjustment = 0;
 var Prep_Visit_Adjustment = 0;
 var FullTime_Education_switch = 1;
 var Eating_addition_adj = 0.25;
+var calL = 0;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -7068,11 +7069,82 @@ else
   scEH = clEM;
 }
 
+var scEI = "";
+//=IF(AND('Clean data'!DV59="NoNeed",'Clean data'!EB59="NoNeed"),1,
+//IF(AND(EF59=100,EG59=100,EH59=100),1,
+//IF(AND(ED59=0,EE59=0),0,
+//IF(AND(ED59>0,EE59=0),EF59/100,
+//IF(AND(ED59=0,EE59>0),EH59/100,
+//IF(AND(ED59>0,EE59>0,OR('Clean data'!BJ59=0,'Clean data'!BL59=14)),((EF59)+(EH59))/200,
+//IF(AND(FullTime_Education_switch=1,'Clean data'!T59=2,'Clean data'!FZ59=1,AR59=1,AS59<=1),((EF59*0.4286)+(EG59*0.1428)+(EH59*0.4286))/100,
+//IF(AND(FullTime_Education_switch=1,'Clean data'!T59=2,'Clean data'!FZ59=1,AR59=2,AS59=1),((EF59*0.4048)+(EG59*0.1904)+(EH59*0.4048))/100,
+//IF(AND(FullTime_Education_switch=1,'Clean data'!T59=2,'Clean data'!FZ59=1,AR59=3,AS59=1),((EF59*0.3572)+(EG59*0.2856)+(EH59*0.3572))/100,
+//IF(AND(FullTime_Education_switch=1,'Clean data'!T59=2,'Clean data'!FZ59=1,AR59=4,AS59=1),((EF59*0.3333)+(EG59*0.3332)+(EH59*0.3333))/100,
+//IF(AND(AR59=1,AS59<=1),((EF59*0.3333)+(EG59*0.3334)+(EH59*0.3333))/100,
+//IF(AND(AR59=2,AS59=1),((EF59*0.25)+(EG59*0.5)+(EH59*0.25))/100,
+//IF(AND(AR59=3,AS59=1),((EF59*0.2)+(EG59*0.6)+(EH59*0.2))/100,
 
-
-
-
-
+//IF(AND(AR59=4,AS59=1),((EF59*0.167)+(EG59*0.667)+(EH59*0.167))/100,Calculator!L59))))))))))))))
+if(clDV == "NoNeed" && clEB == "NoNeed")
+{
+  scEI = 1;
+}
+else if(scEF == 100 && scEG == 100 && scEH == 100)
+{
+  scEI = 1;
+}
+else if(scED == 0 && scEE == 0)
+{
+  scEI = 0;
+}
+else if(scED > 0 && scEE == 0)
+{
+  scEI = scEF/100;
+}
+else if(scED == 0 && scEE > 0 )
+{
+  scEI = scEH/100;
+}
+else if(scED > 0 && scEE > 0 && (clBJ == 0 || clBL == 14 ))
+{
+  scEI = ((scEF)+(scEH))/200;
+}
+else if(FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scAR == 1 && scAS <= 1)
+{
+  scEI = ((scEF*0.4286)+(scEG*0.1428)+(scEH*0.4286))/100;
+}
+else if(FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scAR == 2 && scAS == 1)
+{
+  scEI = ((scEF*0.4048)+(scEG*0.1904)+(scEH*0.4048))/100;
+}
+else if(FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scAR == 3 && scAS == 1)
+{
+  scEI = ((scEF*0.3572)+(scEG*0.2856)+(scEH*0.3572))/100;
+}
+else if(FullTime_Education_switch == 1 && clT == 2 && clFZ == 1 && scAR == 4 && scAS == 1)
+{
+  scEI = ((scEF*0.3333)+(scEG*0.3332)+(scEH*0.3333))/100;
+}
+else if(scAR == 1 && scAS <= 1 )
+{
+  scEI = ((scEF*0.3333)+(scEG*0.3334)+(scEH*0.3333))/100;
+}
+else if(scAR == 2 && scAS == 1)
+{
+  scEI = ((scEF*0.25)+(scEG*0.5)+(scEH*0.25))/100;
+}
+else if(scAR == 3 && scAS == 1)
+{
+  scEI = ((scEF*0.2)+(scEG*0.6)+(scEH*0.2))/100;
+}
+else if(scAR == 4 && scAS == 1)
+{
+  scEI = ((scEF*0.167)+(scEG*0.667)+(scEH*0.167))/100;
+}
+else
+{
+  scEI = calL;
+}
 
 
 
@@ -7574,6 +7646,7 @@ console.log('scEE', scEE);
 console.log('scEF', scEF);
 console.log('scEG', scEG);
 console.log('scEH', scEH);
+console.log('scEI', scEI);
 //James reference
 
 //IF(this = that, true, false) -> 
