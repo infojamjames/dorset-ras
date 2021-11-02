@@ -7057,6 +7057,23 @@ else
   scEG = clEI;
 }
 
+var scEH = "";
+//=IF('Clean data'!EM59=50, 100, 'Clean data'!EM59)
+if(clEM == 50)
+{
+  scEH = 100;
+}
+else
+{
+  scEH = clEM;
+}
+
+
+
+
+
+
+
 
 
 
@@ -7556,6 +7573,7 @@ console.log('scED', scED);
 console.log('scEE', scEE);
 console.log('scEF', scEF);
 console.log('scEG', scEG);
+console.log('scEH', scEH);
 //James reference
 
 //IF(this = that, true, false) -> 
