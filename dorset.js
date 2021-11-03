@@ -7494,10 +7494,16 @@ else
   scER = scEP;
 }
 
-
-
-
-
+var scES = "";
+//=IF(AND('Clean data'!DJ59=9,NOT('Clean data'!FD59=0.5)),ER59,0)
+if(clDJ == 9 && (clFD != 0.5))
+{
+  scES = scER;
+}
+else
+{
+  scES = 0;
+}
 
 
 
@@ -8015,6 +8021,7 @@ console.log('scEO', scEO);
 console.log('scEP', scEP);
 console.log('scEQ', scEQ);
 console.log('scER', scER);
+console.log('scES', scES);
 //James reference
 
 //IF(this = that, true, false) -> 
