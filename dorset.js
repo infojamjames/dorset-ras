@@ -8151,6 +8151,48 @@ else
   scFS = 0;
 }
 
+var scFT = "";
+//=IF(AND('Clean data'!X59=7,'Clean data'!EX59<7,Work_edu_5_Number_Activities<7,(FS59-(7-Work_edu_5_Number_Activities))>=0),(FS59-(7-Work_edu_5_Number_Activities)),
+//IF(AND('Clean data'!X59=7,'Clean data'!EX59<7,Work_edu_5_Number_Activities<7,(FS59-(7-Work_edu_5_Number_Activities))<0),0,
+//IF(AND('Clean data'!X59=5,'Clean data'!EX59<5,Work_edu_4_Number_Activities<5,(FS59-(5-Work_edu_4_Number_Activities))>=0),(FS59-(5-Work_edu_4_Number_Activities)),
+//IF(AND('Clean data'!X59=5,'Clean data'!EX59<5,Work_edu_4_Number_Activities<5,(FS59-(5-Work_edu_4_Number_Activities))<0),0,FS59))))
+if(clX == 7 && clEX < 7 && Work_edu_5_Number_Activities<7 && (scFS-(7-Work_edu_5_Number_Activities))>=0)
+{
+  scFT = (scFS-(7-Work_edu_5_Number_Activities));
+}
+else if(clX == 7 && clEX < 7 && Work_edu_5_Number_Activities <7 && (scFS-(7-Work_edu_5_Number_Activities))<0)
+{
+  scFT = 0;
+}
+else if(clX == 5 && clEX < 5 && Work_edu_4_Number_Activities <5 && (scFS-(5-Work_edu_4_Number_Activities))>=0)
+{
+  scFT = (scFS-(5-Work_edu_4_Number_Activities))
+}
+else if(clX == 5 && clEX < 5 && Work_edu_4_Number_Activities <5 && (scFS-(5-Work_edu_4_Number_Activities))<0)
+{
+  scFT = 0;
+}
+else
+{
+  scFT = scFS;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8686,6 +8728,7 @@ console.log('scFP', scFP);
 console.log('scFQ', scFQ);
 console.log('scFR', scFR);
 console.log('scFS', scFS);
+console.log('scFT', scFT);
 //James reference
 
 //IF(this = that, true, false) -> 
