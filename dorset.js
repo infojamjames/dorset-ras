@@ -7695,12 +7695,21 @@ else
   scFB = 0;
 }
 
-
-
-
-
-
-
+var scFC = "";
+//=IF(AND(ET59>0,EM59>0,EJ59=7),0,
+//IF(AND(ET59>0,EM59>0,BF59=1),3.5*(1-(EJ59/7)),0))
+if(scET > 0 && scEM > 0 && scEJ == 7)
+{
+  scFC = 0;
+}
+else if(scET > 0 && scEM > 0 && scBF == 1)
+{
+  scFC = 3.5*(1-(scEJ/7));
+}
+else
+{
+  scFC = 0;
+}
 
 
 
@@ -8228,6 +8237,7 @@ console.log('scEY', scEY);
 console.log('scEZ', scEZ);
 console.log('scFA', scFA);
 console.log('scFB', scFB);
+console.log('scFC', scFC);
 //James reference
 
 //IF(this = that, true, false) -> 
