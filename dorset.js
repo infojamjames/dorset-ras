@@ -7467,6 +7467,25 @@ else
   scEP = 0;
 }
 
+var scEQ = "";
+//=IF(AND(FullTime_Education_switch=1,EP59>0,'Clean data'!FZ59=1,'Clean data'!T59=2,'Clean data'!DJ59>=6),1,0)
+if(FullTime_Education_switch == 1 && scEP > 0 && clFZ == 1 && clT == 2 && clDJ >= 6)
+{
+  scEQ = 1;
+}
+else
+{
+  scEQ = 0;
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7979,6 +7998,7 @@ console.log('scEM', scEM);
 console.log('scEN', scEN);
 console.log('scEO', scEO);
 console.log('scEP', scEP);
+console.log('scEQ', scEQ);
 //James reference
 
 //IF(this = that, true, false) -> 
