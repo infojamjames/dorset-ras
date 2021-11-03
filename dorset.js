@@ -7478,6 +7478,21 @@ else
   scEQ = 0;
 }
 
+var scER = "";
+//=IF('Clean data'!FZ59=0, EP59, 
+//IF(EQ59=1, 0, EP59))
+if(clFZ == 0)
+{
+  scER = scEP;
+}
+else if(scEQ == 1)
+{
+  scER = 0;
+}
+else
+{
+  scER = scEP;
+}
 
 
 
@@ -7999,6 +8014,7 @@ console.log('scEN', scEN);
 console.log('scEO', scEO);
 console.log('scEP', scEP);
 console.log('scEQ', scEQ);
+console.log('scER', scER);
 //James reference
 
 //IF(this = that, true, false) -> 
