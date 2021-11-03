@@ -7831,6 +7831,32 @@ else
   scFE = 0;
 }
 
+var scFG = "";
+//=IF(AND('Clean data'!DJ59>=6,'Clean data'!FD59<=50),0,
+//IF(AND(B59=1,'Clean data'!M59=1),LD_Life_planning_inflator*Appointments,
+//IF(AND(B59=2,'Clean data'!M59=1),MH_Life_planning_inflator*Appointments,
+//IF(AND(B59=0,'Clean data'!M59=1),Appointments,0))))
+if(clDJ >= 6 && clFD <= 50)
+{
+  scFG = 0;
+}
+else if(scB == 1 && clM == 1)
+{
+  scFG = LD_Life_planning_inflator*Appointments;
+}
+else if(scB == 2 && clM == 1)
+{
+  scFG = MH_Life_planning_inflator*Appointments;
+}
+else if(scB == 0 && clM == 1)
+{
+  scFG = Appointments;
+}
+else
+{
+  scFG = 0;
+}
+
 
 
 
@@ -8352,6 +8378,7 @@ console.log('scFC', scFC);
 console.log('scFD', scFD);
 console.log('scFE', scFE);
 console.log('scFE', scFE);
+console.log('scFG', scFG);
 //James reference
 
 //IF(this = that, true, false) -> 
