@@ -261,6 +261,7 @@ var FullTime_Education_switch = 1;
 var Eating_addition_adj = 0.25;
 var calL = 0;
 var calK = 25.38;
+var Housework = 1;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -7732,12 +7733,46 @@ else
   scFD = 0;
 }
 
-
-
-
-
-
-
+var scFE = "";
+//=IF(AND('Clean data'!DJ59>=6, 'Clean data'!FD59<=50),0,
+//IF(AND(B59=1,'Clean data'!AE59=2),0.5*LD_Day_to_Day_multiplier*Housework,
+//IF(AND(B59=1,'Clean data'!AE59>2,'Clean data'!AE59<=5),LD_Day_to_Day_multiplier*Housework,
+//IF(AND(B59=2,'Clean data'!AE59=2),0.5*MH_Day_to_Day_multiplier*Housework,
+//IF(AND(B59=2,'Clean data'!AE59>2,'Clean data'!AE59<=5),MH_Day_to_Day_multiplier*Housework,
+//IF(AND(B59=0,'Clean data'!AE59=2),0.5*Housework,
+//IF(AND(B59=0,'Clean data'!AE59>2,'Clean data'!AE59<=5),Housework,0)))))))
+if(clDJ >= 6 && clFD <= 50 )
+{
+  scFE = 0;
+}
+else if(scB == 1 && clAE == 2)
+{
+  scFE = 0.5*LD_Day_to_Day_multiplier*Housework;
+}
+else if(scB == 1 && clAE > 2 && clAE <= 5)
+{
+  scFE = LD_Day_to_Day_multiplier*Housework;
+}
+else if(scB == 2 && clAE == 2)
+{
+  scFE = 0.5*MH_Day_to_Day_multiplier*Housework;
+}
+else if(scB == 2 && clAE > 2 && clAE <= 5)
+{
+  scFE = MH_Day_to_Day_multiplier*Housework;
+}
+else if(scB == 0 && clAE == 2)
+{
+  scFE = 0.5*Housework;
+}
+else if(scB == 0 && clAE > 2 && clAE <=5)
+{
+  scFE = Housework;
+}
+else
+{
+  scFE = 0;
+}
 
 
 
@@ -8257,6 +8292,7 @@ console.log('scFA', scFA);
 console.log('scFB', scFB);
 console.log('scFC', scFC);
 console.log('scFD', scFD);
+console.log('scFE', scFE);
 //James reference
 
 //IF(this = that, true, false) -> 
