@@ -7776,7 +7776,7 @@ else
   scFE = 0;
 }
 
-var scFE = "";
+var scFF = "";
 //=IF(AND('Clean data'!DJ59>=6,'Clean data'!FD59<=50),0,
 //IF(AND(B59=1,'Clean data'!AI59=2),0.5*LD_Day_to_Day_multiplier*Shopping,
 //IF(AND(B59=1,'Clean data'!AI59>2,'Clean data'!AI59<=4),LD_Day_to_Day_multiplier*Shopping,
@@ -7789,47 +7789,47 @@ var scFE = "";
 //IF(AND(B59=0,'Clean data'!AI59=5),Shopping*2,0))))))))))
 if(clDJ >= 6 && clFD <=50)
 {
-  scFE = 0;
+  scFF = 0;
 }
 else if(scB == 1 && clAI == 2)
 {
-  scFE = 0.5*LD_Day_to_Day_multiplier*Shopping;
+  scFF = 0.5*LD_Day_to_Day_multiplier*Shopping;
 }
 else if(scB == 1 && clAI > 2 && clAI <= 4)
 {
-  scFE = LD_Day_to_Day_multiplier*Shopping;
+  scFF = LD_Day_to_Day_multiplier*Shopping;
 }
 else if(scB == 2 && clAI == 2)
 {
-  scFE = 0.5*MH_Day_to_Day_multiplier*Shopping;
+  scFF = 0.5*MH_Day_to_Day_multiplier*Shopping;
 }
 else if(scB == 2 && clAI > 2 && clAI <= 4)
 {
-  scFE = MH_Day_to_Day_multiplier*Shopping;
+  scFF = MH_Day_to_Day_multiplier*Shopping;
 }
 else if(scB == 0 && clAI == 2)
 {
-  scFE = 0.5*Shopping;
+  scFF = 0.5*Shopping;
 }
 else if(scB == 0 && clAI > 2 && clAI <= 4)
 {
-  scFE = Shopping;
+  scFF = Shopping;
 }
 else if(scB == 1 && clAI ==5)
 {
-  scFE = (LD_Day_to_Day_multiplier*Shopping)*2;
+  scFF = (LD_Day_to_Day_multiplier*Shopping)*2;
 }
 else if(scB == 2 && clAI == 5)
 {
-  scFE = (MH_Day_to_Day_multiplier*Shopping)*2;
+  scFF = (MH_Day_to_Day_multiplier*Shopping)*2;
 }
 else if(scB == 0 && clAI == 5)
 {
-  scFE = Shopping*2;
+  scFF = Shopping*2;
 }
 else
 {
-  scFE = 0;
+  scFF = 0;
 }
 
 var scFG = "";
@@ -7884,8 +7884,9 @@ else
   scFH = 0;
 }
 
-
-
+var scFI = "";
+//=(FE59-(FE59*('Clean data'!ER59/100))) + (FF59-(FF59*('Clean data'!ES59/100))) + (FG59-(FG59*('Clean data'!ET59/100)))+ (FH59-(FH59*('Clean data'!EU59/100)))
+scFI = (scFE-(scFE*(clER/100))) + (scFF-(scFF*(clES/100))) + (scFG-(scFG*(clET/100))) + (scFH-(scFH*(clEU/100)));
 
 
 
@@ -8414,9 +8415,10 @@ console.log('scFB', scFB);
 console.log('scFC', scFC);
 console.log('scFD', scFD);
 console.log('scFE', scFE);
-console.log('scFE', scFE);
+console.log('scFF', scFF);
 console.log('scFG', scFG);
 console.log('scFH', scFH);
+console.log('scFI', scFI);
 //James reference
 
 //IF(this = that, true, false) -> 
