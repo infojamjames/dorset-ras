@@ -265,6 +265,7 @@ var Housework = 1;
 var Shopping = 1; 
 var Paperwork_finances = 1;
 var Social_2_Number_Activities = 1;
+var Work_edu_1_Number_Activities = 0;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -8078,6 +8079,42 @@ else
   scFQ = ((scFK-scFM)*scM);
 }
 
+var scFR = "";
+//=IF('Clean data'!V59=0,0,
+//IF('Clean data'!X59=0.5,Work_edu_1_Number_Activities,
+//IF('Clean data'!X59=1,Work_edu_2_Number_Activities,
+//IF('Clean data'!X59=2,Work_edu_3_Number_Activities,
+//IF('Clean data'!X59=5,Work_edu_4_Number_Activities,
+//IF('Clean data'!X59=7,Work_edu_5_Number_Activities,0))))))
+if(clV == 0)
+{
+  scFR = 0;
+}
+else if(clX == 0.5)
+{
+  scFR = Work_edu_1_Number_Activities;
+}
+else if(clX == 1)
+{
+  scFR = Work_edu_2_Number_Activities;
+}
+else if(clX == 2)
+{
+  scFR = Work_edu_3_Number_Activities;
+}
+else if(clX == 5)
+{
+  scFR = Work_edu_4_Number_Activities;
+}
+else if(clX == 7)
+{
+  scFR = Work_edu_5_Number_Activities;
+}
+else
+{
+  scFR = 0;
+}
+
 
 
 
@@ -8622,6 +8659,7 @@ console.log('scFN', scFN);
 console.log('scFO', scFO);
 console.log('scFP', scFP);
 console.log('scFQ', scFQ);
+console.log('scFR', scFR);
 //James reference
 
 //IF(this = that, true, false) -> 
