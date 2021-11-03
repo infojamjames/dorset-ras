@@ -7653,6 +7653,24 @@ else
   scEZ = 0;
 }
 
+var scFA = "";
+//=IF(AND(B59=1,SUM(ER59:ES59,EU59)>0),(EZ59+(MAX(CS59,DO59)+MAX(CT59,DP59)))/7*ER59*LD_Personal_Care_multiplier, 
+//IF(AND(OR(B59=0,B59=2),SUM(ER59:ES59,EU59)>0),(EZ59+(MAX(CS59,DO59)+MAX(CT59,DP59)))/7*ER59, 0))
+if(scB == 1 && (scER + scES + scEU)> 0)
+{
+  scFA = (scEZ + Math.max(scCS,scDO) + Math.max(scCT,scDP))/7*scER*LD_Personal_Care_multiplier;
+}
+else if(scB == 0 || scB == 2 && (scER + scES + scEU)> 0)
+{
+  scFA = (scEZ+ Math.max(scCS,scDO) + Math.max(scCT,scDP))/7*scER ;
+}
+else
+{
+  scFA = 0;
+}
+
+
+
 
 
 
@@ -8169,6 +8187,7 @@ console.log('scEW', scEW);
 console.log('scEX', scEX);
 console.log('scEY', scEY);
 console.log('scEZ', scEZ);
+console.log('scFA', scFA);
 //James reference
 
 //IF(this = that, true, false) -> 
