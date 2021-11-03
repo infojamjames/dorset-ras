@@ -264,6 +264,7 @@ var calK = 25.38;
 var Housework = 1;
 var Shopping = 1; 
 var Paperwork_finances = 1;
+var Social_2_Number_Activities = 1;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -7885,8 +7886,61 @@ else
 }
 
 var scFI = "";
-///=(FE59-(FE59*('Clean data'!ER59/100))) + (FF59-(FF59*('Clean data'!ES59/100))) + (FG59-(FG59*('Clean data'!ET59/100)))+ (FH59-(FH59*('Clean data'!EU59/100)))
+//=(FE59-(FE59*('Clean data'!ER59/100))) + (FF59-(FF59*('Clean data'!ES59/100))) + (FG59-(FG59*('Clean data'!ET59/100)))+ (FH59-(FH59*('Clean data'!EU59/100)))
 scFI = (scFE-(scFE*(clER/100))) + (scFF-(scFF*(clES/100))) + (scFG-(scFG*(clET/100))) + (scFH-(scFH*(clEU/100)));
+
+
+var scFJ = "";
+//=IF('Clean data'!O59=0,0,
+//IF(AND(B59=2,'Clean data'!Q59=0.5,Social_gym_MH_allocation>0),Social_gym_MH_allocation,
+//IF('Clean data'!Q59=0.5,Social_1_Number_Activities,
+//IF('Clean data'!Q59=1,Social_2_Number_Activities,
+//IF('Clean data'!Q59=2,Social_3_Number_Activities,
+//IF('Clean data'!Q59=5,Social_4_Number_Activities,
+//IF('Clean data'!Q59=7,Social_5_Number_Activities,0)))))))
+if(clO == 0)
+{
+  scFJ = 0;
+}
+else if(scB == 2 && clQ == 0.5 && Social_gym_MH_allocation >0)
+{
+  scFJ = Social_gym_MH_allocation;
+}
+else if(clQ == 0.5)
+{
+  scFJ = Social_1_Number_Activities;
+}
+else if(clQ == 1)
+{
+  scFJ = Social_2_Number_Activities;
+}
+else if(clQ == 2)
+{
+  scFJ = Social_3_Number_Activities;
+}
+else if(clQ == 5)
+{
+  scFJ = Social_4_Number_Activities;
+}
+else if(clQ == 7)
+{
+  scFJ = Social_5_Number_Activities;
+}
+else
+{
+  scFJ = 0;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8419,6 +8473,7 @@ console.log('scFF', scFF);
 console.log('scFG', scFG);
 console.log('scFH', scFH);
 console.log('scFI', scFI);
+console.log('scFJ', scFJ);
 //James reference
 
 //IF(this = that, true, false) -> 
