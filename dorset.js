@@ -263,6 +263,7 @@ var calL = 0;
 var calK = 25.38;
 var Housework = 1;
 var Shopping = 1; 
+var Paperwork_finances = 1;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -7857,6 +7858,42 @@ else
   scFG = 0;
 }
 
+var scFH = "";
+//=IF(AND('Clean data'!DJ59>=6,'Clean data'!FD59<=50),0,
+//IF(AND(B59=1,OR('Clean data'!AF59=1,'Clean data'!AG59=1)),LD_Life_planning_inflator*Paperwork_finances,
+//IF(AND(B59=2,OR('Clean data'!AF59=1,'Clean data'!AG59=1)),MH_Life_planning_inflator*Paperwork_finances,
+//IF(AND(B59=0,OR('Clean data'!AF59=1,'Clean data'!AG59=1)),Paperwork_finances,0))))
+if(clDJ >= 6 && clFD <= 50)
+{
+  scFH = 0;
+}
+else if(scB == 1 && (clAF == 1 || clAG == 1))
+{
+  scFH = LD_Life_planning_inflator*Paperwork_finances;
+}
+else if(scB == 2 && (clAF == 1 || clAG == 1))
+{
+  scFH = MH_Life_planning_inflator*Paperwork_finances;
+}
+else if(scB == 0 && (clAF == 1 || clAG == 1))
+{
+  scFH = Paperwork_finances;
+}
+else
+{
+  scFH = 0;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8379,6 +8416,7 @@ console.log('scFD', scFD);
 console.log('scFE', scFE);
 console.log('scFE', scFE);
 console.log('scFG', scFG);
+console.log('scFH', scFH);
 //James reference
 
 //IF(this = that, true, false) -> 
