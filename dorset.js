@@ -7993,6 +7993,44 @@ else
   scFL = 0;
 }
 
+var scFM = "";
+//=IF(AND('Clean data'!Q59=7,'Clean data'!EV59<7,Social_5_Number_Activities<7,(FL59-(7-Social_5_Number_Activities))>=0),(FL59-(7-Social_5_Number_Activities)),
+//IF(AND('Clean data'!Q59=7,'Clean data'!EV59<7,Social_5_Number_Activities<7,(FL59-(7-Social_5_Number_Activities))<0),0,
+//IF(AND('Clean data'!Q59=5,'Clean data'!EV59<5,Social_4_Number_Activities<5,(FL59-(5-Social_4_Number_Activities))>=0),(FL59-(5-Social_4_Number_Activities)),
+//IF(AND('Clean data'!Q59=5,'Clean data'!EV59<5,Social_4_Number_Activities<5,(FL59-(5-Social_4_Number_Activities))<0),0,FL59))))
+if(clQ == 7 && clEV < 7 && Social_5_Number_Activities <7 && (scFL-(7-Social_5_Number_Activities))>=0)
+{
+  scFM = (scFL-(7-Social_5_Number_Activities));
+}
+else if(clQ == 7 && clEV < 7 && Social_5_Number_Activities <7 && (scFL-(7-Social_5_Number_Activities))<0)
+{
+  scFM = 0;
+}
+else if(clQ == 5 && clEV < 5 && Social_4_Number_Activities <5 && (scFL-(5-Social_4_Number_Activities))>=0)
+{
+  scFM = (scFL-(5-Social_4_Number_Activities));
+}
+else if(clQ == 5 && clEV < 5 && Social_4_Number_Activities <5 && (scFL-(5-Social_4_Number_Activities))<0)
+{
+  scFM = 0;
+}
+else
+{
+  scFM = scFL;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8539,6 +8577,7 @@ console.log('scFI', scFI);
 console.log('scFJ', scFJ);
 console.log('scFK', scFK);
 console.log('scFL', scFL);
+console.log('scFM', scFM)
 //James reference
 
 //IF(this = that, true, false) -> 
