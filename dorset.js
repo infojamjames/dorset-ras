@@ -7329,6 +7329,97 @@ else
   scEM = 0;
 }
 
+var scEN = "";
+//=IF(EK59=7, 0,
+//IF(EK59=6, 0,
+// IF(EK59=5, 0, 
+//IF(EK59=4, 0, 
+//IF(EK59=3, 0,
+// IF(EK59=2, 0,
+// IF(EK59=1, 8,
+// IF(EK59=0, 16,0))))))))
+if(scEK == 7)
+{
+  scEN = 0;
+}
+else if(scEK == 6)
+{
+  scEN = 0;
+}
+else if(scEK == 5)
+{
+  scEN = 0;
+}
+else if(scEK == 4)
+{
+  scEN = 0;
+}
+else if(scEK == 3)
+{
+  scEN = 0;
+}
+else if(scEK == 2)
+{
+  scEN = 0;
+}
+else if(scEK == 1)
+{
+  scEN = 8;
+}
+else if(scEK == 0)
+{
+  scEN = 16;
+}
+else
+{
+  scEN = 0;
+}
+
+var scEO = "";
+//=IF(EL59=7, 0,
+//IF(EL59=6, 5, 
+//IF(EL59=5, 10,
+// IF(EL59=4,15,
+// IF(EL59=3, 20, 
+//IF(EL59=2, 25, 
+//IF(EL59=1, 30, 
+//IF(EL59=0, 35,0))))))))
+if(scEL == 7)
+{
+  scEO = 0;
+}
+else if(scEL == 6)
+{
+  scEO = 5;
+}
+else if(scEL == 5)
+{
+  scEO = 10;
+}
+else if(scEL == 4)
+{
+  scEO = 15;
+}
+else if(scEL == 3)
+{
+  scEO = 20;
+}
+else if(scEL == 2)
+{
+  scEO = 25;
+}
+else if(scEL == 1)
+{
+  scEO = 30;
+}
+else if(scEL == 0)
+{
+  scEO = 35;
+}
+else
+{
+  scEO = 0;
+}
 
 
 
@@ -7832,6 +7923,8 @@ console.log('scEJ', scEJ);
 console.log('scEK', scEK);
 console.log('scEL', scEL);
 console.log('scEM', scEM);
+console.log('scEN', scEN);
+console.log('scEO', scEO);
 //James reference
 
 //IF(this = that, true, false) -> 
