@@ -8115,16 +8115,41 @@ else
   scFR = 0;
 }
 
-
-
-
-
-
-
-
-
-
-
+var scFS = "";
+//=IF(AND('Clean data'!X59=5,'Clean data'!EX59=2),Social_work_informal_2to3a_value,
+//IF('Clean data'!EX59=0.5, Work_edu_1_Number_Activities, 
+//IF('Clean data'!EX59=1, Work_edu_2_Number_Activities, 
+//IF('Clean data'!EX59=2, Work_edu_3_Number_Activities, 
+//IF('Clean data'!EX59=5, Work_edu_4_Number_Activities, 
+//IF('Clean data'!EX59=7, Work_edu_5_Number_Activities, 0))))))
+if(clX == 5 && clEX == 2)
+{
+  scFS = Social_work_informal_2to3a_value;
+}
+else if(clEX == 0.5)
+{
+  scFS = Work_edu_1_Number_Activities;
+}
+else if(clEX == 1)
+{
+  scFS = Work_edu_2_Number_Activities;
+}
+else if(clEX == 2)
+{
+  scFS = Work_edu_3_Number_Activities;
+}
+else if(clEX == 5)
+{
+  scFS = Work_edu_4_Number_Activities;
+}
+else if(clEX == 7)
+{
+  scFS = Work_edu_5_Number_Activities;
+}
+else
+{
+  scFS = 0;
+}
 
 
 
@@ -8660,6 +8685,7 @@ console.log('scFO', scFO);
 console.log('scFP', scFP);
 console.log('scFQ', scFQ);
 console.log('scFR', scFR);
+console.log('scFS', scFS);
 //James reference
 
 //IF(this = that, true, false) -> 
