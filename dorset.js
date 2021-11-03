@@ -260,6 +260,7 @@ var Prep_Visit_Adjustment = 0;
 var FullTime_Education_switch = 1;
 var Eating_addition_adj = 0.25;
 var calL = 0;
+var calK = 25.38;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -7626,15 +7627,31 @@ else
   scEY = 0;
 }
 
-
-
-
-
-
-
-
-
-
+var scEZ = "";
+//=IF(OR(AX59=1,AY59=1),0,
+//IF(AR59=1,(0.2*Calculator!K59)*(1-('Clean data'!EI59/100)),
+//IF(AR59=2,(0.167*Calculator!K59)*(1-('Clean data'!EI59/100)),
+//IF(AR59>=3,(0.286*Calculator!K59)*(1-('Clean data'!EI59/100)),0))))
+if(scAX == 1 || scAY == 1)
+{
+  scEZ = 0;
+}
+else if(scAR == 1)
+{
+  scEZ = (0.2*calK)*(1-(clEI/100));
+}
+else if(scAR == 2)
+{
+  scEZ = (0.167*calK)*(1-(clEI/100));
+}
+else if(scAR >= 3)
+{
+  scEZ = (0.286*calK)*(1-(clEI/100));
+}
+else
+{
+  scEZ = 0;
+}
 
 
 
@@ -8151,6 +8168,7 @@ console.log('scEV', scEV);
 console.log('scEW', scEW);
 console.log('scEX', scEX);
 console.log('scEY', scEY);
+console.log('scEZ', scEZ);
 //James reference
 
 //IF(this = that, true, false) -> 
