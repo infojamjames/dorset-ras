@@ -262,6 +262,7 @@ var Eating_addition_adj = 0.25;
 var calL = 0;
 var calK = 25.38;
 var Housework = 1;
+var Shopping = 1; 
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -7774,6 +7775,63 @@ else
   scFE = 0;
 }
 
+var scFE = "";
+//=IF(AND('Clean data'!DJ59>=6,'Clean data'!FD59<=50),0,
+//IF(AND(B59=1,'Clean data'!AI59=2),0.5*LD_Day_to_Day_multiplier*Shopping,
+//IF(AND(B59=1,'Clean data'!AI59>2,'Clean data'!AI59<=4),LD_Day_to_Day_multiplier*Shopping,
+//IF(AND(B59=2,'Clean data'!AI59=2),0.5*MH_Day_to_Day_multiplier*Shopping,
+//IF(AND(B59=2,'Clean data'!AI59>2,'Clean data'!AI59<=4),MH_Day_to_Day_multiplier*Shopping,
+//IF(AND(B59=0,'Clean data'!AI59=2),0.5*Shopping,
+//IF(AND(B59=0,'Clean data'!AI59>2,'Clean data'!AI59<=4),Shopping,
+//IF(AND(B59=1,'Clean data'!AI59=5),(LD_Day_to_Day_multiplier*Shopping)*2,
+//IF(AND(B59=2,'Clean data'!AI59=5),(MH_Day_to_Day_multiplier*Shopping)*2,
+//IF(AND(B59=0,'Clean data'!AI59=5),Shopping*2,0))))))))))
+if(clDJ >= 6 && clFD <=50)
+{
+  scFE = 0;
+}
+else if(scB == 1 && clAI == 2)
+{
+  scFE = 0.5*LD_Day_to_Day_multiplier*Shopping;
+}
+else if(scB == 1 && clAI > 2 && clAI <= 4)
+{
+  scFE = LD_Day_to_Day_multiplier*Shopping;
+}
+else if(scB == 2 && clAI == 2)
+{
+  scFE = 0.5*MH_Day_to_Day_multiplier*Shopping;
+}
+else if(scB == 2 && clAI > 2 && clAI <= 4)
+{
+  scFE = MH_Day_to_Day_multiplier*Shopping;
+}
+else if(scB == 0 && clAI == 2)
+{
+  scFE = 0.5*Shopping;
+}
+else if(scB == 0 && clAI > 2 && clAI <= 4)
+{
+  scFE = Shopping;
+}
+else if(scB == 1 && clAI ==5)
+{
+  scFE = (LD_Day_to_Day_multiplier*Shopping)*2;
+}
+else if(scB == 2 && clAI == 5)
+{
+  scFE = (MH_Day_to_Day_multiplier*Shopping)*2;
+}
+else if(scB == 0 && clAI == 5)
+{
+  scFE = Shopping*2;
+}
+else
+{
+  scFE = 0;
+}
+
+
 
 
 
@@ -8292,6 +8350,7 @@ console.log('scFA', scFA);
 console.log('scFB', scFB);
 console.log('scFC', scFC);
 console.log('scFD', scFD);
+console.log('scFE', scFE);
 console.log('scFE', scFE);
 //James reference
 
