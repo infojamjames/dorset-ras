@@ -8041,14 +8041,24 @@ else
   scFO = (scFJ*scM);
 }
 
+var scFP = "";
+//=IF('Clean data'!EW59=0.25,0,
+//IF(FK59-FM59<0,0,((FK59-FM59)*U59)))
+if(clEW == 0.25)
+{
+  scFP = 0;
+}
+else if(scFK-scFM <0)
+{
+  scFP = 0;
+}
+else 
+{
+  scFP = ((scFK-scFM)*scU)
+}
 
-
-
-
-
-
-
-
+var scFQ = ""
+//=IF('Clean data'!EW59=0.25,0,IF(FK59-FM59<0,0,IF(AND('Clean data'!O59=4,Scores!FK59>0,'Clean data'!EV59=50),0,((FK59-FM59)*M59))))
 
 
 
@@ -8599,6 +8609,7 @@ console.log('scFL', scFL);
 console.log('scFM', scFM);
 console.log('scFN', scFN);
 console.log('scFO', scFO);
+console.log('scFP', scFP);
 //James reference
 
 //IF(this = that, true, false) -> 
