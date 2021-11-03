@@ -7505,15 +7505,51 @@ else
   scES = 0;
 }
 
-
-
-
-
-
-
-
-
-
+var scET = "";
+//=IF(AND('Clean data'!DJ59>5,'Clean data'!FE59=0.25),(SafetyInfHourChecks),
+//IF(AND('Clean data'!DJ59>5,AND(NOT('Clean data'!FE59=0.25),'Clean data'!FD59=100)),(SafetyInfHourAll),
+//IF(AND('Clean data'!DJ59>5,'Clean data'!FD59=90),(SafetyInfHourAlmost),
+//IF(AND('Clean data'!DJ59>5,'Clean data'!FD59=75),(SafetyInfHourMost),
+//IF(AND('Clean data'!DJ59>5,'Clean data'!FD59=50),(SafetyInfHourHalf),
+//IF(AND('Clean data'!DJ59>5,'Clean data'!FD59=25),(SafetyInfHourQuarter),
+//IF(AND('Clean data'!DJ59>5,'Clean data'!FD59=10),(SafetyInfHourMinority),
+//IF(AND('Clean data'!DJ59>5,OR('Clean data'!FE59=1,'Clean data'!FD59=0.5,'Clean data'!FE59=-17)),(SafetyInfHourNone),0))))))))
+ if(clDJ > 5 && clFE == 0.25)
+{
+  scET = (SafetyInfHourChecks);
+}
+else if(clDJ > 5 && (clFE != 0.25) && clFD == 100)
+{
+  scET = (SafetyInfHourAll);
+}
+else if(clDJ > 5 && clFD == 90)
+{
+  scET = (SafetyInfHourAlmost);
+}
+else if(clDJ > 5 && clFD == 75)
+{
+  scET = (SafetyInfHourMost);
+}
+else if(clDJ > 5 && clFD == 50)
+{
+  scET = (SafetyInfHourHalf);
+}
+else if(clDJ > 5 && clFD == 25)
+{
+  scET = (SafetyInfHourQuarter);
+}
+else if(clDJ > 5 && clFD == 10)
+{
+  scET = (SafetyInfHourMinority);
+}
+else if(clDJ > 5 && (clFE == 1 || clFD == 0.5 || clFE == -17))
+{
+  scET = (SafetyInfHourNone);
+}
+else
+{
+  scET = 0;
+}
 
 
 
@@ -8022,6 +8058,7 @@ console.log('scEP', scEP);
 console.log('scEQ', scEQ);
 console.log('scER', scER);
 console.log('scES', scES);
+console.log('scET', scET);
 //James reference
 
 //IF(this = that, true, false) -> 
