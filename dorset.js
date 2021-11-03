@@ -7669,6 +7669,45 @@ else
   scFA = 0;
 }
 
+var scFB = "";
+//=IF(AND(ER59>0, AN59=1,'Clean data'!AL59>=14,Prep_Visit_Adjustment<2,ET59>0), ((0.25*BG59) + (0.5*BH59) + (0.25*BI59))*2, 
+//IF(AND(ER59>0, AN59=1,'Clean data'!AL59>=14,Prep_Visit_Adjustment<2,ET59>0), ((0.25*BG59) + (0.5*BH59) + (0.25*BI59)),
+//IF(ET59>0,((0.25*BG59) + (0.25*BH59) + (0.25*BI59))*2,
+//IF(ET59>0,((0.25*BG59) + (0.25*BH59) + (0.25*BI59)), 0))))
+if(scER > 0 && scAN == 1 && clAL >= 14 && Prep_Visit_Adjustment <2 && scET > 0)
+{
+  scFB = ((0.25*scBG) + (0.5*scBH) + (0.25*scBI))*2;
+}
+else if(scER > 0 && scAN == 1 && clAL >= 14 && Prep_Visit_Adjustment <2 && scET > 0)
+{
+  scFB =  ((0.25*scBG) + (0.5*scBH) + (0.25*scBI));
+}
+else if(scET > 0)
+{
+  scFB = ((0.25*scBG) + (0.25*scBH) + (0.25*scBI))*2;
+}
+else if(scET > 0)
+{
+  scFB = ((0.25*scBG) + (0.25*scBH) + (0.25*scBI));
+}
+else
+{
+  scFB = 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8188,6 +8227,7 @@ console.log('scEX', scEX);
 console.log('scEY', scEY);
 console.log('scEZ', scEZ);
 console.log('scFA', scFA);
+console.log('scFB', scFB);
 //James reference
 
 //IF(this = that, true, false) -> 
