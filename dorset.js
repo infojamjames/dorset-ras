@@ -8220,16 +8220,31 @@ else
   scFW = ((scFR-scFT)*scV);
 }
 
-
-
-
-
-
-
-
-
-
-
+var scFX = "";
+//=IF(AND(FullTime_Education_switch=1,'Clean data'!FZ59=1),0,
+//IF('Clean data'!EY59=0.25,0,
+//IF(FR59-FT59<0,0,
+//IF(AND('Clean data'!V59=4,FR59>0,'Clean data'!EX59=50),0,(FR59-FT59)*Q59))))
+if(FullTime_Education_switch == 1 && clFZ == 1)
+{
+  scFX = 0;
+}
+else if(clEY == 0.25)
+{
+  scFX = 0;
+}
+else if(scFR-scFT <0)
+{
+  scFX = 0;
+}
+else if(clV == 4 && scFR > 0 && clEX == 50)
+{
+  scFX = 0;
+}
+else
+{
+  scFX = ((scFR-scFT)*scQ);
+}
 
 
 
@@ -8772,6 +8787,7 @@ console.log('scFT', scFT);
 console.log('scFU', scFU);
 console.log('scFV', scFV);
 console.log('scFW', scFW);
+console.log('scFX', scFX);
 //James reference
 
 //IF(this = that, true, false) -> 
