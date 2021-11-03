@@ -7711,8 +7711,26 @@ else
   scFC = 0;
 }
 
-
-
+var scFD = "";
+//=IF(AND(ET59>0,EO59>0,EL59=100),0,
+//IF(AND(ET59>0,EO59>0, AP59=1,'Clean data'!AL59>=14,Prep_Visit_Adjustment<2), ((BJ59*3.5)+(BK59*3.5))*(1-(EL59/7)),
+//IF(AND(ET59>0,EO59>0),((BJ59*1.75)+(BK59*3.5))*(1-(EL59/7)),0)))
+if(scET > 0 && scEO > 0 && scEL == 100)
+{
+  scFD = 0;
+}
+else if(scET > 0 && scEO > 0 && scAP == 1 && clAL >= 14 && Prep_Visit_Adjustment <2)
+{
+  scFD = ((scBJ*3.5)+(scBK*3.5))*(1-(scEL/7));
+}
+else if(scET > 0 && scEO > 0)
+{
+  scFD = ((scBJ*1.75)+(scBK*3.5))*(1-(scEL/7))
+}
+else
+{
+  scFD = 0;
+}
 
 
 
@@ -8238,6 +8256,7 @@ console.log('scEZ', scEZ);
 console.log('scFA', scFA);
 console.log('scFB', scFB);
 console.log('scFC', scFC);
+console.log('scFD', scFD);
 //James reference
 
 //IF(this = that, true, false) -> 
