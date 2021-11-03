@@ -8188,10 +8188,16 @@ else
   scFU = (scFR*scV)
 }
 
-
-
-
-
+var scFV = "";
+//=IF(AND(FullTime_Education_switch=1,'Clean data'!FZ59=1),0,(FR59*Q59))
+if(FullTime_Education_switch == 1 && clFZ == 1)
+{
+  scFV = 0;
+}
+else
+{
+  scFV = (scFR*scQ);
+}
 
 
 
@@ -8736,6 +8742,7 @@ console.log('scFR', scFR);
 console.log('scFS', scFS);
 console.log('scFT', scFT);
 console.log('scFU', scFU);
+console.log('scFV', scFV);
 //James reference
 
 //IF(this = that, true, false) -> 
