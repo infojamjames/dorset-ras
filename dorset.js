@@ -7551,6 +7551,56 @@ else
   scET = 0;
 }
 
+var scEU = "";
+//=IF(AND('Clean data'!DJ59=9,NOT('Clean data'!FD59=0.5)),ET59*2,ET59)
+if(clDJ == 9 && (clFD != 0.5))
+{
+  scEU = scET*2;
+}
+else
+{
+  scEU = scET
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8059,6 +8109,7 @@ console.log('scEQ', scEQ);
 console.log('scER', scER);
 console.log('scES', scES);
 console.log('scET', scET);
+console.log('scEU', scEU);
 //James reference
 
 //IF(this = that, true, false) -> 
