@@ -266,6 +266,8 @@ var Shopping = 1;
 var Paperwork_finances = 1;
 var Social_2_Number_Activities = 1;
 var Work_edu_1_Number_Activities = 0;
+var Work_edu_Overlap = 0;
+var Max_non_overlap = 5;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -8246,6 +8248,69 @@ else
   scFX = ((scFR-scFT)*scQ);
 }
 
+var scFY = "";
+//=IF(Work_edu_Overlap=1,MAX(FP59,FW59),
+//IF(AND(Work_edu_Overlap=0,(FP59+FW59)<=Max_non_overlap*(MAX((U59),(V59)))),FP59+FW59,
+//IF(AND(Work_edu_Overlap=0,(FP59+FW59)>Max_non_overlap*(MAX((U59),(V59)))),Max_non_overlap*(MAX((U59),(V59))),0)))
+if(Work_edu_Overlap == 1)
+{
+  scFY = Math.max(scFP,scFW);
+}
+else if(Work_edu_Overlap == 0 && (scFP+scFW)<=Max_non_overlap*(Math.max((scU),(scV))))
+{
+  scFY = scFP+scFW;
+}
+else if(Work_edu_Overlap == 0 && (scFP+scFW)>Max_non_overlap*(Math.max((scU),(scV)))) 
+{
+  scFY = Max_non_overlap*(Math.max((scU),(scV)))
+}
+else
+{
+  scFY = 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8788,6 +8853,7 @@ console.log('scFU', scFU);
 console.log('scFV', scFV);
 console.log('scFW', scFW);
 console.log('scFX', scFX);
+console.log('scFY', scFY);
 //James reference
 
 //IF(this = that, true, false) -> 
