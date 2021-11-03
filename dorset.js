@@ -7562,19 +7562,37 @@ else
   scEU = scET
 }
 
+var scEV = "";
+//=IF(AND('Clean data'!DJ59>5,FullTime_Education_switch=1,'Clean data'!FZ59=1,Scores!EP59>0,'Clean data'!T59=2),0,
+//IF('Clean data'!DJ59>5,5,0))
+if(clDJ > 5 && FullTime_Education_switch == 1 && clFZ == 1 && scEP > 0 && clT == 2)
+{
+  scEV = 0;
+}
+else if(clDJ > 5)
+{
+  scEV = 5;
+}
+else
+{
+  scEV = 0;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+var scEW = "";
+//=IF(AND('Clean data'!DJ59=9,FullTime_Education_switch=1,'Clean data'!FZ59=1, Scores!EP59>0,'Clean data'!T59=2),0, 
+//IF('Clean data'!DJ59=9,5,0))
+if(clDJ == 9 && FullTime_Education_switch == 1 && clFZ == 1 && scEP > 0 && clT == 2)
+{
+  scEW = 0;
+}
+else if(clDJ == 9)
+{
+  scEW = 5;
+}
+else
+{
+  scEW = 0;
+}
 
 
 
@@ -8110,6 +8128,8 @@ console.log('scER', scER);
 console.log('scES', scES);
 console.log('scET', scET);
 console.log('scEU', scEU);
+console.log('scEV', scEV);
+console.log('scEW', scEW);
 //James reference
 
 //IF(this = that, true, false) -> 
