@@ -7931,6 +7931,48 @@ else
   scFJ = 0;
 }
 
+var scFK = "";
+//=IF(AND(FullTime_Education_switch=1,'Clean data'!FZ59=1,ET59>=65),0,
+//IF(AND(FullTime_Education_switch=1,'Clean data'!FZ59=1,Scores!FJ59>Full_time_education_social),Full_time_education_social,
+//IF(AND(FullTime_Education_switch=1,'Clean data'!FZ59=1,Scores!FJ59<=Full_time_education_social),Scores!FJ59,
+//IF(AND(EQ59=1,'Clean data'!DJ59>=6,((FJ59*Social_activity_hours)+ET59)>65),0,Scores!FJ59))))
+if(FullTime_Education_switch == 1 && clFZ == 1 && scET >= 65)
+{
+  scFK = 0;
+}
+else if(FullTime_Education_switch == 1 && clFZ == 1 && scFJ > Full_time_education_social)
+{
+  scFK = Full_time_education_social;
+}
+else if(FullTime_Education_switch == 1 && clFZ == 1 && scFJ <= Full_time_education_social)
+{
+  scFK = scFJ;
+}
+else if(scEQ == 1 && clDJ >= 6 && ((scFJ*Social_activity_hours)+scET)>65)
+{
+  scFK = 0;
+}
+else
+{
+  scFK = scFJ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8474,6 +8516,7 @@ console.log('scFG', scFG);
 console.log('scFH', scFH);
 console.log('scFI', scFI);
 console.log('scFJ', scFJ);
+console.log('scFK', scFK);
 //James reference
 
 //IF(this = that, true, false) -> 
