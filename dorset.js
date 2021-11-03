@@ -7421,6 +7421,59 @@ else
   scEO = 0;
 }
 
+var scEP = "";
+//=IF(AND('Clean data'!DJ59>5,'Clean data'!FE59=0.25),(SafetyInfDayChecks),
+//IF(AND('Clean data'!DJ59>5,AND(NOT('Clean data'!FE59=0.25),'Clean data'!FD59=100)),(SafetyInfDayAll),
+//IF(AND('Clean data'!DJ59>5,'Clean data'!FD59=90),(SafetyInfDayAlmost),
+//IF(AND('Clean data'!DJ59>5,'Clean data'!FD59=75),(SafetyInfDayMost),
+//IF(AND('Clean data'!DJ59>5,'Clean data'!FD59=50),(SafetyInfDayHalf),
+//IF(AND('Clean data'!DJ59>5,'Clean data'!FD59=25),(SafetyInfDayQuarter),
+//IF(AND('Clean data'!DJ59>5,'Clean data'!FD59=10),(SafetyInfDayMinority),
+//IF(AND('Clean data'!DJ59>5,OR('Clean data'!FE59=1,'Clean data'!FD59=0.5,'Clean data'!FE59=-17)),(SafetyInfDayNone),0))))))))
+if(clDJ > 5 && clFE == 0.25)
+{
+  scEP = (SafetyInfDayChecks);
+}
+else if(clDJ > 5 && (clFE != 0.25) && clFD == 100)
+{
+  scEP = (SafetyInfDayAll);
+}
+else if(clDJ > 5 && clFD == 90)
+{
+  scEP = (SafetyInfDayAlmost);
+}
+else if(clDJ > 5 && clFD == 75)
+{
+  scEP = (SafetyInfDayMost);
+}
+else if(clDJ > 5 && clFD == 50)
+{
+  scEP = (SafetyInfDayHalf);
+}
+else if(clDJ > 5 && clFD == 25)
+{
+  scEP = (SafetyInfDayQuarter);
+}
+else if(clDJ > 5 && clFD == 10)
+{
+  scEP = (SafetyInfDayMinority);
+}
+else if(clDJ > 5 && (clFE == 1 || clFD == 0.5 || clFE == -17))
+{
+  scEP = (SafetyInfDayNone);
+}
+else
+{
+  scEP = 0;
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -7925,6 +7978,7 @@ console.log('scEL', scEL);
 console.log('scEM', scEM);
 console.log('scEN', scEN);
 console.log('scEO', scEO);
+console.log('scEP', scEP);
 //James reference
 
 //IF(this = that, true, false) -> 
