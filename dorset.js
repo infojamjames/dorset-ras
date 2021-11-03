@@ -8019,8 +8019,16 @@ else
   scFM = scFL;
 }
 
-
-
+var scFN = "";
+//=IF(FJ59>FK59,(FK59*U59),(FJ59*U59))
+if(scFJ > scFK)
+{
+  scFN = (scFK*scU);
+}
+else
+{
+  scFN = (scFJ*scU);
+}
 
 
 
@@ -8577,7 +8585,8 @@ console.log('scFI', scFI);
 console.log('scFJ', scFJ);
 console.log('scFK', scFK);
 console.log('scFL', scFL);
-console.log('scFM', scFM)
+console.log('scFM', scFM);
+console.log('scFN', scFN);
 //James reference
 
 //IF(this = that, true, false) -> 
