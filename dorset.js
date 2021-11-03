@@ -7610,11 +7610,21 @@ else
   scEX = 0;
 }
 
-
-
-
-
-
+var scEY = "";
+//=IF(AND('Clean data'!DJ59=9,FullTime_Education_switch=1,'Clean data'!FZ59=1, Scores!EP59>0,'Clean data'!T59=2),65, 
+//IF('Clean data'!DJ59=9,65,0))
+if(clDJ == 9 && FullTime_Education_switch == 1 && clFZ == 1 && scEP > 0 && clT == 2)
+{
+  scEY = 65;
+}
+else if(clDJ == 9)
+{
+  scEY = 65;
+}
+else
+{
+  scEY = 0;
+}
 
 
 
@@ -8140,6 +8150,7 @@ console.log('scEU', scEU);
 console.log('scEV', scEV);
 console.log('scEW', scEW);
 console.log('scEX', scEX);
+console.log('scEY', scEY);
 //James reference
 
 //IF(this = that, true, false) -> 
