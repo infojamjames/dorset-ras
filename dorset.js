@@ -8290,15 +8290,27 @@ else
   scFZ = 0;
 }
 
-
-
-
-
-
-
-
-
-
+var scGA = "";
+//=IF(Work_edu_Overlap=1,MAX(Scores!FN59,Scores!FU59),
+//IF(AND(Work_edu_Overlap=0,(Scores!FN59+Scores!FU59)<=5*(MAX((U59),(V59)))),Scores!FN59+Scores!FU59,
+//IF(AND(Work_edu_Overlap=0,(Scores!FN59+Scores!FU59)>5*(MAX((U59),(V59)))),
+//5*(MAX((U59),(V59))),0)))
+if(Work_edu_Overlap == 1)
+{
+  scGA = Math.max(scFN,scFU);
+}
+else if((Work_edu_Overlap == 0 && (scFN+scFU)<=5*(Math.max((scU),(scV)))))
+{
+  scGA = scFN+scFU;
+}
+else if(Work_edu_Overlap == 0 && (scFN+scFU)>5*(Math.max((scU),(scV))))
+{
+  scGA = 5*(Math.max((scU),(scV)));
+}
+else
+{
+  scGA = 0;
+}
 
 
 
@@ -8875,6 +8887,7 @@ console.log('scFW', scFW);
 console.log('scFX', scFX);
 console.log('scFY', scFY);
 console.log('scFZ', scFZ);
+console.log('scGA', scGA);
 //James reference
 
 //IF(this = that, true, false) -> 
