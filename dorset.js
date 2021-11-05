@@ -8269,6 +8269,26 @@ else
   scFY = 0;
 }
 
+var scFZ = "";
+//=IF(Work_edu_Overlap=1,MAX(FQ59,FX59),
+//IF(AND(Work_edu_Overlap=0,(FQ59+FX59)<=Max_non_overlap*(MAX(M59,Q59))),FQ59+FX59,
+//IF(AND(Work_edu_Overlap=0,(FQ59+FX59)>Max_non_overlap*(MAX(M59,Q59))),Max_non_overlap*(MAX(M59,Q59)),0)))
+if(Work_edu_Overlap == 1)
+{
+  scFZ = Math.max(scFQ,scFX);
+}
+else if((Work_edu_Overlap == 0 && (scFQ+scFX)<=Max_non_overlap*(Math.max(scM,scQ))))
+{
+  scFZ = scFQ+scFX;
+}
+else if((Work_edu_Overlap == 0 && (scFQ+scFX)>Max_non_overlap*(Math.max(scM,scQ))))
+{
+  scFZ = Max_non_overlap*(Math.max(scM,scQ));
+}
+else
+{
+  scFZ = 0;
+}
 
 
 
@@ -8854,6 +8874,7 @@ console.log('scFV', scFV);
 console.log('scFW', scFW);
 console.log('scFX', scFX);
 console.log('scFY', scFY);
+console.log('scFZ', scFZ);
 //James reference
 
 //IF(this = that, true, false) -> 
