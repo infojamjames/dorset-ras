@@ -8368,6 +8368,43 @@ else
   scGD = (scFY+scFZ)-(scER*scW);
 }
 
+var scGE = "";
+//=IF(AND('Clean data'!DJ59=6,'Clean data'!V59=4,FX59>0,GD59-(FP59+FQ59)<=0,FX59-FQ59<0),0,
+//IF(AND('Clean data'!DJ59<9,'Clean data'!V59=4,FX59>0,GD59-(FP59+FQ59)<=0,FX59-FQ59<0),0,
+//IF(AND('Clean data'!DJ59<9,'Clean data'!V59=4,FX59>0,GD59-(FP59+FQ59)<=0),FX59-FQ59,
+//IF(GD59-(FP59+FQ59)<=0,0,GD59-(FP59+FQ59)))))
+if(clDJ == 6 && clV == 4 && scFX > 0 && scGD - (scFP+scFQ)<=0 && scFX - scFQ < 0)
+{
+  scGE = 0;
+}
+else if(clDJ < 9 && clV == 4 && scFX > 0 && scGD - (scFP + scFQ)<= 0 && scFX - scFQ < 0)
+{
+  scGE = 0;
+}
+else if(clDJ < 9 && clV == 4 && scFX > 0 && scGD - (scFP + scFQ)<= 0)
+{
+  scGE = scFX-scFQ;
+}
+else if(scGD - (scFP+scFQ)<=0)
+{
+  scGE = 0;
+}
+else
+{
+  scGE = scGD - (scFP+scFQ);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8951,7 +8988,7 @@ console.log('scGA', scGA);
 console.log('scGB', scGB);
 console.log('scGC', scGC);
 console.log('scGD', scGD);
-
+console.log('scGE', scGE);
 
 
 
