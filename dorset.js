@@ -269,6 +269,7 @@ var Work_edu_1_Number_Activities = 0;
 var Work_edu_Overlap = 0;
 var Max_non_overlap = 5;
 var Social_activity_hours = 3;
+var NightOnce = 14.5;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -8449,48 +8450,221 @@ else
   scGI = clEP/100;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+var scGJ = "";
+//=IF(AND(NOT(Scores!B59=1),NOT(Scores!B59=2),NOT(Scores!D59>=1),'Clean data'!DK59=0.5),NightAlarm,
+//IF(AND(OUT_DSTNeedsProfile=1,Scores!E59=2,'Clean data'!DK59=0.5),Enhc_Tier3_NightAlarm,
+//IF(AND(OUT_DSTNeedsProfile=1,Scores!E59=1,'Clean data'!DK59=0.5),Enhc_Tier2_NightAlarm,
+//IF(AND(Scores!D59=2,'Clean data'!DK59=0.5),Enhc_Tier3_NightAlarm,
+//IF(AND(Scores!D59=1,'Clean data'!DK59=0.5),Enhc_Tier2_NightAlarm,
+//IF(AND(NOT(Scores!D59>=1),Scores!B59=1,'Clean data'!DK59=0.5),LD_NightAlarm,
+//IF(AND(NOT(Scores!D59>=1),Scores!B59=2,'Clean data'!DK59=0.5),MH_NightAlarm,
+//IF(AND(OUT_DSTNeedsProfile=1,Scores!E59=2,'Clean data'!DK59>=1,'Clean data'!DK59<=3),Enhc_Tier3_NightOnce,
+//IF(AND(OUT_DSTNeedsProfile=1,Scores!E59=1,'Clean data'!DK59>=1,'Clean data'!DK59<=3),Enhc_Tier2_NightOnce,
+//IF(AND(Scores!D59=2,'Clean data'!DK59>=1,'Clean data'!DK59<=3),Enhc_Tier3_NightOnce,
+//IF(AND(Scores!D59=1,'Clean data'!DK59>=1,'Clean data'!DK59<=3),Enhc_Tier2_NightOnce,
+//IF(AND(NOT(Scores!B59=1),NOT(Scores!B59=2),NOT(Scores!D59>=1),'Clean data'!DK59>=1,'Clean data'!DK59<=3),NightOnce,
+//IF(AND(NOT(Scores!D59>=1),Scores!B59=1,'Clean data'!DK59>=1,'Clean data'!DK59<=3),LD_NightOnce,
+//IF(AND(NOT(Scores!D59>=1),Scores!B59=2,'Clean data'!DK59>=1,'Clean data'!DK59<=3),MH_NightOnce,
+//IF(AND(OUT_DSTNeedsProfile=1,Scores!E59=2,'Clean data'!DK59=5,'Clean data'!DL59<WakingImpactLevel),Enhc_Tier3_NightSleep_in,
+//IF(AND(OUT_DSTNeedsProfile=1,Scores!E59=1,'Clean data'!DK59=5,'Clean data'!DL59<WakingImpactLevel),Enhc_Tier2_NightSleep_in,
+//IF(AND(Scores!D59=2,'Clean data'!DK59=5,'Clean data'!DL59<WakingImpactLevel),Enhc_Tier3_NightSleep_in,
+//IF(AND(Scores!D59=1,'Clean data'!DK59=5,'Clean data'!DL59<WakingImpactLevel),Enhc_Tier2_NightSleep_in,
+//IF(AND(NOT(Scores!B59=1),NOT(Scores!B59=2),NOT(Scores!D59>=1),'Clean data'!DK59=5,'Clean data'!DL59<WakingImpactLevel),NightSleep_in,
+//IF(AND(NOT(Scores!D59>=1),Scores!B59=1,'Clean data'!DK59=5,'Clean data'!DL59<WakingImpactLevel),LD_NightSleep_in,
+//IF(AND(NOT(Scores!D59>=1),Scores!B59=2,'Clean data'!DK59=5,'Clean data'!DL59<WakingImpactLevel),MH_NightSleep_in,
+//IF(AND(OUT_DSTNeedsProfile=1,Scores!E59=2,'Clean data'!DK59=5,'Clean data'!DL59>=WakingImpactLevel),Enhc_Tier3_NightWaking,
+//IF(AND(OUT_DSTNeedsProfile=1,Scores!E59=1,'Clean data'!DK59=5,'Clean data'!DL59>=WakingImpactLevel),Enhc_Tier2_NightWaking,
+//IF(AND(Scores!D59=2,'Clean data'!DK59=5,'Clean data'!DL59>=WakingImpactLevel),Enhc_Tier3_NightWaking,
+//IF(AND(Scores!D59=1,'Clean data'!DK59=5,'Clean data'!DL59>=WakingImpactLevel),Enhc_Tier2_NightWaking,
+//IF(AND(NOT(Scores!B59=1),NOT(Scores!B59=2),NOT(Scores!D59>=1),'Clean data'!DK59=5,'Clean data'!DL59>=WakingImpactLevel),NightWaking,
+//IF(AND(NOT(Scores!D59>=1),Scores!B59=1,'Clean data'!DK59=5,'Clean data'!DL59>=WakingImpactLevel),LD_NightWaking,
+//IF(AND(NOT(Scores!D59>=1),Scores!B59=2,'Clean data'!DK59=5,'Clean data'!DL59>=WakingImpactLevel),MH_NightWaking,
+//IF(AND(OUT_DSTNeedsProfile=1,Scores!E59=2,'Clean data'!DK59=7,'Clean data'!DL59<WakingImpactLevel),Enhc_Tier3_NightSleep_in+Enhc_Tier3_NightSleep_in,
+//IF(AND(OUT_DSTNeedsProfile=1,Scores!E59=1,'Clean data'!DK59=7,'Clean data'!DL59<WakingImpactLevel),Enhc_Tier2_NightSleep_in+Enhc_Tier2_NightSleep_in,
+//IF(AND(Scores!D59=2,'Clean data'!DK59=7,'Clean data'!DL59<WakingImpactLevel),Enhc_Tier3_NightSleep_in+Enhc_Tier3_NightSleep_in,
+//IF(AND(Scores!D59=1,'Clean data'!DK59=7,'Clean data'!DL59<WakingImpactLevel),Enhc_Tier2_NightSleep_in+Enhc_Tier2_NightSleep_in,
+//IF(AND(NOT(Scores!B59=1),NOT(Scores!B59=2),NOT(Scores!D59>=1),'Clean data'!DK59=7,'Clean data'!DL59<WakingImpactLevel),NightSleep_in+NightSleep_in,
+//IF(AND(NOT(Scores!D59>=1),Scores!B59=1,'Clean data'!DK59=7,'Clean data'!DL59<WakingImpactLevel),LD_NightSleep_in+LD_NightSleep_in,
+//IF(AND(NOT(Scores!D59>=1),Scores!B59=2,'Clean data'!DK59=7,'Clean data'!DL59<WakingImpactLevel),MH_NightSleep_in+MH_NightSleep_in,
+//IF(AND(OUT_DSTNeedsProfile=1,Scores!E59=2,'Clean data'!DK59=7,'Clean data'!DL59>=WakingImpactLevel),Enhc_Tier3_NightWaking+Enhc_Tier3_NightSleep_in,
+//IF(AND(OUT_DSTNeedsProfile=1,Scores!E59=1,'Clean data'!DK59=7,'Clean data'!DL59>=WakingImpactLevel),Enhc_Tier2_NightWaking+Enhc_Tier2_NightSleep_in,
+//IF(AND(Scores!D59=2,'Clean data'!DK59=7,'Clean data'!DL59>=WakingImpactLevel),Enhc_Tier3_NightWaking+Enhc_Tier3_NightSleep_in,
+//IF(AND(Scores!D59=1,'Clean data'!DK59=7,'Clean data'!DL59>=WakingImpactLevel),Enhc_Tier2_NightWaking+Enhc_Tier2_NightSleep_in,
+//IF(AND(NOT(Scores!B59=1),NOT(Scores!B59=2),NOT(Scores!D59>=1),'Clean data'!DK59=7,'Clean data'!DL59>=WakingImpactLevel),NightWaking+NightSleep_in,
+//IF(AND(NOT(Scores!D59>=1),Scores!B59=1,'Clean data'!DK59=7,'Clean data'!DL59>=WakingImpactLevel),LD_NightWaking+LD_NightSleep_in,
+//IF(AND(NOT(Scores!D59>=1),Scores!B59=2,'Clean data'!DK59=7,'Clean data'!DL59>=WakingImpactLevel),MH_NightWaking+MH_NightSleep_in,0))))))))))))))))))))))))))))))))))))))))))
+if((scB != 1) && (scB != 2) && (scD >= 1) && clDK == 0.5)
+{
+  scGJ = NightAlarm;
+}
+else if(OUT_DSTNeedsProfile == 1 && scE == 2 && scDK == 0.5)
+{
+  scGJ = Enhc_Tier3_NightAlarm;
+}
+else if(OUT_DSTNeedsProfile == 1 && scE == 1 && scDK == 0.5)
+{
+  scGJ = Enhc_Tier2_NightAlarm;
+}
+else if(scD == 2 && clDK == 0.5)
+{
+  scGJ = Enhc_Tier3_NightAlarm;
+}
+else if(scD == 1 && clDK == 0.5)
+{
+  scGJ = Enhc_Tier2_NightAlarm;
+}
+else if((scD != 1) && (scB == 1 && (clDK == 0.5)))
+{
+  scGJ = LD_NightAlarm;
+}
+else if((scD != 1) && scB == 2 && clDK == 0.5)
+{
+  scGJ = MH_NightAlarm;
+}
+else if(OUT_DSTNeedsProfile == 1 && scE == 2 && clDK >= 1 && clDK <= 3)
+{
+  scGJ = Enhc_Tier3_NightOnce;
+}
+else if(OUT_DSTNeedsProfile=1 && scE == 1 && clDK>=1 && clDK<=3)
+{
+  scGJ = Enhc_Tier2_NightOnce;
+}
+else if(scD == 2 && clFK>=1 && clDK<=3)
+{
+  scGJ = Enhc_Tier3_NightOnce;
+}
+else if(scD == 1 && clFK>=1 && clDK<=3)
+{
+  scGJ = Enhc_Tier2_NightOnce;
+}
+else if(((scB != 1) && (scB != 2),(scD < 1) && clDK >=1 && clDK <=3))
+{
+  scGJ = NightOnce;
+}
+else if(((scD < 1) && scB == 1 && clDK>=1 && clDK <=3))
+{
+  scGJ = LD_NightOnce;
+}
+else if(((scD < 1) && scB == 2 && clDK >=1 && clDK <=3))
+{
+  scGJ = MH_NightOnce;
+}
+else if(OUT_DSTNeedsProfile == 1 && scE == 2 && clDK == 5 && clDL < WakingImpactLevel)
+{
+  scGJ = Enhc_Tier3_NightSleep_in; 
+}
+else if(OUT_DSTNeedsProfile == 1 && scE == 1 && clDK == 5 && clDL < WakingImpactLevel)
+{
+  scGJ = Enhc_Tier2_NightSleep_in;
+}
+else if(scD == 2 && clDK == 5 && clDL < WakingImpactLevel)
+{
+  scGJ = Enhc_Tier3_NightSleep_in;
+}
+else if(scD == 1 && clDK == 5 && clDL < WakingImpactLevel)
+{
+  scGJ = Enhc_Tier2_NightSleep_in;
+}
+else if(((scB !=1) && (scB !=2) && (scD < 1) && clDK == 5 && clDL < WakingImpactLevel))
+{
+  scGJ = NightSleep_in;
+}
+else if((scD < 1) && scB == 1 && clDK == 5 && clDL < WakingImpactLevel)
+{
+  scGJ = LD_NightSleep_in;
+}
+else if((scD < 1) && scB == 2 && clDK == 5 && clDL < WakingImpactLevel)
+{
+  scGJ = MH_NightSleep_in;
+}
+else if(OUT_DSTNeedsProfile == 1 && scE == 2 && clDK == 5 && clDL >= WakingImpactLevel)
+{
+  scGJ = Enhc_Tier3_NightWaking;
+}
+else if(OUT_DSTNeedsProfile == 1 && scE == 1 && clDK == 5 && clDL >= WakingImpactLevel)
+{
+  scGJ = Enhc_Tier2_NightWaking;
+}
+else if(scD == 2 && clDK == 5 && clDL >= WakingImpactLevel)
+{
+  scGJ = Enhc_Tier3_NightWaking;
+}
+else if(scD == 1 && clDK == 5 && clDL >= WakingImpactLevel)
+{
+  scGJ = Enhc_Tier2_NightWaking;
+}
+else if((scB !=1) && (scB !=2) && (scD  < 1) && clDK == 5 && clDL >= WakingImpactLevel)
+{
+  scGJ = NightWaking;
+}
+else if((scD < 1) && scB == 1 && clDK == 5 && clDL >= WakingImpactLevel)
+{
+  scGJ = LD_NightWaking;
+}
+else if((scD < 1) && scB == 2 && clDK == 5 && clDL >= WakingImpactLevel)
+{
+  scGJ = MH_NightWaking
+}
+else if(OUT_DSTNeedsProfile == 1 && scE == 2 && clDK == 7 && clDL < WakingImpactLevel)
+{
+  scGJ = Enhc_Tier3_NightSleep_in+Enhc_Tier3_NightSleep_in;
+}
+else if(OUT_DSTNeedsProfile == 1 && scE == 1 && clDK == 7 && clDL < WakingImpactLevel)
+{
+  scGJ = Enhc_Tier2_NightSleep_in+Enhc_Tier2_NightSleep_in;
+}
+else if(scD == 2 && clDK == 7 && clDL < WakingImpactLevel)
+{
+  scGJ = Enhc_Tier3_NightSleep_in+Enhc_Tier3_NightSleep_in;
+}
+else if(scD == 1 && clDK == 7 && clDL < WakingImpactLevel)
+{
+  scGJ = Enhc_Tier2_NightSleep_in+Enhc_Tier2_NightSleep_in;
+}
+else if((scB !=1) && (scB !=2) && (scD < 1) && clDK == 7 && clDL < WakingImpactLevel)
+{
+  scGJ = NightSleep_in+NightSleep_in;
+}
+else if(((scD < 1) && scB == 1 && clDK == 7 && clDL < WakingImpactLevel))
+{
+  scGJ = LD_NightSleep_in+LD_NightSleep_in;
+}
+else if(((scD < 1) && scB == 2 && clDK == 7 && clDL < WakingImpactLevel))
+{
+  scGJ = MH_NightSleep_in+MH_NightSleep_in;
+}
+else if(OUT_DSTNeedsProfile == 1 && scE == 2 && clDK == 7 && clDL >= WakingImpactLevel)
+{
+  scGJ = Enhc_Tier3_NightWaking+Enhc_Tier3_NightSleep_in;
+}        
+else if(OUT_DSTNeedsProfile == 1 && scE == 1 && clDK == 7 && clDL >= WakingImpactLevel)
+{
+  scGJ = Enhc_Tier2_NightWaking+Enhc_Tier2_NightSleep_in;
+}
+else if(scD == 2 && clDK == 7 && clDL >= WakingImpactLevel)
+{
+  scGJ = Enhc_Tier3_NightWaking+Enhc_Tier3_NightSleep_in;
+}
+else if((scD == 1 && clDK == 7 && clDL >= WakingImpactLevel))
+{
+  scGJ = Enhc_Tier2_NightWaking+Enhc_Tier2_NightSleep_in;
+}
+else if((scB != 1) && (scB != 2) && (scD < 1) && clDK == 7 && clDL >= WakingImpactLevel)
+{
+  scGJ = NightWaking+NightSleep_in;
+}
+else if((scD < 1) && scB == 1 && clDK == 7 && clDL >= WakingImpactLevel)
+{
+  scGJ = LD_NightWaking+LD_NightSleep_in;
+}
+else if((scD < 1) && scB == 2 && clDK == 7 && clDL >= WakingImpactLevel)
+{
+  scGJ = MH_NightWaking+MH_NightSleep_in;
+}
+else
+{
+  scGJ = 0;
+}
 
 
 
@@ -9053,7 +9227,7 @@ console.log('scGF', scGF);
 console.log('scGG', scGG);
 console.log('scGH', scGH);
 console.log('scGI', scGI);
-
+console.log('scGJ', scGJ);
 //James reference
 
 //IF(this = that, true, false) -> 
