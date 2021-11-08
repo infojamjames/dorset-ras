@@ -8312,6 +8312,41 @@ else
   scGA = 0;
 }
 
+var scGB = "";
+//=IF(Work_edu_Overlap=1,MAX(Scores!FO59,Scores!FV59),
+//IF(AND(Work_edu_Overlap=0,(Scores!FO59+Scores!FV59)<=5*(MAX((M59),(Q59)))),Scores!FO59+Scores!FV59,
+//IF(AND(Work_edu_Overlap=0,(Scores!FO59+Scores!FV59)>5*(MAX((M59),(Q59)))),5*(MAX((M59),(Q59))),0)))
+if(Work_edu_Overlap == 1)
+{
+  scGB = Math.max(scFO,scFV);
+}
+else if(Work_edu_Overlap == 0 && (scFO + scFV)<=5*(Math.max((scM),(scQ))))
+{
+  scGB = scFO + scFV;
+}
+else if(Work_edu_Overlap == 0 && (scFO + scFV)>5*(Math.max((scM),(scQ))))
+{
+  scGB = 5*(Math.max((scM),(scQ)));
+}
+else
+{
+  scGB = 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8888,6 +8923,15 @@ console.log('scFX', scFX);
 console.log('scFY', scFY);
 console.log('scFZ', scFZ);
 console.log('scGA', scGA);
+console.log('scGB', scGB);
+
+
+
+
+
+
+
+
 //James reference
 
 //IF(this = that, true, false) -> 
