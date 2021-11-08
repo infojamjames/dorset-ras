@@ -8427,6 +8427,20 @@ else
   scGG = (((scGB)/scU)*Social_activity_hours)*scAA;
 }
 
+var scGH = "";
+//=IF(GE59=0,0,(((GE59/V59)*Social_activity_hours)*PA_Homecare_rate))
+if(scGE == 0)
+{
+  scGH = 0;
+}
+else 
+{
+  scGH = (((scGE/scV)*Social_activity_hours)*PA_Homecare_rate);
+}
+
+
+
+
 
 
 
@@ -9030,7 +9044,7 @@ console.log('scGD', scGD);
 console.log('scGE', scGE);
 console.log('scGF', scGF);
 console.log('scGG', scGG);
-
+console.log('scGH', scGH);
 
 
 //James reference
