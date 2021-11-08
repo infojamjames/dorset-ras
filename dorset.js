@@ -271,6 +271,7 @@ var Max_non_overlap = 5;
 var Social_activity_hours = 3;
 var NightOnce = 14.5;
 var CHNightOnce = 14.5;
+var SHNightOnce = 14.5;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -8703,6 +8704,74 @@ else
   scGK = 0;
 }
 
+var scGL = "";
+//=IF('Clean data'!DK59=0.5,SHNightAlarm,
+//IF(AND('Clean data'!DK59>=1,'Clean data'!DK59<=3),SHNightOnce,
+//IF(AND('Clean data'!DK59=5,'Clean data'!DL59<WakingImpactLevel),SHNightSleep_in,
+//IF(AND('Clean data'!DK59=5,'Clean data'!DL59>=WakingImpactLevel),SHNightWaking,
+//IF(AND('Clean data'!DK59=7,'Clean data'!DL59<WakingImpactLevel),SHNightSleep_in+SHNightSleep_in,
+//IF(AND('Clean data'!DK59=7,'Clean data'!DL59>=WakingImpactLevel),SHNightWaking+SHNightSleep_in,0))))))
+if(clDK == 0.5)
+{
+  scGL = SHNightAlarm;
+}
+else if(clDK >=1 && clDK <=3)
+{
+  scGL = SHNightOnce;
+}
+else if(clDK == 5 && clDL < WakingImpactLevel)
+{
+  scGL = SHNightSleep_in;
+}
+else if(clDK == 5 && clDL >= WakingImpactLevel)
+{
+  scGL = SHNightWaking;
+}
+else if(clDK == 7 && clDL<WakingImpactLevel)
+{
+  scGL = SHNightSleep_in+SHNightSleep_in;
+}
+else if(clDK == 7 && clDL>=WakingImpactLevel)
+{
+  scGL = SHNightWaking+SHNightSleep_in;
+}
+else
+{
+  scGL = 0;
+}
+
+var scGM = "";
+//=IF('Clean data'!DK59=1,GJ59*7,
+//IF('Clean data'!DK59=2,(GJ59*7)*2,
+//IF('Clean data'!DK59=3,(GJ59*7)*3,GJ59*7)))
+if(clDK == 1)
+{
+  scGM = scGJ*7;
+}
+else if(clDK == 2)
+{
+  scGM = (scGJ*7)*2;
+}
+else if(clDK == 3)
+{
+  scGM = (scGJ*7)*3;
+}
+else
+{
+  scGM = scGJ*7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 console.log('----RAW----')
 console.log('rN', rN);
@@ -9252,6 +9321,8 @@ console.log('scGH', scGH);
 console.log('scGI', scGI);
 console.log('scGJ', scGJ);
 console.log('scGK', scGK);
+console.log('scGL', scGL);
+console.log('scGM', scGM);
 //James reference
 
 //IF(this = that, true, false) -> 
