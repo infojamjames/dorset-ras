@@ -8333,7 +8333,9 @@ else
   scGB = 0;
 }
 
-
+var scGC = "";
+//=(FY59+FZ59)-(FP59+FQ59)
+scGC = ((scFY + scFZ)-(scFP + scFQ))
 
 
 
@@ -8924,7 +8926,7 @@ console.log('scFY', scFY);
 console.log('scFZ', scFZ);
 console.log('scGA', scGA);
 console.log('scGB', scGB);
-
+console.log('scGC', scGC);
 
 
 
