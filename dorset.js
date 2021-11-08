@@ -8337,13 +8337,36 @@ var scGC = "";
 //=(FY59+FZ59)-(FP59+FQ59)
 scGC = ((scFY + scFZ)-(scFP + scFQ))
 
-
-
-
-
-
-
-
+var scGD = "";
+//=IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,OR('Clean data'!FW59=9,'Clean data'!FW59=7),'Clean data'!FY59=1),FZ59,
+//IF(AND('Clean data'!DJ59=8,OR('Clean data'!FW59=9,'Clean data'!FW59=7)),FZ59,
+//IF(AND('Clean data'!DJ59=9,OR('Clean data'!FW59=9,'Clean data'!FW59=7)),0,
+//IF(AND('Clean data'!DJ59<9,(ER59*W59)>=FY59),FZ59,
+//IF(AND('Clean data'!DJ59=9,(ER59*W59)+(ES59*Second_carer_safety_rate)>=(FY59+FZ59)),0,(FY59+FZ59)-(ER59*W59))))))
+if(clDJ > 5 && clDJ < 8 && (clFW == 9 || clFW == 7) && clFY == 1)
+{
+  scGD = scFZ;
+}
+else if(clDJ == 8 && (clFW == 9 || clFW == 7))
+{
+  scGD = scFZ;
+}
+else if(clDJ == 9 && (clFW == 9 || clFW == 7))
+{
+  scGD = 0;
+}
+else if(clDJ < 9 && (scER*scW)>= scFY)
+{
+  scGD = scFZ;
+}
+else if(clDJ == 9 && (scER*scW) + (scES*Second_carer_safety_rate)>=(scFY+scFZ))
+{
+  scGD = 0;
+}
+else
+{
+  scGD = (scFY+scFZ)-(scER*scW);
+}
 
 
 
@@ -8927,7 +8950,7 @@ console.log('scFZ', scFZ);
 console.log('scGA', scGA);
 console.log('scGB', scGB);
 console.log('scGC', scGC);
-
+console.log('scGD', scGD);
 
 
 
