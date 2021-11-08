@@ -8411,6 +8411,21 @@ else
   scGF = (((scGA)/scU)*Social_activity_hours)*scAA;
 }
 
+var scGG = "";
+//=IF(GB59=0,0,
+//IF(GB59=FV59,((GB59)/V59)*Social_activity_hours,((GB59)/U59)*Social_activity_hours))*Scores!AA59
+if(scGB == 0)
+{
+  scGG = 0;
+}
+else if(scGB == scFV)
+{
+  scGG = ((scGB)/scV)*Social_activity_hours;
+}
+else 
+{
+  scGG = (((scGB)/scU)*Social_activity_hours)*scAA;
+}
 
 
 
@@ -9014,7 +9029,7 @@ console.log('scGC', scGC);
 console.log('scGD', scGD);
 console.log('scGE', scGE);
 console.log('scGF', scGF);
-
+console.log('scGG', scGG);
 
 
 
