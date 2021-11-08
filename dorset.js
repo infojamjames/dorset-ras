@@ -270,6 +270,7 @@ var Work_edu_Overlap = 0;
 var Max_non_overlap = 5;
 var Social_activity_hours = 3;
 var NightOnce = 14.5;
+var CHNightOnce = 14.5;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -8666,19 +8667,41 @@ else
   scGJ = 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+var scGK = "";
+//=IF('Clean data'!DK59=0.5,CHNightAlarm,
+//IF(AND('Clean data'!DK59>=1,'Clean data'!DK59<=3),CHNightOnce,
+//IF(AND('Clean data'!DK59=5,'Clean data'!DL59<WakingImpactLevel),CHNightSleep_in,
+//IF(AND('Clean data'!DK59=5,'Clean data'!DL59>=WakingImpactLevel),CHNightWaking,
+//IF(AND('Clean data'!DK59=7,'Clean data'!DL59<WakingImpactLevel),CHNightSleep_in+CHNightSleep_in,
+//IF(AND('Clean data'!DK59=7,'Clean data'!DL59>=WakingImpactLevel),CHNightWaking+CHNightSleep_in,0))))))
+if(clDK == 0.5)
+{
+  scGK = CHNightAlarm;
+}
+else if(clDK >= 1 && clDK <= 3)
+{
+  scGK = CHNightOnce;
+}
+else if(clDK == 5 && clDL < WakingImpactLevel)
+{
+  scGK = CHNightSleep_in;
+}
+else if(clDK == 5 && clDL >= WakingImpactLevel)
+{
+  scGK = CHNightWaking;
+}
+else if(clDK == 7 && clDL < WakingImpactLevel)
+{
+  scGK = CHNightSleep_in+CHNightSleep_in;
+}
+else if(clDK == 7 && clDL >= WakingImpactLevel)
+{
+  scGK = CHNightWaking+CHNightSleep_in;
+}
+else
+{
+  scGK = 0;
+}
 
 
 console.log('----RAW----')
@@ -9228,6 +9251,7 @@ console.log('scGG', scGG);
 console.log('scGH', scGH);
 console.log('scGI', scGI);
 console.log('scGJ', scGJ);
+console.log('scGK', scGK);
 //James reference
 
 //IF(this = that, true, false) -> 
