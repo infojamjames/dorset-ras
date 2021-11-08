@@ -268,6 +268,7 @@ var Social_2_Number_Activities = 1;
 var Work_edu_1_Number_Activities = 0;
 var Work_edu_Overlap = 0;
 var Max_non_overlap = 5;
+var Social_activity_hours = 3;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -8394,6 +8395,29 @@ else
   scGE = scGD - (scFP+scFQ);
 }
 
+var scGF = "";
+//=IF(GA59=0,0,
+//IF(GA59=FU59,((GA59)/V59)*Social_activity_hours,((GA59)/U59)*Social_activity_hours))*Scores!AA59
+if(scGA == 0)
+{
+  scGF = 0;
+}
+else if(scGA == scFU )
+{
+  scGF = ((scGA)/scV)*Social_activity_hours;
+}
+else
+{
+  scGF = (((scGA)/scU)*Social_activity_hours)*scAA;
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -8989,7 +9013,7 @@ console.log('scGB', scGB);
 console.log('scGC', scGC);
 console.log('scGD', scGD);
 console.log('scGE', scGE);
-
+console.log('scGF', scGF);
 
 
 
