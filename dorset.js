@@ -8438,9 +8438,16 @@ else
   scGH = (((scGE/scV)*Social_activity_hours)*PA_Homecare_rate);
 }
 
-
-
-
+var scGI = "";
+//=IF('Clean data'!EP59=0, 0,'Clean data'!EP59/100)
+if(clEP == 0)
+{
+  scGI = 0;
+}
+else
+{
+  scGI = clEP/100;
+}
 
 
 
@@ -9045,7 +9052,7 @@ console.log('scGE', scGE);
 console.log('scGF', scGF);
 console.log('scGG', scGG);
 console.log('scGH', scGH);
-
+console.log('scGI', scGI);
 
 //James reference
 
