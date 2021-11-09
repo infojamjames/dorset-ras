@@ -4479,6 +4479,21 @@ else
   clIA = "";
 }
 
+var clIB = "";
+//=IF('Raw data'!FC59="Yes", 1, 
+//IF('Raw data'!FC59="No", 0, ""))
+if(rFC == "Yes")
+{
+  clIB = 1;
+}
+else if(rFC == "No")
+{
+  clIB = 0;
+}
+else
+{
+  clIB = "";
+}
 
 
 //Scores
@@ -9628,6 +9643,7 @@ console.log('clHX', clHX);
 console.log('clHY', clHY);
 console.log('clHZ', clHZ);
 console.log('clIA', clIA);
+console.log('clIB', clIB);
 console.log('scB', scB);
 console.log('scC', scC);
 console.log('scD', scD);
