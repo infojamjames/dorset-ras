@@ -4331,10 +4331,16 @@ else
   clHS = VLOOKUP(rCZ, Ongoing_Company, 2, FALSE);
 }
 
-
-
-
-
+var clHT = "";
+//=IF(OR(AND(ISNONTEXT('Raw data'!DA59),NOT(ISNUMBER('Raw data'!DA59))),'Raw data'!DA59=""), 0, VLOOKUP('Raw data'!DA59, Ongoing_Childcare, 2, FALSE))
+if(ISNONTEXT(rDA) && NOT_ISNUMBER (rDA) || rDA === "")
+{
+  clHT = 0;
+}
+else
+{
+  clHT =  VLOOKUP(rDA, Ongoing_Childcare, 2, FALSE)
+}
 
 
 
@@ -9477,6 +9483,7 @@ console.log('clHP', clHP);
 console.log('clHQ', clHQ);
 console.log('clHR', clHR);
 console.log('clHS', clHS);
+console.log('clHT', clHT);
 console.log('scB', scB);
 console.log('scC', scC);
 console.log('scD', scD);
