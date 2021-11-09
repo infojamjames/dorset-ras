@@ -161,7 +161,7 @@ var rCL='Yes' ;
 var rCM='Yes' ;
 var rCN='Yes' ;
 var rCO='Yes' ;
-var rCP=6 ;
+var rCP=5 ;
 var rCQ=5 ;
 var rCR=5 ;
 var rCS=7 ;
@@ -4108,8 +4108,21 @@ else
   clHF = 0;
 }
 
-
-
+var clHG = "";
+//=IF(OR(AND(ISNONTEXT(DY58),NOT(ISNUMBER(DY58))),DY58=""), 0, 
+//IF('Raw data'!CK58="Yes",VLOOKUP(DY58, Informal0to7, 2, FALSE),0))
+if(ISNONTEXT((clDY) && NOT_ISNUMBER(clDY)|| clDY === ""))
+{
+  clHG = 0;
+}
+else if(rCK == "Yes")
+{
+  clHG = VLOOKUP(clDY, Informal0to7, 2, FALSE);
+}
+else
+{
+  clHG = 0;
+}
 
 
 
@@ -9241,6 +9254,7 @@ console.log('clHC', clHC);
 console.log('clHD', clHD);
 console.log('clHE', clHE);
 console.log('clHF', clHF);
+console.log('clHG', clHG);
 console.log('scB', scB);
 console.log('scC', scC);
 console.log('scD', scD);
