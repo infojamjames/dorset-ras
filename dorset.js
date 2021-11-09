@@ -9463,6 +9463,11 @@ var scHB = "";
 //=HA59*GX59
 scHB = scHA*scGX;
 
+var scHC = "";
+//=MAX(Scores!GQ59,(MAX(Scores!GR59,Scores!GV59)+Scores!GW59))
+scHC = Math.max(scGQ, (Math.max(scGR, scGV) + scGW))
+
+
 
 
 
@@ -10066,6 +10071,7 @@ console.log('scGY', scGY);
 console.log('scGZ', scGZ);
 console.log('scHA', scHA); 
 console.log('scHB', scHB);
+console.log('scHC', scHC);
 //James reference
 
 //IF(this = that, true, false) -> 
