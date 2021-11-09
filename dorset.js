@@ -9329,6 +9329,12 @@ var scGP = "";
 //=SUM('Clean data'!HJ59, 'Clean data'!HI59)
 scGP = (clHJ + clHI);
 
+var scGQ = "";
+//='Clean data'!HU59
+scGQ = clHU;
+
+
+
 
 
 console.log('----RAW----')
@@ -9915,6 +9921,7 @@ console.log('scGM', scGM);
 console.log('scGN', scGN);
 console.log('scGO', scGO);
 console.log('scGP', scGP);
+console.log('scGQ', scGQ);
 //James reference
 
 //IF(this = that, true, false) -> 
