@@ -9428,6 +9428,44 @@ var scGZ = "";
 //=(GY59/PC_Dom_respite_adj)*GX59
 scGZ = (scGY/PC_Dom_respite_adj)*scGZ;
 
+var scHA = "";
+//=IF('Clean data'!DL59=0,0,
+//IF('Clean data'!DL59=1,Scores!GU59,
+//IF('Clean data'!DL59=2,Scores!GU59,
+//IF('Clean data'!DL59=3,Scores!GU59,
+//IF('Clean data'!DL59=4,Scores!GU59/Night_respite_adj,Scores!GU59)))))
+if(clDL == 0)
+{
+  scHA = 0;
+}
+else if(clDL == 1)
+{
+  scHA = scGU;
+}
+else if(clDL == 2)
+{
+  scHA = scGU;
+}
+else if(clDL == 3)
+{
+  scHA = scGU;
+}
+else if(clDL == 4)
+{
+  scHA = scGU/Night_respite_adj;
+}
+else
+{
+  scHA = scGU;
+}
+
+var scHB = "";
+//=HA59*GX59
+scHB = scHA*scGX;
+
+
+
+
 
 
 
@@ -10026,6 +10064,8 @@ console.log('scGW', scGW);
 console.log('scGX', scGX);
 console.log('scGY', scGY);
 console.log('scGZ', scGZ);
+console.log('scHA', scHA); 
+console.log('scHB', scHB);
 //James reference
 
 //IF(this = that, true, false) -> 
