@@ -4527,6 +4527,23 @@ else
   clID = "";
 }
 
+var clIE = "";
+//=IF('Raw data'!FF59="Yes", 1, 
+//IF('Raw data'!FF59="No", 0, ""))
+if(rFF == "Yes")
+{
+  clIE = 1;
+}
+else if(rFF == "No")
+{
+  clIE = 0;
+}
+else
+{
+  clIE = "";
+}
+
+
 
 
 
@@ -9684,6 +9701,7 @@ console.log('clIA', clIA);
 console.log('clIB', clIB);
 console.log('clIC', clIC);
 console.log('clID', clID);
+console.log('clIE', clIE);
 console.log('scB', scB);
 console.log('scC', scC);
 console.log('scD', scD);
