@@ -4166,7 +4166,31 @@ else
   clHI = 0;
 }
 
-
+var clHJ = "";
+//=IF(OR(AND(ISNONTEXT(EA59),NOT(ISNUMBER(EA59))),EA59=""), 0, 
+//IF(AND('Raw data'!CM59="Yes",'Raw data'!CO59="Yes"), VLOOKUP(EA59, Informal0to7, 3, FALSE)*2, 
+//IF(OR('Raw data'!CM59="Yes",'Raw data'!CO59="Yes"), VLOOKUP(EA59, Informal0to7, 3, FALSE), 
+//IF('Raw data'!CN59="Yes", VLOOKUP(EA59, Informal0to7, 5, FALSE), 0))))
+if(ISNONTEXT(clEA) && NOT(ISNUMBER(clEA) || clEA === ""))
+{
+  clHJ = 0;
+}
+else if(rCM == "Yes" && rCO == "Yes")
+{
+  clHJ = VLOOKUP(clEA, Informal0to7, 3, FALSE)*2;
+}
+else if(rCM == "Yes" || rCO == "Yes")
+{
+  clHJ = VLOOKUP(clEA, Informal0to7, 3, FALSE);
+}
+else if(rCN == "Yes")
+{
+  clHJ =  VLOOKUP(clEA, Informal0to7, 5, FALSE);
+}
+else
+{
+  clHJ = 0;
+}
 
 
 
@@ -9299,6 +9323,7 @@ console.log('clHF', clHF);
 console.log('clHG', clHG);
 console.log('clHH', clHH);
 console.log('clHI', clHI);
+console.log('clHJ', clHJ);
 console.log('scB', scB);
 console.log('scC', scC);
 console.log('scD', scD);
