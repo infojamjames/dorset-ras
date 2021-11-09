@@ -161,7 +161,7 @@ var rCL='Yes' ;
 var rCM='Yes' ;
 var rCN='Yes' ;
 var rCO='Yes' ;
-var rCP=5 ;
+var rCP=6 ;
 var rCQ=5 ;
 var rCR=5 ;
 var rCS=7 ;
@@ -4005,6 +4005,115 @@ else
 {
   clHA = 0;
 }
+
+var clHB = "";
+//=IF('Raw data'!EV58="Yes", 1, 
+//IF('Raw data'!EV58="No", 0, ""))
+if(rEV == "Yes" )
+{
+  clHB = 1;
+}
+
+var clHC = "";
+//=IF(OR(AND(ISNONTEXT('Raw data'!CP58),NOT(ISNUMBER('Raw data'!CP58))),'Raw data'!CP58=""),0,
+//IF('Raw data'!CP58="NoNeed","NoNeed",
+//IF(OR(AND(AV58>=2,'Raw data'!CI58="Yes"),AND(OR(BA58>=2,BC58>=2),'Raw data'!CJ58="Yes"),AND(BI58>=2,'Raw data'!CK58="Yes")),'Raw data'!CP58,
+//IF(OR(AND(AV58>=2,'Raw data'!CI58="No"),AND(OR(BA58>=2,BC58>=2),'Raw data'!CJ58="No"),AND(BI58>=2,'Raw data'!CK58="No")),0,0))))
+if(ISNONTEXT(rCP) && NOT(ISNUMBER(rCP)|| rCP === ""))
+{
+  clHC = 0;
+}
+else if(rCP == "NoNeed")
+{
+  clHC = "NoNeed";
+}
+else if((((clAV >= 2 && rCI == "Yes") || (clBA >= 2 || clBC >= 2) && rCJ == "Yes") || clBI >= 2 && rCK == "Yes"))
+{
+  clHC = rCP;
+}
+else if((((clAV >= 2 && rCI == "No") || (clBA >= 2 || clBC > 2) && rCJ == "No") && clBI >= 2 && rCK == "No"))
+{
+  clHC = 0;
+}
+else
+{
+  clHC = 0;
+}
+
+var clHD = "";
+//=IF(OR(AND(ISNONTEXT('Raw data'!CR58),NOT(ISNUMBER('Raw data'!CR58))),'Raw data'!CR58=""),0,
+//IF('Raw data'!CR58="NoNeed","NoNeed",
+//IF(OR(AND(AX58>=2,'Raw data'!CI58="Yes"),AND(OR(BA58>=2,BC58>=2),'Raw data'!CJ58="Yes"),AND(BI58>=2,'Raw data'!CK58="Yes")),'Raw data'!CR58,
+//IF(OR(AND(AX58>=2,'Raw data'!CI58="No"),AND(BI58>=2,'Raw data'!CK58="No")),0,0))))
+if(ISNONTEXT(rCR) && NOT(ISNUMBER(rCR)|| rCR === ""))
+{
+  clHD = 0;
+}
+else if(rCR == "NoNeed")
+{
+  clHD = "NoNeed";
+}
+else if((((clAX >= 2 && rCI == "Yes") || (clBA >= 2 || clBC >= 2) && rCJ == "Yes") || clBI >= 2 && rCK == "Yes"))
+{
+  clHD = rCP;
+}
+else if((clAX >= 2 && rCI == "No") || (clBI >= 2 && rCK == "No")) 
+{
+  clHD = 0;
+}
+else
+{
+  clHD = 0;
+}
+
+var clHE = "";
+//=IF(OR(AND(ISNONTEXT(HC58),NOT(ISNUMBER(HC58))),HC58=""), 0, 
+//IF(OR('Raw data'!CI58="Yes", 'Raw data'!CJ58="Yes", 'Raw data'!CK58="Yes"), VLOOKUP(HC58, Informal0to7, 2, FALSE), 0))
+if(((ISNONTEXT(clHC)&& NOT_ISNUMBER(clHC) || clHC === "")))
+{
+  clHE = 0;
+}
+else if(rCI == "Yes" || rCJ == "Yes" || rCK == "Yes")
+{
+  clHE = VLOOKUP(clHC, Informal0to7, 2, FALSE)
+}
+else
+{
+  clHE = 0;
+}
+
+var clHF = "";
+//=IF(OR(AND(ISNONTEXT(DU58),NOT(ISNUMBER(DU58))),DU58=""), 0, 
+//IF(AND('Raw data'!CM58="Yes",'Raw data'!CO58="Yes"), VLOOKUP(DU58, Informal0to7, 3, FALSE)*2, 
+//IF(OR('Raw data'!CM58="Yes",'Raw data'!CO58="Yes"), VLOOKUP(DU58, Informal0to7, 3, FALSE), 
+//IF('Raw data'!CN58="Yes", VLOOKUP(DU58, Informal0to7, 5, FALSE), 0))))
+if(((ISNONTEXT(clDU)&& NOT_ISNUMBER(clDU)|| clDU === "")))
+{
+  clHF = 0;
+}
+else if(rCM == "Yes" && rCO == "Yes")
+{
+  clHF = VLOOKUP(clDU, Informal0to7, 3, FALSE)*2;
+}
+else if(rCM == "Yes" || rCO == "Yes")
+{
+  clHF = VLOOKUP(clDU, Informal0to7, 3, FALSE)
+}
+else if(rCN == "Yes")
+{
+  clHF =  VLOOKUP(clDU, Informal0to7, 5, FALSE)
+}
+else
+{
+  clHF = 0;
+}
+
+
+
+
+
+
+
 
 //Scores
 var scB = "";
@@ -8772,7 +8881,6 @@ else
 
 
 
-
 console.log('----RAW----')
 console.log('rN', rN);
 console.log('rO', rO);
@@ -9128,6 +9236,11 @@ console.log('clGW', clGW);
 console.log('clGX', clGX);
 console.log('clGZ', clGZ);
 console.log('clHA', clHA);
+console.log('clHB', clHB);
+console.log('clHC', clHC);
+console.log('clHD', clHD);
+console.log('clHE', clHE);
+console.log('clHF', clHF);
 console.log('scB', scB);
 console.log('scC', scC);
 console.log('scD', scD);
@@ -9323,6 +9436,7 @@ console.log('scGJ', scGJ);
 console.log('scGK', scGK);
 console.log('scGL', scGL);
 console.log('scGM', scGM);
+
 //James reference
 
 //IF(this = that, true, false) -> 
