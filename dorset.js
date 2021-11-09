@@ -4463,6 +4463,21 @@ else
   clHZ = "";
 }
 
+var clIA = "";
+//=IF('Raw data'!FB59="Yes", 1, 
+//IF('Raw data'!FB59="No", 0, ""))
+if(rFB == "Yes")
+{
+  clIA = 1;
+}
+else if(rFB == "No")
+{
+  clIA = 0;
+}
+else
+{
+  clIA = "";
+}
 
 
 
@@ -9612,6 +9627,7 @@ console.log('clHW', clHW);
 console.log('clHX', clHX);
 console.log('clHY', clHY);
 console.log('clHZ', clHZ);
+console.log('clIA', clIA);
 console.log('scB', scB);
 console.log('scC', scC);
 console.log('scD', scD);
