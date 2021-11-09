@@ -3952,6 +3952,21 @@ else
   clGX = VLOOKUP(rER, TimeAlone, 2, FALSE)
 }
 
+var clGY = "";
+//=IF('Raw data'!ES59="Yes", 1, 
+//IF('Raw data'!ES59="No", 0, 0))
+if(rES == "Yes")
+{
+  clGY = 1
+}
+else if(rES == "No")
+{
+  clGY = 0;
+}
+else
+{
+  clGY = 0;
+}
 
 var clGZ = "";
 //=IF('Raw data'!ET58=1, 1,
@@ -9364,10 +9379,16 @@ else
   scGT = 0;
 }
 
-
-
-
-
+var scGU = "";
+//=IF(OR('Clean data'!GY59=0,'Clean data'!DL59<1),0,VLOOKUP('Clean data'!DL59, NightAlone,2,FALSE)*('Clean data'!HL59/63))
+if(clGY == 0 || clDL < 1)
+{
+  scGU = 0;
+}
+else
+{
+  scGU = VLOOKUP(clDL, NightAlone,2,FALSE)*(clHL/63);
+}
 
 
 
@@ -9726,6 +9747,7 @@ console.log('clGU', clGU);
 console.log('clGV', clGV);
 console.log('clGW', clGW);
 console.log('clGX', clGX);
+console.log('clGY', clGY);
 console.log('clGZ', clGZ);
 console.log('clHA', clHA);
 console.log('clHB', clHB);
@@ -9961,6 +9983,7 @@ console.log('scGQ', scGQ);
 console.log('scGR', scGR);
 console.log('scGS', scGS);
 console.log('scGT', scGT);
+console.log('scGU', scGU);
 //James reference
 
 //IF(this = that, true, false) -> 
