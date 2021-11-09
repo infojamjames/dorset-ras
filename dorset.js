@@ -9419,6 +9419,13 @@ else
   scGX = 0;
 }
 
+var scGY = "";
+//=Scores!GN59+Scores!GO59+Scores!GP59+Scores!GS59+Scores!GT59+Scores!GW59
+scGY = scGN + scGO + scGP + scGT + scGW;
+
+
+
+
 
 
 
@@ -10016,6 +10023,7 @@ console.log('scGU', scGU);
 console.log('scGV', scGV);
 console.log('scGW', scGW);
 console.log('scGX', scGX);
+console.log('scGY', scGY);
 //James reference
 
 //IF(this = that, true, false) -> 
