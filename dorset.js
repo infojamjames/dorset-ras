@@ -9472,6 +9472,32 @@ var scHD = "";
 //=(HC59/Safety_respite_adj)*GX59
 scHD = (scHC/Safety_respite_adj)*scGX;
 
+var scHE = "";
+//=IF(AND(GZ59>=0,HB59=0,HD59=0),GZ59+HB59+HD59,
+//IF(AND(GZ59>=0,HB59>=0,HD59=0),GZ59+HB59+HD59,
+//IF(AND(GZ59>=0,HB59=0,HD59>=0,HC59=105),(GZ59*(GY59/56))+HB59+HD59,
+//IF(AND(GZ59>=0,HB59=0,HD59>=0),GZ59+HB59+HD59,GZ59+HB59+HD59))))
+if(scGZ >= 0 && scHB == 0 && scHD == 0)
+{
+  scHE = scGZ+scHB+scHD;
+}
+else if(scGZ >= 0 && scHB >= 0 && scHD == 0)
+{
+  scHE = scGZ+scHB+scHD;
+}
+else if(scGZ >= 0 && scHB == 0 && scHD >= 0 && scHC == 105)
+{
+  scHE = (scGZ*(scGY/56))+scHB+scHD;
+}
+else if(scGZ >= 0 && scHB == 0 && scHD >= 0)
+{
+  scHE = scGZ + scHB + scHD;
+}
+else
+{
+  scHE = scGZ + scHB + scHD;
+}
+
 
 
 
@@ -10075,6 +10101,7 @@ console.log('scHA', scHA);
 console.log('scHB', scHB);
 console.log('scHC', scHC);
 console.log('scHD', scHD);
+console.log('scHE', scHE);
 //James reference
 
 //IF(this = that, true, false) -> 
