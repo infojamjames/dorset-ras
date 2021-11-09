@@ -4203,6 +4203,17 @@ else
   clHK = 0;
 }
 
+var clHL = ""
+//=IF(OR(AND(ISNONTEXT('Raw data'!CS59),NOT(ISNUMBER('Raw data'!CS59))),'Raw data'!CS59=""), 0, VLOOKUP('Raw data'!CS59, Informal0to7, 4, FALSE))
+if(ISNONTEXT(rCS) && NOT_ISNUMBER(rCS)|| rCS === "")
+{
+  clHL = 0;
+}
+else
+{
+  clHL = VLOOKUP(rCS, Informal0to7, 4, FALSE);
+}
+
 
 
 
@@ -9338,6 +9349,7 @@ console.log('clHH', clHH);
 console.log('clHI', clHI);
 console.log('clHJ', clHJ);
 console.log('clHK', clHK);
+console.log('clHL', clHL);
 console.log('scB', scB);
 console.log('scC', scC);
 console.log('scD', scD);
