@@ -275,6 +275,9 @@ var SHNightOnce = 14.5;
 var PC_Dom_respite_adj = 1.5;
 var Safety_respite_adj = 3.75;
 var Max_days_respite = 42;
+var carcAA = 0;
+var Dynamic_Care_home = 0;
+var WA_Respite_weekly = 571.86;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -9515,6 +9518,61 @@ else
   scHF = scHE;
 }
 
+var scHG = "";
+//=IF(AND(Dynamic_Care_home=1,Respite_DC=1,NOT(R59="High")),HF59*('Care home calc'!AA59/7),
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,E59=1,NOT(R59="High")),HF59*(Tier2_Respite_weekly/7),
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,E59=2,NOT(R59="High")),HF59*(Tier3_Respite_weekly/7),
+//IF(AND(ModelType>=2,D59=1,NOT(R59="High")),HF59*(Tier2_Respite_weekly/7),
+//IF(AND(ModelType>=2,D59=2,NOT(R59="High")),HF59*(Tier3_Respite_weekly/7),
+//IF(AND(NOT(B59=1),NOT(B59=2),NOT(C59=1),Scores!D59=0,NOT(R59="High")),HF59*(Respite_weekly/7),
+//IF(AND(NOT(B59=1),NOT(B59=2),C59=1,NOT(R59="High")),HF59*(WA_Respite_weekly/7),
+//IF(AND(B59=1,NOT(R59="High")),HF59*(LD_Respite_weekly/7),
+//IF(AND(B59=2,NOT(R59="High")),HF59*(MH_Respite_weekly/7),0)))))))))
+if(Dynamic_Care_home == 1 && Respite_DC == 1 && scR != "High")
+{
+  scHG = scHF*(carcAA/7);
+}
+else if(ModelType >=2 && OUT_DSTNeedsProfile == 1 && scE == 1 && scR != "High")
+{
+  scHG = scHF*(Tier2_Respite_weekly/7);
+}
+else if(ModelType >=2 && OUT_DSTNeedsProfile == 1 && scE == 2 && scR != "High")
+{
+  scHG = scHF*(Tier3_Respite_weekly/7);
+}
+else if(ModelType >=2 && scD == 1 && scR != "High")
+{
+  scHG = scHF*(Tier2_Respite_weekly/7);
+}
+else if(ModelType >=2 && scD == 2 && scR != "High")
+{
+  scHG = scHF*(Tier3_Respite_weekly/7);
+}
+else if((scB != 1) && (scB != 2) && (scC != 1) && scD == 0 && scR != "High")
+{
+  scHG = scHF*(Respite_weekly/7);
+}
+else if(scB != 1 && scB != 2 && scC == 1 && scR != "High")
+{
+  scHG = scHF*(WA_Respite_weekly/7);
+}
+else if(scB == 1 && scR != "High")
+{
+  scHG = scHF*(LD_Respite_weekly/7);
+}
+else if(scB == 2 && scR != "High" )
+{
+  scHG = scHF*(MH_Respite_weekly/7);
+}
+else
+{
+  scHG = 0;
+}
+
+
+
+
+
 
 
 
@@ -10120,6 +10178,7 @@ console.log('scHC', scHC);
 console.log('scHD', scHD);
 console.log('scHE', scHE);
 console.log('scHF', scHF);
+console.log('scHG', scHG);
 //James reference
 
 //IF(this = that, true, false) -> 
