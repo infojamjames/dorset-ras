@@ -4214,6 +4214,16 @@ else
   clHL = VLOOKUP(rCS, Informal0to7, 4, FALSE);
 }
 
+var clHM = "";
+//=IF('Raw data'!CT59="Yes",2,0)
+if(rCT == "Yes")
+{
+  clHM = 2;
+}
+else
+{
+  clHM = 0;
+}
 
 
 
@@ -9350,6 +9360,7 @@ console.log('clHI', clHI);
 console.log('clHJ', clHJ);
 console.log('clHK', clHK);
 console.log('clHL', clHL);
+console.log('clHM', clHM);
 console.log('scB', scB);
 console.log('scC', scC);
 console.log('scD', scD);
