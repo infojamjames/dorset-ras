@@ -4415,9 +4415,21 @@ else
   clHW = "";
 }
 
-
-
-
+var clHX = "";
+//=IF('Raw data'!EY59="Yes", 1, 
+//IF('Raw data'!EY59="No", 0, ""))
+if(rEY == "Yes")
+{
+  clHX = 1;
+}
+else if(rEY == "No")
+{
+  clHX = 0;
+}
+else
+{
+  clHX = "";
+}
 
 
 
@@ -9564,6 +9576,7 @@ console.log('clHT', clHT);
 console.log('clHU', clHU);
 console.log('clHV', clHV);
 console.log('clHW', clHW);
+console.log('clHX', clHX);
 console.log('scB', scB);
 console.log('scC', scC);
 console.log('scD', scD);
