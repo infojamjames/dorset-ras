@@ -9333,6 +9333,42 @@ var scGQ = "";
 //='Clean data'!HU59
 scGQ = clHU;
 
+var scGR = "";
+//=IF(OR('Clean data'!HQ59=21,'Clean data'!HR59=21),21,
+//IF(OR('Clean data'!HQ59=15,'Clean data'!HR59=15),15,'Clean data'!HQ59+'Clean data'!HR59))
+if(clHQ == 21 || clHR == 21)
+{
+  scGR = 21;
+}
+else if(clHQ == 15 || clHR == 15)
+{
+  scGR = 15;
+}
+else
+{
+  scGR = clHQ + clHR;
+}
+
+var scGS = "";
+//='Clean data'!HO59
+scGS = clHO;
+
+var scGT = "";
+//=IF('Clean data'!GO59=0, 'Clean data'!HM59 + 'Clean data'!HP59 + 'Clean data'!HN59, 0)
+if(clGO == 0)
+{
+  scGT = clHM + clHP + clHN;
+}
+else
+{
+  scGT = 0;
+}
+
+
+
+
+
+
 
 
 
@@ -9922,6 +9958,9 @@ console.log('scGN', scGN);
 console.log('scGO', scGO);
 console.log('scGP', scGP);
 console.log('scGQ', scGQ);
+console.log('scGR', scGR);
+console.log('scGS', scGS);
+console.log('scGT', scGT);
 //James reference
 
 //IF(this = that, true, false) -> 
