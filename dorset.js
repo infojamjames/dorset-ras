@@ -4320,6 +4320,22 @@ else
   clHR = 0;
 }
 
+var clHS = "";
+//=IF(OR(AND(ISNONTEXT('Raw data'!CZ59),NOT(ISNUMBER('Raw data'!CZ59))),'Raw data'!CZ59=""), 0, VLOOKUP('Raw data'!CZ59, Ongoing_Company, 2, FALSE))
+if(ISNONTEXT(rCZ)&& NOT_ISNUMBER(rCZ)|| rCZ  === "")
+{
+  clHS = 0;
+}
+else
+{
+  clHS = VLOOKUP(rCZ, Ongoing_Company, 2, FALSE);
+}
+
+
+
+
+
+
 
 
 //Scores
@@ -9460,6 +9476,7 @@ console.log('clHO', clHO);
 console.log('clHP', clHP);
 console.log('clHQ', clHQ);
 console.log('clHR', clHR);
+console.log('clHS', clHS);
 console.log('scB', scB);
 console.log('scC', scC);
 console.log('scD', scD);
