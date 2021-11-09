@@ -9398,6 +9398,27 @@ var scGW = "";
 //='Clean data'!HT59
 scGW = clHT;
 
+var scGX = "";
+//=IF('Clean data'!FF59=2, Carer_impact_2, 
+//IF('Clean data'!FF59=3, Carer_impact_3, 
+//IF('Clean data'!FF59=4, Carer_impact_4, 0)))
+if(clFF == 2)
+{
+  scGX = Carer_impact_2;
+}
+else if(clFF == 3)
+{
+  scGX = Carer_impact_3;
+}
+else if(clFF == 4)
+{
+  scGX =  Carer_impact_4;
+}
+else
+{
+  scGX = 0;
+}
+
 
 
 
@@ -9994,6 +10015,7 @@ console.log('scGT', scGT);
 console.log('scGU', scGU);
 console.log('scGV', scGV);
 console.log('scGW', scGW);
+console.log('scGX', scGX);
 //James reference
 
 //IF(this = that, true, false) -> 
