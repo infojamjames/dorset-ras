@@ -4383,6 +4383,24 @@ else
   clHU = 0;
 }
 
+var clHV = "";
+//=IF('Raw data'!EW59="Yes", 1, 
+//IF('Raw data'!EW59="No", 0, ""))
+if(rEW == "Yes")
+{
+  clHV = 1;
+}
+else if(rEW == "No")
+{
+  clHV = 0;
+}
+else
+{
+  clHV = "";
+}
+
+
+
 
 
 //Scores
@@ -9526,6 +9544,7 @@ console.log('clHR', clHR);
 console.log('clHS', clHS);
 console.log('clHT', clHT);
 console.log('clHU', clHU);
+console.log('clHV', clHV);
 console.log('scB', scB);
 console.log('scC', scC);
 console.log('scD', scD);
