@@ -9321,8 +9321,9 @@ var scGN = "";
 //=SUM('Clean data'!HF59, 'Clean data'!HE59)
 scGN = (clHF + clHE);
 
-
-
+var scGO = "";
+//=SUM('Clean data'!HH59, 'Clean data'!HG59)
+scGO = (clHH + clHG);
 
 
 
@@ -9912,6 +9913,7 @@ console.log('scGK', scGK);
 console.log('scGL', scGL);
 console.log('scGM', scGM);
 console.log('scGN', scGN);
+console.log('scGO', scGO);
 //James reference
 
 //IF(this = that, true, false) -> 
