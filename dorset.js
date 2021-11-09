@@ -4225,6 +4225,17 @@ else
   clHM = 0;
 }
 
+var clHN = "";
+//=IF('Raw data'!CU59="Yes",2,0)
+if(rCU == "Yes")
+{
+  clHN = 2;
+}
+else
+{
+  clHN = 0;
+}
+
 
 
 
@@ -9361,6 +9372,7 @@ console.log('clHJ', clHJ);
 console.log('clHK', clHK);
 console.log('clHL', clHL);
 console.log('clHM', clHM);
+console.log('clHN', clHN);
 console.log('scB', scB);
 console.log('scC', scC);
 console.log('scD', scD);
