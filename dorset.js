@@ -9390,6 +9390,14 @@ else
   scGU = VLOOKUP(clDL, NightAlone,2,FALSE)*(clHL/63);
 }
 
+var scGV = "";
+//='Clean data'!HS59
+scGV = clHS;
+
+var scGW = "";
+//='Clean data'!HT59
+scGW = clHT;
+
 
 
 
@@ -9984,6 +9992,8 @@ console.log('scGR', scGR);
 console.log('scGS', scGS);
 console.log('scGT', scGT);
 console.log('scGU', scGU);
+console.log('scGV', scGV);
+console.log('scGW', scGW);
 //James reference
 
 //IF(this = that, true, false) -> 
