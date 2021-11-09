@@ -272,6 +272,7 @@ var Social_activity_hours = 3;
 var NightOnce = 14.5;
 var CHNightOnce = 14.5;
 var SHNightOnce = 14.5;
+var PC_Dom_respite_adj = 1.5;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -9423,9 +9424,9 @@ var scGY = "";
 //=Scores!GN59+Scores!GO59+Scores!GP59+Scores!GS59+Scores!GT59+Scores!GW59
 scGY = scGN + scGO + scGP + scGT + scGW;
 
-
-
-
+var scGZ = "";
+//=(GY59/PC_Dom_respite_adj)*GX59
+scGZ = (scGY/PC_Dom_respite_adj)*scGZ;
 
 
 
@@ -10024,6 +10025,7 @@ console.log('scGV', scGV);
 console.log('scGW', scGW);
 console.log('scGX', scGX);
 console.log('scGY', scGY);
+console.log('scGZ', scGZ);
 //James reference
 
 //IF(this = that, true, false) -> 
