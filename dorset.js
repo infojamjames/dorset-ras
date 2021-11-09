@@ -4258,6 +4258,69 @@ else
   clHP = 0;
 }
 
+var clHQ = "";
+//=IF('Raw data'!CX59="6to7act",21,
+//IF('Raw data'!CX59="4to5act",15,
+//IF('Raw data'!CX59="2to3act",6,
+//IF('Raw data'!CX59="1act",3,
+//IF('Raw data'!CX59="2nd carer",15,0)))))
+if(rCX == "6to7act")
+{
+  clHQ = 21;
+}
+else if(rCX == "4to5act")
+{
+  clHQ = 15;
+}
+else if(rCX == "2to3act")
+{
+  clHQ = 6;
+}
+else if(rCX == "1act")
+{
+  clHQ = 3;
+}
+else if(rCX == "2nd carer")
+{
+  clHQ = 15;
+}
+else
+{
+  clHQ = 0;
+}
+
+var clHR = "";
+//=IF('Raw data'!CY59="6to7act",21,
+//IF('Raw data'!CY59="4to5act",15,
+//IF('Raw data'!CY59="2to3act",6,
+//IF('Raw data'!CY59="1act",3,
+//IF('Raw data'!CY59="2nd carer",15,0)))))
+if(rCY == "6to7act")
+{
+  clHR = 21;
+}
+else if(rCY == "4to5act")
+{
+  clHR = 15;
+}
+else if(rCY == "2to3act")
+{
+  clHR = 6;
+}
+else if(rCY == "1act")
+{
+  clHR = 3;
+}
+else if(rCY == "2nd carer")
+{
+  clHR = 15;
+}
+else
+{
+  clHR = 0;
+}
+
+
 
 //Scores
 var scB = "";
@@ -9395,6 +9458,8 @@ console.log('clHM', clHM);
 console.log('clHN', clHN);
 console.log('clHO', clHO);
 console.log('clHP', clHP);
+console.log('clHQ', clHQ);
+console.log('clHR', clHR);
 console.log('scB', scB);
 console.log('scC', scC);
 console.log('scD', scD);
