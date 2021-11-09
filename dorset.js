@@ -4342,6 +4342,47 @@ else
   clHT =  VLOOKUP(rDA, Ongoing_Childcare, 2, FALSE)
 }
 
+var clHU = "";
+//=IF(DJ59<6,0,
+//IF(FD59=100,105,
+//IF(FD59=90,97,
+//IF(FD59=75,81,
+//IF(FD59=50,65,
+//IF(FD59=25,49,
+//IF(FD59=10,30,0)))))))
+if(clDJ < 6)
+{
+  clHU = 0;
+}
+else if(clFD == 100)
+{
+  clHU = 105;
+}
+else if(clFD == 90)
+{
+  clHU = 97;
+}
+else if(clFD == 75)
+{
+  clHU = 81;
+}
+else if(clFD == 50)
+{
+  clHU = 65;
+}
+else if(clFD == 25)
+{
+  clHU = 49;
+}
+else if(clFD == 10)
+{
+  clHU = 30;
+}
+else
+{
+  clHU = 0;
+}
+
 
 
 //Scores
@@ -9484,6 +9525,7 @@ console.log('clHQ', clHQ);
 console.log('clHR', clHR);
 console.log('clHS', clHS);
 console.log('clHT', clHT);
+console.log('clHU', clHU);
 console.log('scB', scB);
 console.log('scC', scC);
 console.log('scD', scD);
