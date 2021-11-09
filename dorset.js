@@ -274,6 +274,7 @@ var CHNightOnce = 14.5;
 var SHNightOnce = 14.5;
 var PC_Dom_respite_adj = 1.5;
 var Safety_respite_adj = 3.75;
+var Max_days_respite = 42;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -9498,6 +9499,22 @@ else
   scHE = scGZ + scHB + scHD;
 }
 
+var scHF= "";
+//=IF(HE59>Max_days_respite,Max_days_respite,
+//IF(HE59<0.5,0,HE59))
+if(scHE > Max_days_respite)
+{
+  scHF = Max_days_respite;
+}
+else if(scHE < 0.5)
+{
+  scHF = 0;
+}
+else
+{
+  scHF = scHE;
+}
+
 
 
 
@@ -10102,6 +10119,7 @@ console.log('scHB', scHB);
 console.log('scHC', scHC);
 console.log('scHD', scHD);
 console.log('scHE', scHE);
+console.log('scHF', scHF);
 //James reference
 
 //IF(this = that, true, false) -> 
