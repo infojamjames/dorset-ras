@@ -10140,7 +10140,66 @@ else
   scDK = "No night support";
 }
 
-
+var scHY = "";
+//=IF(OR(HX59="No Night support",HX59="Alarm monitor"),0,
+//IF(AND('Clean data'!DK59=7,'Clean data'!EP59=50)," for 7 nights/week, unpaid family/friend is 2nd carer",
+//IF(AND('Clean data'!DK59<7,'Clean data'!EP59=50)," for 7 nights/week",
+//IF(AND('Clean data'!DK59>=0.5,'Clean data'!EP59=100)," for 0 nights/week",
+//IF(AND('Clean data'!DK59>=0.5,'Clean data'!EP59=0)," for 7 nights/week",
+//IF(AND('Clean data'!DK59>=0.5,'Clean data'!EP59=14.2857)," for 6 nights/week",
+//IF(AND('Clean data'!DK59>=0.5,'Clean data'!EP59=28.5714)," for 5 nights/week",
+//IF(AND('Clean data'!DK59>=0.5,'Clean data'!EP59=42.8571)," for 4 nights/week",
+//IF(AND('Clean data'!DK59>=0.5,'Clean data'!EP59=57.1429)," for 3 nights/week",
+//IF(AND('Clean data'!DK59>=0.5,'Clean data'!EP59=71.4286)," for 2 nights/week",
+//IF(AND('Clean data'!DK59>=0.5,'Clean data'!EP59=85.7143)," for 1 night/week",0)))))))))))
+if(scHX == "No Night support" || scHX == "Alarm monitor")
+{
+  scHY = 0;
+}
+else if(clDK == 7 && clEP == 50)
+{
+  scHY = " for 7 nights/week, unpaid family/friend is 2nd carer";
+}
+else if(clDK < 7 && clEP == 50)
+{
+  scHY = " for 7 nights/week";
+}
+else if(clDK >= 0.5 && clEP == 100)
+{
+  scHY = " for 0 nights/week";
+}
+else if(clDK >= 0.5 && clEP == 0)
+{
+  scHY = " for 7 nights/week";
+}
+else if(clDK >= 0.5 && clEP == 14.2857)
+{
+  scHY = " for 6 nights/week";
+}
+else if(clDK >= 0.5 && clEP == 28.5714)
+{
+  scHY = " for 5 nights/week";
+}
+else if(clDK >= 0.5 && clEP == 42.8571)
+{
+  scHY = " for 4 nights/week";
+}
+else if(clDK >= 0.5 && clEP == 57.1429)
+{
+  scHY = " for 3 nights/week";
+}
+else if(clDK >= 0.5 && clEP == 71.4286)
+{
+  scHY = " for 2 nights/week";
+}
+else if(clDK >= 0.5 && clEP == 85.7143)
+{
+  scHY = " for 1 night/week";
+}
+else 
+{
+  scHY = 0;
+}
 
 
 
@@ -10763,6 +10822,7 @@ console.log('scHU', scHU);
 console.log('scHV', scHV);
 console.log('scHW', scHW);
 console.log('scDK', scDK);
+console.log('scHY', scHY);
 //James reference
 
 //IF(this = that, true, false) -> 
