@@ -9794,6 +9794,60 @@ else
   scHM = 0;
 }
 
+var scHN = "";
+//=IF(AND(Dynamic_Care_home=1,Scores!F59=1,'Care home calc'!AS59>0,'Clean data'!FW59=12,C59=1),(ROUND('Care home calc'!T59*4,0)/4)*Res_Hours_PD_Rate,
+//IF(AND(Dynamic_Care_home=1,Scores!F59=1,'Care home calc'!AS59>0,'Clean data'!FW59=12,B59=1),(ROUND('Care home calc'!T59*4,0)/4)*Res_Hours_LD_Rate,
+//IF(AND(Dynamic_Care_home=1,Scores!F59=1,'Care home calc'!AS59>0,'Clean data'!FW59=12,B59=2),(ROUND('Care home calc'!T59*4,0)/4)*Res_Hours_MH_Rate,
+//IF(AND(Dynamic_Care_home=1,Scores!F59=1,'Care home calc'!AS59>0,'Clean data'!FW59=12,B59=0),(ROUND('Care home calc'!T59*4,0)/4)*Res_Hours_Rate,
+//IF(AND(Dynamic_Care_home=1,Scores!F59=1,'Care home calc'!AS59>0,'Clean data'!FW59=15,C59=1),(ROUND('Care home calc'!T59*4,0)/4)*Nurs_hours_PD_Rate,
+//IF(AND(Dynamic_Care_home=1,Scores!F59=1,'Care home calc'!AS59>0,'Clean data'!FW59=15,B59=1),(ROUND('Care home calc'!T59*4,0)/4)*Nurs_hours_LD_Rate,
+//IF(AND(Dynamic_Care_home=1,Scores!F59=1,'Care home calc'!AS59>0,'Clean data'!FW59=15,B59=2),(ROUND('Care home calc'!T59*4,0)/4)*Nurs_hours_MH_Rate,
+//IF(AND(Dynamic_Care_home=1,Scores!F59=1,'Care home calc'!AS59>0,'Clean data'!FW59=15,B59=0),(ROUND('Care home calc'!T59*4,0)/4)*Nurs_Hours_Rate,0))))))))
+if(Dynamic_Care_home == 1 && scF == 1 && carcAS > 0 && clFW == 12  && scC == 1 )
+{
+  scHN = (Math.round(carcT*4,0)/4)*Res_Hours_PD_Rate;
+}
+else if(Dynamic_Care_home == 1 && scF == 1 && carcAS > 0 && clFW == 12 && scB == 1)
+{
+  scHN = (Math.round(carcT*4,0)/4)*Res_Hours_LD_Rate;
+}
+else if(Dynamic_Care_home == 1 && scF == 1 && carcAS > 0 && clFW == 12 && scB == 2)
+{
+  scHN = (Math.round(carcT*4,0)/4)*Res_Hours_MH_Rate;
+}
+else if(Dynamic_Care_home == 1 && scF == 1 && carcAS > 0 && clFW == 12 && scB == 0)
+{
+  scHN = (Math.round(carcT*4,0)/4)*Res_Hours_Rate;
+}
+else if(Dynamic_Care_home == 1 && scF == 1 && carcAS > 0 && clFW == 15 && scC == 1)
+{
+  scHN = (Math.round(carcT*4,0)/4)*Nurs_hours_PD_Rate;
+}
+else if(Dynamic_Care_home == 1 && scF == 1 && carcAS > 0 && clFW == 15 && scB == 1)
+{
+  scHN = (Math.round(carcT*4,0)/4)*Nurs_hours_LD_Rate;
+}
+else if(Dynamic_Care_home == 1 && scF == 1 && carcAS > 0 && clFW == 15 && scB == 2)
+{
+  scHN = (Math.round(carcT*4,0)/4)*Nurs_hours_MH_Rate;
+}
+else if(Dynamic_Care_home == 1 && scF == 1 && carcAS > 0 && clFW == 15 && scB == 0)
+{
+  scHN = (Math.round(carcT*4,0)/4)*Nurs_Hours_Rate;
+}
+else
+{
+  scHN = 0;
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -10407,6 +10461,7 @@ console.log('scHJ', scHJ);
 console.log('scHK', scHK);
 console.log('scHL', scHL);
 console.log('scHM', scHM);
+console.log('scHN', scHN);
 //James reference
 
 //IF(this = that, true, false) -> 
