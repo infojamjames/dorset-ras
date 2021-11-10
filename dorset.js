@@ -308,10 +308,12 @@ var comV = 468.69;
 var supF = 469;
 var supD = 0;
 var supB = 469;
+var supK = 468.69;
 var supO = 0;
 var oalE = 2;
 var oalC = 0;
 var oalB = 469;
+var oalI = 468.69;
 var Res_Hours_PD_Rate = 0;
 var Res_Hours_MH_Rate = 0;
 var Res_Hours_LD_Rate = 0;
@@ -10035,6 +10037,32 @@ else
   scHT = calAB;
 }
 
+var scHU = "";
+//=IF(I59=0,0,
+//IF(AND(Scores!HK59="Capped",Calculator!AF59<Calculator!AE59),"Not relevant due to overall model cap",
+//IF(Scores!HK59="Capped","Not relevant due to living situation cap",
+//IF(OR('Clean data'!FW59=7,'Clean data'!FW59=9),'Supp. Living'!K59/Y59,
+//IF('Clean data'!FW59=9.5,'Other ALS'!I59/X59,Community!I59/AC59)))))
+if(scHK == "Capped" && calAF < calAE)
+{
+  scHU = "Not relevant due to overall model cap";
+}
+else if(scHK == "Capped")
+{
+  scHU = "Not relevant due to living situation cap"
+}
+else if(clFW == 7 || clFW == 9)
+{
+  scHU = supK/scY;
+}
+else if(clFW == 9.5)
+{
+  scHU = oalI/scX;
+}
+else
+{
+  scHU = comI/scAC;
+}
 
 
 
@@ -10656,6 +10684,7 @@ console.log('scHQ', scHQ);
 console.log('scHR', scHR);
 console.log('scHS', scHS);
 console.log('scHT', scHT);
+console.log('scHU', scHU);
 //James reference
 
 //IF(this = that, true, false) -> 
