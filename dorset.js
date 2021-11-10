@@ -286,6 +286,7 @@ var carcR = 27.125;
 var carcD = 1.75;
 var carcJ = 0;
 var carcM = 1.5;
+var carcL = 0;
 var Dynamic_Care_home = 0;
 var WA_Respite_weekly = 571.86;
 var WA_High_end_cap = 0;
@@ -312,6 +313,7 @@ var oalB = 469;
 var Res_Hours_PD_Rate = 0;
 var Res_Hours_MH_Rate = 0;
 var Res_Hours_LD_Rate = 0;
+var Res_Hours_Rate = 0;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -9943,6 +9945,31 @@ else
   scHQ = (carcD + carcJ + carcM)*Res_Hours_PD_Rate;
 }
 
+var scHR = "";
+//=IF(AND('Care home calc'!L59>0,Scores!C59=1),'Care home calc'!L59*Res_Hours_PD_Rate,
+//IF(AND('Care home calc'!L59>0,Scores!B59=1),'Care home calc'!L59*Res_Hours_LD_Rate,
+//IF(AND('Care home calc'!L59>0,Scores!B59=2),'Care home calc'!L59*Res_Hours_MH_Rate,'Care home calc'!L59*Res_Hours_Rate)))
+if(carcL > 0 && scC == 1)
+{
+  scHR = carcL*Res_Hours_PD_Rate;
+}
+else if(carcL > 0 && scB == 1)
+{
+  scHR = carcL*Res_Hours_LD_Rate;
+}
+else if(carcL > 0 && scB == 2)
+{
+  scHR = carcL*Res_Hours_MH_Rate;
+}
+else
+{
+  scHR = carcL*Res_Hours_Rate;
+}
+
+
+
+
+
 
 
 
@@ -10560,6 +10587,7 @@ console.log('scHN', scHN);
 console.log('scHO', scHO);
 console.log('scHP', scHP);
 console.log('scHQ', scHQ);
+console.log('scHR', scHR);
 //James reference
 
 //IF(this = that, true, false) -> 
