@@ -9840,15 +9840,46 @@ else
   scHN = 0;
 }
 
-
-
-
-
-
-
-
-
-
+var scHO = "";
+//=IF(AND(Dynamic_Care_home=1,Scores!F59=1,'Care home calc'!AS59>0,'Clean data'!FW59=12),HM59,
+//IF(AND(Dynamic_Care_home=1,Scores!F59=1,'Care home calc'!AS59>0,'Clean data'!FW59=15),HM59,
+//IF(AND(Scores!HK59="Capped",Calculator!AF59<Calculator!AE59),"Not relevant due to overall model cap",
+//IF(AND(Scores!HK59="Capped",Calculator!AD59<Calculator!AC59),"Not relevant due to living situation cap",
+//IF(OR('Clean data'!FW59=7,'Clean data'!FW59=9),ROUND('Supp. Living'!F59-'Supp. Living'!D59,2),
+//IF('Clean data'!FW59=9.5,ROUND('Other ALS'!E59-'Other ALS'!C59,2),
+//IF(AND(PA_Dom_Tasks_Switch=1,'Clean data'!GA59=1),ROUND(Community!V59-Community!T59,2),ROUND(Community!E59-Community!C59,2))))))))
+if(Dynamic_Care_home == 1 && scF == 1 && carcAS > 0 && clFW == 12)
+{
+  scHO = scHM;
+}
+else if(Dynamic_Care_home == 1 && scF == 1 && carcAS > 0 && clFW == 15)
+{
+  scHO = scHM;
+}
+else if(scHK == "Capped" && calAF < calAE)
+{
+  scHO = "Not relevant due to overall model cap";
+}
+else if(scHK == "Capped" && calAD < calAC)
+{
+  scHO = "Not relevant due to living situation cap";
+}
+else if(clFW == 7 || clFW == 9)
+{
+  scHO = Math.round(supF - supD,2)
+}
+else if(clFW == 9.5)
+{
+  scHO = Math.round(oalE - oalC,2)
+}
+else if(PA_Dom_Tasks_Switch == 1 && clGA == 1)
+{
+  scHO = Math.round(comV-comT,2)
+}
+else
+{
+  scHO = Math.round(comE-comC,2)
+}
 
 
 
@@ -10462,6 +10493,7 @@ console.log('scHK', scHK);
 console.log('scHL', scHL);
 console.log('scHM', scHM);
 console.log('scHN', scHN);
+console.log('scHO', scHO);
 //James reference
 
 //IF(this = that, true, false) -> 
