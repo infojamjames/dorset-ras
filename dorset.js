@@ -10095,6 +10095,12 @@ else
   scHV = clAA;
 }
 
+var scHW = "";
+//=Output!M59
+scHW = scM;
+
+
+
 
 
 
@@ -10717,6 +10723,7 @@ console.log('scHS', scHS);
 console.log('scHT', scHT);
 console.log('scHU', scHU);
 console.log('scHV', scHV);
+console.log('scHW', scHW);
 //James reference
 
 //IF(this = that, true, false) -> 
