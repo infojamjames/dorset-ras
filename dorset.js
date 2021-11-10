@@ -291,6 +291,15 @@ var calAC = 974;
 var calAE = 974;
 var calAF = 974;
 var comQ = 974;
+var comE = 468.69;
+var comC = 0.00;
+var comB = 468.69;
+var supF = 469;
+var supD = 0;
+var supB = 469;
+var oalE = 2;
+var oalC = 0;
+var oalB = 469;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -9716,6 +9725,27 @@ else
   scHK = "";
 }
 
+var scHL = "";
+//=IF(AND(OR('Clean data'!FW59=7,'Clean data'!FW59=9),'Supp. Living'!F59<'Supp. Living'!D59+'Supp. Living'!B59),"As the service user requires constant presence/supervision, an allocation has been made for daytime safety which covers some or all of the essential daily living tasks allocation",
+//IF(AND('Clean data'!FW59=9.5,'Other ALS'!E59<'Other ALS'!C59+'Other ALS'!B59),"As the service user requires constant presence/supervision, an allocation has been made for daytime safety which covers some or all of the essential daily living tasks allocation",
+//IF(AND(NOT('Clean data'!FW59=7),NOT('Clean data'!FW59=9),NOT('Clean data'!FW59=9.5),Community!E59<Community!C59+Community!B59),"As the service user requires constant presence/supervision, an allocation has been made for daytime safety which covers some or all of the essential daily living tasks allocation","")))
+if((clFW = 7 || clFW == 9) && supF < supD + supB)
+{
+  scHL = "As the service user requires constant presence/supervision, an allocation has been made for daytime safety which covers some or all of the essential daily living tasks allocation";
+}
+else if(clFW == 9.5 && oalE < oalC + oalB)
+{
+  scHL = "As the service user requires constant presence/supervision, an allocation has been made for daytime safety which covers some or all of the essential daily living tasks allocation";
+}
+else if((clFW != 7) && (clFW != 9) && (clFW != 9.5)&& comE < comC + comB)
+{
+  scHL = "As the service user requires constant presence/supervision, an allocation has been made for daytime safety which covers some or all of the essential daily living tasks allocation";
+}
+else
+{
+  scHL = "";
+}
+
 
 
 
@@ -10326,6 +10356,7 @@ console.log('scHH', scHH);
 console.log('scHI', scHI);
 console.log('scHJ', scHJ);
 console.log('scHK', scHK);
+console.log('scHL', scHL);
 //James reference
 
 //IF(this = that, true, false) -> 
