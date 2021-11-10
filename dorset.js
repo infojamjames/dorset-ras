@@ -10099,8 +10099,46 @@ var scHW = "";
 //=Output!M59
 scHW = scM;
 
-
-
+var scHX = "";
+//=IF('Clean data'!DK59=0.5,"Alarm monitor",
+//IF('Clean data'!DK59=1,"Pop-ins once per night,",
+//IF('Clean data'!DK59=2,"Pop-ins twice per night,",
+//IF('Clean data'!DK59=3,"Pop-ins three times per night,",
+//IF(AND('Clean data'!DK59=5,'Clean data'!DL59<WakingImpactLevel),"Sleep-ins required",
+//IF(AND('Clean data'!DK59=5,'Clean data'!DL59>=WakingImpactLevel),"Waking nights required",
+//IF('Clean data'!DK59=7,"Support of two care workers at night required","No night support")))))))
+if(clDK == 0.5)
+{
+  scHX = "Alarm monitor";
+}
+else if(clDK == 1)
+{
+  scDK = "Pop-ins once per night,";
+}
+else if(clDK == 2)
+{
+  scDK = "Pop-ins twice per night,";
+}
+else if(clDK == 3)
+{
+  scDK = "Pop-ins three times per night,";
+}
+else if(clDK == 5 && clDL < WakingImpactLevel)
+{
+  scDK = "Sleep-ins required";
+}
+else if(clDK == 5 && clDL >= WakingImpactLevel)
+{
+  scDK = "Waking nights required";
+}
+else if(clDK == 7)
+{
+  scDK = "Support of two care workers at night required";
+}
+else
+{
+  scDK = "No night support";
+}
 
 
 
@@ -10724,6 +10762,7 @@ console.log('scHT', scHT);
 console.log('scHU', scHU);
 console.log('scHV', scHV);
 console.log('scHW', scHW);
+console.log('scDK', scDK);
 //James reference
 
 //IF(this = that, true, false) -> 
