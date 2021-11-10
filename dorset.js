@@ -283,6 +283,9 @@ var carcAE = 0;
 var carcAD = 0;
 var carcAS = 974.14;
 var carcR = 27.125;
+var carcD = 1.75;
+var carcJ = 0;
+var carcM = 1.5;
 var Dynamic_Care_home = 0;
 var WA_Respite_weekly = 571.86;
 var WA_High_end_cap = 0;
@@ -306,6 +309,9 @@ var supO = 0;
 var oalE = 2;
 var oalC = 0;
 var oalB = 469;
+var Res_Hours_PD_Rate = 0;
+var Res_Hours_MH_Rate = 0;
+var Res_Hours_LD_Rate = 0;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -9916,6 +9922,28 @@ else
   scHP = 2;
 }
 
+var scHQ = "";
+//=IF(AND(Scores!C59=1),('Care home calc'!D59+'Care home calc'!J59+'Care home calc'!M59)*Res_Hours_PD_Rate,
+//IF(AND(Scores!B59=1),('Care home calc'!D59+'Care home calc'!J59+'Care home calc'!M59)*Res_Hours_LD_Rate,
+//IF(AND(Scores!B59=2),('Care home calc'!D59+'Care home calc'!J59+'Care home calc'!M59)*Res_Hours_MH_Rate,('Care home calc'!D59+'Care home calc'!J59+'Care home calc'!M59)*Res_Hours_PD_Rate)))
+if(scC == 1)
+{
+  scHQ = (carcD + carcJ + carcM)*Res_Hours_PD_Rate;
+}
+else if(scB == 1)
+{
+  scHQ = (carcD + carcJ + carcM)*Res_Hours_LD_Rate;
+}
+else if(scB == 2)
+{
+  scHQ = (carcD + carcJ + carcM)*Res_Hours_MH_Rate;
+}
+else
+{
+  scHQ = (carcD + carcJ + carcM)*Res_Hours_PD_Rate;
+}
+
+
 
 
 
@@ -10531,6 +10559,7 @@ console.log('scHM', scHM);
 console.log('scHN', scHN);
 console.log('scHO', scHO);
 console.log('scHP', scHP);
+console.log('scHQ', scHQ);
 //James reference
 
 //IF(this = that, true, false) -> 
