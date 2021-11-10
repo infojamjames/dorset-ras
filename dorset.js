@@ -277,12 +277,20 @@ var Safety_respite_adj = 3.75;
 var Max_days_respite = 42;
 var carcAA = 0;
 var carcAE = 0;
+var carcW = 58.375;
+var carcZ = 0;
+var carcAE = 0;
+var carcAD = 0;
 var Dynamic_Care_home = 0;
 var WA_Respite_weekly = 571.86;
 var WA_High_end_cap = 0;
 var LD_High_end_cap = 0;
 var MH_High_end_cap = 0;
 var High_end_cap = 0;
+var calAC = 974;
+var calAE = 974;
+var calAF = 974;
+var comQ = 974;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -9682,15 +9690,31 @@ else
   scHJ = 0;
 }
 
-
-
-
-
-
-
-
-
-
+var scHK = "";
+//=IF(AND(OR('Clean data'!FW59=12,'Clean data'!FW59=15),Dynamic_Care_home=1,OR(AND(Dynamic_Hours_Cap>0,'Care home calc'!W59>Dynamic_Hours_Cap))),"Capped",
+//IF(OR(AND('Clean data'!FW59=12,Dynamic_Care_home=1, 'Care home calc'!AA59<'Care home calc'!Z59), AND('Clean data'!FW59=15,Dynamic_Care_home=1, 'Care home calc'!AE59<'Care home calc'!AD59)),"Capped",
+//IF(OR(AND('Clean data'!FW59=12,Dynamic_Care_home=1, NOT('Care home calc'!AA59<'Care home calc'!Z59)), AND('Clean data'!FW59=15,Dynamic_Care_home=1, NOT('Care home calc'!AE59<'Care home calc'!AD59))),"",
+//IF(OR(AND(OR('Clean data'!FW59=12,'Clean data'!FW59=15),Calculator!AC59<Community!Q59),AND(OR('Clean data'!FW59=12,'Clean data'!FW59=15),Care_home_allocation=0),AND('Clean data'!FW59=3,OR(Live_in_Carer_Allocation=0,Calculator!AC59<Community!Q59)),AND('Clean data'!FW59=10,OR(Shared_Lives_Allocation=0,Calculator!AC59<Community!Q59)),Calculator!AF59<Calculator!AE59),"Capped",""))))
+if((clFW == 12 || clFW == 15) && Dynamic_Care_home == 1 && (Dynamic_Hours_Cap > 0 &&  carcW > Dynamic_Hours_Cap))
+{
+  scHK = "Capped";
+}
+else if((clFW == 12 && Dynamic_Care_home == 1 && carcAA < carcZ)|| (clFW == 15 && Dynamic_Care_home == 1 && carcAE < carCAD))
+{
+  scHK = "Capped";
+}
+else if((clFW == 12 && Dynamic_Care_home == 1 && carcAA >= carcZ)|| (clFW == 15 && Dynamic_Care_home == 1 && (carcAE >=carcAD)))
+{
+  scHK = "";
+}
+else if((clFW == 12 || clFW == 15)&& (calAC < comQ)&& ((clFW == 12 || clFW == 15)&&Care_home_allocation == 0 )&& (clFW == 3 && (Live_in_Carer_Allocation == 0 || calAC < comQ))&& (clFW == 10 && (Shared_Lives_Allocation == 0 || calAC < comQ))&& calAF < calAE)
+{
+  scHK = "Capped";
+}
+else
+{
+  scHK = "";
+}
 
 
 
@@ -10301,6 +10325,7 @@ console.log('scHG', scHG);
 console.log('scHH', scHH);
 console.log('scHI', scHI);
 console.log('scHJ', scHJ);
+console.log('scHK', scHK);
 //James reference
 
 //IF(this = that, true, false) -> 
