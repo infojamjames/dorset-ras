@@ -296,9 +296,13 @@ var comQ = 974;
 var comE = 468.69;
 var comC = 0.00;
 var comB = 468.69;
+var comM = 0;
+var comT = 974;
+var comAD = 0;
 var supF = 469;
 var supD = 0;
 var supB = 469;
+var supO = 0;
 var oalE = 2;
 var oalC = 0;
 var oalB = 469;
@@ -9881,6 +9885,38 @@ else
   scHO = Math.round(comE-comC,2)
 }
 
+var scHP = "";
+//=IF(OR(AND(Work_edu_Overlap=0,OR('Clean data'!FW59=7,'Clean data'!FW59=9),('Supp. Living'!D59+('Supp. Living'!O59-Scores!GE59))=0),AND(Work_edu_Overlap=0,'Clean data'!FW59=9.5,('Other ALS'!C59+(Community!M59-Scores!GE59))=0),AND(Work_edu_Overlap=0,(Community!C59+(Community!M59-Scores!GE59))=0)),0,
+//IF(OR(AND(OR('Clean data'!FW59=7,'Clean data'!FW59=9),ROUND(('Supp. Living'!D59+('Supp. Living'!O59-Scores!GE59)),2)=0),AND('Clean data'!FW59=9.5,ROUND(('Other ALS'!C59+(Community!M59-Scores!GE59)),2)=0),ROUND(Community!C59+(Community!M59-Scores!GE59),2)=0),0,
+//IF(OR('Clean data'!FW59=7,'Clean data'!FW59=9),ROUND(('Supp. Living'!D59+('Supp. Living'!O59-Scores!GE59)),2),
+//IF('Clean data'!FW59=9.5,ROUND(('Other ALS'!C59+(Community!M59-Scores!GE59)),2),
+//IF(AND(PA_Dom_Tasks_Switch=1,'Clean data'!GA59=1),ROUND((Community!T59+(Community!AD59-Scores!GE59)),2),ROUND((Community!C59+(Community!M59-Scores!GE59)),2))))))
+if(Work_edu_Overlap == 0 && (clFW == 7 || clFW == 9)&& ((supD + (supO - scGE)==0)) && (Work_edu_Overlap == 0 && clFW == 9.5)&& ((oalC + comM - scGE)== 0)&& ((Work_edu_Overlap == 0 && comC + comM - scGE)==0))
+{
+  scHP = 0;
+}
+else if((clFW == 7 || clFW == 9) && Math.round((supD+(supO-scGE)),2)== 0 && (clFW == 9.5 && Math.round((oalC+(comM-scGE)),2)== 0)&& Math.round(comC+(comM-scGE),2)== 0)
+{
+  scHP = 0;
+}
+else if((clFW == 7 || clFW == 9))
+{
+  scHP = Math.round(supD+(supO-scGE));
+}
+else if(clFW == 9.5)
+{
+  scHP = Math.round((oalC+(comM-scGE)),2);
+}
+else if(PA_Dom_Tasks_Switch == 1 && clGA == 1 && (Math.round((comT+(comAD-scGE)),2)))
+{
+  scHP = Math.round((comC+(comM-scGE)))
+}
+else
+{
+  scHP = 2;
+}
+
+
 
 
 
@@ -10494,6 +10530,7 @@ console.log('scHL', scHL);
 console.log('scHM', scHM);
 console.log('scHN', scHN);
 console.log('scHO', scHO);
+console.log('scHP', scHP);
 //James reference
 
 //IF(this = that, true, false) -> 
