@@ -10064,6 +10064,37 @@ else
   scHU = comI/scAC;
 }
 
+var scHV = "";
+//=IF(AND(ModelType<=2,SUM('Clean data'!FI59:FR59)<2),0,
+//IF(AND(ModelType<=2,SUM('Clean data'!FI59:FR59)>1, 'Clean data'!FT59=0),0,
+//IF(AND(Scores!HK59="Capped",Calculator!AF59<Calculator!AE59),"Not relevant due to overall model cap",
+//IF(Scores!HK59="Capped","Not relevant due to living situation cap",
+//IF('Clean data'!AA59="",0,'Clean data'!AA59)))))
+if((ModelType <= 2 &&  clFI + clFJ + clFK +  clFL + clFM + clFN + clFO + clFP + clFQ + clFR )< 2)
+{
+  scHV = 0;
+}
+else if((ModelType <= 2 && clFI + clFJ + clFK +  clFL + clFM + clFN + clFO + clFP + clFQ + clFR)> 1 && clFT == 0)
+{
+  scHV = 0;
+}
+else if(scHK == "Capped" && calAF < calAE)
+{
+  scHV = "Not relevant due to overall model cap";
+}
+else if(scHK == "Capped")
+{
+  scHV = "Not relevant due to living situation cap";
+}
+else if(clAA == "")
+{
+  scHV = 0;
+}
+else
+{
+  scHV = clAA;
+}
+
 
 
 
@@ -10685,6 +10716,7 @@ console.log('scHR', scHR);
 console.log('scHS', scHS);
 console.log('scHT', scHT);
 console.log('scHU', scHU);
+console.log('scHV', scHV);
 //James reference
 
 //IF(this = that, true, false) -> 
