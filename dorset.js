@@ -9621,6 +9621,17 @@ else
   scHH = 0;
 }
 
+var scHI = "";
+//=IF('Clean data'!FG59=0,0,(MAX(HG59,HH59)/52.14))
+if(clFG == 0)
+{
+  scHI = 0;
+}
+else
+{
+  scHI = Math.max(scHG,scHH)/52.14;
+}
+
 
 
 
@@ -10228,6 +10239,7 @@ console.log('scHE', scHE);
 console.log('scHF', scHF);
 console.log('scHG', scHG);
 console.log('scHH', scHH);
+console.log('scHI', scHI);
 //James reference
 
 //IF(this = that, true, false) -> 
