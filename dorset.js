@@ -279,6 +279,10 @@ var carcAA = 0;
 var carcAE = 0;
 var Dynamic_Care_home = 0;
 var WA_Respite_weekly = 571.86;
+var WA_High_end_cap = 0;
+var LD_High_end_cap = 0;
+var MH_High_end_cap = 0;
+var High_end_cap = 0;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -9632,6 +9636,62 @@ else
   scHI = Math.max(scHG,scHH)/52.14;
 }
 
+var scHJ = "";
+//=IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,E59=1,F59=0,Tier2_High_end_cap>0),Tier2_High_end_cap,
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,E59=2,F59=0,Tier3_High_end_cap>0),Tier3_High_end_cap,
+//IF(AND(ModelType>=2,D59=1,F59=0,Tier2_High_end_cap>0),Tier2_High_end_cap,
+//IF(AND(ModelType>=2,D59=2,F59=0,Tier3_High_end_cap>0),Tier3_High_end_cap,
+//IF(AND(NOT(B59=1),NOT(B59=2),NOT(C59=1),F59=0,High_end_cap>0),High_end_cap,
+//IF(AND(B59=1,F59=0,LD_High_end_cap>0),LD_High_end_cap,
+//IF(AND(C59=1,F59=0,WA_High_end_cap>0),WA_High_end_cap,
+//IF(AND(B59=2,F59=0,MH_High_end_cap>0),MH_High_end_cap,0))))))))
+if(ModelType >=2 && OUT_DSTNeedsProfile == 1 && scE == 1 && scF == 0 && Tier2_High_end_cap > 0)
+{
+  scHJ = Tier2_High_end_cap;
+}
+else if(ModelType >=2 && OUT_DSTNeedsProfile == 1 && scE == 2 && scF == 0 && Tier3_High_end_cap > 0)
+{
+  scHJ = Tier3_High_end_cap;
+}
+else if(ModelType>=2 && scD == 1 && scF == 0 && Tier2_High_end_cap > 0)
+{
+  scHJ = Tier2_High_end_cap;
+}
+else if(ModelType >=2 && scD == 2 && scF == 0 && Tier3_High_end_cap > 0)
+{
+  scHJ = Tier3_High_end_cap;
+}
+else if(scB != 1 && scB != 2 && scC != 1 && scF == 0 && High_end_cap > 0)
+{
+  scHJ = High_end_cap;
+}
+else if(scB == 1 && scF == 0 && LD_High_end_cap > 0)
+{
+  scHJ = LD_High_end_cap;
+}
+else if(scC == 1 && scF == 0 && WA_High_end_cap > 0)
+{
+  scHJ = WA_High_end_cap;
+}
+else if(scB == 2 && scF == 0 && MH_High_end_cap > 0)
+{
+  scHJ = MH_High_end_cap;
+}
+else
+{
+  scHJ = 0;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -10240,6 +10300,7 @@ console.log('scHF', scHF);
 console.log('scHG', scHG);
 console.log('scHH', scHH);
 console.log('scHI', scHI);
+console.log('scHJ', scHJ);
 //James reference
 
 //IF(this = that, true, false) -> 
