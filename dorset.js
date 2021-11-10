@@ -296,6 +296,7 @@ var High_end_cap = 0;
 var calAC = 974;
 var calAE = 974;
 var calAF = 974;
+var calAB = 2.0;
 var comQ = 974;
 var comE = 468.69;
 var comC = 0.00;
@@ -10008,6 +10009,33 @@ else
   scHS = (comE-comC)/scAC;
 }
 
+var scHT = "";
+//=IF(AND(ModelType<=2,SUM('Clean data'!FI59:FR59)<2),0,
+//IF(AND(ModelType<=2,SUM('Clean data'!FI59:FR59)>1, 'Clean data'!FT59=0),0,
+//IF(AND(Scores!HK59="Capped",Calculator!AF59<Calculator!AE59),"Not relevant due to overall model cap",
+//IF(Scores!HK59="Capped","Not relevant due to living situation cap",Calculator!AB59))))
+if((ModelType <= 2 && clFI + clFJ + clFK +  clFL + clFM + clFN + clFO + clFP + clFQ + clFR )< 2)
+{
+  scHT = 0;
+}
+else if((ModelType <= 2 && clFI + clFJ + clFK +  clFL + clFM + clFN + clFO + clFP + clFQ + clFR )> 1 && clFT == 0)
+{
+  scHT = 0;
+}
+else if(scHK == "Capped" && calAF < calAE)
+{
+  scHT = "Not relevant due to overall model cap";
+}
+else if(scHK == "Capped")
+{
+  scHT = "Not relevant due to living situation cap";
+}
+else
+{
+  scHT = calAB;
+}
+
+
 
 
 
@@ -10627,6 +10655,7 @@ console.log('scHP', scHP);
 console.log('scHQ', scHQ);
 console.log('scHR', scHR);
 console.log('scHS', scHS);
+console.log('scHT', scHT);
 //James reference
 
 //IF(this = that, true, false) -> 
