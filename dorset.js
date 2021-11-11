@@ -10299,6 +10299,62 @@ else
   scIA = 0;
 }
 
+var scIB = "";
+//=IF(AND('Clean data'!DK59=7,'Clean data'!EP59=50),((IA59*7)/2),
+//IF(AND('Clean data'!DK59<7,'Clean data'!EP59=50),(IA59*7),
+//IF(AND('Clean data'!DK59>=0.5,'Clean data'!EP59=100),0,
+//IF(AND('Clean data'!DK59>=0.5,'Clean data'!EP59=0),IA59*7,
+//IF(AND('Clean data'!DK59>=0.5,'Clean data'!EP59=14.2857),IA59*6,
+//IF(AND('Clean data'!DK59>=0.5,'Clean data'!EP59=28.5714),IA59*5,
+//IF(AND('Clean data'!DK59>=0.5,'Clean data'!EP59=42.8571),IA59*4,
+//IF(AND('Clean data'!DK59>=0.5,'Clean data'!EP59=57.1429),IA59*3,
+//IF(AND('Clean data'!DK59>=0.5,'Clean data'!EP59=71.4286),IA59*2,
+
+//IF(AND('Clean data'!DK59>=0.5,'Clean data'!EP59=85.7143),IA59*1,0))))))))))
+if(clDK == 7 && clEP == 50)
+{
+  scIB = ((scIA*7)/2);
+}
+else if(clDK < 7 && clEP == 50)
+{
+  scIB = (scIA*7);
+}
+else if(clDK >= 0.5 && clEP == 100)
+{
+  scIB = 0;
+}
+else if(clDK >= 0.5 && clEP == 0)
+{
+  scIB = scIA*7;
+}
+else if(clDK >= 0.5 && clEP == 14.2857)
+{
+  scIB = scIA*6;
+}
+else if(clDK >= 0.5 && clEP == 28.5714)
+{
+  scIB = scIA*5;
+}
+else if(clDK >= 0.5 && clEP == 42.8571)
+{
+  scIB = scIA*4;
+}
+else if(clDK >= 0.5 && clEP == 57.1429)
+{
+  scIB = scIA*3;
+}
+else if(clDK >= 0.5 && clEP == 71.4286)
+{
+  scIB = scIA*2;
+}
+else if(clDK >= 0.5 && clEP == 85.7143)
+{
+  scIB = scIA*1;
+}
+else
+{
+  scIB = 0;
+}
 
 
 
@@ -10930,6 +10986,7 @@ console.log('scDK', scDK);
 console.log('scHY', scHY);
 console.log('scHZ', scHZ);
 console.log('scIA', scIA);
+console.log('scIB', scIB);
 //James reference
 
 //IF(this = that, true, false) -> 
