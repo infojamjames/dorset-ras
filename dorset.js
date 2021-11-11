@@ -10498,10 +10498,22 @@ var scIE = "";
 //=FK59-FM59
 scIE = scFK - scFM;
 
-
-
-
-
+var scIF = "";
+//=IF(U59=0,"",
+//IF(AND(ER59=5,OR('Clean data'!FW59=7,'Clean data'!FW59=9),NOT('Supp. Living'!D59<'Supp. Living'!C59),FP59>0,(('Supp. Living'!O59-GE59)/(U59+M59))>0,'Clean data'!DJ59<9,OR('Clean data'!O59=4,'Clean data'!V59=4)),"",
+//IF(AND(ER59=5,OR('Clean data'!FW59=7,'Clean data'!FW59=9),NOT('Supp. Living'!D59<'Supp. Living'!C59),FP59>0,(('Supp. Living'!O59-GE59)/(U59+M59))>0),"with top-up for higher social activity rate","")))
+if(scER == 5 && (clFW == 7 || clFW == 9)&& (supD >= supC && scFP > 0 && ((supO-scGE)/(scU+scM))>0)&& clDJ < 9 && (clO == 4 || clV == 4))
+{
+  scIF = "";
+}
+else if(scER == 5 && (clFW == 7 || clFW == 9)&& (supD >= supC && scFP > 0 && ((supO-scGE)/(scU+scM))>0))
+{
+  scIF = "with top-up for higher social activity rate";
+}
+else
+{
+  scIF = "";
+}
 
 
 
@@ -11131,6 +11143,7 @@ console.log('scIB', scIB);
 console.log('scIC', scIC);
 console.log('scID', scID);
 console.log('scIE', scIE);
+console.log('scIF', scIF);
 //James reference
 
 //IF(this = that, true, false) -> 
