@@ -10515,6 +10515,29 @@ else
   scIF = "";
 }
 
+var scIG = "";
+//=IF(AND(OR('Clean data'!FW59=9,'Clean data'!FW59=7),'Clean data'!DJ59>5),0,
+//IF(U59=0,0,
+//IF('Clean data'!EV59=50,ROUND(((Community!M59-GE59)/(U59))*2,0)/2,ROUND(((Community!M59-GE59)/(U59+M59))*2,0)/2)))
+if(clFW == 9 || clFW == 7 && (clDJ > 5))
+{
+  scIG = 0;
+}
+else if(scU == 0)
+{
+  scIG = 0;
+}
+else if(clEV == 50)
+{
+  scIG = Math.round(((comM-scGE)/(scU))*2,0)/2;
+}
+else
+{
+  scIG = Math.round(((comM-scGE)/(scU+scM))*2,0)/2;
+}
+
+
+
 
 
 console.log('----RAW----')
@@ -11144,6 +11167,7 @@ console.log('scIC', scIC);
 console.log('scID', scID);
 console.log('scIE', scIE);
 console.log('scIF', scIF);
+console.log('scIG', scIG);
 //James reference
 
 //IF(this = that, true, false) -> 
