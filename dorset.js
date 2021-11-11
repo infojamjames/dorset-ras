@@ -10258,6 +10258,52 @@ else
   scHZ = "";
 }
 
+var scIA = "";
+//=IF('Clean data'!DK59=0.5,0,
+//IF(AND(GJ59>0,'Clean data'!DK59=1),0.5,
+//IF(AND(GJ59>0,'Clean data'!DK59=2),1,
+//IF(AND(GJ59>0,'Clean data'!DK59=3),1.5,
+//IF(AND(GJ59>0,'Clean data'!DK59=5,'Clean data'!DL59<WakingImpactLevel),Night_hours,
+//IF(AND(GJ59>0,'Clean data'!DK59=5,'Clean data'!DL59>=WakingImpactLevel),Night_hours,
+//IF(AND(GJ59>0,'Clean data'!DK59=7),Night_hours*2,0)))))))
+if(clDK == 0.5)
+{
+  scIA = 0;
+}
+else if(scGJ > 0 && clDK == 1)
+{
+  scIA = 0.5;
+}
+else if(scGJ > 0 && clDK == 2)
+{
+  scIA = 1;
+}
+else if(scGJ > 0 && clDK == 3)
+{
+  scIA = 1.5;
+}
+else if(scGJ > 0 && clDK == 5 && clDL < WakingImpactLevel)
+{
+  scIA = Night_hours;
+}
+else if(scGL > 0 && clDK == 5 && clDL >= WakingImpactLevel)
+{
+  scIA = Night_hours;
+}
+else if(scGL > 0 && clDK == 7)
+{
+  scIA = Night_hours*2;
+}
+else
+{
+  scIA = 0;
+}
+
+
+
+
+
+
 
 
 
@@ -10883,6 +10929,7 @@ console.log('scHW', scHW);
 console.log('scDK', scDK);
 console.log('scHY', scHY);
 console.log('scHZ', scHZ);
+console.log('scIA', scIA);
 //James reference
 
 //IF(this = that, true, false) -> 
