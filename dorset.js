@@ -10468,6 +10468,39 @@ else
   scIC = "";
 }
 
+var scID = "";
+//=IF('Clean data'!DJ59=6,"background",
+//IF('Clean data'!DJ59=8,"one care worker",
+//IF(AND('Clean data'!FD59=0.5,'Clean data'!DJ59=9),"one care worker",
+//IF(AND(NOT('Clean data'!FD59=0.5),'Clean data'!DJ59=9),"two care workers",0))))
+if(clDJ == 6)
+{
+  scID = "background";
+}
+else if(clDJ == 8)
+{
+  scID = "one care worker";
+}
+else if(clDJ == 0.5 && clDJ == 9)
+{
+  scID = "one care worker";
+}
+else if((clFD != 0.5)&& clDJ == 9)
+{
+  scID = "two care workers";
+}
+else
+{
+  scID = 0;
+}
+
+var scIE = "";
+//=FK59-FM59
+scIE = scFK - scFM;
+
+
+
+
 
 
 
@@ -11096,6 +11129,8 @@ console.log('scHZ', scHZ);
 console.log('scIA', scIA);
 console.log('scIB', scIB);
 console.log('scIC', scIC);
+console.log('scID', scID);
+console.log('scIE', scIE);
 //James reference
 
 //IF(this = that, true, false) -> 
