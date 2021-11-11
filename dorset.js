@@ -319,6 +319,7 @@ var Res_Hours_PD_Rate = 0;
 var Res_Hours_MH_Rate = 0;
 var Res_Hours_LD_Rate = 0;
 var Res_Hours_Rate = 0;
+var SH_Default_Reduction = 0;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -10356,9 +10357,116 @@ else
   scIB = 0;
 }
 
-
-
-
+var scIC = "";
+//=IF(AND('Clean data'!FW59=9,SH_Default_Reduction=0,'Clean data'!DJ59>5,'Clean data'!DJ59<8,'Clean data'!FY59=2),"24h supported living arrangement – 2 service users sharing",
+//IF(AND('Clean data'!FW59=7,SH_Default_Reduction=0,'Clean data'!DJ59>5,'Clean data'!DJ59<8,'Clean data'!FY59=2),"Supported living arrangement – 2 service users sharing",
+//IF(AND('Clean data'!FW59=9,SH_Default_Reduction=0,'Clean data'!DJ59>5,'Clean data'!DJ59<8,'Clean data'!FY59=3),"24h supported living arrangement – 3 service users sharing",
+//IF(AND('Clean data'!FW59=7,SH_Default_Reduction=0,'Clean data'!DJ59>5,'Clean data'!DJ59<8,'Clean data'!FY59=3),"Supported living arrangement – 3 service users sharing",
+//IF(AND('Clean data'!FW59=9,SH_Default_Reduction=0,'Clean data'!DJ59>5,'Clean data'!DJ59<8,'Clean data'!FY59=4),"24h supported living arrangement – 4 service users sharing",
+//IF(AND('Clean data'!FW59=7,SH_Default_Reduction=0,'Clean data'!DJ59>5,'Clean data'!DJ59<8,'Clean data'!FY59=4),"Supported living arrangement – 4 service users sharing",
+//IF(AND('Clean data'!FW59=9,SH_Default_Reduction=0,'Clean data'!DJ59>5,'Clean data'!DJ59<8,'Clean data'!FY59=5),"24h supported living arrangement – 5 service users sharing",
+//IF(AND('Clean data'!FW59=7,SH_Default_Reduction=0,'Clean data'!DJ59>5,'Clean data'!DJ59<8,'Clean data'!FY59=5),"Supported living arrangement – 5 service users sharing",
+//IF(AND('Clean data'!FW59=9,SH_Default_Reduction=0,'Clean data'!DJ59>5,'Clean data'!DJ59<8,'Clean data'!FY59=6),"24h supported living arrangement – 6 or more service users sharing",
+//IF(AND('Clean data'!FW59=7,SH_Default_Reduction=0,'Clean data'!DJ59>5,'Clean data'!DJ59<8,'Clean data'!FY59=6),"Supported living arrangement – 6 or more service users sharing",
+//IF(AND('Clean data'!FW59=9,SH_Default_Reduction=0,OR('Clean data'!FY59<=1,'Clean data'!FY59>=7,'Clean data'!DJ59>=8)),"24h supported living arrangement",
+//IF(AND('Clean data'!FW59=9,SH_Default_Reduction=1,'Clean data'!DJ59>5,'Clean data'!DJ59<8,Supported_number_reduction=2),"24h supported living arrangement – 2 service users sharing",
+//IF(AND('Clean data'!FW59=7,SH_Default_Reduction=1,'Clean data'!DJ59>5,'Clean data'!DJ59<8,Supported_number_reduction=2),"Supported living arrangement – 2 service users sharing",
+//IF(AND('Clean data'!FW59=9,SH_Default_Reduction=1,'Clean data'!DJ59>5,'Clean data'!DJ59<8,Supported_number_reduction=3),"24h supported living arrangement – 3 service users sharing",
+//IF(AND('Clean data'!FW59=7,SH_Default_Reduction=1,'Clean data'!DJ59>5,'Clean data'!DJ59<8,Supported_number_reduction=3),"Supported living arrangement – 3 service users sharing",
+//IF(AND('Clean data'!FW59=9,SH_Default_Reduction=1,'Clean data'!DJ59>5,'Clean data'!DJ59<8,Supported_number_reduction=4),"24h supported living arrangement – 4 service users sharing",
+//IF(AND('Clean data'!FW59=7,SH_Default_Reduction=1,'Clean data'!DJ59>5,'Clean data'!DJ59<8,Supported_number_reduction=4),"Supported living arrangement – 4 service users sharing",
+//IF(AND('Clean data'!FW59=9,SH_Default_Reduction=1,'Clean data'!DJ59>5,'Clean data'!DJ59<8,Supported_number_reduction=5),"24h supported living arrangement – 5 service users sharing",
+//IF(AND('Clean data'!FW59=7,SH_Default_Reduction=1,'Clean data'!DJ59>5,'Clean data'!DJ59<8,Supported_number_reduction=5),"Supported living arrangement – 5 service users sharing",
+//IF(AND('Clean data'!FW59=9,SH_Default_Reduction=1,'Clean data'!DJ59>5,'Clean data'!DJ59<8,Supported_number_reduction=6),"24h supported living arrangement – 6 or more service users sharing",
+//IF(AND('Clean data'!FW59=7,SH_Default_Reduction=1,'Clean data'!DJ59>5,'Clean data'!DJ59<8,Supported_number_reduction=6),"Supported living arrangement – 6 or more service users sharing","")))))))))))))))))))))
+if(clFW == 9 && SH_Default_Reduction == 0 && clDJ > 5 && clDJ < 8 && clFY == 2)
+{
+  scIC = "24h supported living arrangement – 2 service users sharing";
+}
+else if(clFW == 7 && SH_Default_Reduction == 0 && clDJ > 5 && clDJ < 8 && clFY == 2)
+{
+  scIC = "Supported living arrangement – 2 service users sharing";
+}
+else if(clFW == 9 && SH_Default_Reduction == 0 && clDJ > 5 && clDJ < 8 && clFY == 3)
+{
+  scIC = "24h supported living arrangement – 3 service users sharing";
+}
+else if(clFW == 7 && SH_Default_Reduction == 0 && clDJ > 5 && clDJ < 8 && clFY == 3)
+{
+  scIC = "Supported living arrangement – 3 service users sharing";
+}
+else if(clFW == 9 && SH_Default_Reduction == 0 && clDJ > 5 && clDJ < 8 && clFY == 4)
+{
+  scIC = "24h supported living arrangement – 4 service users sharing";
+}
+else if(clFW == 7 && SH_Default_Reduction == 0 && clDJ > 5 && clDJ < 8 && clFY == 4)
+{
+  scIC = "Supported living arrangement – 4 service users sharing";
+}
+else if(clFW == 9 && SH_Default_Reduction == 0 && clDJ > 5 && clDJ < 8 && clFY == 5)
+{
+  scIC = "24h supported living arrangement – 5 service users sharing";
+}
+else if(clFW == 7 && SH_Default_Reduction == 0 && clDJ > 5 && clDJ < 8 && clFY == 5)
+{
+  scIC = "Supported living arrangement – 5 service users sharing";
+}
+else if(clFW == 9 && SH_Default_Reduction == 0 && clDJ > 5 && clDJ < 8 && clFY == 6)
+{
+  scIC = "24h supported living arrangement – 6 or more service users sharing";
+}
+else if(clFW == 7 && SH_Default_Reduction == 0 && clDJ > 5 && clDJ < 8 && clFY == 6)
+{
+  scIC = "Supported living arrangement – 6 or more service users sharing";
+}
+else if(clFW == 9 && SH_Default_Reduction == 0 && (clFY <= 1 || clFY >= 7 || clDJ >= 8))
+{
+  scIC = "24h supported living arrangement";
+}
+else if(clFW == 9 && SH_Default_Reduction == 1 && clDJ > 5 && clDJ < 8 && Supported_number_reduction == 2)
+{
+  scIC = "24h supported living arrangement – 2 service users sharing";
+}
+else if(clFW == 7 && SH_Default_Reduction == 1 && clDJ > 5 && clDJ < 8 && Supported_number_reduction == 2)
+{
+  scIC = "Supported living arrangement – 2 service users sharing";
+}
+else if(clFW == 9 && SH_Default_Reduction == 1 && clDJ > 5 && clDJ < 8 && Supported_number_reduction == 3)
+{
+  scIC = "24h supported living arrangement – 3 service users sharing";
+}
+else if(clFW == 7 && SH_Default_Reduction == 1 && clDJ > 5 && clDJ < 8 && Supported_number_reduction == 3)
+{
+  scIC = "Supported living arrangement – 3 service users sharing";
+}
+else if(clFW == 9 && SH_Default_Reduction == 1 && clDJ > 5 && clDJ < 8 && Supported_number_reduction == 4)
+{
+  scIC = "24h supported living arrangement – 4 service users sharing";
+}
+else if(clFW == 7 && SH_Default_Reduction == 1 && clDJ > 5 && clDJ < 8 && Supported_number_reduction == 4)
+{
+  scIC = "Supported living arrangement – 4 service users sharing";
+}
+else if(clFW == 9 && SH_Default_Reduction == 1 && clDJ > 5 && clDJ < 8 && Supported_number_reduction == 5)
+{
+  scIC = "24h supported living arrangement – 5 service users sharing";
+}
+else if(clFW == 7 && SH_Default_Reduction == 1 && clDJ > 5 && clDJ < 8 && Supported_number_reduction == 5)
+{
+  scIC = "Supported living arrangement – 5 service users sharing";
+}
+else if(clFW == 9 && SH_Default_Reduction == 1 && clDJ > 5 && clDJ < 8 && Supported_number_reduction == 6)
+{
+  scIC = "24h supported living arrangement – 6 or more service users sharing";
+}
+else if(clFW == 7 && SH_Default_Reduction == 1 && clDJ > 5 && clDJ < 8 && Supported_number_reduction == 6)
+{
+  scIC = "Supported living arrangement – 6 or more service users sharing";
+}
+else
+{
+  scIC = "";
+}
 
 
 
@@ -10987,6 +11095,7 @@ console.log('scHY', scHY);
 console.log('scHZ', scHZ);
 console.log('scIA', scIA);
 console.log('scIB', scIB);
+console.log('scIC', scIC);
 //James reference
 
 //IF(this = that, true, false) -> 
