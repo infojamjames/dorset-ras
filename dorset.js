@@ -10536,6 +10536,12 @@ else
   scIG = Math.round(((comM-scGE)/(scU+scM))*2,0)/2;
 }
 
+var scIH = "";
+//=ROUND(IG59,0)
+scIH = Math.round(scIG,0);
+
+
+
 
 
 
@@ -11168,6 +11174,7 @@ console.log('scID', scID);
 console.log('scIE', scIE);
 console.log('scIF', scIF);
 console.log('scIG', scIG);
+console.log('scIH', scIH);
 //James reference
 
 //IF(this = that, true, false) -> 
