@@ -310,6 +310,7 @@ var supD = 0;
 var supB = 469;
 var supK = 468.69;
 var supO = 0;
+var supQ = 15;
 var oalE = 2;
 var oalC = 0;
 var oalB = 469;
@@ -10201,6 +10202,64 @@ else
   scHY = 0;
 }
 
+var scHZ = "";
+//=IF(AND(OR('Clean data'!FW59=7,'Clean data'!FW59=9),'Supp. Living'!Q59<GL59,SH_Default_Reduction=0,'Clean data'!FY59=6),", 6 or more service users sharing support",
+//IF(AND(OR('Clean data'!FW59=7,'Clean data'!FW59=9),'Supp. Living'!Q59<GL59,SH_Default_Reduction=0,'Clean data'!FY59=5),", 5 service users sharing support",
+//IF(AND(OR('Clean data'!FW59=7,'Clean data'!FW59=9),'Supp. Living'!Q59<GL59,SH_Default_Reduction=0,'Clean data'!FY59=4),", 4 service users sharing support",
+//IF(AND(OR('Clean data'!FW59=7,'Clean data'!FW59=9),'Supp. Living'!Q59<GL59,SH_Default_Reduction=0,'Clean data'!FY59=3),", 3 service users sharing support",
+//IF(AND(OR('Clean data'!FW59=7,'Clean data'!FW59=9),'Supp. Living'!Q59<GL59,SH_Default_Reduction=0,'Clean data'!FY59=2),", 2 service users sharing support",
+//IF(AND(OR('Clean data'!FW59=7,'Clean data'!FW59=9),'Supp. Living'!Q59<GL59,SH_Default_Reduction=1,Supported_number_reduction=6),", 6 or more service users sharing support",
+//IF(AND(OR('Clean data'!FW59=7,'Clean data'!FW59=9),'Supp. Living'!Q59<GL59,SH_Default_Reduction=1,Supported_number_reduction=5),", 5 service users sharing support",
+//IF(AND(OR('Clean data'!FW59=7,'Clean data'!FW59=9),'Supp. Living'!Q59<GL59,SH_Default_Reduction=1,Supported_number_reduction=4),", 4 service users sharing support",
+//IF(AND(OR('Clean data'!FW59=7,'Clean data'!FW59=9),'Supp. Living'!Q59<GL59,SH_Default_Reduction=1,Supported_number_reduction=3),", 3 service users sharing support",
+//IF(AND(OR('Clean data'!FW59=7,'Clean data'!FW59=9),'Supp. Living'!Q59<GL59,SH_Default_Reduction=1,Supported_number_reduction=2),", 2 service users sharing support",""))))))))))
+if((clFW == 7 ||  clFW == 9) && supQ < scGL && SH_Default_Reduction == 0 && clFY == 6)
+{
+  scHZ = ", 6 or more service users sharing support";
+}
+else if((clFW == 7 || clFW == 9) && supQ < scGL && SH_Default_Reduction == 0 && clFY == 5)
+{
+  scHZ = ", 5 service users sharing support";
+}
+else if((clFW == 7 || clFW == 9) && supQ < scGL && SH_Default_Reduction == 0 && clFY == 4) 
+{
+  scHZ = ", 4 service users sharing support";
+}
+else if((clFW == 7 || clFW == 9) && supQ < scGL && SH_Default_Reduction == 0 && clFY == 3)
+{
+  scHZ = ", 3 service users sharing support";
+}
+else if((clFW == 7 || clFW == 9) && supQ < scGL && SH_Default_Reduction == 0 && clFY == 2)
+{
+  scHZ = ", 2 service users sharing support";
+}
+else if((clFW == 7 || clFW == 9) && supQ < scGL && SH_Default_Reduction == 1 && Supported_number_reduction == 6 )
+{
+  scHZ = ", 6 or more service users sharing support";
+}
+else if((clFW == 7 || clFW == 9) && supQ < scGL && SH_Default_Reduction == 1 && Supported_number_reduction == 5)
+{
+  scHZ = ", 5 service users sharing support";
+}
+else if((clFW == 7 || clFW == 9) && supQ < scGL && SH_Default_Reduction == 1 && Supported_number_reduction == 4)
+{
+  scHZ = ", 4 service users sharing support";
+}
+else if((clFW == 7 || clFW == 9) && supQ < scGL && SH_Default_Reduction == 1 && Supported_number_reduction == 3)
+{
+  scHZ = ", 3 service users sharing support";
+}
+else if((clFW == 7 || clFW == 9) && supQ < scGL && SH_Default_Reduction == 1 && Supported_number_reduction == 2)
+{
+  scHZ = ", 2 service users sharing support";
+}
+else 
+{
+  scHZ = "";
+}
+
+
+
 
 
 console.log('----RAW----')
@@ -10823,6 +10882,7 @@ console.log('scHV', scHV);
 console.log('scHW', scHW);
 console.log('scDK', scDK);
 console.log('scHY', scHY);
+console.log('scHZ', scHZ);
 //James reference
 
 //IF(this = that, true, false) -> 
