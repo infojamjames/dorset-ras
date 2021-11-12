@@ -10663,6 +10663,29 @@ else
   scIK = "mixed background and support from one care worker";
 }
 
+var scIL = "";
+//=IF(ER59=5,5,
+//IF(ER59+IG59>5,5,ER59+IG59))
+if(scER == 5)
+{
+  scIL = 5;
+}
+else if(scER + scIG > 5)
+{
+  scIL = 5;
+}
+else
+{
+  scIL = scER + scIG;
+}
+
+var scIM = "";
+//=ER59
+scIM = scER;
+
+
+
+
 
 
 console.log('----RAW----')
@@ -11297,6 +11320,8 @@ console.log('scIH', scIH);
 console.log('scII', scII);
 console.log('scIJ', scIJ);
 console.log('scIK', scIK);
+console.log('scIL', scIL);
+console.log('scIM', scIM);
 //James reference
 
 //IF(this = that, true, false) -> 
