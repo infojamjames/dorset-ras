@@ -10627,6 +10627,42 @@ else
   scIJ = 0;
 }
 
+var scIK = "";
+//=IF(IG59=0,"",
+//IF(AND(ID59="background",IJ59="background"),"background support",
+//IF(AND(ID59="one care worker",IJ59="one care worker"),"support from one care worker",
+//IF(AND(ID59="two care workers",IJ59="two care workers"),"support from two care workers",
+//IF(AND(ID59="background",IJ59="two care workers"),"mixed background and support from two care workers",
+//IF(AND(ID59="one care worker",IJ59="two care workers"),"mixed support from one or two care workers","mixed background and support from one care worker"))))))
+if(scIG == 0)
+{
+  scIK = "";
+}
+else if(scID == "background" && scIJ == "background")
+{
+  scIK = "background support";
+}
+else if(scID == "one care worker" && scIJ == "one care worker")
+{
+  scIK = "support from two care workers";
+}
+else if(scID == "two care workers" && scIJ == "two care workers")
+{
+  scIK = "support from two care workers";
+}
+else if(scID == "background" && scIJ == "two care workers")
+{
+  scIK = "mixed background and support from two care workers";
+}
+else if(scID == "one care worker" && scIJ == "two care workers")
+{
+  scIK = "mixed support from one or two care workers";
+}
+else
+{
+  scIK = "mixed background and support from one care worker";
+}
+
 
 
 console.log('----RAW----')
@@ -11260,6 +11296,7 @@ console.log('scIG', scIG);
 console.log('scIH', scIH);
 console.log('scII', scII);
 console.log('scIJ', scIJ);
+console.log('scIK', scIK);
 //James reference
 
 //IF(this = that, true, false) -> 
