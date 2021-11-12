@@ -10709,6 +10709,20 @@ else
   scIN = scIL;
 }
 
+var scIO = "";
+//=IF(ER59>IG59,"Safety","Social")
+if(scER > scIG)
+{
+  scIO = "Safety";
+}
+else
+{
+  scIO = "Social";
+}
+
+
+
+
 
 console.log('----RAW----')
 console.log('rN', rN);
@@ -11345,6 +11359,7 @@ console.log('scIK', scIK);
 console.log('scIL', scIL);
 console.log('scIM', scIM);
 console.log('scIN', scIN);
+console.log('scIO', scIO);
 //James reference
 
 //IF(this = that, true, false) -> 
