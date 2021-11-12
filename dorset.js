@@ -10550,7 +10550,6 @@ var scII = "";
 //IF(AND('Clean data'!O59=4,'Clean data'!EV59=50,Scores!FO59>0,Scores!FQ59=0,IG59=1)," social activity with support from one care worker",
 //IF(AND('Clean data'!O59=4,'Clean data'!O59=4,'Clean data'!EV59=50,Scores!FO59>0,Scores!FQ59=0,IG59>1)," social activities with support from one care worker",
 //IF(AND('Clean data'!O59=4,IG59=1)," social activity with support from two care workers",
-
 //IF(AND('Clean data'!O59=4,IG59>1)," social activities with support from two care workers","No support"))))))))))
 if(clO == 1 && scIG == 1)
 {
@@ -10595,6 +10594,37 @@ else if(clO == 4 && scIG > 1)
 else
 {
   scII = "No support";
+}
+
+var scIJ = "";
+//=IF(IG59=0,"",
+//IF(AND('Clean data'!O59=2),"background",
+//IF(AND('Clean data'!O59=3),"one care worker",
+//IF(AND('Clean data'!EV59=50,'Clean data'!O59=4),"one care worker",
+//IF(AND(NOT('Clean data'!EV59=50),'Clean data'!O59=4),"two care workers",0)))))
+if(scIG == 0)
+{
+  scIJ = "";
+}
+else if(clO == 2)
+{
+  scIJ = "background";
+}
+else if(clO == 3)
+{
+  scIJ = "one care worker";
+}
+else if(clEV == 50 && clO == 4)
+{
+  scIJ = "one care worker";
+}
+else if((clEV != 50) && clO == 4)
+{
+  scIJ = "two care workers";
+}
+else
+{
+  scIJ = 0;
 }
 
 
@@ -11229,6 +11259,7 @@ console.log('scIF', scIF);
 console.log('scIG', scIG);
 console.log('scIH', scIH);
 console.log('scII', scII);
+console.log('scIJ', scIJ);
 //James reference
 
 //IF(this = that, true, false) -> 
