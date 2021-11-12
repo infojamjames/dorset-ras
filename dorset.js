@@ -10720,8 +10720,56 @@ else
   scIO = "Social";
 }
 
-
-
+var scIP = "";
+//=IF(NOT(IC59=""),IC59,
+//IF(AND(IL59>=1,NOT(II59="No support"),'Clean data'!DJ59>=5,'Clean data'!DJ59<=8,IJ59="two care workers"),CONCATENATE(IN59," days/activities of ",IK59,IF59),
+//IF(AND(IL59>ER59,IL59>IG59),CONCATENATE(IN59," days/activities of ",IK59,IF59),
+//IF(AND(IO59="Safety",ER59=1,ID59="background"),CONCATENATE(ER59," day of ",ID59," safety support",IF59),
+//IF(AND(IO59="Safety",ER59=1,OR(ID59="one care worker",ID59="two care workers")),CONCATENATE(ER59," day of safety support from ",ID59,IF59),
+//IF(AND(IO59="safety",IQ59>0,ID59="two care workers"),CONCATENATE(ER59," days of safety support from ",ID59,IF59),
+//IF(AND(IO59="Safety",ER59>1,ID59="background"),CONCATENATE(ER59," days of ",ID59," safety support",IF59),
+//IF(AND(IO59="Safety",ER59>1,OR(ID59="one care worker",ID59="two care workers")),CONCATENATE(ER59," days of safety support from ",ID59,IF59),
+//IF(AND(IG59>0,IO59="Social"),CONCATENATE(IG59,II59),"")))))))))
+if(scIC != "")
+{
+  scIP = scIC;
+}
+else if(scIL >= 1 && scII != "No support" && clDJ >= 5 && clDJ <= 8 && scIJ == "two care workers")
+{
+  scIP = +(scIN," days/activities of ",scIK,scIF);
+}
+else if(scIL > scER && scIL > scIG)
+{
+  scIP = +(scIN," days/activities of ",scIK,scIF);
+}
+else if(scIO == "Safety" && scER == 1 && scID == "background")
+{
+  scIP = +(scER," day of ",scID," safety support",scIF);
+}
+else if(scIO == "Safety" && scER == 1 && (scID == "one care worker" || scID == "two care workers"))
+{
+  scIP = +(scER," day of safety support from ",scID,scIF);
+}
+else if(scIO == "safety" && scIQ > 0 && scID == "two care workers")
+{
+  scIP = +(scER," days of safety support from ",scID,scIF);
+}
+else if(scIO == "Safety" && scER > 1 && scID == "background")
+{
+  scIP = +(scER," days of ",scID," safety support",scIF);
+}
+else if(scIO == "Safety" && scER > 1 && (scID == "one care worker",scID == "two care workers"))
+{
+  scIP = +(scER," days of safety support from ",scID,scIF);
+}
+else if(scIG > 0 && scIO == "Social")
+{
+  scIP = +(scIG,scII);
+}
+else
+{
+  scIP = "";
+}
 
 
 console.log('----RAW----')
@@ -11360,6 +11408,7 @@ console.log('scIL', scIL);
 console.log('scIM', scIM);
 console.log('scIN', scIN);
 console.log('scIO', scIO);
+console.log('scIP', scIP);
 //James reference
 
 //IF(this = that, true, false) -> 
