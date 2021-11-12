@@ -10683,9 +10683,31 @@ var scIM = "";
 //=ER59
 scIM = scER;
 
-
-
-
+var scIN = "";
+//=IF(AND(IL59>1,IL59<2),"1 or 2",
+//IF(AND(IL59>2,IL59<3),"2 or 3",
+//IF(AND(IL59>3,IL59<4),"3 or 4",
+//IF(AND(IL59>4,IL59<5),"4 or 5",IL59))))
+if(scIL > 1 && scIL < 2)
+{
+  scIN = "1 or 2";
+}
+else if(scIL > 2 && scIL < 3)
+{
+  scIN = "2 or 3";
+}
+else if(scIL > 3 && scIL < 4)
+{
+  scIN = "3 or 4";
+}
+else if(scIL > 4 && scIL < 5)
+{
+  scIN = "4 or 5";
+}
+else
+{
+  scIN = scIL;
+}
 
 
 console.log('----RAW----')
@@ -11322,6 +11344,7 @@ console.log('scIJ', scIJ);
 console.log('scIK', scIK);
 console.log('scIL', scIL);
 console.log('scIM', scIM);
+console.log('scIN', scIN);
 //James reference
 
 //IF(this = that, true, false) -> 
