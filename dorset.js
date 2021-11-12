@@ -10540,9 +10540,62 @@ var scIH = "";
 //=ROUND(IG59,0)
 scIH = Math.round(scIG,0);
 
+var scII = "";
+//=IF(AND('Clean data'!O59=1,IG59=1)," transport session required",
+//IF(AND('Clean data'!O59=1,IG59>1)," transport sessions required",
+//IF(AND(OR('Clean data'!P59=0,'Clean data'!O59=2),IG59=1)," social activity with background support",
+//IF(AND(OR('Clean data'!P59=0,'Clean data'!O59=2),IG59>1)," social activities with background support",
+//IF(AND('Clean data'!O59=3,IG59=1)," social activity with support from one care worker",
+//IF(AND('Clean data'!O59=3,IG59>1)," social activities with support from one care worker",
+//IF(AND('Clean data'!O59=4,'Clean data'!EV59=50,Scores!FO59>0,Scores!FQ59=0,IG59=1)," social activity with support from one care worker",
+//IF(AND('Clean data'!O59=4,'Clean data'!O59=4,'Clean data'!EV59=50,Scores!FO59>0,Scores!FQ59=0,IG59>1)," social activities with support from one care worker",
+//IF(AND('Clean data'!O59=4,IG59=1)," social activity with support from two care workers",
 
-
-
+//IF(AND('Clean data'!O59=4,IG59>1)," social activities with support from two care workers","No support"))))))))))
+if(clO == 1 && scIG == 1)
+{
+  scII = " transport session required";
+}
+else if(clO == 1 && scIG > 1)
+{
+  scII = " transport sessions required";
+}
+else if(clP == 0 || clO == 2 && (scIG == 1))
+{
+  scII = " social activity with background support";
+}
+else if(clP == 0 || clO == 2 && (scIG > 1))
+{
+  scII = " social activities with background support";
+}
+else if(clO == 3 && scIG == 1)
+{
+  scII = " social activity with support from one care worker";
+}
+else if(clO == 3 && scIG > 1)
+{
+  scII = " social activities with support from one care worker";
+}
+else if(clO == 4 && clEV == 50 && scFO > 0 && scFQ == 0 && scIG == 1)
+{
+  scII = " social activity with support from one care worker";
+}
+else if(clO == 4 && clO == 4 && clEV == 50 && scFO > 0 && scFQ == 0 && scIG > 1)
+{
+  scII = " social activities with support from one care worker";
+}
+else if(clO == 4 && scIG == 1)
+{
+  scII = " social activity with support from two care workers";
+}
+else if(clO == 4 && scIG > 1)
+{
+  scII = " social activities with support from two care workers";
+}
+else
+{
+  scII = "No support";
+}
 
 
 
@@ -11175,6 +11228,7 @@ console.log('scIE', scIE);
 console.log('scIF', scIF);
 console.log('scIG', scIG);
 console.log('scIH', scIH);
+console.log('scII', scII);
 //James reference
 
 //IF(this = that, true, false) -> 
