@@ -311,6 +311,7 @@ var supB = 469;
 var supK = 468.69;
 var supO = 0;
 var supQ = 15;
+var supC = 0;
 var oalE = 2;
 var oalC = 0;
 var oalB = 469;
@@ -10771,6 +10772,24 @@ else
   scIP = "";
 }
 
+var scIQ = "";
+//=IF(AND(OR('Clean data'!FW59=7,'Clean data'!FW59=9),'Supp. Living'!D59<'Supp. Living'!C59),0,
+//IF(AND(NOT('Clean data'!FD59=0.5),'Clean data'!DJ59=9),ROUND((EU59)*4,0)/4,ROUND((ET59)*4,0)/4))
+if((clFW == 7 || clFW == 9)&& supD < supC)
+{
+  scIQ = 0;
+}
+else if((clFD != 0.5) && clDJ == 9)
+{
+  scIQ = Math.round((scEU)*4,0)/4;
+}
+else 
+{
+  scIQ = Math.round((scET)*4,0)/4;
+}
+
+
+
 
 console.log('----RAW----')
 console.log('rN', rN);
@@ -11409,6 +11428,7 @@ console.log('scIM', scIM);
 console.log('scIN', scIN);
 console.log('scIO', scIO);
 console.log('scIP', scIP);
+console.log('scIQ', scIQ);
 //James reference
 
 //IF(this = that, true, false) -> 
