@@ -11359,7 +11359,51 @@ else
   scJO = Math.ceil((scGE/scV),0);
 }
 
-
+var scJP = "";
+//=IF(AND('Clean data'!V59=1,JN59=1)," transport session required",
+//IF(AND('Clean data'!V59=1,JN59>1)," transport sessions required",
+//IF(AND(OR('Clean data'!W59=0,'Clean data'!V59=2),JN59>0,JN59<=1)," activity with background support",
+//IF(AND(OR('Clean data'!W59=0,'Clean data'!V59=2),JN59>1)," activities with background support",
+//IF(AND(JM59="one care worker",JN59>0,JN59<=1)," activity with support from one care worker",
+//IF(AND(JM59="one care worker",JN59>1)," activities with support from one care worker",
+//IF(AND(JM59="two care workers",JN59>0,JN59<=1)," activity with support from two care workers",
+//IF(AND(JM59="two care workers",JN59>1)," activities with support from two care workers","No support"))))))))
+if(clV == 1 && clJN == 1)
+{
+  scJP = " transport session required";
+}
+else if(clV == 1 && scJN > 1)
+{
+  scJP = " transport sessions required";
+}
+else if((clW == 0 || clV == 2)&& scJN > 0 && scJN <= 1)
+{
+  scJP = " activity with background support";
+}
+else if((clW == 0 || clV == 2)&& scJN > 1)
+{
+  scJP = " activities with background support";
+}
+else if(scJM == "one care worker" && scJN > 0 && scJN <= 1)
+{
+  scJP = " activity with support from one care worker";
+}
+else if(scJM == "one care worker" && scJN > 1)
+{
+  scJP = " activities with support from one care worker";
+}
+else if(scJM == "two care workers" && scJN > 0 && scJN <= 1)
+{
+  scJP = " activity with support from two care workers";
+}
+else if(scJM == "two care workers" && scJN > 1)
+{
+  scJP = " activities with support from two care workers";
+}
+else
+{
+  scJP = "No support";
+}
 
 
 
@@ -12025,6 +12069,7 @@ console.log('scJL', scJL);
 console.log('scJM', scJM);
 console.log('scJN', scJN);
 console.log('scJO', scJO);
+console.log('scJP', scJP);
 //James reference
 
 //IF(this = that, true, false) -> 
