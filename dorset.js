@@ -11050,6 +11050,18 @@ else
   scIZ = "";
 }
 
+var scJA = "";
+//=IF(IZ59="","",ROUNDDOWN(IZ59,0))
+if(scIZ == "")
+{
+  scJA = "";
+}
+else
+{
+  scJA = Math.floor(scIZ, 0);
+}
+
+
 
 
 
@@ -11701,6 +11713,7 @@ console.log('scIW', scIW);
 console.log('scIX', scIX);
 console.log('scIY', scIY);
 console.log('scIZ', scIZ);
+console.log('scJA', scJA);
 //James reference
 
 //IF(this = that, true, false) -> 
