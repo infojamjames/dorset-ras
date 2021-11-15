@@ -11234,8 +11234,26 @@ else
   scJJ = (carcL-carcK)/24;
 }
 
-
-
+var scJK = "";
+//=IF('Clean data'!V59=0,"",
+//IF(AND('Care home calc'!K59=0,JF59=0,'Clean data'!V59>0),"Shared support hours covered by meaningful activities allocation",
+//IF('Care home calc'!K59=Care_home_FulltimeCarer_Activities,CONCATENATE(Care_home_FulltimeCarer_Activities,"h shared support"),CONCATENATE(HOUR(JF59),"h ",MINUTE(JF59),"m shared support"))))
+if(clV == 0)
+{
+  scJK = "";
+}
+else if(carcK == 0 && scJF == 0 && clV > 0)
+{
+  scJK = "Shared support hours covered by meaningful activities allocation";
+}
+else if(carcK == Care_home_FulltimeCarer_Activities)
+{
+  scJK = (Care_home_FulltimeCarer_Activities + "h shared support");
+}
+else 
+{
+  scJK = (HOUR(scJF),"h ",MINUTE(scJF),"m shared support");
+}
 
 
 
@@ -11897,6 +11915,7 @@ console.log('scJG', scJG);
 console.log('scJH', scJH);
 console.log('scJI', scJI);
 console.log('scJJ', scJJ);
+console.log('scJK', scJK);
 //James reference
 
 //IF(this = that, true, false) -> 
