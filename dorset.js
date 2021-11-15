@@ -10955,6 +10955,68 @@ else
   scIW = scIP;
 }
 
+var scIX = "";
+//=IF(NOT(IC59=""),IC59,
+//IF(AND(IL59>0,ID59="two care workers",IO59="Safety"),CONCATENATE((IL59*8)+(IQ59/2)," hours for support with staying safe from two care workers"),
+//IF(AND(IL59>0,IG59>0,IJ59="two care workers",'Clean data'!DJ59<9,IO59="Safety", NOT(IT59=0)),CONCATENATE((IL59*8)+IQ59," hours for support with staying safe from one care worker and an additional allocation for ", IT59, " hours support from two care workers with activities "),
+//IF(AND(IL59>0,IO59="Safety"),CONCATENATE((IL59*8)+IQ59," hours for support with staying safe from one care worker"),
+//IF(AND(IL59>0,ID59="two care workers",IO59="Social",IQ59=0),CONCATENATE((IL59*Social_activity_hours)," hours for",II59),
+//IF(AND(IL59>0,IO59="Social",IQ59=0,IG59=1),CONCATENATE((IL59*Social_activity_hours)+IQ59," hours for a",II59),
+//IF(AND(IL59>0,IO59="Social",IQ59=0),CONCATENATE((IL59*Social_activity_hours)+IQ59," hours for",II59),
+//IF(AND(IL59>0,ID59="two care workers",IO59="Social",IQ59>0),CONCATENATE((IL59*Social_activity_hours)," hours for",II59,IR59),
+//IF(AND(IL59>0,IO59="Social",IQ59>0),CONCATENATE((IL59*Social_activity_hours)," hours for",II59,IR59),
+
+//IF(AND(IL59=0,IO59="Social",FK59<=FJ59,IQ59>0),CONCATENATE(IR59),""))))))))))
+if(scIC != "")
+{
+  scIX = scIC;
+}
+else if(scIL > 0 && scID == "two care workers" && scIO == "Safety")
+{
+  scIX = ((scIL*8)+(scIQ/2) + " hours for support with staying safe from two care workers");
+}
+else if(scIL > 0&& scIG > 0 && scIJ == "two care workers" && clDJ < 9 && scIO == "Safety" && (scIT != 0))
+{
+  scIX = ((scIL*8)+scIQ + " hours for support with staying safe from one care worker and an additional allocation for " +  scIT +  " hours support from two care workers with activities ");
+}
+else if(scIL > 0 && scIO == "Safety")
+{
+  scIX = ((scIL*8)+scIQ + " hours for support with staying safe from one care worker");
+}
+else if(scIL > 0 && scID == "two care workers" && scIO == "Social" && scIQ == 0)
+{
+  scIX = ((scIL*Social_activity_hours) + " hours for" + scII);
+}
+else if(scIL > 0 && scIO == "Social" && scIQ == 0 && scIG == 1)
+{
+  scIX = ((scIL*Social_activity_hours)+scIQ + " hours for a" + scII);
+}
+else if(scIL > 0 && scIO == "Social" && scIQ == 0)
+{
+  scIX = ((scIL*Social_activity_hours)+scIQ + " hours for" + scII);
+}
+else if(scIL > 0 && scID == "two care workers" && scIO == "Social" && scIQ > 0)
+{
+  scIX = ((scIL*Social_activity_hours) + " hours for" + scII + scIR);
+}
+else if(scIL > 0 && scIO == "Social" && scIQ > 0 )
+{
+  scIX = ((scIL*Social_activity_hours) + " hours for" + scII + scIR);
+}
+else if(scIL == 0 && scIO == "Social" && scFK<=scFJ,scIQ>0)
+{
+  scIX = scIR;
+}
+else
+{
+  scIX = "";
+}
+
+
+
+
+
+
 
 
 
@@ -11608,6 +11670,7 @@ console.log('scIT', scIT);
 console.log('scIU', scIU);
 console.log('scIV', scIV);
 console.log('scIW', scIW);
+console.log('scIX', scIX);
 //James reference
 
 //IF(this = that, true, false) -> 
