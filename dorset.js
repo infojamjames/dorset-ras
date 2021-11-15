@@ -10814,6 +10814,32 @@ else
   scIR = "";
 }
 
+var scIS = "";
+//=IF(AND('Clean data'!DJ59=9,((((ER59*8)*2)+EU59))>210),(((ER59*8)*2)+EU59)-(((((ER59*8)*2)+EU59)+IB59)-210),
+//IF(AND('Clean data'!DJ59=9,'Clean data'!FD59=0.5),((ER59*8)+EU59),
+//IF(AND('Clean data'!DJ59=9, NOT('Clean data'!FD59=0.5)),(((ER59*8)*2)+EU59),
+//IF(AND('Clean data'!DJ59>0,'Clean data'!DJ59<9,(((ER59*8)+EU59)>105)),((ER59*8)+EU59)-((((ER59*8)+EU59)+IB59)-105),((ER59*8)+EU59)))))
+if(clDJ == 9 && ((((scER*8)*2)+scEU))>210) 
+{
+  scIS = (((scER*8)*2)+scEU)-(((((scER*8)*2)+scEU)+scIB)-210);
+}
+else if(clDJ == 9 && clFD == 0.5)
+{
+  scIS = ((scER*8)+scEU);
+}
+else if(clDJ == 9 && clFD != 0.5)
+{
+  scIS = (((scER*8)*2)+scEU);
+}
+else if(clDJ > 0 && clDJ < 9 && (((scER*8)+scEU)>105))
+{
+  scIS = ((scER*8)+scEU)-((((scER*8)+scEU)+scIB)-105);
+}
+else
+{
+  scIS = ((scER*8)+scEU);
+}
+
 
 
 
@@ -11458,6 +11484,7 @@ console.log('scIO', scIO);
 console.log('scIP', scIP);
 console.log('scIQ', scIQ);
 console.log('scIR', scIR);
+console.log('scIS', scIS);
 //James reference
 
 //IF(this = that, true, false) -> 
