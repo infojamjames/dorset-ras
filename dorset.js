@@ -11333,6 +11333,33 @@ else
   scJN = (scGE/scV);
 }
 
+var scJO = "";
+//=IF(GE59=0,0,
+//IF(AND(((FJ59-FM59)=(FR59-FT59)),V59>U59),ROUNDDOWN((GE59/V59),0),
+//IF(AND(ER59>=5,JN59>0),ROUNDDOWN((GE59/V59),0),
+//IF(AND(GE59>0,JM59="two care workers"),ROUNDUP(((GE59/2)/V59),0),ROUNDUP((GE59/V59),0)))))
+if(scGE == 0)
+{
+  scJO = 0;
+}
+else if(((scFJ - scFM) ==  (scFR - scFT)&& scV > scU))
+{
+  scJO = Math.floor((scGE/scV),0);
+}
+else if((scER >= 5 && scJN > 0))
+{
+  scJO = Math.floor((scGE/scV),0);
+}
+else if(scGE > 0 && scJM == "two care workers")
+{
+  scJO = Math.ceil(((scGE/2)/scV),0);
+}
+else
+{
+  scJO = Math.ceil((scGE/scV),0);
+}
+
+
 
 
 
@@ -11997,6 +12024,7 @@ console.log('scJK', scJK);
 console.log('scJL', scJL);
 console.log('scJM', scJM);
 console.log('scJN', scJN);
+console.log('scJO', scJO);
 //James reference
 
 //IF(this = that, true, false) -> 
