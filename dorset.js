@@ -11122,10 +11122,36 @@ else
   scJD = (HOUR(scIY),"h ",MINUTE(scIY),"m shared support")
 }
 
-
-
-
-
+var scJE = "";
+//=IF('Clean data'!O59=0,"",
+//IF(OR('Care home calc'!D59=0,('Care home calc'!D59-'Care home calc'!C59)=0),"",
+//IF(AND('Clean data'!O59=4,NOT(IZ59="")),CONCATENATE(" and ",JA59,"h ",MINUTE(JB59),"m support from two care workers for meaningful activities"),
+//IF(AND('Clean data'!O59=4),CONCATENATE(" and ",HOUR(JC59),"h ",MINUTE(JC59),"m  support from two care workers for meaningful activities"),
+//IF(NOT(IZ59=""),CONCATENATE(" and ",JA59,"h ",MINUTE(JB59),"m from one care worker for meaningful activities"),CONCATENATE(" and ",HOUR(JC59),"h ",MINUTE(JC59),"m from one care worker for meaningful activities"))))))
+if(clO == 0)
+{
+  scJE = "";
+}
+else if(carcD == 0 || (carcD-carcC)== 0)
+{
+  scJE = "";
+}
+else if(clO == 4 && (scIZ != ""))
+{
+  scJE = (" and " + scJA + "h " + MINUTE(scJB) +  "m support from two care workers for meaningful activities");
+}
+else if(clO == 4)
+{
+  scJE = (" and " + HOUR(scJC) + "h "+ MINUTE(scJC) + "m  support from two care workers for meaningful activities")
+}
+else if(scIZ != "")
+{
+  scJE = (" and " +  scJA + "h " + MINUTE(scJB) + "m from one care worker for meaningful activities")
+}
+else
+{
+  scJE = (" and "+ HOUR(scJC) + "h "+ MINUTE(scJC)+ "m from one care worker for meaningful activities");
+}
 
 
 
@@ -11784,6 +11810,7 @@ console.log('scJA', scJA);
 console.log('scJB', scJB);
 console.log('scJC', scJC);
 console.log('scJD', scJD);
+console.log('scJE', scJE);
 //James reference
 
 //IF(this = that, true, false) -> 
