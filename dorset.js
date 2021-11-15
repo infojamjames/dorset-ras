@@ -16,6 +16,14 @@ xyz
 
 
 //Functions
+function HOUR(d)
+{
+  return d;
+}
+function MINUTE(d)
+{
+  return d;
+}
 function ISNONTEXT() {
     //TODO
     return false;
@@ -11093,6 +11101,29 @@ else
   scJC = ((carcD-carcC)+carcJ+carcM)/24;
 }
 
+var scJD = "";
+//=IF('Clean data'!O59=0,"",
+//IF(AND(NOT('Care home calc'!C59=Care_home_FulltimeCarer_Activities),IY59=""),"",
+//IF('Care home calc'!C59=Care_home_FulltimeCarer_Activities,CONCATENATE(Care_home_FulltimeCarer_Activities,"h shared support"),CONCATENATE(HOUR(IY59),"h ",MINUTE(IY59),"m shared support"))))
+if(clO == 0)
+{
+  scJD = "";
+}
+else if((carcC != Care_home_FulltimeCarer_Activities)&& scIY == "")
+{
+  scJD = "";
+}
+else if(carcC == Care_home_FulltimeCarer_Activities)
+{
+  scJD = (Care_home_FulltimeCarer_Activities + "h shared support")
+}
+else
+{
+  scJD = (HOUR(scIY),"h ",MINUTE(scIY),"m shared support")
+}
+
+
+
 
 
 
@@ -11752,6 +11783,7 @@ console.log('scIZ', scIZ);
 console.log('scJA', scJA);
 console.log('scJB', scJB);
 console.log('scJC', scJC);
+console.log('scJD', scJD);
 //James reference
 
 //IF(this = that, true, false) -> 
