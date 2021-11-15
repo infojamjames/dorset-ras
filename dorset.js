@@ -10903,6 +10903,41 @@ else
   scIU = (Math.round((scIS)*4,0)/4);
 }
 
+var scIV = "";
+//=IF(AND(ModelType<=2,SUM('Clean data'!FI59:FR59)<2),"No allocation - not indicated as eligible",
+//IF(AND(Dynamic_Care_home=1,OR('Clean data'!FW59=12,'Clean data'!FW59=15)),"Does not apply",
+//IF(AND(OR(F59=1, 'Clean data'!FW59=3, 'Clean data'!FW59=10),HK59="Capped"),"Not relevant due to living situation cap",
+//IF(AND(NOT(F59=1),NOT('Clean data'!FW59=3), NOT('Clean data'!FW59=10), HK59="Capped"),"Not relevant due to overall model cap",
+//IF(Community!E59=Community!C59,ROUND((IU59+IB59+HT59+HU59)*4,0)/4,ROUND((IU59+IB59+HS59+HU59+HT59)*4,0)/4)))))
+if(ModelType <=2 && (clFI + clFJ + clFK +  clFL + clFM + clFN + clFO + clFP + clFQ + clFR)< 2)
+{
+  scIV = "No allocation - not indicated as eligible";
+}
+else if(Dynamic_Care_home == 1 && (clFW == 12 || clFW == 15))
+{
+  scIV = "Does not apply";
+}
+else if((scF == 1 ||  clFW == 3 || clFW == 10)&& scHK == "Capped")
+{
+  scIV = "Not relevant due to living situation cap";
+}
+else if(scF != 1 && clFW != 3 && clFW != 10 && scHK == "Capped")
+{
+  scIV = "Not relevant due to overall model cap";
+}
+else if(comE == comC)
+{
+  scIV = Math.round((scIU+scIB+scHT+scHU)*4,0)/4;
+}
+else
+{
+  scIV = Math.round((scIU+scIB+scHS+scHU+scHT)*4,0)/4;
+}
+
+
+
+
+
 
 
 console.log('----RAW----')
@@ -11547,6 +11582,7 @@ console.log('scIR', scIR);
 console.log('scIS', scIS);
 console.log('scIT', scIT);
 console.log('scIU', scIU);
+console.log('scIV', scIV);
 //James reference
 
 //IF(this = that, true, false) -> 
