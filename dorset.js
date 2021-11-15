@@ -11191,6 +11191,17 @@ else
   scJG = "";
 }
 
+var scJH = "";
+//=IF(JG59="","",ROUNDDOWN(JG59,0))
+if(scJG == "")
+{
+  scJH = "";
+}
+else
+{
+  scJH = Math.floor(scJG,0);
+}
+
 
 
 
@@ -11851,6 +11862,7 @@ console.log('scJD', scJD);
 console.log('scJE', scJE);
 console.log('scJF', scJF);
 console.log('scJG', scJG);
+console.log('scJH', scJH);
 //James reference
 
 //IF(this = that, true, false) -> 
