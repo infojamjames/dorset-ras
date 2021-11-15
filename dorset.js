@@ -11061,6 +11061,23 @@ else
   scJA = Math.floor(scIZ, 0);
 }
 
+var scJB = "";
+//=IF(JA59="","", (IZ59-JA59)/24)
+if(scJA == "")
+{
+  scJB = "";
+}
+else
+{
+  scJB = (scIZ-scJA)/24;
+}
+
+
+
+
+
+
+
 
 
 
@@ -11714,6 +11731,7 @@ console.log('scIX', scIX);
 console.log('scIY', scIY);
 console.log('scIZ', scIZ);
 console.log('scJA', scJA);
+console.log('scJB', scJB);
 //James reference
 
 //IF(this = that, true, false) -> 
