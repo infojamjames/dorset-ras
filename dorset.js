@@ -11405,6 +11405,52 @@ else
   scJP = "No support";
 }
 
+var scJQ = "";
+//=IF(AND('Clean data'!V59=1,JN59=1)," transport session required",
+//IF(AND('Clean data'!V59=1,JN59>1)," transport sessions required",
+//IF(AND('Clean data'!V59=2,JN59>0,JN59<=1)," hours with background support",
+//IF(AND('Clean data'!V59=2,JN59>1)," hours with background support",
+//IF(AND(JM59="one care worker",JN59>0,JN59<=1)," hours with support from one care worker",
+//IF(AND(JM59="one care worker",JN59>1)," hours with support from one care worker",
+//IF(AND(JM59="two care workers",JN59>0,JN59<=1)," hours with support from two care workers",
+//IF(AND(JM59="two care workers",JN59>1)," hours with support from two care workers","No support"))))))))
+if(clV == 1 && scJN == 1)
+{
+  scJQ = " transport session required";
+}
+else if(clV == 1 && scJN > 1)
+{
+  scJQ = " transport sessions required";
+}
+else if(clV == 2 && scJN > 0 &&   scJN <= 1)
+{
+  scJQ = " hours with background support";
+}
+else if(clV == 2 && scJN > 1)
+{
+  scJQ = " hours with background support";
+}
+else if(scJM == "one care worker" && scJN > 0 && scJN <= 1)
+{
+  scJQ = " hours with support from one care worker";
+}
+else if(scJM == "one care worker" && scJN > 1)
+{
+  scJQ = " hours with support from one care worker";
+}
+else if(scJM == "two care workers" && scJN > 0 && scJN <= 1)
+{
+  scJQ = " hours with support from two care workers";
+}
+else if(scJM == "two care workers" && scJN > 1)
+{
+  scJQ = " hours with support from two care workers";
+}
+else
+{
+  scJQ = "No support";
+}
+
 
 
 console.log('----RAW----')
@@ -12070,6 +12116,7 @@ console.log('scJM', scJM);
 console.log('scJN', scJN);
 console.log('scJO', scJO);
 console.log('scJP', scJP);
+console.log('scJQ', scJQ);
 //James reference
 
 //IF(this = that, true, false) -> 
