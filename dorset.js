@@ -10840,7 +10840,21 @@ else
   scIS = ((scER*8)+scEU);
 }
 
-
+var scIT = "";
+//=IF(GD59=0,0,
+//IF(GD59=GE59,(GD59/V59)*Social_activity_hours,(GD59/U59)*Social_activity_hours))
+if(scGD == 0)
+{
+  scIT = 0;
+}
+else if(scGD == scGE)
+{
+  scIT = (scGD/scV)*Social_activity_hours;
+}
+else
+{
+  scIT = (scGD/scU)*Social_activity_hours;
+}
 
 
 
@@ -11485,6 +11499,7 @@ console.log('scIP', scIP);
 console.log('scIQ', scIQ);
 console.log('scIR', scIR);
 console.log('scIS', scIS);
+console.log('scIT', scIT);
 //James reference
 
 //IF(this = that, true, false) -> 
