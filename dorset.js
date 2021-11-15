@@ -11286,6 +11286,38 @@ else
   scJL = (" and "+ HOUR(scJJ)+ "h "+ MINUTE(scJJ)+ "m support from one care worker for work, education or volunteering activities");
 }
 
+var scJM = "";
+//=IF(GE59=0,"",
+//IF(AND('Clean data'!V59=2),"background",
+//IF(AND('Clean data'!V59=3),"one care worker",
+//IF(AND('Clean data'!EX59=50,'Clean data'!V59=4),"one care worker",
+//IF(AND(NOT('Clean data'!EX59=50),'Clean data'!V59=4),"two care workers",0)))))
+if(scGE == 0)
+{
+  scJM = "";
+}
+else if(clV == 2)
+{
+  scJM = "background";
+}
+else if(clV == 3)
+{
+  scJM = "one care worker";
+}
+else if(clEX == 50 && clV == 4)
+{
+  scJM = "one care worker";
+}
+else if((clEX != 50)&& clV == 4)
+{
+  scJM = "two care workers";
+}
+else
+{
+  scJM = 0;
+}
+
+
 
 
 
@@ -11949,6 +11981,7 @@ console.log('scJI', scJI);
 console.log('scJJ', scJJ);
 console.log('scJK', scJK);
 console.log('scJL', scJL);
+console.log('scJM', scJM);
 //James reference
 
 //IF(this = that, true, false) -> 
