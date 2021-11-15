@@ -287,6 +287,7 @@ var carcD = 1.75;
 var carcJ = 0;
 var carcM = 1.5;
 var carcL = 0;
+var carcC = 1.75;
 var Dynamic_Care_home = 0;
 var WA_Respite_weekly = 571.86;
 var WA_High_end_cap = 0;
@@ -322,6 +323,7 @@ var Res_Hours_LD_Rate = 0;
 var Res_Hours_Rate = 0;
 var SH_Default_Reduction = 0;
 var Social_activity_output = 0;
+var Care_home_FulltimeCarer_Activities = 35;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -10965,7 +10967,6 @@ var scIX = "";
 //IF(AND(IL59>0,IO59="Social",IQ59=0),CONCATENATE((IL59*Social_activity_hours)+IQ59," hours for",II59),
 //IF(AND(IL59>0,ID59="two care workers",IO59="Social",IQ59>0),CONCATENATE((IL59*Social_activity_hours)," hours for",II59,IR59),
 //IF(AND(IL59>0,IO59="Social",IQ59>0),CONCATENATE((IL59*Social_activity_hours)," hours for",II59,IR59),
-
 //IF(AND(IL59=0,IO59="Social",FK59<=FJ59,IQ59>0),CONCATENATE(IR59),""))))))))))
 if(scIC != "")
 {
@@ -11012,15 +11013,42 @@ else
   scIX = "";
 }
 
+var scIY = "";
+//=IF('Care home calc'!D59=0,"",
+//IF('Clean data'!O59=0,"",
+//IF('Care home calc'!C59=Care_home_FulltimeCarer_Activities,"",'Care home calc'!C59/24)))
+if(carcD == 0)
+{
+  scIY = "";
+}
+else if(clO == 0)
+{
+  scIY = "";
+}
+else if(carcC == Care_home_FulltimeCarer_Activities )
+{
+  scIY = "";
+}
+else
+{
+  scIY = carcC/24;
+}
 
-
-
-
-
-
-
-
-
+var scIZ = "";
+//=IF(AND('Clean data'!O59=4,(('Care home calc'!D59-'Care home calc'!C59)+'Care home calc'!J59)>=24),(('Care home calc'!D59-'Care home calc'!C59)+'Care home calc'!J59+'Care home calc'!M59)/2,
+//IF((('Care home calc'!D59-'Care home calc'!C59)+'Care home calc'!J59)>=24,(('Care home calc'!D59-'Care home calc'!C59)+'Care home calc'!J59+'Care home calc'!M59),""))
+if((clO == 4 && ((carcD-carcC)+carcJ)>=24))
+{
+  scIZ = ((carcD-carcC)+carcJ+carcM)/2;
+}
+else if(((carcD - carcC)+ carcJ)>= 24)
+{
+  scIZ = ((carcD-carcC)+carcJ+carcM);
+}
+else
+{
+  scIZ = "";
+}
 
 
 
@@ -11671,6 +11699,8 @@ console.log('scIU', scIU);
 console.log('scIV', scIV);
 console.log('scIW', scIW);
 console.log('scIX', scIX);
+console.log('scIY', scIY);
+console.log('scIZ', scIZ);
 //James reference
 
 //IF(this = that, true, false) -> 
