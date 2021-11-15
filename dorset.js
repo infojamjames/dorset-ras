@@ -11175,6 +11175,24 @@ else
   scJF = carcK/24;
 }
 
+var scJG = "";
+//=IF(AND('Clean data'!V59=4,('Care home calc'!L59-'Care home calc'!K59)>=24),('Care home calc'!L59-'Care home calc'!K59)/2,
+//IF(('Care home calc'!L59-'Care home calc'!K59)>=24,('Care home calc'!L59-'Care home calc'!K59),""))
+if((clV == 4 && carcL - carcK)>= 24)
+{
+  scJG = (carcL-carcK)/2;
+}
+else if((carcL - carcK)>= 24)
+{
+  scJG = (carcL-carcK)
+}
+else 
+{
+  scJG = "";
+}
+
+
+
 
 
 
@@ -11832,6 +11850,7 @@ console.log('scJC', scJC);
 console.log('scJD', scJD);
 console.log('scJE', scJE);
 console.log('scJF', scJF);
+console.log('scJG', scJG);
 //James reference
 
 //IF(this = that, true, false) -> 
