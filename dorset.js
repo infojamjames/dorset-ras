@@ -10934,6 +10934,30 @@ else
   scIV = Math.round((scIU+scIB+scHS+scHU+scHT)*4,0)/4;
 }
 
+var scIW = "";
+//=IF(NOT(IC59=""),IC59,
+//IF(AND(OR(IG59=0,II59="No support"),IP59="No safety"),"No Social/safety allocation",
+//IF(IQ59>0,CONCATENATE(IP59,IR59),CONCATENATE(IP59))))
+if(scIC != "")
+{
+  scIW = scIC;
+}
+else if((scIG == 0 || scII == "No support") && (scIP == "No safety"))
+{
+  scIW = "No Social/safety allocation";
+}
+else if(scIQ > 0)
+{
+  scIW = scIP + scIR;
+}
+else
+{
+  scIW = scIP;
+}
+
+
+
+
 
 
 
@@ -11583,6 +11607,7 @@ console.log('scIS', scIS);
 console.log('scIT', scIT);
 console.log('scIU', scIU);
 console.log('scIV', scIV);
+console.log('scIW', scIW);
 //James reference
 
 //IF(this = that, true, false) -> 
