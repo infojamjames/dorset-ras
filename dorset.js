@@ -11317,7 +11317,21 @@ else
   scJM = 0;
 }
 
-
+var scJN = "";
+//=IF(GE59=0,0,
+//IF(AND(GE59>0,JM59="two care workers"),((GE59/2)/V59),(GE59/V59)))
+if(scGE == 0)
+{
+  scJN = 0;
+}
+else if(scGE > 0 && scJM == "two care workers")
+{
+  scJN = ((scGE/2)/scV);
+}
+else
+{
+  scJN = (scGE/scV);
+}
 
 
 
@@ -11982,6 +11996,7 @@ console.log('scJJ', scJJ);
 console.log('scJK', scJK);
 console.log('scJL', scJL);
 console.log('scJM', scJM);
+console.log('scJN', scJN);
 //James reference
 
 //IF(this = that, true, false) -> 
