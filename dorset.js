@@ -296,6 +296,7 @@ var carcJ = 0;
 var carcM = 1.5;
 var carcL = 0;
 var carcC = 1.75;
+var carcK = 0;
 var Dynamic_Care_home = 0;
 var WA_Respite_weekly = 571.86;
 var WA_High_end_cap = 0;
@@ -11153,7 +11154,26 @@ else
   scJE = (" and "+ HOUR(scJC) + "h "+ MINUTE(scJC)+ "m from one care worker for meaningful activities");
 }
 
-
+var scJF = "";
+//=IF('Clean data'!V59=0,"",
+//IF('Care home calc'!K59=Care_home_FulltimeCarer_Activities,"",
+//IF(AND('Clean data'!V59>0,'Clean data'!X59>0), 'Care home calc'!K59/24, 'Care home calc'!K59/24)))
+if(clV == 0)
+{
+  scJF = "";
+}
+else if(carcK == Care_home_FulltimeCarer_Activities)
+{
+  scJF = "";
+}
+else if(clV > 0 && clX > 0)
+{
+  scJF = carcK/24;
+}
+else
+{
+  scJF = carcK/24;
+}
 
 
 
@@ -11811,6 +11831,7 @@ console.log('scJB', scJB);
 console.log('scJC', scJC);
 console.log('scJD', scJD);
 console.log('scJE', scJE);
+console.log('scJF', scJF);
 //James reference
 
 //IF(this = that, true, false) -> 
