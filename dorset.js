@@ -321,6 +321,7 @@ var Res_Hours_MH_Rate = 0;
 var Res_Hours_LD_Rate = 0;
 var Res_Hours_Rate = 0;
 var SH_Default_Reduction = 0;
+var Social_activity_output = 0;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -10856,6 +10857,51 @@ else
   scIT = (scGD/scU)*Social_activity_hours;
 }
 
+var scIU = "";
+//=IF(AND(Social_activity_output=0,'Clean data'!DJ59=9,NOT('Clean data'!FD59=0.5),(ROUND((IS59+IT59)*4,0)/4)>210),210,
+//IF(AND(Social_activity_output=0,'Clean data'!DJ59=9,'Clean data'!FD59=0.5,(ROUND((IS59+IT59)*4,0)/4)>210),210,
+//IF(AND(Social_activity_output=0,'Clean data'!DJ59<9,(ROUND((IS59+IT59)*4,0)/4)>105),105,
+//IF(AND('Clean data'!DJ59=9,NOT('Clean data'!FD59=0.5)),(ROUND((IS59+IT59)*4,0)/4),
+//IF(AND('Clean data'!DJ59=9,NOT('Clean data'!FD59=0.5)),(ROUND((IS59)*4,0)/4),
+//IF(AND('Clean data'!DJ59=9,'Clean data'!FD59=0.5),(ROUND((IS59+IT59)*4,0)/4),
+//IF(AND('Clean data'!DJ59=9,'Clean data'!FD59=0.5),(ROUND((IS59)*4,0)/4),
+//IF(AND('Clean data'!DJ59<9),(ROUND((IS59+IT59)*4,0)/4),(ROUND((IS59)*4,0)/4)))))))))
+if(Social_activity_output == 0 && clDJ == 9 && (clFD != 0.5) && (Math.round((scIS+scIT)*4,0)/4)>210)
+{
+  scIU = 210;
+}
+else if(Social_activity_output == 0 && clDJ == 9 && clFD == 0.5 && (Math.round((scIS+scIT)*4,0)/4)>210) 
+{
+  scIU = 210;
+}
+else if(Social_activity_output == 0 && clDJ < 9 && (Math.round((scIS+scIT)*4,0)/4)>105)
+{
+  scIU = 105;
+}
+else if(clDJ == 9 && clFD != 0.5)
+{
+  scIU = (Math.round((scIS+scIT)*4,0)/4);
+}
+else if(clDJ == 9 && clFD != 0.5)
+{
+  scIU = (Math.round((scIS)*4,0)/4);
+}
+else if(clDJ == 9 && clFD == 0.5)
+{
+  scIU = (Math.round((scIS+scIT)*4,0)/4);
+}
+else if(clDJ == 9 && clFD == 0.5)
+{
+  scIU = (Math.round((scIS)*4,0)/4);
+}
+else if(clDJ < 9)
+{
+  scIU = (Math.round((scIS+scIT)*4,0)/4);
+}
+else 
+{
+  scIU = (Math.round((scIS)*4,0)/4);
+}
 
 
 
@@ -11500,6 +11546,7 @@ console.log('scIQ', scIQ);
 console.log('scIR', scIR);
 console.log('scIS', scIS);
 console.log('scIT', scIT);
+console.log('scIU', scIU);
 //James reference
 
 //IF(this = that, true, false) -> 
