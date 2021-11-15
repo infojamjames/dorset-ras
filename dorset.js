@@ -10737,35 +10737,35 @@ if(scIC != "")
 }
 else if(scIL >= 1 && scII != "No support" && clDJ >= 5 && clDJ <= 8 && scIJ == "two care workers")
 {
-  scIP = +(scIN," days/activities of ",scIK,scIF);
+  scIP = (scIN + " days/activities of " + scIK + scIF);
 }
 else if(scIL > scER && scIL > scIG)
 {
-  scIP = +(scIN," days/activities of ",scIK,scIF);
+  scIP = (scIN + " days/activities of " + scIK + scIF);
 }
 else if(scIO == "Safety" && scER == 1 && scID == "background")
 {
-  scIP = +(scER," day of ",scID," safety support",scIF);
+  scIP = (scER + " day of " + scID + " safety support" + scIF);
 }
 else if(scIO == "Safety" && scER == 1 && (scID == "one care worker" || scID == "two care workers"))
 {
-  scIP = +(scER," day of safety support from ",scID,scIF);
+  scIP =  (scER + " day of safety support from " + scID + scIF);
 }
 else if(scIO == "safety" && scIQ > 0 && scID == "two care workers")
 {
-  scIP = +(scER," days of safety support from ",scID,scIF);
+  scIP = (scER + " days of safety support from " + scID + scIF);
 }
 else if(scIO == "Safety" && scER > 1 && scID == "background")
 {
-  scIP = +(scER," days of ",scID," safety support",scIF);
+  scIP = (scER + " days of " + scID + " safety support" + scIF);
 }
 else if(scIO == "Safety" && scER > 1 && (scID == "one care worker",scID == "two care workers"))
 {
-  scIP = +(scER," days of safety support from ",scID,scIF);
+  scIP = (scER + " days of safety support from " + scID + scIF);
 }
 else if(scIG > 0 && scIO == "Social")
 {
-  scIP = +(scIG,scII);
+  scIP = (scIG + scII);
 }
 else
 {
@@ -10787,6 +10787,34 @@ else
 {
   scIQ = Math.round((scET)*4,0)/4;
 }
+
+var scIR = "";
+//=IF(AND(ID59="two care workers",IQ59>0,IP59=""),CONCATENATE((IQ59/2)," hours for support with staying safe from two care workers"),
+//IF(AND(IQ59>0,IP59=""),CONCATENATE(IQ59," hours for support with staying safe from one care worker"),
+//IF(AND(ID59="two care workers",IQ59>0),CONCATENATE(" plus ",(IQ59/2)," hours for support with staying safe from two care workers"),
+//IF(IQ59>0,CONCATENATE(" plus ",IQ59," hours for support with staying safe from one care worker"),""))))
+if(scID == "two care workers" && scIQ > 0 && scIP == "" )
+{
+  scIR = (scIQ/2) + " hours for support with staying safe from two care workers";
+}
+else if(scIQ > 0 && scIP == "")
+{
+  scIR = scIQ + " hours for support with staying safe from one care worker";
+}
+else if(scID == "two care workers" && scIQ > 0)
+{
+  scIR = " plus " + (scIQ/2) + " hours for support with staying safe from two care workers";
+}
+else if(scIQ > 0)
+{
+  scIR = " plus " + scIQ + " hours for support with staying safe from one care worker";
+}
+else
+{
+  scIR = "";
+}
+
+
 
 
 
@@ -11429,6 +11457,7 @@ console.log('scIN', scIN);
 console.log('scIO', scIO);
 console.log('scIP', scIP);
 console.log('scIQ', scIQ);
+console.log('scIR', scIR);
 //James reference
 
 //IF(this = that, true, false) -> 
