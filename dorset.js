@@ -11513,8 +11513,41 @@ var scJU = "";
 //=ROUND(JT59*1,0)/1
 scJU = Math.round(scJT*1,0)/1
 
-
-
+var scJV = "";
+//=IF(OR(Scores!F59=1,Scores!G59=1,'Clean data'!FW59=3,'Clean data'!FW59=10),"No allocation",
+//IF(AND(JU59=1,Respite_DC=1),CONCATENATE("For residential/nursing based respite this would be equivalent to 1 night/year, requiring ",ROUND(('Care home calc'!W59*4),0)/4," hours of personalised support per week"),
+//IF(AND(JU59>1,Respite_DC=1),CONCATENATE("For residential/nursing based respite this would be equivalent to ",Scores!JU59," nights/year, requiring ",ROUND(('Care home calc'!W59*4),0)/4," hours of personalised support per week"),
+//IF(JU59=0,"No allocation",
+//IF(JU59=1,"1 night/year",
+//IF(JU59>=2,CONCATENATE(JU59," nights/year"),"No allocation"))))))
+if(scF == 1 || scG == 1 || clFW == 3 || clFW == 10)
+{
+  scJV = "No allocation";
+}
+else if(scJU == 1 && Respite_DC == 1)
+{
+  scJV = ("For residential/nursing based respite this would be equivalent to 1 night/year +  requiring "+ Math.round((carcW*4),0)/4 + " hours of personalised support per week");
+}
+else if(scJU > 1 && Respite_DC == 1)
+{
+  scJV = ("For residential/nursing based respite this would be equivalent to "+ scJU + " nights/year, requiring " + Math.round((carcW*4),0)/4 + " hours of personalised support per week");
+}
+else if(scJU == 0)
+{
+  scJV = "No allocation";
+}
+else if(scJU == 1)
+{
+  scJV = "1 night/year";
+}
+else if(scJU >= 2)
+{
+  scJV = (scJU + " nights/year");
+}
+else
+{
+  scJV = "No allocation";
+}
 
 
 
@@ -12188,6 +12221,7 @@ console.log('scJR', scJR);
 console.log('scJS', scJS);
 console.log('scJT', scJT);
 console.log('scJU', scJU);
+console.log('scJV', scJV);
 //James reference
 
 //IF(this = that, true, false) -> 
