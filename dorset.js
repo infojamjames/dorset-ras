@@ -11472,6 +11472,35 @@ else
   scJR = scJO + scJP;
 }
 
+var scJS = "";
+//=IF(OR(JQ59="No support",JN59=0),"No allocation",
+//IF(AND(((FJ59-FM59)=(FR59-FT59)),V59>U59),"Top up for higher work/education rate received",
+//IF(AND(ER59>=5,JN59>0),"Top up for higher work/education rate received",
+//IF('Clean data'!V59=1,CONCATENATE(JO59,JQ59),CONCATENATE(JO59*Social_activity_hours,JQ59)))))
+if(scJQ == "No support" || scJN == 0)
+{
+  scJS = "No allocation";
+}
+else if((((scFJ-scFM)==(scFR-scFT)) && scV > scU))
+{
+  scJS = "Top up for higher work/education rate received";
+}
+else if(scER >= 5 && scJN > 0)
+{
+  scJS = "Top up for higher work/education rate received";
+}
+else if(clV == 1)
+{
+  scJS = scJO + scJQ;
+}
+else
+{
+  scJS = scJO*Social_activity_hours + scJQ;
+}
+
+
+
+
 
 console.log('----RAW----')
 console.log('rN', rN);
@@ -12138,6 +12167,7 @@ console.log('scJO', scJO);
 console.log('scJP', scJP);
 console.log('scJQ', scJQ);
 console.log('scJR', scJR);
+console.log('scJS', scJS);
 //James reference
 
 //IF(this = that, true, false) -> 
