@@ -11509,6 +11509,13 @@ else
   scJT = scHF;
 }
 
+var scJU = "";
+//=ROUND(JT59*1,0)/1
+scJU = Math.round(scJT*1,0)/1
+
+
+
+
 
 
 
@@ -12180,6 +12187,7 @@ console.log('scJQ', scJQ);
 console.log('scJR', scJR);
 console.log('scJS', scJS);
 console.log('scJT', scJT);
+console.log('scJU', scJU);
 //James reference
 
 //IF(this = that, true, false) -> 
