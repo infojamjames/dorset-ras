@@ -11498,6 +11498,17 @@ else
   scJS = scJO*Social_activity_hours + scJQ;
 }
 
+var scJT = "";
+//=IF(OR(F59=1, G59=1, 'Clean data'!FW59=3, 'Clean data'!FW59=10,HI59=0),0,HF59)
+if(scF == 1 || clFW == 3 || clFW == 10 || scHI == 0 )
+{
+  scJT = 0;
+}
+else
+{
+  scJT = scHF;
+}
+
 
 
 
@@ -12168,6 +12179,7 @@ console.log('scJP', scJP);
 console.log('scJQ', scJQ);
 console.log('scJR', scJR);
 console.log('scJS', scJS);
+console.log('scJT', scJT);
 //James reference
 
 //IF(this = that, true, false) -> 
