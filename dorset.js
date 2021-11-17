@@ -414,7 +414,11 @@ else if(rQ == 4)
 {
   clJ = 4;
 }
-else 0;
+else
+{
+  clJ = 0;
+}
+
 
 var clK = "";
 //=IF(OR(AND(ISNONTEXT('Raw data'!Q58),NOT(ISNUMBER('Raw data'!Q58))),'Raw data'!Q58=""),-17,0)
