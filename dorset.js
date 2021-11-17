@@ -89,7 +89,7 @@ var rJ='' ;
 var rK='' ;
 var rL='' ;
 var rM='' ;
-var rN= "75-84";
+var rN= "18-24";
 var rO= "n/a";
 var rP= "No";
 var rQ=0;
@@ -112,8 +112,8 @@ var rAG= "Yes";
 var rAH= "Yes";
 var rAI= "No";
 var rAJ=4;
-var rAK=3;
-var rAL= "Three times a day";
+var rAK=2;
+var rAL= "Once a day";
 var rAM=0;
 var rAN= "Yes";
 var rAO= "";
@@ -136,7 +136,7 @@ var rBE= "";
 var rBF= "";
 var rBG= "";
 var rBH= "";
-var rBI= "OtherPhys";
+var rBI= "LD";
 var rBJ= "";
 var rBK= "";
 var rBL= "";
@@ -158,20 +158,20 @@ var rCA=0;
 var rCB=0;
 var rCC= "No";
 var rCD=0;
-var rCE= "Presence";
+var rCE= "DailyChecks";
 var rCF= "None";
 var rCG= "";
 var rCH= "";
-var rCI= "No";
-var rCJ= "No";
-var rCK= "No";
+var rCI= "Yes";
+var rCJ= "Yes";
+var rCK= "Yes";
 var rCL= "No";
-var rCM= "No";
-var rCN= "No";
+var rCM= "Yes";
+var rCN= "Yes";
 var rCO= "No";
-var rCP=0;
-var rCQ=0;
-var rCR=0;
+var rCP=7;
+var rCQ=7;
+var rCR=7;
 var rCS= "NoNeed";
 var rCT= "Yes";
 var rCU= "Yes";
@@ -181,9 +181,9 @@ var rCX= "NoNeed";
 var rCY= "NoNeed";
 var rCZ= "";
 var rDA= "";
-var rDB= "Half";
-var rDC=0;
-var rDD= "No";
+var rDB= "All";
+var rDC=4;
+var rDD= "Yes";
 var rDE= "No";
 var rDF= "No";
 var rDG= "No";
@@ -196,7 +196,7 @@ var rDM= "Yes";
 var rDN= "Yes";
 var rDO= "Yes";
 var rDP= "Yes";
-var rDQ= "PersCare";
+var rDQ= "MH";
 var rDR= "Alone";
 var rDS= "n/a";
 var rDT= "";
@@ -232,7 +232,6 @@ var rEW= "";
 var rEX= "";
 var rEY= "";
 var rEZ= "";
-var rFA= "";
 var rFA= "";
 var rFB= "";
 var rFC= "";
@@ -342,6 +341,9 @@ var Care_home_FulltimeCarer_Activities = 35;
 var Extend_snacks_addition_adj = 0.667;
 var SafetyInfDayHalf = 5;
 var SafetyInfHourHalf = 0;
+var MH_Day_to_Day_multiplier = 1;
+var Carer_impact_4 = 1;
+var MH_Respite_weekly = 441;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -452,7 +454,7 @@ else {
   clL = ""
 }
 
-clM = "";
+var clM = "";
 //=IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,Appointments=1),1,
 //IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,Appointments=0),0,
 //IF(AND(ModelType<=2,'Raw data'!DE58="No"),0,
@@ -509,15 +511,13 @@ else
 
 var clO = "";
 //=IF(OR(AND(ISNONTEXT('Raw data'!U58),NOT(ISNUMBER('Raw data'!U58))),'Raw data'!U58=""),0,VLOOKUP('Raw data'!U58,Social_Degree,2,FALSE))
-
-
-
 if((ISNONTEXT(rU)&& NOT_ISNUMBER(rU))||rU ==="")
 {
   clO = 0;
 }
 else{clO = VLOOKUP(rU,Social_Degree,2, FALSE) }
  
+var clP = "";
 //=IF(OR(AND(ISNONTEXT('Raw data'!U58),NOT(ISNUMBER('Raw data'!U58))),'Raw data'!U58=""),-17,VLOOKUP('Raw data'!U58,Social_Degree,3, FALSE))
 if((ISNONTEXT(rU)&& NOT_ISNUMBER(rU))||rU ==="")
 {
@@ -3629,7 +3629,7 @@ else
 var clFW = "";
 //=VLOOKUP('Raw data'!DR58,ALS,2,FALSE)
 {
-  clFW = VLOOKUP(rDR,ALS,2,FALSE)
+  clFW = VLOOKUP(rDR,ALS,2,FALSE);
 }
 
 var clFX = "";
@@ -9776,7 +9776,7 @@ var scHL = "";
 //=IF(AND(OR('Clean data'!FW59=7,'Clean data'!FW59=9),'Supp. Living'!F59<'Supp. Living'!D59+'Supp. Living'!B59),"As the service user requires constant presence/supervision, an allocation has been made for daytime safety which covers some or all of the essential daily living tasks allocation",
 //IF(AND('Clean data'!FW59=9.5,'Other ALS'!E59<'Other ALS'!C59+'Other ALS'!B59),"As the service user requires constant presence/supervision, an allocation has been made for daytime safety which covers some or all of the essential daily living tasks allocation",
 //IF(AND(NOT('Clean data'!FW59=7),NOT('Clean data'!FW59=9),NOT('Clean data'!FW59=9.5),Community!E59<Community!C59+Community!B59),"As the service user requires constant presence/supervision, an allocation has been made for daytime safety which covers some or all of the essential daily living tasks allocation","")))
-if((clFW = 7 || clFW == 9) && supF < supD + supB)
+if((clFW == 7 || clFW == 9) && supF < supD + supB)
 {
   scHL = "As the service user requires constant presence/supervision, an allocation has been made for daytime safety which covers some or all of the essential daily living tasks allocation";
 }
