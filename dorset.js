@@ -89,156 +89,162 @@ var rJ='' ;
 var rK='' ;
 var rL='' ;
 var rM='' ;
-var rN='45-54' ;
-var rO=4 ;
-var rP='Yes' ;
-var rQ=1 ;
-var rR='Yes' ;
-var rS='Yes' ;
-var rT='No' ;
-var rU='Transport' ;
-var rV='1act' ;
-var rW='NotWorkingSeeking' ;
-var rX='None' ;
-var rY='No' ;
-var rZ='2to1' ;
-var rAA='Less1act' ;
-var rAB='No' ;
-var rAC='LittleSupportMost' ;
-var rAD='Supp24h' ;
-var rAE='No' ;
-var rAF=2 ;
-var rAG='Yes' ;
-var rAH='No' ;
-var rAI='No' ;
-var rAJ=5 ;
-var rAK=2 ;
-var rAL='Once a day' ;
-var rAM=2 ;
-var rAN='Yes' ;
-var rAO='n/a' ;
-var rAP='Yes' ;
-var rAQ='Yes' ;
-var rAR='No' ;
-var rAS=5 ;
-var rAT=5 ;
-var rAU='No' ;
-var rAV=5 ;
-var rAW=5 ;
-var rAX='Four times a day' ;
-var rAY='No' ;
-var rAZ=5 ;
-var rBA='Every 2-3 hours+' ;
-var rBB='Monitor' ;
-var rBC='No' ;
-var rBD=5 ;
-var rBE='No' ;
-var rBF=2 ;
-var rBG=5 ;
-var rBH='No' ;
-var rBI='CerebPal' ;
-var rBJ='COPD' ;
-var rBK='Demen' ;
-var rBL='DeprAnx' ;
-var rBM='Monthly' ;
-var rBN='Remind' ;
-var rBO='Less than daily' ;
-var rBP=0 ;
-var rBQ='n/a' ;
-var rBR='RiskDaily' ;
-var rBS=1 ;
-var rBT='Yes' ;
-var rBU=2 ;
-var rBV='Inhaler' ;
-var rBW='No' ;
-var rBX=1 ;
-var rBY=1 ;
-var rBZ=1 ;
-var rCA=1 ;
-var rCB=1 ;
-var rCC='No' ;
-var rCD=1 ;
-var rCE='OccasChecks' ;
-var rCF='1visit' ;
-var rCG='n/a' ;
-var rCH='FullEff' ;
-var rCI='Yes' ;
-var rCJ='No' ;
-var rCK='No' ;
-var rCL='Yes' ;
-var rCM='Yes' ;
-var rCN='Yes' ;
-var rCO='Yes' ;
-var rCP=5 ;
-var rCQ=5 ;
-var rCR=5 ;
-var rCS=7 ;
-var rCT='Yes' ;
-var rCU='No' ;
-var rCV='' ;
-var rCW='Yes' ;
-var rCX='1act' ;
-var rCY=0 ;
-var rCZ='Weekly' ;
-var rDA='LittleSupportMost' ;
-var rDB='NoConstant' ;
-var rDC=1 ;
-var rDD='Yes' ;
-var rDE='No' ;
-var rDF='Yes' ;
-var rDG='Yes' ;
-var rDH='Yes' ;
-var rDI='Yes' ;
-var rDJ='Yes' ;
-var rDK='Yes' ;
-var rDL='Yes' ;
-var rDM='Yes' ;
-var rDN='Yes' ;
-var rDO='Yes' ;
-var rDP='Yes' ;
-var rDQ='Visual' ;
-var rDR='Supp24h' ;
-var rDS='4sharing' ;
-var rDT='n/a' ;
-var rDU='' ;
-var rDV='' ;
-var rDW='' ;
-var rDX='' ;
-var rDY='' ;
-var rDZ='' ;
-var rEA='' ;
-var rEB='' ;
-var rEC='' ;
-var rED='' ;
-var rEE='' ;
-var rEF='' ;
-var rEG='' ;
-var rEH='' ;
-var rEI='' ;
-var rEJ='' ;
-var rEK='' ;
-var rEL='' ;
-var rEM='' ;
-var rEN='' ;
-var rEO='' ;
-var rEP='' ;
-var rEQ='' ;
-var rER='' ;
-var rES='' ;
-var rET='' ;
-var rEU='' ;
-var rEV='' ;
-var rEW='' ;
-var rEX='' ;
-var rEY='' ;
-var rEZ='' ;
-var rFA='' ;
-var rFB='' ;
-var rFC='' ;
-var rFD='' ;
-var rFE='' ;
-var rFF='' ;
-var rFG='' ;
+var rN= "75-84";
+var rO= "n/a";
+var rP= "No";
+var rQ=0;
+var rR= "Yes";
+var rS= "";
+var rT= "Yes";
+var rU= "Indep";
+var rV= "None";
+var rW= "";
+var rX= "";
+var rY= "n/a";
+var rZ= "PreferNot";
+var rAA= "None";
+var rAB= "n/a";
+var rAC= "";
+var rAD= "Alone";
+var rAE= "No";
+var rAF=4;
+var rAG= "Yes";
+var rAH= "Yes";
+var rAI= "No";
+var rAJ=4;
+var rAK=3;
+var rAL= "Three times a day";
+var rAM=0;
+var rAN= "Yes";
+var rAO= "";
+var rAP= "";
+var rAQ= "";
+var rAR= "No";
+var rAS=3;
+var rAT=3;
+var rAU= "No";
+var rAV=3;
+var rAW=3;
+var rAX= "Once a day";
+var rAY= "No";
+var rAZ=3;
+var rBA= "Three times a day";
+var rBB= "";
+var rBC= "No";
+var rBD=0;
+var rBE= "";
+var rBF= "";
+var rBG= "";
+var rBH= "";
+var rBI= "OtherPhys";
+var rBJ= "";
+var rBK= "";
+var rBL= "";
+var rBM= "Rarely";
+var rBN= "None";
+var rBO= "None";
+var rBP=0;
+var rBQ=0;
+var rBR=0;
+var rBS=0;
+var rBT= "";
+var rBU= "n/a";
+var rBV= "None";
+var rBW= "";
+var rBX= "n/a";
+var rBY=0;
+var rBZ=0;
+var rCA=0;
+var rCB=0;
+var rCC= "No";
+var rCD=0;
+var rCE= "Presence";
+var rCF= "None";
+var rCG= "";
+var rCH= "";
+var rCI= "No";
+var rCJ= "No";
+var rCK= "No";
+var rCL= "No";
+var rCM= "No";
+var rCN= "No";
+var rCO= "No";
+var rCP=0;
+var rCQ=0;
+var rCR=0;
+var rCS= "NoNeed";
+var rCT= "Yes";
+var rCU= "Yes";
+var rCV= "";
+var rCW= "";
+var rCX= "NoNeed";
+var rCY= "NoNeed";
+var rCZ= "";
+var rDA= "";
+var rDB= "Half";
+var rDC=0;
+var rDD= "No";
+var rDE= "No";
+var rDF= "No";
+var rDG= "No";
+var rDH= "No";
+var rDI= "Yes";
+var rDJ= "Yes";
+var rDK= "Yes";
+var rDL= "Yes";
+var rDM= "Yes";
+var rDN= "Yes";
+var rDO= "Yes";
+var rDP= "Yes";
+var rDQ= "PersCare";
+var rDR= "Alone";
+var rDS= "n/a";
+var rDT= "";
+var rDU= "";
+var rDV= "";
+var rDW= "";
+var rDX= "";
+var rDY= "";
+var rDZ= "";
+var rEA= "";
+var rEB= "";
+var rEC= "";
+var rED= "";
+var rEE= "";
+var rEF= "";
+var rEG= "";
+var rEH= "";
+var rEI= "";
+var rEJ= "";
+var rEK= "";
+var rEL= "";
+var rEM= "";
+var rEN= "";
+var rEO= "";
+var rEP= "";
+var rEQ= "";
+var rER= "";
+var rES= "";
+var rET= "";
+var rEU= "";
+var rEV= "";
+var rEW= "";
+var rEX= "";
+var rEY= "";
+var rEZ= "";
+var rFA= "";
+var rFA= "";
+var rFB= "";
+var rFC= "";
+var rFD= "";
+var rFE= "";
+var rFF= "";
+var rFG= "";
+var rFH= "";
+var rFI= "";
+
+
+
 
 
 //Clean Data = cl
@@ -333,6 +339,9 @@ var Res_Hours_Rate = 0;
 var SH_Default_Reduction = 0;
 var Social_activity_output = 0;
 var Care_home_FulltimeCarer_Activities = 35;
+var Extend_snacks_addition_adj = 0.667;
+var SafetyInfDayHalf = 5;
+var SafetyInfHourHalf = 0;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -477,20 +486,22 @@ var clN = "";
 //=IF(OR(AND(ISNONTEXT('Raw data'!T58),NOT(ISNUMBER('Raw data'!T58))),'Raw data'!T58=""),"",
 //IF('Raw data'!T58="No",1,
 //IF('Raw data'!T58="Yes",0,"")))
-
 if((ISNONTEXT(rT)&& NOT_ISNUMBER(rT))||rT ==="")
 {
-  clN = ""
+  clN = "";
 }
-else if(rT = "No")
+else if(rT == "No")
 {
   clN = 1;
 }
-else if(rT = "Yes")
+else if(rT == "Yes")
 {
   clN = 0;
 }
-else{clN = ""}
+else
+{
+  clN == "";
+}
 
 var clO = "";
 //=IF(OR(AND(ISNONTEXT('Raw data'!U58),NOT(ISNUMBER('Raw data'!U58))),'Raw data'!U58=""),0,VLOOKUP('Raw data'!U58,Social_Degree,2,FALSE))
@@ -613,7 +624,7 @@ var clU = ""
 
 if (((ISNONTEXT(rY)&& NOT_ISNUMBER(rV))||rY ===""))
 {
-  clU = ""
+  clU = "";
 }
 else if (rY == "No")
 {
@@ -623,13 +634,13 @@ else if(rY == "Yes")
 {
   clU = 0;
 }
-else if(rY == "N/A")
+else if(rY == "n/a")
 {
   clU = 0;
 }
 else 
 {
-  clU = ""
+  clU = "";
 }
 clV = ""
 //=IF(OR(AND(ISNONTEXT('Raw data'!Z58),NOT(ISNUMBER('Raw data'!Z58))),'Raw data'!Z58=""),0,VLOOKUP('Raw data'!Z58,Work_Degree,2,FALSE))
@@ -689,12 +700,11 @@ var clZ = "";
 //IF('Raw data'!AB58="No",1,
 //IF('Raw data'!AB58="Yes",0,
 //IF('Raw data'!AB58="N/A",0,"")))))
-
 if(ModelType>=2 && OUT_DSTNeedsProfile == 1)
 {
 clZ = 0;
 }
-else if  (((ISNONTEXT(rAB)&& NOT_ISNUMBER(rAB))||rAB ===""))
+else if(((ISNONTEXT(rAB)&& NOT_ISNUMBER(rAB))||rAB ===""))
 {
   clZ = "";
 }
@@ -706,7 +716,7 @@ else if(rAB == "Yes")
 {
   clZ = 0;
 }
-else if(rAB == "N/A")
+else if(rAB == "n/a")
 {
   clZ = 0;
 }
@@ -3986,19 +3996,19 @@ var clGW = "";
 //IF('Raw data'!EQ58="YesSevere",1.25,0)))
 if(rFD == "No" || rEQ == "NotDueToCaring" || rEQ == "NoChallenge" || rEQ == "n/a" || rEQ == "YesLittle" || rEQ == "YesModerate")
 {
-  clGQ = 0;
+  clGW = 0;
 }
 else if(rEQ == "YesSignificant")
 {
-  clGQ = 1;
+  clGW = 1;
 }
 else if(rEQ == "YesSevere")
 {
-  clGQ = 1.25;
+  clGW = 1.25;
 }
 else
 {
-  clGQ = 0;
+  clGW = 0;
 }
 
 
