@@ -320,6 +320,7 @@ var comM = 0;
 var comT = 974;
 var comAD = 0;
 var comV = 468.69;
+var comI = 0;
 var supF = 469;
 var supD = 0;
 var supB = 469;
@@ -344,6 +345,7 @@ var SafetyInfHourHalf = 0;
 var MH_Day_to_Day_multiplier = 1;
 var Carer_impact_4 = 1;
 var MH_Respite_weekly = 441;
+var PA_Dom_Tasks_Switch = 0;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
