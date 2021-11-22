@@ -89,117 +89,117 @@ var rJ='' ;
 var rK='' ;
 var rL='' ;
 var rM='' ;
-var rN= "25-34";
-var rO= "n/a";
-var rP= "No";
+var rN= "18-24";
+var rO= "";
+var rP= "Yes";
 var rQ=0;
 var rR= "Yes";
-var rS= "";
-var rT= "No";
-var rU= "1to1";
-var rV= "4to5act";
-var rW= "";
-var rX= "";
-var rY= "n/a";
-var rZ= "PreferNot";
-var rAA= "None";
-var rAB= "n/a";
-var rAC= "";
-var rAD= "Supp24h";
-var rAE= "No";
-var rAF=4;
+var rS= "Yes";
+var rT= "Yes";
+var rU= "Indep";
+var rV= "None";
+var rW= "5to15Hours";
+var rX= "None";
+var rY= "No";
+var rZ= "Background";
+var rAA= "4to5act";
+var rAB= "No";
+var rAC= "LessWeekly";
+var rAD= "FamilyLong";
+var rAE= "Yes";
+var rAF=0;
 var rAG= "Yes";
-var rAH= "Yes";
-var rAI= "No";
-var rAJ=4;
-var rAK=3;
-var rAL= "Four times a day";
-var rAM=0;
-var rAN= "Yes";
+var rAH= "No";
+var rAI= "Yes";
+var rAJ= "";
+var rAK= "";
+var rAL= "";
+var rAM= "";
+var rAN= "";
 var rAO= "";
 var rAP= "";
 var rAQ= "";
-var rAR= "No";
-var rAS=3;
-var rAT=3;
-var rAU= "No";
-var rAV=3;
-var rAW=3;
-var rAX= "Once a day";
+var rAR= "Yes";
+var rAS= "";
+var rAT= "";
+var rAU= "Yes";
+var rAV= "";
+var rAW= "";
+var rAX= "";
 var rAY= "Yes";
-var rAZ=0;
-var rBA= "None";
+var rAZ= "";
+var rBA= "";
 var rBB= "";
-var rBC= "No";
-var rBD=0;
+var rBC= "Yes";
+var rBD= "";
 var rBE= "";
 var rBF= "";
 var rBG= "";
 var rBH= "";
-var rBI= "OtherMH";
-var rBJ= "";
-var rBK= "";
-var rBL= "";
+var rBI= "Arthr";
+var rBJ= "Asperg";
+var rBK= "Autism";
+var rBL= "Cancer";
 var rBM= "Rarely";
-var rBN= "Supervise";
-var rBO= "Four times a day";
-var rBP=0;
-var rBQ=0;
-var rBR=0;
-var rBS=0;
+var rBN= "";
+var rBO= "";
+var rBP= "";
+var rBQ= "";
+var rBR= "";
+var rBS= "";
 var rBT= "";
-var rBU= "n/a";
-var rBV= "None";
+var rBU= "";
+var rBV= "";
 var rBW= "";
-var rBX= "n/a";
-var rBY=3;
-var rBZ=3;
+var rBX= "";
+var rBY=0;
+var rBZ=0;
 var rCA=0;
-var rCB=2;
+var rCB=0;
 var rCC= "No";
 var rCD=0;
-var rCE= "Presence";
-var rCF= "1carer";
-var rCG=1;
-var rCH= "";
-var rCI= "No";
-var rCJ= "No";
-var rCK= "No";
-var rCL= "Yes";
-var rCM= "No";
-var rCN= "No";
-var rCO= "No";
-var rCP=0;
-var rCQ=0;
-var rCR=0;
-var rCS=0;
-var rCT= "No";
-var rCU= "No";
+var rCE= "";
+var rCF= "";
+var rCG= "";
+var rCH= "NotReq";
+var rCI= "";
+var rCJ= "";
+var rCK= "";
+var rCL= "";
+var rCM= "";
+var rCN= "";
+var rCO= "";
+var rCP= "NoNeed";
+var rCQ= "NoNeed";
+var rCR= "NoNeed";
+var rCS= "NoNeed";
+var rCT= "";
+var rCU= "";
 var rCV= "";
-var rCW= "";
-var rCX=0;
-var rCY= "NoNeed";
-var rCZ= "";
-var rDA= "";
-var rDB= "None";
-var rDC= "n/a";
-var rDD= "n/a";
+var rCW= "Yes";
+var rCX= "NoNeed";
+var rCY= "4to5act";
+var rCZ= "NoNeed";
+var rDA= "None";
+var rDB= "NoConstant";
+var rDC=0;
+var rDD= "No";
 var rDE= "No";
-var rDF= "Yes";
-var rDG= "No";
-var rDH= "No";
-var rDI= "Yes";
-var rDJ= "Yes";
-var rDK= "Yes";
-var rDL= "Yes";
+var rDF= "No";
+var rDG= "Yes";
+var rDH= "Yes";
+var rDI= "No";
+var rDJ= "No";
+var rDK= "No";
+var rDL= "No";
 var rDM= "No";
-var rDN= "Yes";
+var rDN= "No";
 var rDO= "Yes";
 var rDP= "Yes";
-var rDQ= "MH";
-var rDR= "Supp24h";
-var rDS= "5sharing";
-var rDT= "";
+var rDQ= "PersCare";
+var rDR= "FamilyLong";
+var rDS= "n/a";
+var rDT= "n/a";
 var rDU= "";
 var rDV= "";
 var rDW= "";
@@ -241,6 +241,14 @@ var rFF= "";
 var rFG= "";
 var rFH= "";
 var rFI= "";
+
+
+
+
+
+
+
+
 
 
 
@@ -383,6 +391,12 @@ var LD_Respite_weekly = 441;
 var MH_NightSleep_in = 94.5;
 var CHNightSleep_in = 94.5;
 var SHNightSleep_in = 94.5;
+var Social_work_informal_2to3a_value = 2;
+var Carer_impact_2 = 0.4;
+var MH_Life_planning_inflator = 1;
+var LD_Life_planning_inflator = 1;
+var Social_1_Number_Activities = 0;
+var Work_edu_4_Number_Activities = 5;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
@@ -570,34 +584,29 @@ else
 var clQ = "";
 //=IF(AND(ModelType<=2,'Raw data'!DF58="No",'Raw data'!DE58="No"),0,
 //IF(OR(AND(ISNONTEXT('Raw data'!V58),NOT(ISNUMBER('Raw data'!V58))),'Raw data'!V58=""),0,VLOOKUP('Raw data'!V58,Social_Howoften,2,FALSE)))
-
-
 if(ModelType<=2 && rDF == "No" && rDE == "No") 
 {
-clQ = 0;
+  clQ = 0;
 }
 else if((ISNONTEXT(rV)&& NOT_ISNUMBER(rV))||rV ==="")
-  {
-   clQ = 0;
-  }
+{
+  clQ = 0;
+}
 else 
 { 
-  clQ =VLOOKUP(rV,Social_Howoften,2,FALSE)
+  clQ = VLOOKUP(rV,Social_Howoften,2,FALSE);
 }
 
-var clR ="";
+var clR = "";
 //=IF(OR(AND(ISNONTEXT('Raw data'!V58),NOT(ISNUMBER('Raw data'!V58))),'Raw data'!V58=""),-17,VLOOKUP('Raw data'!V58,Social_Howoften,2, FALSE))
-
 if (((ISNONTEXT(rV)&& NOT_ISNUMBER(rV))||rV ===""))
 {
-  clR = -17;
+ clR = -17;
 }
 else
 {
- clR = VLOOKUP(rV,Social_Howoften,2, FALSE)
+ clR = VLOOKUP(rV,Social_Howoften,2,FALSE);
 }
-
-//clR = ((ISNONTEXT(rV)&& NOT_ISNUMBER(rV))||rV ==="") ? -17 : VLOOKUP(rV,Social_Howoften,2, FALSE)
 
 var clS ="";
 //=IF('Raw data'!W58="16HoursMore",1,
@@ -607,9 +616,6 @@ var clS ="";
 //IF('Raw data'!W58="NotWorkingSeeking",5,
 //IF('Raw data'!W58="NotWorkingNotSeeking",6,
 //IF('Raw data'!W58="Retired",7,"")))))))
-
-
-
 if(rW == "16HoursMore")
 {
   clS = 1;
@@ -643,8 +649,7 @@ else {clS = ""}
 var clT = ""
 //=IF('Raw data'!X58="FullTime",2,
 //IF('Raw data'!X58="PartTime",1,
-//IF('Raw data'!X58="None",0,"")))
-
+//IF('Raw data'!X58="None",0,""))
 if(rX == "FullTime")
 {
   clT = 2;
@@ -664,7 +669,6 @@ var clU = ""
 //IF('Raw data'!Y58="No",1,
 //IF('Raw data'!Y58="Yes",0,
 //IF('Raw data'!Y58="N/A",0,""))))
-
 if (((ISNONTEXT(rY)&& NOT_ISNUMBER(rV))||rY ===""))
 {
   clU = "";
@@ -4142,6 +4146,15 @@ if(rEV == "Yes" )
 {
   clHB = 1;
 }
+else if(rEV == "No")
+{
+  clHB = 0;
+}
+else 
+{
+  clHB = "";
+}
+
 
 var clHC = "";
 //=IF(OR(AND(ISNONTEXT('Raw data'!CP58),NOT(ISNUMBER('Raw data'!CP58))),'Raw data'!CP58=""),0,
