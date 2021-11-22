@@ -12562,7 +12562,7 @@ function VLOOKUP(d, functionName, c, b) {
   return 10;
   case "2nd Carer":
   return 0.5;
-  case "2nd Carer":
+  case "2nd carer":
   return 0.5;
   case "None":
   return 0;
@@ -12588,7 +12588,7 @@ function VLOOKUP(d, functionName, c, b) {
   return 1;
   case "2nd Carer":
   return 0.5;
-  case "2nd Carer":
+  case "2nd carer":
   return 0.5;
   case "None":
   return 0;
@@ -13106,7 +13106,7 @@ function VLOOKUP(d, functionName, c, b) {
   return 1;
   case "2nd Carer":
   return 50;
-  case "2nd Carer":
+  case "2nd carer":
   return 50;
   case "0":
   return 0;
@@ -13128,7 +13128,7 @@ function VLOOKUP(d, functionName, c, b) {
   return 1;
   case "2nd Carer":
   return 0.5;
-  case "2nd Carer":
+  case "2nd carer":
   return 0.5;
   case "0":
   return 0;
@@ -13264,7 +13264,7 @@ function VLOOKUP(d, functionName, c, b) {
   return 0;
   case "2nd Carer":
   return 3.5;
-  case "2nd Carer":
+  case "2nd carer":
   return 3.5; //<-----FACE ISSUE
   case "All":
   return 1;
@@ -13334,7 +13334,7 @@ function VLOOKUP(d, functionName, c, b) {
   return 0;
   case "2nd Carer":
   return 0.5;
-  case "2nd Carer":
+  case "2nd carer":
   return 0.5; //<-----FACE ISSUE
   case "All":
   return "";
@@ -13560,7 +13560,7 @@ function VLOOKUP(d, functionName, c, b) {
   return 1;
   case "2nd Carer":
   return 7;
-  case "2nd Carer":
+  case "2nd carer":
   return 7;
   case "0":
   return 0;
@@ -13580,7 +13580,7 @@ function VLOOKUP(d, functionName, c, b) {
   return 1;
   case "2nd Carer":
   return 7;
-  case "2nd Carer":
+  case "2nd carer":
   return 7;
   case 0:
   return 0;
@@ -13608,7 +13608,7 @@ function VLOOKUP(d, functionName, c, b) {
   return 0.5;
   case "2nd Carer":
   return 3.5;
-  case "2nd Carer":
+  case "2nd carer":
   return 3.5;
   case "0":
   return 0;
@@ -13628,7 +13628,7 @@ function VLOOKUP(d, functionName, c, b) {
   return 0.5;
   case "2nd Carer":
   return 3.5;
-  case "2nd Carer":
+  case "2nd carer":
   return 3.5;
   case 0:
   return 0;
@@ -13636,62 +13636,62 @@ function VLOOKUP(d, functionName, c, b) {
   return 0;
   }
   }
-  // if (c == 4) {
-  // switch (d) {
-  // case "NoNeed":
-  // return 0;
-  // case "7":
-  // return 14;
-  // case "6":
-  // return 12;
-  // case "5":
-  // return 10;
-  // case "4":
-  // return 8;
-  // case "3":
-  // return 6;
-  // case "2":
-  // return 4;
-  // case "1":
-  // return 2;
-  // case "2nd Carer":
-  // return 14;
-  // case "2nd Carer":
-  // return 14;
-  // case "0":
-  // return 0;
-  // default:
-  // return 0;
-  // }
-  // }
-  // if (c == 5) {
-  // switch (d) {
-  // case "NoNeed":
-  // return 0;
-  // case "7":
-  // return 56;
-  // case "6":
-  // return 48;
-  // case "5":
-  // return 40;
-  // case "4":
-  // return 32;
-  // case "3":
-  // return 24;
-  // case "2":
-  // return 16;
-  // case "1":
-  // return 8;
-  // case "2nd Carer":
-  // return 56;
-  // case "2nd Carer":
-  // return 56;
-  // case "0":
-  // return 0;
-  // default:
-  // return 0;
-  // }
-  // }
+   if (c == 4) {
+  switch (d) {
+  case "NoNeed":
+  return 0;
+  case "7":
+  return 63;
+  case "6":
+  return 54;
+  case "5":
+  return 45;
+  case "4":
+  return 36;
+  case "3":
+  return 27;
+  case "2":
+  return 18;
+  case "1":
+  return 9;
+  case "2nd Carer":
+  return 63;
+  case "2nd carer":
+  return 63;
+  case "0":
+  return 0;
+  default:
+  return 0;
+  }
+  }
+  if (c == 5) {
+  switch (d) {
+  case "NoNeed":
+  return 0;
+  case "7":
+  return 1.75;
+  case "6":
+  return 1.5;
+  case "5":
+  return 1.25;
+  case "4":
+  return 1;
+  case "3":
+  return 0.75;
+  case "2":
+  return 0.5;
+  case "1":
+  return 0.25;
+  case "2nd Carer":
+  return 63;
+  case "2nd carer":
+  return 63;
+  case "0":
+  return 0;
+  default:
+  return 0;
+  }
+  }
   // if (c == 6) {
   // switch (d) {
   // case "NoNeed":
