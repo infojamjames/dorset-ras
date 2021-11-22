@@ -89,26 +89,26 @@ var rJ='' ;
 var rK='' ;
 var rL='' ;
 var rM='' ;
-var rN= "18-24";
-var rO= "";
-var rP= "Yes";
-var rQ=0;
-var rR= "Yes";
-var rS= "Yes";
-var rT= "Yes";
-var rU= "Indep";
-var rV= "None";
-var rW= "5to15Hours";
+var rN= "95+";
+var rO=0;
+var rP= "No";
+var rQ=4;
+var rR= "No";
+var rS= "No";
+var rT= "No";
+var rU= "2to1";
+var rV= "4to5act";
+var rW= "Retired";
 var rX= "None";
-var rY= "No";
-var rZ= "Background";
-var rAA= "4to5act";
-var rAB= "No";
-var rAC= "LessWeekly";
-var rAD= "FamilyLong";
+var rY= "n/a";
+var rZ= "";
+var rAA= "";
+var rAB= "n/a";
+var rAC= "";
+var rAD= "OtherTemp";
 var rAE= "Yes";
-var rAF=0;
-var rAG= "Yes";
+var rAF= "";
+var rAG= "No";
 var rAH= "No";
 var rAI= "Yes";
 var rAJ= "";
@@ -136,11 +136,11 @@ var rBE= "";
 var rBF= "";
 var rBG= "";
 var rBH= "";
-var rBI= "Arthr";
-var rBJ= "Asperg";
-var rBK= "Autism";
-var rBL= "Cancer";
-var rBM= "Rarely";
+var rBI= "OtherLD";
+var rBJ= "OtherMH";
+var rBK= "OtherNeur";
+var rBL= "OtherPhys";
+var rBM= "Daily";
 var rBN= "";
 var rBO= "";
 var rBP= "";
@@ -152,16 +152,16 @@ var rBU= "";
 var rBV= "";
 var rBW= "";
 var rBX= "";
-var rBY=0;
-var rBZ=0;
-var rCA=0;
-var rCB=0;
-var rCC= "No";
-var rCD=0;
-var rCE= "";
-var rCF= "";
-var rCG= "";
-var rCH= "NotReq";
+var rBY=4;
+var rBZ=4;
+var rCA=4;
+var rCB=4;
+var rCC= "Yes";
+var rCD=4;
+var rCE= "2to1";
+var rCF= "2carers";
+var rCG=3;
+var rCH= "n/a";
 var rCI= "";
 var rCJ= "";
 var rCK= "";
@@ -172,22 +172,22 @@ var rCO= "";
 var rCP= "NoNeed";
 var rCQ= "NoNeed";
 var rCR= "NoNeed";
-var rCS= "NoNeed";
+var rCS= "2nd carer";
 var rCT= "";
 var rCU= "";
-var rCV= "";
-var rCW= "Yes";
-var rCX= "NoNeed";
-var rCY= "4to5act";
-var rCZ= "NoNeed";
-var rDA= "None";
-var rDB= "NoConstant";
-var rDC=0;
-var rDD= "No";
-var rDE= "No";
-var rDF= "No";
-var rDG= "Yes";
-var rDH= "Yes";
+var rCV= "No";
+var rCW= "No";
+var rCX= "2nd carer";
+var rCY= "NoNeed";
+var rCZ= "LotSupportMost";
+var rDA= "NoNeed";
+var rDB= "2nd Carer";
+var rDC=4;
+var rDD= "Yes";
+var rDE= "Yes";
+var rDF= "Yes";
+var rDG= "No";
+var rDH= "No";
 var rDI= "No";
 var rDJ= "No";
 var rDK= "No";
@@ -196,9 +196,9 @@ var rDM= "No";
 var rDN= "No";
 var rDO= "Yes";
 var rDP= "Yes";
-var rDQ= "PersCare";
-var rDR= "FamilyLong";
-var rDS= "n/a";
+var rDQ= "Isolation";
+var rDR= "Res";
+var rDS= "CareHome5to9";
 var rDT= "n/a";
 var rDU= "";
 var rDV= "";
@@ -241,6 +241,8 @@ var rFF= "";
 var rFG= "";
 var rFH= "";
 var rFI= "";
+
+
 
 
 
@@ -397,10 +399,20 @@ var MH_Life_planning_inflator = 1;
 var LD_Life_planning_inflator = 1;
 var Social_1_Number_Activities = 0;
 var Work_edu_4_Number_Activities = 5;
+var WA_Safety_Day_High = 116;
+var Dressing1 = 0.5835;
+var WashingBody1 = 0.5835;
+var Toileting1 = 0.5835;
+var Appearance1 = 0.5835;
+var SafetyInfDayQuarter = 5;
+var SafetyInfHourQuarter = 16;
+var WA_High_respite_weekly = 624.14;
+var Second_carer_safety_rate = 116;
+var NightSleep_in = 94.5;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
-    clG = -17
+    clG = -17;
 }
 else
 {
@@ -5847,11 +5859,11 @@ else if(clAV == 0 && clBA == 0 && clBC >= 2 && clBF < 7 && clBI == 0 )
 {
   scAT = (clBF/2)
 }
-else if(clAV == 0 && clBA == 0 (clBC == 0 || clBF <= 0.1)&& clBI >= 2 && clBL >= 7)
+else if(clAV == 0 && clBA == 0 &&(clBC == 0 || clBF <= 0.1)&& clBI >= 2 && clBL >= 7)
 {
   scAT = 3.5;
 }
-else if(clAV == 0 && clBA == 0 (clBC == 0 || clBF <= 0.1)&& clBI >= 2 && clBL < 7)
+else if(clAV == 0 && clBA == 0 && (clBC == 0 || clBF <= 0.1)&& clBI >= 2 && clBL < 7)
 {
   scAT = 1.5;
 }
