@@ -89,7 +89,7 @@ var rJ='' ;
 var rK='' ;
 var rL='' ;
 var rM='' ;
-var rN= "25-34";
+var rN= "75-84";
 var rO= "n/a";
 var rP= "No";
 var rQ=0;
@@ -113,8 +113,8 @@ var rAH= "Yes";
 var rAI= "No";
 var rAJ=4;
 var rAK=3;
-var rAL= "Every 2-3 hours+";
-var rAM=3;
+var rAL= "Four times a day";
+var rAM=0;
 var rAN= "Yes";
 var rAO= "";
 var rAP= "";
@@ -128,15 +128,15 @@ var rAW=3;
 var rAX= "Once a day";
 var rAY= "No";
 var rAZ=3;
-var rBA= "Every 2-3 hours+";
+var rBA= "Four times a day";
 var rBB= "";
 var rBC= "No";
-var rBD=3;
+var rBD=0;
 var rBE= "";
 var rBF= "";
 var rBG= "";
 var rBH= "";
-var rBI= "LD";
+var rBI= "OtherPhys";
 var rBJ= "";
 var rBK= "";
 var rBL= "";
@@ -162,14 +162,14 @@ var rCE= "DailyChecks";
 var rCF= "None";
 var rCG= "";
 var rCH= "";
-var rCI= "Yes";
-var rCJ= "Yes";
+var rCI= "No";
+var rCJ= "No";
 var rCK= "Yes";
 var rCL= "No";
 var rCM= "Yes";
 var rCN= "Yes";
-var rCO= "Yes";
-var rCP=7;
+var rCO= "No";
+var rCP=0;
 var rCQ=7;
 var rCR=7;
 var rCS= "NoNeed";
@@ -182,8 +182,8 @@ var rCY= "NoNeed";
 var rCZ= "";
 var rDA= "";
 var rDB= "All";
-var rDC=4;
-var rDD= "Yes";
+var rDC=0;
+var rDD= "No";
 var rDE= "No";
 var rDF= "No";
 var rDG= "No";
@@ -196,7 +196,7 @@ var rDM= "Yes";
 var rDN= "Yes";
 var rDO= "Yes";
 var rDP= "Yes";
-var rDQ= "LD";
+var rDQ= "PersCare";
 var rDR= "Alone";
 var rDS= "n/a";
 var rDT= "";
@@ -241,6 +241,8 @@ var rFF= "";
 var rFG= "";
 var rFH= "";
 var rFI= "";
+
+
 
 
 
@@ -4178,7 +4180,7 @@ else if(rCR == "NoNeed")
 }
 else if((((clAX >= 2 && rCI == "Yes") || (clBA >= 2 || clBC >= 2) && rCJ == "Yes") || clBI >= 2 && rCK == "Yes"))
 {
-  clHD = rCP;
+  clHD = rCR;
 }
 else if((clAX >= 2 && rCI == "No") || (clBI >= 2 && rCK == "No")) 
 {
