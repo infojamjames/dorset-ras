@@ -3255,7 +3255,7 @@ if(((ISNONTEXT(rCS)&& NOT_ISNUMBER(rCS))||rCS ===""))
 }
 else
 {
-  clEP = VLOOKUP(rCS, Informal_support, 2, FALSE)
+  clEP = VLOOKUP(rCS, Informal_support, 2, FALSE);
 }
 
 var clEQ = "";
@@ -13194,7 +13194,7 @@ function VLOOKUP(d, functionName, c, b) {
   return 0;
   case "2nd Carer":
   return 50;
-  case "2nd Carer": //<----FACE ISSUE
+  case "2nd carer": //<----FACE ISSUE
   return 50;
   case "All":
   return 100;
