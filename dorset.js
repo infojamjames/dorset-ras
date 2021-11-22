@@ -4262,13 +4262,13 @@ else if(rCM == "Yes" && rCO == "Yes")
 {
   clHH = VLOOKUP(clDX, Informal0to7, 3, FALSE)*2;
 }
-else if(rCM == "Yes" && rCO == "Yes")
+else if(rCM == "Yes" || rCO == "Yes")
 {
-  clHH = VLOOKUP(clDX, Informal0to7, 3, FALSE)
+  clHH = VLOOKUP(clDX, Informal0to7, 3, FALSE);
 }
 else if(rCN == "Yes")
 {
-  clHH = VLOOKUP(clDX, Informal0to7, 5, FALSE)
+  clHH = VLOOKUP(clDX, Informal0to7, 5, FALSE);
 }
 else
 {
