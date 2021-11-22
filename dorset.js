@@ -1778,7 +1778,7 @@ var clBS = "";
 //=IF(OR(AND(ISNONTEXT('Raw data'!BD58),NOT(ISNUMBER('Raw data'!BD58))),'Raw data'!BD58=""),-17,BR58)
 if(((ISNONTEXT(rBD)&& NOT_ISNUMBER(rBD))||rBD ===""))
 {
-  cLBS = -17;
+  clBS = -17;
 }
 else
 {
