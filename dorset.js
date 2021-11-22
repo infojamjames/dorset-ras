@@ -382,6 +382,7 @@ var LD_Day_to_Day_multiplier = 1;
 var LD_Respite_weekly = 441;
 var MH_NightSleep_in = 94.5;
 var CHNightSleep_in = 94.5;
+var SHNightSleep_in = 94.5;
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),-17,0)
 if((ISNONTEXT(rN)&& NOT_ISNUMBER(rN))||rN ==="")
 {
