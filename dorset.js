@@ -3157,7 +3157,7 @@ if(((ISNONTEXT(clDV)&& NOT_ISNUMBER(clDV))||clDV ===""))
 }
 else
 {
-  clEE = VLOOKUP(clDV, Informal_support, 2, FALSE)
+  clEE = VLOOKUP(clDV, Informal_support, 2, FALSE);
 }
 
 var clEF = "";
