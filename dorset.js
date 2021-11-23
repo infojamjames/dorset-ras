@@ -2981,7 +2981,7 @@ else if(rCQ == "NoNeed")
 {
   clDX = "NoNeed";
 }
-else if(rCM == "Yes" || rCN == "Yes" || rCO || "Yes")
+else if((rCM == "Yes" || rCN == "Yes" || rCO == "Yes"))
 {
   clDX = rCQ;
 }
