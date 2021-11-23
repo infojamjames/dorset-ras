@@ -3959,7 +3959,7 @@ var clGR = "";
 //IF('Raw data'!EL58="YesSevere",1.25,0)))
 if(rEY == "No" || rEL == "NotDueToCaring" || rEL == "NoChallenge" || rEL == "n/a" || rEL == "YesLittle" || rEL == "YesModerate")
 {
-  clGQ = 0;
+  clGR = 0;
 }
 else if(rEL == "YesSignificant")
 {
