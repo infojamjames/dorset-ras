@@ -2028,7 +2028,7 @@ else if(rBN == "none")
 {
   clCE = 0;
 }
-else if(rBN == "remind")
+else if(rBN == "Remind")
 {
   clCE = 2;
 }
