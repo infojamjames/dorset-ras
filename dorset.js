@@ -11804,7 +11804,61 @@ var comM = "";
 //=Scores!GD59
 comM = scGD;
 
+var comN = "";
+//=IF(AND('Clean data'!EW59=0.25,'Clean data'!EY59=0.25),0,
+//IF(AND('Clean data'!DJ59=9,((5*Scores!W59)*2)>=(Scores!GA59+Scores!GB59)),0,
+//IF(AND('Clean data'!DJ59=9,((5*Scores!W59)*2)<(Scores!GA59+Scores!GB59)),(Scores!GA59+Scores!GB59)-(5*Scores!W59),
+///IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<9,Scores!ER59=1,(0*Scores!W59)>=Scores!GA59),Scores!GB59,
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<9,Scores!EQ59=0,(5*Scores!W59)>=Scores!GA59),Scores!GB59,
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<9,Scores!EQ59=1),(Scores!GA59+Scores!GB59),
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<9,Scores!EQ59=0),(Scores!GA59+Scores!GB59)-(5*Scores!W59),Scores!GA59+Scores!GB59)))))))
+if(clEW == 0.25 && clEY == 0.25)
+{
+  comN = 0;
+}
+else if(clDJ == 9 &&((5*scW)*2)>=(scGA+scGB))
+{
+  comN = 0;
+}
+else if(clDJ == 9 &&((5*scW)*2)<(scGA+scGB))
+{
+  comN = (scGA+scGB)-(5*scW);
+}
+else if(clDJ > 5 && clDJ < 9 && scER == 1 &&(0*scW)>=scGA)
+{
+  comN = scGB;
+}
+else if(clDJ > 5 && clDJ < 9 && scEQ == 0 &&(5*scW)>=scGA)
+{
+  comN = scGB;
+}
+else if(clDJ > 5 && clDJ < 9 && scEQ == 1)
+{
+  comN = (scGA+scGB);
+}
+else if(clDJ > 5 && clDJ < 9 && scEQ == 0)
+{
+  comN = (scGA+scGB)-(5*scW);
+}
+else
+{
+  comN = scGA + scGB;
+}
 
+var comO = "";
+//=IF(Scores!GI59=0,Scores!GM59,(1-Scores!GI59)*Scores!GM59)
+if(scGI == 0)
+{
+  comO = scGM;
+}
+else
+{
+  comO = (1-scGI)*scGM;
+}
+
+var comP = "";
+//=Scores!GM59
+comP = scGM;
 
 
 
@@ -12489,6 +12543,9 @@ console.log('comJ', comJ);
 console.log('comK', comK);
 console.log('comL', comL);
 console.log('comM', comM);
+console.log('comN', comN);
+console.log('comO', comO);
+console.log('comP', comP);
 //James reference
 
 //IF(this = that, true, false) -> 
