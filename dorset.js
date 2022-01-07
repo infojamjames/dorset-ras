@@ -346,6 +346,7 @@ var WA_High_end_cap = 0;
 var LD_High_end_cap = 0;
 var MH_High_end_cap = 0;
 var High_end_cap = 0;
+var calAA = 3.5;
 var calAC = 974;
 var calAE = 974;
 var calAF = 974;
@@ -11795,6 +11796,11 @@ comK = calAB*scAC;
 
 /// Believe there is a problem with scAC
 
+var comL = "";
+//=Calculator!AA59*Scores!AC59
+comL = calAA*scAC;
+
+
 
 
 
@@ -12479,6 +12485,7 @@ console.log('comH', comH);
 console.log('comI', comI);
 console.log('comJ', comJ);
 console.log('comK', comK);
+console.log('comL', comL);
 //James reference
 
 //IF(this = that, true, false) -> 
