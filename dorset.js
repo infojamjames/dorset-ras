@@ -11714,6 +11714,24 @@ else
   comD = ((scFA + scFB + scFC + scFD)*scAC);
 }
 
+var comE = "";
+//=IF(B59-D59<0,C59,C59+(B59-D59))
+if(comB - comD < 0)
+{
+  comE = comC;
+}
+else
+{
+  comC + (comB-comD);
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -12390,6 +12408,7 @@ console.log('scJV', scJV);
 console.log('comB', comB);
 console.log('comC', comC);
 console.log('comD', comD);
+console.log('comC', comC);
 //James reference
 
 //IF(this = that, true, false) -> 
