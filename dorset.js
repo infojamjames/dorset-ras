@@ -11800,7 +11800,9 @@ var comL = "";
 //=Calculator!AA59*Scores!AC59
 comL = calAA*scAC;
 
-
+var comM = "";
+//=Scores!GD59
+comM = scGD;
 
 
 
@@ -12486,6 +12488,7 @@ console.log('comI', comI);
 console.log('comJ', comJ);
 console.log('comK', comK);
 console.log('comL', comL);
+console.log('comM', comM);
 //James reference
 
 //IF(this = that, true, false) -> 
