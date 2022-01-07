@@ -11741,6 +11741,27 @@ else
   comF = (scEV*scW)+(scEW*Second_carer_safety_rate)+(scEX*scAC)+(scEY*scAC);
 }
 
+var comG = "";
+//=IF(AND('Clean data'!DJ59>=6,F59>0,NOT('Clean data'!FE59=0.25),EDL_Round_Output=1),((ROUND(((Calculator!K59+Scores!DT59)*4),0)/4)*Scores!AC59),
+//IF(AND('Clean data'!DJ59>=6,F59>0,NOT('Clean data'!FE59=0.25)),((Calculator!K59+Scores!DT59)*Scores!AC59),
+//IF(EDL_Round_Output=1,((ROUND((SUM(Scores!FA59:FD59)*4),0)/4)*Scores!AC59),SUM(Scores!FA59:FD59)*Scores!AC59)))
+if(clDJ >= 6 && comF > 0 && (clFE != 0.25)&& EDL_Round_Output == 1)
+{
+  comG = ((Math.round(((calK+scDT)*4),0)/4)*scAC);
+}
+else if(clDJ >= 6 && comF > 0 && (clFE != 0.25))
+{
+  comG = ((calK+scDT)*scAC);
+}
+else if(EDL_Round_Output == 1)
+{
+  comG = ((Math.round(((scFA + scFB + scFC + scFD)*4),0)/4)*scAC)
+}
+else
+{
+  comG = ((scFA + scFB + scFC + scFD)*scAC);
+}
+
 
 
 
@@ -12420,6 +12441,7 @@ console.log('comC', comC);
 console.log('comD', comD);
 console.log('comC', comC);
 console.log('comF', comF);
+console.log('comG', comG);
 //James reference
 
 //IF(this = that, true, false) -> 
