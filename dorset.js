@@ -351,6 +351,8 @@ var calAE = 974;
 var calAF = 974;
 var calAB = 2.0;
 var calO = 25.50;
+var calZ = 25.50;
+var calY = 25.50
 var comQ = 974;
 var comE = 468.69;
 var comC = 0.00;
@@ -11778,10 +11780,20 @@ else
   comH = comF+(((calK+scDT)*scAC)-comG);
 }
 
+var comI = "";
+//=Calculator!Z59*Scores!AC59
+comI = calZ*scAC;
+
+var comJ = ""
+//=Calculator!Y59*Scores!AC59
+comJ = calY*scAC;
+
+var comK = "";
+//=Calculator!AB59*Scores!AC59
+comK = calAB*scAC;
 
 
-
-
+/// Believe there is a problem with scAC
 
 
 
@@ -12464,7 +12476,9 @@ console.log('comC', comC);
 console.log('comF', comF);
 console.log('comG', comG);
 console.log('comH', comH);
-
+console.log('comI', comI);
+console.log('comJ', comJ);
+console.log('comK', comK);
 //James reference
 
 //IF(this = that, true, false) -> 
