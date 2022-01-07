@@ -114,7 +114,7 @@ var rAI= "No";
 var rAJ=3;
 var rAK=4;
 var rAL= "Three times a day";
-var rAM=4;
+var rAM=2;
 var rAN= "Yes";
 var rAO= "Upto30m";
 var rAP= "No";
@@ -158,8 +158,8 @@ var rCA=2;
 var rCB=2;
 var rCC= "No";
 var rCD=2;
-var rCE= "DailyChecks";
-var rCF= "3visits";
+var rCE= "OccasChecks";
+var rCF= "1visit";
 var rCG= "n/a";
 var rCH= "PartEff";
 var rCI= "No";
@@ -196,9 +196,9 @@ var rDM= "Yes";
 var rDN= "Yes";
 var rDO= "Yes";
 var rDP= "Yes";
-var rDQ= "LD";
-var rDR= "Res";
-var rDS= "CareHome5to9";
+var rDQ= "Visual";
+var rDR= "Supp24h";
+var rDS= "4sharing";
 var rDT= "n/a";
 var rDU= "";
 var rDV= "";
@@ -2744,7 +2744,7 @@ else
 
 var clDK = "";
 //=IF(OR(AND(ISNONTEXT('Raw data'!CF58),NOT(ISNUMBER('Raw data'!CF58))),'Raw data'!CF58=""),0,VLOOKUP('Raw data'!CF58,Night_freq,2,FALSE))
-if(((ISNONTEXT(rCF)&& NOT_ISNUMBER(rCF))||rCF ===""))
+if(((ISNONTEXT(rCF)|| NOT_ISNUMBER(rCF))&&rCF ===""))
 {
   clDK = 0;
 }
@@ -5495,7 +5495,7 @@ else
 var scAC = "";
 //=MAX(Z58:AB58)
 {
-  scAC = Math.max(scZ, scAB)
+  scAC = Math.max(scZ, scAB);
 }
 
 var scAD = "";
@@ -11665,6 +11665,8 @@ else
   scJV = "No allocation";
 }
 
+var xx = scAC;
+var yy = calO;
 var comB = "";
 //=Calculator!O59*Scores!AC59
 comB = calO*scAC;
