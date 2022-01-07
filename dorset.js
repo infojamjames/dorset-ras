@@ -11725,11 +11725,21 @@ else
   comC + (comB-comD);
 }
 
-
-
-
-
-
+var comF = "";
+//=IF(AND(OUT_DSTNeedsProfile=1,Scores!E59=0,PA_Homecare_rate>0),(Scores!EV59*Scores!W59)+(Scores!EW59*Second_carer_safety_rate)+(Scores!EX59*PA_Homecare_rate)+(Scores!EY59*PA_Homecare_rate),
+//IF(AND(Scores!D59=0,PA_Homecare_rate>0),(Scores!EV59*Scores!W59)+(Scores!EW59*Second_carer_safety_rate)+(Scores!EX59*PA_Homecare_rate)+(Scores!EY59*PA_Homecare_rate),(Scores!EV59*Scores!W59)+(Scores!EW59*Second_carer_safety_rate)+(Scores!EX59*Scores!AC59)+(Scores!EY59*Scores!AC59)))
+if(OUT_DSTNeedsProfile == 1 && scE == 0 && PA_Homecare_rate>0)
+{
+  comF = (scEV*scW)+(scEW*Second_carer_safety_rate)+(scEX*PA_Homecare_rate)+(scEY*PA_Homecare_rate);
+}
+else if(scD == 0 && PA_Homecare_rate>0)
+{
+  comF = (scEV*scW)+(scEW*Second_carer_safety_rate)+(scEX*PA_Homecare_rate)+(scEY*PA_Homecare_rate);
+}
+else 
+{
+  comF = (scEV*scW)+(scEW*Second_carer_safety_rate)+(scEX*scAC)+(scEY*scAC);
+}
 
 
 
@@ -12409,6 +12419,7 @@ console.log('comB', comB);
 console.log('comC', comC);
 console.log('comD', comD);
 console.log('comC', comC);
+console.log('comF', comF);
 //James reference
 
 //IF(this = that, true, false) -> 
