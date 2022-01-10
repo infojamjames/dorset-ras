@@ -474,6 +474,10 @@ var Hotel_Cost_Weekly_PD = 0;
 var Hotel_Cost_Weekly_LD = 0;
 var Hotel_Cost_Weekly_MH = 0;
 var Hotel_Cost_Weekly = 0;
+var Res_PD_Return_Investment = 0;
+var Res_LD_Return_Investment = 0;
+var Res_MH_Return_Investment = 0;
+var Res_Return_Investment = 0;
 
 
 var clF = "";
@@ -12778,6 +12782,26 @@ else
   caY = caX+Hotel_Cost_Weekly;
 }
 
+var caZ = "";
+//=IF(Scores!C59=1,Y59+Res_PD_Return_Investment,
+//IF(Scores!B59=1,Y59+Res_LD_Return_Investment,
+//IF(Scores!B59=2,Y59+Res_MH_Return_Investment,Y59+Res_Return_Investment)))
+if(scC == 1)
+{
+  caZ = caY+Res_PD_Return_Investment;
+}
+else if(scB == 1)
+{
+  caZ = caY+Res_LD_Return_Investment;
+}
+else if(scB == 2)
+{
+  caZ = caY+Res_MH_Return_Investment;
+}
+else
+{
+  caZ = caY+Res_Return_Investment;
+}
 
 
 
@@ -13510,6 +13534,7 @@ console.log('caV', caV);
 console.log('caW', caW);
 console.log('caX', caX);
 console.log('caY', caY);
+console.log('caZ', caZ);
 //James reference
 
 //IF(this = that, true, false) -> 
