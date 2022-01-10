@@ -454,6 +454,8 @@ var Care_Home_Psych_Increase_4 = 2;
 var Care_Home_PsychBlock_Under65Switch = 0;
 var Care_Home_PsychBlock_Over65Switch = 0;
 
+
+
 var clF = "";
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),0,
 //IF('Raw data'!N58="",0,VLOOKUP('Raw data'!N58,Age_Bands,2,FALSE)))
@@ -12397,6 +12399,18 @@ else
   caJ = caI;
 }
 
+var caK = "";
+//=IF(AND(C59>0,D59=0),C59,0)
+if(caC > 0 && caD == 0)
+{
+  caK = caC;
+}
+else
+{
+  caK = 0;
+}
+
+
 
 
 
@@ -13113,6 +13127,7 @@ console.log('caG', caG);
 console.log('caH', caH);
 console.log('caI', caI);
 console.log('caJ', caJ);
+console.log('caK', caK);
 //James reference
 
 //IF(this = that, true, false) -> 
