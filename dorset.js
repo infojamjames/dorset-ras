@@ -11972,8 +11972,9 @@ var comZ = "";
 //=Calculator!Z59*Scores!AA59
 comZ = calZ*scAA;
 
-
-
+var comAA = "";
+//=Calculator!Y59*Scores!AA59
+comAA = calY*scAA;
 
 
 
@@ -12677,6 +12678,7 @@ console.log('comW', comW);
 console.log('comX', comX);
 console.log('comY', comY);
 console.log('comZ', comZ);
+console.log('comAA', comAA);
 //James reference
 
 //IF(this = that, true, false) -> 
