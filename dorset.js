@@ -11952,7 +11952,7 @@ else
   comX = (scFA + scFB + scFC + scFD)*scAA;
 }
 
-comY = "";
+var comY = "";
 //=IF(((Calculator!K59+Scores!DT59)*Scores!AA59)-X59<0,W59,
 //IF(EDL_Round_Output=1,(W59+((ROUND(((Calculator!K59+Scores!DT59)*4),0)/4)*Scores!AA59)-X59),W59+(((Calculator!K59+Scores!DT59)*Scores!AA59)-X59)))
 if(((calK + scDT)*scAA)- comX <0)
