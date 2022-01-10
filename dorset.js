@@ -12673,6 +12673,28 @@ else if(Care_home_15min_toileting == 1)
   caS = ((calY-((calX-calR)/2)));
 }
 
+var caT = "";
+//=IF(Scores!B59=1,S59*Care_home_EDLMultiplier_LD,
+//IF(Scores!B59=2,S59*Care_home_EDLMultiplier_MH,
+//IF(Scores!C59=1,S59*Care_home_EDLMultiplier_PD,S59*Care_home_EDLMultiplier_Default)))
+if(scB == 1)
+{
+  caT = caS*Care_home_EDLMultiplier_LD;
+}
+else if(scB == 2)
+{
+  caT = caS*Care_home_EDLMultiplier_MH;
+}
+else if(scC == 1)
+{
+  caT = caS*Care_home_EDLMultiplier_PD
+}
+else
+{
+  caT = caS*Care_home_EDLMultiplier_Default
+}
+
+
 
 
 
@@ -13398,6 +13420,7 @@ console.log('caP', caP);
 console.log('caQ', caQ);
 console.log('caR', caR);
 console.log('caS', caS);
+console.log('caT', caT);
 //James reference
 
 //IF(this = that, true, false) -> 
