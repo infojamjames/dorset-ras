@@ -107,7 +107,7 @@ var rAB= "n/a";
 var rAC= "";
 var rAD= "Res";
 var rAE= "No";
-var rAF=4;
+var rAF=2;
 var rAG= "No";
 var rAH= "Yes";
 var rAI= "No";
@@ -460,7 +460,7 @@ var Care_Home_Communication_2 = 0.5;
 var Care_Home_Communication_3 = 1;
 var Care_Home_Communication_4 = 1.5;
 var Care_Home_Communication_5 = 2;
-
+var Care_Home_HouseworkSwitch = 1;
 
 
 var clF = "";
@@ -12530,6 +12530,32 @@ else
   caM = 0;
 }
 
+var caN = "";
+//=IF(Care_Home_HouseworkSwitch=0,0,
+//IF(OR('Clean data'!AE59=2,'Clean data'!AE59=3),Scores!FE59,0))
+if(Care_Home_HouseworkSwitch == 0)
+{
+  caN = 0;
+}
+else if(clAE == 2 || clAE == 3)
+{
+  caN = scFE;
+}
+else
+{
+  caN = 0;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 console.log('----RAW----')
@@ -13248,6 +13274,7 @@ console.log('caJ', caJ);
 console.log('caK', caK);
 console.log('caL', caL);
 console.log('caM', caM);
+console.log('caN', caN);
 //James reference
 
 //IF(this = that, true, false) -> 
