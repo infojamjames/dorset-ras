@@ -112,8 +112,8 @@ var rAG= "No";
 var rAH= "Yes";
 var rAI= "No";
 var rAJ=5;
-var rAK=4;
-var rAL= "Three times a day";
+var rAK=2;
+var rAL= "Once a day";
 var rAM=2;
 var rAN= "Yes";
 var rAO= "Upto30m";
@@ -463,8 +463,8 @@ var Care_Home_Communication_5 = 2;
 var Care_Home_HouseworkSwitch = 1;
 var Care_home_ShoppingSwitch = 1;
 var Care_home_medication = 0.125;
-
-
+var Include_eating_dynamic_ch = 1;
+var Care_home_15min_toileting = 0;
 
 
 
@@ -12605,6 +12605,33 @@ else
   caP = 0;
 }
 
+var caQ = "";
+//=IF(AND(Include_eating_dynamic_ch=1,Care_home_15min_toileting=0),(Calculator!K59+Scores!EB59)+P59,
+//IF(AND(Include_eating_dynamic_ch=0,Care_home_15min_toileting=0),(Calculator!K59)+P59,
+//IF(AND(Include_eating_dynamic_ch=1,Care_home_15min_toileting=1),((Calculator!K59-((Calculator!J59-Calculator!F59))/2)+Scores!EB59)+P59,
+
+//IF(AND(Include_eating_dynamic_ch=0,Care_home_15min_toileting=1),(Calculator!K59-((Calculator!J59-Calculator!F59))/2)+P59,0))))
+if(Include_eating_dynamic_ch == 1 && Care_home_15min_toileting == 0)
+{
+  caQ = (calK+scEB)+caP
+}
+else if(Include_eating_dynamic_ch == 0 && Care_home_15min_toileting == 0)
+{
+  caQ = (calK)+caP
+}
+else if(Include_eating_dynamic_ch == 1 && Care_home_15min_toileting == 1)
+{
+  caQ = ((calK-((calJ-calF))/2)+scEB)+caP;
+}
+else if(Include_eating_dynamic_ch == 0 && Care_home_15min_toileting == 1)
+{
+  caQ = (calK-((calJ-calF))/2)+caP;
+}
+else
+{
+  caQ = 0;
+}
+
 
 
 
@@ -13327,6 +13354,7 @@ console.log('caM', caM);
 console.log('caN', caN);
 console.log('caO', caO);
 console.log('caP', caP);
+console.log('caQ', caQ);
 //James reference
 
 //IF(this = that, true, false) -> 
