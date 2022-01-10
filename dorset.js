@@ -451,8 +451,8 @@ var Care_Home_Psych_Increase_1 = 0;
 var Care_Home_Psych_Increase_2 = 0.25;
 var Care_Home_Psych_Increase_3 = 1.25; 
 var Care_Home_Psych_Increase_4 = 2;
-
-
+var Care_Home_PsychBlock_Under65Switch = 0;
+var Care_Home_PsychBlock_Over65Switch = 0;
 
 var clF = "";
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),0,
@@ -12361,6 +12361,43 @@ var caI = "";
 //=SUM(E59:H59)
 caI = caE + caH;
 
+var caJ = "";
+//=IF(AND(Scores!B59=0,Scores!C59=0,Care_Home_PsychBlock_Over65Switch=0),0,
+//IF(AND(OR(Scores!B59>0,Scores!C59>0),Care_Home_PsychBlock_Under65Switch=0),0,
+//IF('Clean data'!DH59=1,I59*Care_Home_Impact_Mood_1,
+//IF('Clean data'!DH59=2,I59*Care_Home_Impact_Mood_2,
+//IF('Clean data'!DH59=3,I59*Care_Home_Impact_Mood_3,
+//IF('Clean data'!DH59=4,I59*Care_Home_Impact_Mood_4,I59))))))
+if((scB == 0 && scC == 0 && Care_Home_PsychBlock_Over65Switch == 0))
+{
+  caJ = 0;
+}
+else if((scB > 0 || scC > 0)&& Care_Home_PsychBlock_Under65Switch == 0)
+{
+  caJ = 0;
+}
+else if(clDH == 1)
+{
+  caJ = caI*Care_Home_Impact_Mood_1;
+}
+else if(clDH == 2)
+{
+  caJ = caI*Care_Home_Impact_Mood_2;
+}
+else if(clDH == 3)
+{
+  caJ = caI*Care_Home_Impact_Mood_3;
+}
+else if(clDH == 4)
+{
+  caJ = caI*Care_Home_Impact_Mood_4;
+}
+else
+{
+  caJ = caI;
+}
+
+
 
 
 console.log('----RAW----')
@@ -13075,6 +13112,7 @@ console.log('caF', caF);
 console.log('caG', caG);
 console.log('caH', caH);
 console.log('caI', caI);
+console.log('caJ', caJ);
 //James reference
 
 //IF(this = that, true, false) -> 
