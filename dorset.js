@@ -11885,7 +11885,36 @@ var comT =  "";
 //=((Scores!ER59*8)+(Scores!ES59*8)+(Scores!EU59))*Scores!AA59
 comT = ((scER*8)+(scES*8)+(scEU))*scAA;
 
-
+var comU = "";
+//=IF(AND('Clean data'!DJ59>=6,T59>0,Scores!EJ59=0,Scores!EK59=0,Scores!EL59=0),S59,
+//IF(AND('Clean data'!DJ59>=6,T59>0,Scores!BS59=1,Scores!DM59=0,Scores!DR59=0,Scores!CQ59=0,Scores!CV59=0),S59,
+//IF(AND(Scores!ER59>0,'Clean data'!EE59=100,'Clean data'!EM59=100,'Clean data'!EI59>=28.6,'Clean data'!EI59<100),S59,
+//IF(AND(Scores!ER59>0,Calculator!M59=0,'Clean data'!ED59=100,'Clean data'!EL59=100,'Clean data'!EH59>=28.6,'Clean data'!EH59<100),S59,
+//IF(EDL_Round_Output=1,((ROUND((SUM(Scores!FA59:FD59)*4),0)/4)*Scores!AA59),(SUM(Scores!FA59:FD59)*Scores!AA59))))))
+if(clDJ >= 6 && comT > 0 && scEJ == 0 ** scEK == 0 && scEL == 0)
+{
+  comU = comS;
+}
+else if(clDJ >= 6 && comT > 0 && scB == 1 && scDM == 0 && scDR == 0 && scCQ == 0 && scCV == 0)
+{
+  comU = comS;
+}
+else if(scER > 0 && clEE == 100 && clEM == 100 && clEI >= 28.6 &&clEI < 100)
+{
+  comU = comS;
+}
+else if(scER > 0 && calM == 0 && clED == 100 && clEL == 100 && clEH >= 28.6 && clEH < 100)
+{
+  comU = comS;
+}
+else if(EDL_Round_Output == 1)
+{
+  comU = ((Math.round(((scFA + scFB + scFC + scFD)*4),0)/4)*scAA);
+}
+else
+{
+  comU = ((scFA + scFB + scFC + scFD)*scAA);
+}
 
 
 
@@ -12581,6 +12610,7 @@ console.log('comQ', comQ);
 console.log('comR', comR);
 console.log('comS', comS);
 console.log('comT', comT);
+console.log('comU', comU);
 //James reference
 
 //IF(this = that, true, false) -> 
