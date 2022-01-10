@@ -11927,8 +11927,9 @@ else
   comV = comT+(comS-comU);
 }
 
-
-
+var comW = "";
+//=((Scores!EV59*8)+(Scores!EW59*8)+Scores!EX59+Scores!EY59)*Scores!AA59
+comW = ((scEV*8)+(scEW*8)+scEX+scEY)*scAA;
 
 
 
@@ -12624,6 +12625,7 @@ console.log('comS', comS);
 console.log('comT', comT);
 console.log('comU', comU);
 console.log('comV', comV);
+console.log('comW', comW);
 //James reference
 
 //IF(this = that, true, false) -> 
