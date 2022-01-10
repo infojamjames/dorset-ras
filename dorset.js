@@ -11968,8 +11968,9 @@ else
   comY = comW+((calK + scDT)*scAA)-comX;
 }
 
-
-
+var comZ = "";
+//=Calculator!Z59*Scores!AA59
+comZ = calZ*scAA;
 
 
 
@@ -12675,6 +12676,7 @@ console.log('comV', comV);
 console.log('comW', comW);
 console.log('comX', comX);
 console.log('comY', comY);
+console.log('comZ', comZ);
 //James reference
 
 //IF(this = that, true, false) -> 
