@@ -111,7 +111,7 @@ var rAF=2;
 var rAG= "No";
 var rAH= "Yes";
 var rAI= "No";
-var rAJ=3;
+var rAJ=5;
 var rAK=4;
 var rAL= "Three times a day";
 var rAM=2;
@@ -461,7 +461,7 @@ var Care_Home_Communication_3 = 1;
 var Care_Home_Communication_4 = 1.5;
 var Care_Home_Communication_5 = 2;
 var Care_Home_HouseworkSwitch = 1;
-
+var Care_home_ShoppingSwitch = 1;
 
 var clF = "";
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),0,
@@ -12546,14 +12546,26 @@ else
   caN = 0;
 }
 
-
-
-
-
-
-
-
-
+var caO = "";
+//=IF(Care_home_ShoppingSwitch=0,0,
+//IF(AND(Scores!B59=0,Scores!C59=0),0,
+//IF(SUM(Scores!FF59,Scores!FG59)>0,SUM(Scores!FF59,Scores!FG59),0)))
+if(Care_home_ShoppingSwitch == 0)
+{
+  caO = 0;
+}
+else if(scB == 0 && scC == 0)
+{
+  caO = 0;
+}
+else if((scFF+scFG)>0)
+{
+  caO = (scFF+scFG)
+}
+else
+{
+  caO = 0;
+}
 
 
 
@@ -13275,6 +13287,7 @@ console.log('caK', caK);
 console.log('caL', caL);
 console.log('caM', caM);
 console.log('caN', caN);
+console.log('caO', caO);
 //James reference
 
 //IF(this = that, true, false) -> 
