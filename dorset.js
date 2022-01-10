@@ -469,6 +469,10 @@ var Care_home_EDLMultiplier_PD = 1;
 var Care_home_EDLMultiplier_MH = 1;
 var Care_home_EDLMultiplier_LD = 1;
 var Care_home_EDLMultiplier_Default = 1;
+var Dynamic_Hours_Cap = 0;
+
+
+
 
 
 
@@ -12721,6 +12725,18 @@ else
   caV = 0;
 }
 
+var caW = "";
+//=IF(AND(Dynamic_Hours_Cap>0,(D59+J59+L59+M59+N59+O59+R59+T59+U59+V59)>Dynamic_Hours_Cap),Dynamic_Hours_Cap, D59+J59+L59+M59+N59+O59+R59+T59+U59+V59)
+if((Dynamic_Hours_Cap > 0 && (caD+caJ+caL+caM+caN+caO+caR+caT+caU+caV))>Dynamic_Hours_Cap)
+{
+  caW = Dynamic_Hours_Cap;
+}
+else
+{
+  caW = caD+caJ+caL+caM+caN+caO+caR+caT+caU+caV;
+}
+
+
 
 
 
@@ -13451,6 +13467,7 @@ console.log('caS', caS);
 console.log('caT', caT);
 console.log('caU', caU);
 console.log('caV', caV);
+console.log('caW', caW);
 //James reference
 
 //IF(this = that, true, false) -> 
