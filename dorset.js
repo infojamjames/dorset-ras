@@ -90,9 +90,9 @@ var rK='' ;
 var rL='' ;
 var rM='' ;
 var rN= "45-54";
-var rO=2;
+var rO=4;
 var rP= "No";
-var rQ=2;
+var rQ=1;
 var rR= "No";
 var rS= "No";
 var rT= "Yes";
@@ -454,6 +454,13 @@ var Care_Home_Psych_Increase_4 = 2;
 var Care_Home_PsychBlock_Under65Switch = 0;
 var Care_Home_PsychBlock_Over65Switch = 0;
 var Care_Home_Work_Inclusion = 1;
+var Care_home_CommunicationSwitch = 1;
+var Care_Home_Communication_1 = 0.25;
+var Care_Home_Communication_2 = 0.5;
+var Care_Home_Communication_3 = 1;
+var Care_Home_Communication_4 = 1.5;
+var Care_Home_Communication_5 = 2;
+
 
 
 var clF = "";
@@ -12482,11 +12489,46 @@ else
   caL = 0;
 }
 
-
-
-
-
-
+var caM = "";
+//=IF(Care_home_CommunicationSwitch=0,0,
+//IF(AND(Scores!B59=0,Scores!C59=0),0,
+//IF(AND('Clean data'!H59=4,'Clean data'!J59=4),Care_Home_Communication_5,
+//IF(OR('Clean data'!H59=4,'Clean data'!J59=4),Care_Home_Communication_4,
+//IF(OR('Clean data'!H59=3,'Clean data'!J59=3),Care_Home_Communication_3,
+//IF(OR('Clean data'!H59=2,'Clean data'!J59=2),Care_Home_Communication_2,
+//IF(OR(AND('Clean data'!H59>0,'Clean data'!H59<=1),AND('Clean data'!J59>0,'Clean data'!J59<=1)),Care_Home_Communication_1,0)))))))
+if(Care_home_CommunicationSwitch == 0)
+{
+  caM = 0;
+}
+else if(scB == 0 && scC == 0)
+{
+  caM = 0;
+}
+else if(clH == 4 && clJ == 4)
+{
+  caM = Care_Home_Communication_5;
+}
+else if(clH == 4 || clJ == 4)
+{
+  caM = Care_Home_Communication_4;
+}
+else if(clH == 3 || clJ == 3)
+{
+  caM = Care_Home_Communication_3;
+}
+else if(clH == 2 || clJ == 2)
+{
+  caM = Care_Home_Communication_2;
+}
+else if((clH > 0 && clH <= 1)|| (clJ > 0 && clJ <= 1))
+{
+  caM = Care_Home_Communication_1;
+}
+else
+{
+  caM = 0;
+}
 
 
 
@@ -13205,6 +13247,7 @@ console.log('caI', caI);
 console.log('caJ', caJ);
 console.log('caK', caK);
 console.log('caL', caL);
+console.log('caM', caM);
 //James reference
 
 //IF(this = that, true, false) -> 
