@@ -11984,6 +11984,15 @@ var comAC = "";
 //=Calculator!AA59*Scores!AA59
 comAC = calAA*scAA;
 
+var comAD = "";
+//=Scores!IT59*Scores!AA59
+comAD = scIT*scAA;
+
+
+
+
+
+
 
 
 
@@ -12686,6 +12695,7 @@ console.log('comZ', comZ);
 console.log('comAA', comAA);
 console.log('comAB', comAB);
 console.log('comAC', comAC);
+console.log('comAD', comAD);
 //James reference
 
 //IF(this = that, true, false) -> 
