@@ -12041,10 +12041,16 @@ var comAH = "";
 //=V59+Z59+AB59+AD59+AF59
 comAH = comV + comZ + comAB + comAD + comAF;
 
-
-
-
-
+var comAI = "";
+//=IF('Clean data'!EQ59=0.25,Y59+AA59+AC59+AE59,Y59+AA59+AC59+AE59+AG59)
+if(clEQ == 0.25)
+{
+  comAI = comY + comAA + comAC + comAE;
+}
+else
+{
+  comAI = comY + comAA + comAC + comAE + comAG;
+}
 
 
 
@@ -12750,6 +12756,7 @@ console.log('comAE', comAE);
 console.log('comAF', comAF);
 console.log('comAG', comAG);
 console.log('comAH', comAH);
+console.log('comAI', comAI);
 //James reference
 
 //IF(this = that, true, false) -> 
