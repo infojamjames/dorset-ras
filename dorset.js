@@ -465,7 +465,10 @@ var Care_home_ShoppingSwitch = 1;
 var Care_home_medication = 0.125;
 var Include_eating_dynamic_ch = 1;
 var Care_home_15min_toileting = 0;
-
+var Care_home_EDLMultiplier_PD = 1;
+var Care_home_EDLMultiplier_MH = 1;
+var Care_home_EDLMultiplier_LD = 1;
+var Care_home_EDLMultiplier_Default = 1;
 
 
 
@@ -12632,6 +12635,28 @@ else
   caQ = 0;
 }
 
+var caR = "";
+//=IF(Scores!B59=1,'Care home calc'!Q59*Care_home_EDLMultiplier_LD,
+//IF(Scores!B59=2,'Care home calc'!Q59*Care_home_EDLMultiplier_MH,
+//IF(Scores!C59=1,'Care home calc'!Q59*Care_home_EDLMultiplier_PD,Q59*Care_home_EDLMultiplier_Default)))
+if(scB == 1)
+{
+  caR = caQ*Care_home_EDLMultiplier_LD;
+}
+else if(scB == 2)
+{
+  caR = caQ*Care_home_EDLMultiplier_MH;
+}
+else if(scC == 1)
+{
+  caR = caQ*Care_home_EDLMultiplier_PD;
+}
+else
+{
+  caR = caQ*Care_home_EDLMultiplier_Default;
+}
+
+
 
 
 
@@ -13355,6 +13380,7 @@ console.log('caN', caN);
 console.log('caO', caO);
 console.log('caP', caP);
 console.log('caQ', caQ);
+console.log('caR', caR);
 //James reference
 
 //IF(this = that, true, false) -> 
