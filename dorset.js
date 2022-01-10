@@ -11931,6 +11931,29 @@ var comW = "";
 //=((Scores!EV59*8)+(Scores!EW59*8)+Scores!EX59+Scores!EY59)*Scores!AA59
 comW = ((scEV*8)+(scEW*8)+scEX+scEY)*scAA;
 
+var comX = "";
+//=IF(AND('Clean data'!DJ59>=6,W59>0,NOT('Clean data'!FE59=0.25),EDL_Round_Output=1),((ROUND(((Calculator!K59+Scores!DT59)*4),0)/4)*Scores!AA59),
+//IF(AND('Clean data'!DJ59>=6,W59>0,NOT('Clean data'!FE59=0.25)),((Calculator!K59+Scores!DT59)*Scores!AA59),
+//IF(EDL_Round_Output=1,((ROUND((SUM(Scores!FA59:FD59)*4),0)/4)*Scores!AA59),SUM(Scores!FA59:FD59)*Scores!AA59)))
+if(clDJ >= 6 && comW > 0 && (clFE != 0.25)&& EDL_Round_Output == 1)
+{
+  comX = ((Math.round(((calK+scDT)*4),0)/4)*scAA);
+}
+else if(clDJ >= 6 && comW > 0 && (clFE != 0.25))
+{
+  comX = ((calK+scDT)*scAA);
+}
+else if(EDL_Round_Output == 1)
+{
+  comX = ((Math.round(((scFA + scFB + scFC + scFD)*4),0)/4)*scAA);
+}
+else
+{
+  comX = (scFA + scFB + scFC + scFD)*scAA;
+}
+
+
+
 
 
 
@@ -12626,6 +12649,7 @@ console.log('comT', comT);
 console.log('comU', comU);
 console.log('comV', comV);
 console.log('comW', comW);
+console.log('comX', comX);
 //James reference
 
 //IF(this = that, true, false) -> 
