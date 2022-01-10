@@ -155,9 +155,9 @@ var rBX=3;
 var rBY=1;
 var rBZ=1;
 var rCA=1;
-var rCB=2;
+var rCB=1;
 var rCC= "No";
-var rCD=2;
+var rCD=1;
 var rCE= "OccasChecks";
 var rCF= "1visit";
 var rCG= "n/a";
@@ -12331,6 +12331,31 @@ else
   caG = 0;
 }
 
+var caH = "";
+//=IF('Clean data'!DE59=1,Care_Home_Psych_Increase_1,
+//IF('Clean data'!DE59=2,Care_Home_Psych_Increase_2,
+//IF('Clean data'!DE59=3,Care_Home_Psych_Increase_3,
+//IF('Clean data'!DE59=4,Care_Home_Psych_Increase_4,0))))
+if(clDE == 1)
+{
+  caH = Care_Home_Psych_Increase_1;
+}
+else if(clDE == 2)
+{
+  caH = Care_Home_Psych_Increase_2;
+}
+else if(clDE == 3)
+{
+  caH = Care_Home_Psych_Increase_3;
+}
+else if(clDE == 4)
+{
+  caH = Care_Home_Psych_Increase_4;
+}
+else
+{
+  caH = 0;
+}
 
 
 
@@ -13044,6 +13069,7 @@ console.log('caD', caD);
 console.log('caE', caE);
 console.log('caF', caF);
 console.log('caG', caG);
+console.log('caH', caH);
 //James reference
 
 //IF(this = that, true, false) -> 
