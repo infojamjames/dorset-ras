@@ -153,7 +153,7 @@ var rBV= "LowLevel";
 var rBW= "No";
 var rBX=3;
 var rBY=1;
-var rBZ=2;
+var rBZ=1;
 var rCA=2;
 var rCB=2;
 var rCC= "No";
@@ -12279,6 +12279,32 @@ else
   caE = 0; 
 }
 
+var caF = "";
+//=IF('Clean data'!DA59=1,Care_Home_Psych_Increase_1,
+//IF('Clean data'!DA59=2,Care_Home_Psych_Increase_2,
+//IF('Clean data'!DA59=3,Care_Home_Psych_Increase_3,
+//IF('Clean data'!DA59=4,Care_Home_Psych_Increase_4,0))))
+if(clDA == 1)
+{
+  caF = Care_Home_Psych_Increase_1;
+}
+else if(clDA == 2)
+{
+  caF = Care_Home_Psych_Increase_2;
+}
+else if(clDA == 3)
+{
+  caF = Care_Home_Psych_Increase_3;
+}
+else if(clDA == 4)
+{
+  caF = Care_Home_Psych_Increase_4;
+}
+else
+{
+  caF = 0;
+}
+
 
 console.log('----RAW----')
 console.log('rN', rN);
@@ -12988,6 +13014,7 @@ console.log('caB', caB);
 console.log('caC', caC);
 console.log('caD', caD);
 console.log('caE ', caE);
+console.log('caF', caF);
 //James reference
 
 //IF(this = that, true, false) -> 
