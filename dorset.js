@@ -11952,6 +11952,30 @@ else
   comX = (scFA + scFB + scFC + scFD)*scAA;
 }
 
+comY = "";
+//=IF(((Calculator!K59+Scores!DT59)*Scores!AA59)-X59<0,W59,
+//IF(EDL_Round_Output=1,(W59+((ROUND(((Calculator!K59+Scores!DT59)*4),0)/4)*Scores!AA59)-X59),W59+(((Calculator!K59+Scores!DT59)*Scores!AA59)-X59)))
+if(((calK + scDT)*scAA)- comX <0)
+{
+  comY = comW;
+}
+else if(EDL_Round_Output == 1)
+{
+  comY = (comW+((Math.round(((calK + scDT)*4),0)/4)*scAA)-comX);
+}
+else
+{
+  comY = comW+((calK + scDT)*scAA)-comX;
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -12650,6 +12674,7 @@ console.log('comU', comU);
 console.log('comV', comV);
 console.log('comW', comW);
 console.log('comX', comX);
+console.log('comY', comY);
 //James reference
 
 //IF(this = that, true, false) -> 
