@@ -12357,6 +12357,10 @@ else
   caH = 0;
 }
 
+var caI = "";
+//=SUM(E59:H59)
+caI = caE + caH;
+
 
 
 console.log('----RAW----')
@@ -13070,6 +13074,7 @@ console.log('caE', caE);
 console.log('caF', caF);
 console.log('caG', caG);
 console.log('caH', caH);
+console.log('caI', caI);
 //James reference
 
 //IF(this = that, true, false) -> 
