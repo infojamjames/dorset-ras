@@ -470,10 +470,10 @@ var Care_home_EDLMultiplier_MH = 1;
 var Care_home_EDLMultiplier_LD = 1;
 var Care_home_EDLMultiplier_Default = 1;
 var Dynamic_Hours_Cap = 0;
-
-
-
-
+var Hotel_Cost_Weekly_PD = 0;
+var Hotel_Cost_Weekly_LD = 0;
+var Hotel_Cost_Weekly_MH = 0;
+var Hotel_Cost_Weekly = 0;
 
 
 var clF = "";
@@ -12757,6 +12757,28 @@ else
   caX = caW*Res_Hours_Rate;
 }
 
+var caY = "";
+//=IF(Scores!C59=1,X59+Hotel_Cost_Weekly_PD,
+//IF(Scores!B59=1,X59+Hotel_Cost_Weekly_LD,
+//IF(Scores!B59=2,X59+Hotel_Cost_Weekly_MH,X59+Hotel_Cost_Weekly)))
+if(scC == 1)
+{
+  caY = caX+Hotel_Cost_Weekly_PD;
+}
+else if(scB == 1)
+{
+  caY = caX+Hotel_Cost_Weekly_LD;
+}
+else if(scB == 2)
+{
+  caY = caX+Hotel_Cost_Weekly_MH;
+}
+else
+{
+  caY = caX+Hotel_Cost_Weekly;
+}
+
+
 
 
 
@@ -13487,6 +13509,7 @@ console.log('caU', caU);
 console.log('caV', caV);
 console.log('caW', caW);
 console.log('caX', caX);
+console.log('caY', caY);
 //James reference
 
 //IF(this = that, true, false) -> 
