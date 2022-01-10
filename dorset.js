@@ -152,7 +152,7 @@ var rBU=3;
 var rBV= "LowLevel";
 var rBW= "No";
 var rBX=3;
-var rBY=2;
+var rBY=1;
 var rBZ=2;
 var rCA=2;
 var rCB=2;
@@ -447,6 +447,12 @@ var Default_Work_edu_Transport = 0;
 var Work_edu_5_Number_Activities = 5;
 var CHNightAlarm = 0;
 var SHNightAlarm = 0;
+var Care_Home_Psych_Increase_1 = 0;
+var Care_Home_Psych_Increase_2 = 0.25;
+var Care_Home_Psych_Increase_3 = 1.25; 
+var Care_Home_Psych_Increase_4 = 2;
+
+
 
 var clF = "";
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),0,
@@ -12247,6 +12253,32 @@ else
   caD = 0;
 }
 
+var caE = "";
+//=IF('Clean data'!CY59=1,Care_Home_Psych_Increase_1,
+//IF('Clean data'!CY59=2,Care_Home_Psych_Increase_2,
+//IF('Clean data'!CY59=3,Care_Home_Psych_Increase_3,
+//IF('Clean data'!CY59=4,Care_Home_Psych_Increase_4,0))))
+if(clCY == 1)
+{
+  caE = Care_Home_Psych_Increase_1;
+}
+else if(clCY == 2)
+{
+  caE = Care_Home_Psych_Increase_2;
+}
+else if(clCY == 3)
+{
+  caE = Care_Home_Psych_Increase_3;
+}
+else if(clCY == 4)
+{
+  caE = Care_Home_Psych_Increase_4;
+}
+else
+{
+  caE = 0; 
+}
+
 
 console.log('----RAW----')
 console.log('rN', rN);
@@ -12955,6 +12987,7 @@ console.log('comAI', comAI);
 console.log('caB', caB);
 console.log('caC', caC);
 console.log('caD', caD);
+console.log('caE ', caE);
 //James reference
 
 //IF(this = that, true, false) -> 
