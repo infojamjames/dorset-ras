@@ -12694,6 +12694,34 @@ else
   caT = caS*Care_home_EDLMultiplier_Default
 }
 
+var caU = "";
+//=IF(AND(OR(Scores!B59>0, Scores!C59>0),'Clean data'!DL59<=WakingImpactLevel),0,
+//IF('Clean data'!DK59>=5,Care_home_night_adjustment*(VLOOKUP('Clean data'!DL59,NightAlone,2,FALSE)),0))
+if((scB > 0 || scC > 0)&& clDL <= WakingImpactLevel)
+{
+  caU = 0;
+}
+else if(clDK >= 5)
+{
+  caU = Care_home_night_adjustment*(VLOOKUP(clDL,NightAlone,2,FALSE));
+}
+else
+{
+  caU = 0;
+}
+
+var caV = "";
+//=IF('Clean data'!DK59=7,U59,0)
+if(clDK == 7)
+{
+  caV = caU;
+}
+else
+{
+  caV = 0;
+}
+
+
 
 
 
@@ -13421,6 +13449,8 @@ console.log('caQ', caQ);
 console.log('caR', caR);
 console.log('caS', caS);
 console.log('caT', caT);
+console.log('caU', caU);
+console.log('caV', caV);
 //James reference
 
 //IF(this = that, true, false) -> 
