@@ -12037,6 +12037,13 @@ var comAG = "";
 //=(Scores!IA59*7)*Scores!AA59
 comAG = (scIA*7)*scAA;
 
+var comAH = "";
+//=V59+Z59+AB59+AD59+AF59
+comAH = comV + comZ + comAB + comAD + comAF;
+
+
+
+
 
 
 
@@ -12742,6 +12749,7 @@ console.log('comAD', comAD);
 console.log('comAE', comAE);
 console.log('comAF', comAF);
 console.log('comAG', comAG);
+console.log('comAH', comAH);
 //James reference
 
 //IF(this = that, true, false) -> 
