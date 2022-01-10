@@ -453,7 +453,7 @@ var Care_Home_Psych_Increase_3 = 1.25;
 var Care_Home_Psych_Increase_4 = 2;
 var Care_Home_PsychBlock_Under65Switch = 0;
 var Care_Home_PsychBlock_Over65Switch = 0;
-
+var Care_Home_Work_Inclusion = 1;
 
 
 var clF = "";
@@ -12410,6 +12410,82 @@ else
   caK = 0;
 }
 
+var caL = "";
+//=IF(AND(Scores!B59=0,Scores!C59=0),0,
+//IF(Care_Home_Work_Inclusion=0,0,
+//IF(AND('Clean data'!V59>0,'Clean data'!V59<3),K59,
+//IF(AND('Clean data'!V59=3,'Clean data'!X59<1),K59,
+//IF(AND('Clean data'!V59=3,'Clean data'!X59=1),K59+Care_home_activity_length_Under65,
+//IF(AND('Clean data'!V59=3,'Clean data'!X59=2),K59+2*Care_home_activity_length_Under65,
+//IF(AND('Clean data'!V59=3,'Clean data'!X59=5),K59+5*Care_home_activity_length_Under65,
+//IF(AND('Clean data'!V59=3,'Clean data'!X59=7),K59+7*Care_home_activity_length_Under65,
+//IF(AND('Clean data'!V59=4,'Clean data'!X59<1),K59,
+//IF(AND('Clean data'!V59=4,'Clean data'!X59=1),K59+2*Care_home_activity_length_Under65,
+//IF(AND('Clean data'!V59=4,'Clean data'!X59=2),K59+4*Care_home_activity_length_Under65,
+//IF(AND('Clean data'!V59=4,'Clean data'!X59=5),K59+10*Care_home_activity_length_Under65,
+
+//IF(AND('Clean data'!V59=4,'Clean data'!X59=7),K59+14*Care_home_activity_length_Under65, 0)))))))))))))
+if(scB == 0 && scC == 0)
+{
+  caL = 0;
+}
+else if(Care_Home_Work_Inclusion == 0)
+{
+  caL = 0;
+}
+else if(clV > 0 && clV < 3)
+{
+  caL = caK;
+}
+else if(clV == 3 && clX < 1)
+{
+  caL = caK;
+}
+else if(clV == 3 && clX == 1)
+{
+  caL = caK+Care_home_activity_length_Under65;
+}
+else if(clV == 3 && clX == 2)
+{
+  caL = caK+2*Care_home_activity_length_Under65;
+}
+else if(clV == 3 && clX == 5)
+{
+  caL = caK+5*Care_home_activity_length_Under65;
+}
+else if(clV == 3 && clX == 7)
+{
+  caL = caK+7*Care_home_activity_length_Under65;
+}
+else if(clV == 4 && clX < 1)
+{
+  caL = caK;
+}
+else if(clV == 4 && clX == 1)
+{
+  caL = caK+2*Care_home_activity_length_Under65;
+}
+else if(clV == 4 && clX == 2)
+{
+  caL = caK+4*Care_home_activity_length_Under65;
+}
+else if(clV == 4 && clX == 5)
+{
+  caL = caK+10*Care_home_activity_length_Under65
+}
+else if(clV == 4 && clX == 7)
+{
+  caL = caK+14*Care_home_activity_length_Under65;
+}
+else
+{
+  caL = 0;
+}
+
+
+
+
+
 
 
 
@@ -13128,6 +13204,7 @@ console.log('caH', caH);
 console.log('caI', caI);
 console.log('caJ', caJ);
 console.log('caK', caK);
+console.log('caL', caL);
 //James reference
 
 //IF(this = that, true, false) -> 
