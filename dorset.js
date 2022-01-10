@@ -11862,6 +11862,29 @@ var comP = "";
 //=Scores!GM59
 comP = scGM;
 
+var comQ = "";
+//=E59+I59+K59+M59+O59
+comQ = comE + comI + comK + comM + comO;
+
+var comR = "";
+//=IF('Clean data'!EQ59=0.25,H59+J59+L59+N59,H59+J59+L59+N59+P59)
+if(clEQ == 0.25)
+{
+  comR = comH + comJ + comL + comN;
+}
+else
+{
+  comR = comH + comJ + comL + comN + comP;
+}
+
+
+
+
+
+
+
+
+
 
 
 console.log('----RAW----')
@@ -12548,6 +12571,8 @@ console.log('comM', comM);
 console.log('comN', comN);
 console.log('comO', comO);
 console.log('comP', comP);
+console.log('comQ', comQ);
+console.log('comR', comR);
 //James reference
 
 //IF(this = that, true, false) -> 
