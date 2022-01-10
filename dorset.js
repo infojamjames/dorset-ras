@@ -12052,6 +12052,28 @@ else
   comAI = comY + comAA + comAC + comAE + comAG;
 }
 
+var caB = "";
+//=IF(OR('Clean data'!FW59=12, 'Clean data'!FW59=15),"Yes", "No")
+if(clFW == 12 || clFW == 15)
+{
+  caB = "Yes";
+}
+else
+{
+  caB = "No";
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 console.log('----RAW----')
@@ -12757,6 +12779,7 @@ console.log('comAF', comAF);
 console.log('comAG', comAG);
 console.log('comAH', comAH);
 console.log('comAI', comAI);
+console.log('caB', caB);
 //James reference
 
 //IF(this = that, true, false) -> 
