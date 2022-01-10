@@ -141,7 +141,7 @@ var rBJ= "HeadInj";
 var rBK= "HearImp";
 var rBL= "HIV";
 var rBM= "Weekly";
-var rBN= "Admin";
+var rBN= "Remind";
 var rBO= "Twice a day";
 var rBP=1;
 var rBQ= "Yes";
@@ -462,6 +462,12 @@ var Care_Home_Communication_4 = 1.5;
 var Care_Home_Communication_5 = 2;
 var Care_Home_HouseworkSwitch = 1;
 var Care_home_ShoppingSwitch = 1;
+var Care_home_medication = 0.125;
+
+
+
+
+
 
 var clF = "";
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),0,
@@ -12567,6 +12573,38 @@ else
   caO = 0;
 }
 
+var caP = "";
+//=IF(AND('Clean data'!CE59>=4,'Clean data'!CG59=7),'Clean data'!CG59*Care_home_medication,
+//IF(AND('Clean data'!CE59>=4,'Clean data'!CG59=14),'Clean data'!CG59*Care_home_medication,
+//IF(AND('Clean data'!CE59>=4,'Clean data'!CG59=21),'Clean data'!CG59*Care_home_medication,
+//IF(AND('Clean data'!CE59>=4,'Clean data'!CG59=28),'Clean data'!CG59*Care_home_medication,
+
+//IF(AND('Clean data'!CE59>=4,'Clean data'!CG59=7),'Clean data'!CG59*Care_home_medication,0)))))
+if(clCE >= 4 && clCG == 7)
+{
+  caP = clCG*Care_home_medication;
+}
+else if(clCE >= 4 && clCG == 14)
+{
+  caP = clCG*Care_home_medication;
+}
+else if(clCE >= 4 && clCG == 21)
+{
+  caP = clCG*Care_home_medication;
+}
+else if(clCE >= 4 && clCG == 28)
+{
+  caP = clCG*Care_home_medication;
+}
+else if(clCE >=4 && clCG == 7)
+{
+  caP = clCG*Care_home_medication;
+}
+else
+{
+  caP = 0;
+}
+
 
 
 
@@ -13288,6 +13326,7 @@ console.log('caL', caL);
 console.log('caM', caM);
 console.log('caN', caN);
 console.log('caO', caO);
+console.log('caP', caP);
 //James reference
 
 //IF(this = that, true, false) -> 
