@@ -12736,8 +12736,26 @@ else
   caW = caD+caJ+caL+caM+caN+caO+caR+caT+caU+caV;
 }
 
-
-
+var caX = "";
+//=IF(Scores!C59=1,W59*Res_Hours_PD_Rate,
+//IF(Scores!B59=1,W59*Res_Hours_LD_Rate,
+//IF(Scores!B59=2,W59*Res_Hours_MH_Rate,W59*Res_Hours_Rate)))
+if(scC == 1)
+{
+  caX = caW*Res_Hours_PD_Rate;
+}
+else if(scB == 1)
+{
+  caX = caW*Res_Hours_LD_Rate;
+}
+else if(scB == 2)
+{
+  caX = caW*Res_Hours_MH_Rate;
+}
+else 
+{
+  caX = caW*Res_Hours_Rate;
+}
 
 
 
@@ -13468,6 +13486,7 @@ console.log('caT', caT);
 console.log('caU', caU);
 console.log('caV', caV);
 console.log('caW', caW);
+console.log('caX', caX);
 //James reference
 
 //IF(this = that, true, false) -> 
