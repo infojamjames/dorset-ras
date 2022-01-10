@@ -12029,6 +12029,14 @@ else
   comAE = scGF + scGG;
 }
 
+var comAF = "";
+//=Scores!IB59*Scores!AA59
+comAF = scIB*scAA;
+
+
+
+
+
 
 
 
@@ -12731,6 +12739,7 @@ console.log('comAB', comAB);
 console.log('comAC', comAC);
 console.log('comAD', comAD);
 console.log('comAE', comAE);
+console.log('comAF', comAF);
 //James reference
 
 //IF(this = that, true, false) -> 
