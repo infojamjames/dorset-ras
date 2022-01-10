@@ -12063,14 +12063,71 @@ else
   caB = "No";
 }
 
-
-
-
-
-
-
-
-
+var caC = "";
+//=IF(AND('Clean data'!FY59<7, 'Clean data'!O59>1,'Clean data'!O59<=4,'Clean data'!V59>1,'Clean data'!V59<=4), ROUND(((Care_home_FulltimeCarer_Activities*Care_home_20Sharing)*4),0)/4,
+//IF(AND('Clean data'!FY59<7,'Clean data'!O59>1,'Clean data'!O59<=4),ROUND(((Care_home_FulltimeCarer_Activities*Care_home_20Sharing)*4),0)/4,
+//IF(AND('Clean data'!FY59<7,'Clean data'!V59>1,'Clean data'!V59<=4),ROUND(((Care_home_FulltimeCarer_Activities*Care_home_20Sharing)*4),0)/4,
+//IF(AND('Clean data'!FY59=7, 'Clean data'!O59>1,'Clean data'!O59<=4,'Clean data'!V59>1,'Clean data'!V59<=4), ROUND(((Care_home_FulltimeCarer_Activities*Care_home_Under5Sharing)*4),0)/4,
+//IF(AND('Clean data'!FY59=7,'Clean data'!O59>1,'Clean data'!O59<=4), ROUND(((Care_home_FulltimeCarer_Activities*Care_home_Under5Sharing)*4),0)/4,
+//IF(AND('Clean data'!FY59=7,'Clean data'!V59>1,'Clean data'!V59<=4),ROUND(((Care_home_FulltimeCarer_Activities*Care_home_Under5Sharing)*4),0)/4,
+//IF(AND('Clean data'!FY59=8, 'Clean data'!O59>1,'Clean data'!O59<=4,'Clean data'!V59>1,'Clean data'!V59<=4), ROUND(((Care_home_FulltimeCarer_Activities*Care_home_5to9Sharing)*4),0)/4,
+//IF(AND('Clean data'!FY59=8, 'Clean data'!O59>1,'Clean data'!O59<=4), ROUND(((Care_home_FulltimeCarer_Activities*Care_home_5to9Sharing)*4),0)/4,
+//IF(AND('Clean data'!FY59=8, 'Clean data'!V59>1,'Clean data'!V59<=4),ROUND(((Care_home_FulltimeCarer_Activities*Care_home_5to9Sharing)*4),0)/4,
+//IF(AND('Clean data'!FY59>=9, 'Clean data'!O59>1,'Clean data'!O59<=4,'Clean data'!V59>1,'Clean data'!V59<=4),ROUND(((Care_home_FulltimeCarer_Activities*Care_home_9orMoreSharing)*4),0)/4,
+//IF(AND('Clean data'!FY59>=9, 'Clean data'!O59>1,'Clean data'!O59<=4),ROUND(((Care_home_FulltimeCarer_Activities*Care_home_9orMoreSharing)*4),0)/4,
+//IF(AND('Clean data'!FY59>=9, 'Clean data'!V59>1,'Clean data'!V59<=4),ROUND(((Care_home_FulltimeCarer_Activities*Care_home_9orMoreSharing)*4),0)/4,))))))))))))
+if((clFY < 7 && clO > 1 && clO <= 4 && clV > 1 && clV <=4))
+{
+  caC = Math.round(((Care_home_FulltimeCarer_Activities*Care_home_20Sharing)*4),0)/4;
+}
+else if((clFY < 7 && clO > 1 && clO <=4))
+{
+  caC = Math.round(((Care_home_FulltimeCarer_Activities*Care_home_20Sharing)*4),0)/4;
+}
+else if((clFY < 7 && clV > 1 && clV <=4))
+{
+  caC = Math.round(((Care_home_FulltimeCarer_Activities*Care_home_20Sharing)*4),0)/4;
+}
+else if((clFY == 7 && clO > 1 && clO <= 4 && clV > 1 && clV<=4))
+{
+  caC = Math.round(((Care_home_FulltimeCarer_Activities*Care_home_Under5Sharing)*4),0)/4;
+}
+else if((clFY == 7 && clO > 1 && clO <=4))
+{
+  caC = Math.round(((Care_home_FulltimeCarer_Activities*Care_home_Under5Sharing)*4),0)/4;
+}
+else if((clFY == 7 && clO > 1 && clO<=4))
+{
+  caC = Math.round(((Care_home_FulltimeCarer_Activities*Care_home_Under5Sharing)*4),0)/4;
+}
+else if((clFY == 7 && clV > 1 && clV <=4))
+{
+  caC = Math.round(((Care_home_FulltimeCarer_Activities*Care_home_Under5Sharing)*4),0)/4;
+}
+else if((clFY == 8 &&  clO > 1 && clO <= 4 && clV > 1 && clV <=4))
+{
+  caC = Math.round(((Care_home_FulltimeCarer_Activities*Care_home_5to9Sharing)*4),0)/4;
+}
+else if((clFY == 8 && clO > 1 && clO<=4))
+{
+  caC = Math.round(((Care_home_FulltimeCarer_Activities*Care_home_5to9Sharing)*4),0)/4;
+}
+else if((clFY == 8 && clV > 1 && clV <=4))
+{
+  caC = Math.round(((Care_home_FulltimeCarer_Activities*Care_home_5to9Sharing)*4),0)/4;
+}
+else if((clFY >= 9 &&  clO > 1 && clO <= 4 && clV > 1 && clV <=4))
+{
+  caC = Math.round(((Care_home_FulltimeCarer_Activities*Care_home_9orMoreSharing)*4),0)/4;
+}
+else if((clFY >= 9 && clO > 1 && clO <=4))
+{
+  caC = Math.round(((Care_home_FulltimeCarer_Activities*Care_home_9orMoreSharing)*4),0)/4;
+}
+else if((clFY >= 9 && clV > 1 && clV <=4))
+{
+  caC = Math.round(((Care_home_FulltimeCarer_Activities*Care_home_9orMoreSharing)*4),0)/4
+}
 
 
 
@@ -12780,6 +12837,7 @@ console.log('comAG', comAG);
 console.log('comAH', comAH);
 console.log('comAI', comAI);
 console.log('caB', caB);
+console.log('caC', caC);
 //James reference
 
 //IF(this = that, true, false) -> 
