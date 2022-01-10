@@ -11881,8 +11881,9 @@ var comS = "";
 //=Calculator!O59*Scores!AA59
 comS = calO*scAA;
 
-
-
+var comT =  "";
+//=((Scores!ER59*8)+(Scores!ES59*8)+(Scores!EU59))*Scores!AA59
+comT = ((scER*8)+(scES*8)+(scEU))*scAA;
 
 
 
@@ -12579,6 +12580,7 @@ console.log('comP', comP);
 console.log('comQ', comQ);
 console.log('comR', comR);
 console.log('comS', comS);
+console.log('comT', comT);
 //James reference
 
 //IF(this = that, true, false) -> 
