@@ -490,8 +490,10 @@ var Hotel_Cost_Weekly_Nursing_PD = 0;
 var Hotel_Cost_Weekly_Nursing_LD = 0;
 var Hotel_Cost_Weekly_Nursing_MH = 0;
 var Hotel_Cost_Weekly_Nursing_Default = 0;
-
-
+var Nurs_PD_Return_Investment = 0;
+var Nurs_LD_Return_Investment = 0;
+var Nurs_MH_Return_Investment = 0;
+var Nurs_Return_Investment = 0;
 
 
 
@@ -12888,6 +12890,26 @@ else
   caAC = caB+Hotel_Cost_Weekly_Nursing_Default;
 }
 
+var caAD = "";
+//=IF(Scores!C59=1,AC59+Nurs_PD_Return_Investment,
+//IF(Scores!B59=1,AC59+Nurs_LD_Return_Investment,
+//IF(Scores!B59=2,AC59+Nurs_MH_Return_Investment,AC59+Nurs_Return_Investment)))
+if(scC == 1)
+{
+  caAD = caAC+Nurs_PD_Return_Investment;
+}
+else if(scB == 1)
+{
+  caAD = caAC+Nurs_LD_Return_Investment;
+}
+else if(scB == 2)
+{
+  caAD = caAC+Nurs_MH_Return_Investment;
+}
+else
+{
+  caAD = caAC+Nurs_Return_Investment;
+}
 
 
 
@@ -13623,6 +13645,7 @@ console.log('caZ', caZ);
 console.log('caAA', caAA);
 console.log('caAB', caAB);
 console.log('caAC', caAC);
+console.log('caAD', caAD);
 //James reference
 
 //IF(this = that, true, false) -> 
