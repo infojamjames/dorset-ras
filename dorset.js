@@ -483,6 +483,9 @@ var Ceiling_Res_LD = 0;
 var Ceiling_Res_MH = 0;
 var Ceiling_Res_Default = 0;
 var Nurs_hours_PD_Rate = 0;
+var Nurs_hours_LD_Rate = 0;
+var Nurs_hours_MH_Rate = 0;
+var Nurs_Hours_Rate = 0;
 
 
 
