@@ -504,7 +504,8 @@ var Tier2_Residential_home = 571.86;
 var Tier3_Residential_home = 571.86;
 var WA_Residential_home_Standard = 571.86;
 var WA_Residential_Dementia = 618.89;
-
+var LD_Residential_home_Standard = 0;
+var LD_Residential_Dementia = 0;
 
 
 
@@ -13026,8 +13027,21 @@ else
   caAI = 0;
 }
 
-
-
+var caAJ = "";
+//=IF(AND(Scores!B59=1,Scores!H59=0,LD_Residential_home_Standard>0),LD_Residential_home_Standard,
+//IF(AND(Scores!B59=1,Scores!H59=1,LD_Residential_Dementia>0),LD_Residential_Dementia,0))
+if(scB == 1 && scH == 0 && LD_Residential_home_Standard > 0)
+{
+  caAJ = LD_Residential_home_Standard;
+}
+else if(scB == 1 && scH == 1 && LD_Residential_Dementia > 0)
+{
+  caAJ = LD_Residential_Dementia;
+}
+else
+{
+  caAJ = 0;
+}
 
 
 
@@ -13769,6 +13783,7 @@ console.log('caAF', caAF);
 console.log('caAG', caAG);
 console.log('caAH', caAH);
 console.log('caAI', caAI);
+console.log('caAJ', caAJ);
 //James reference
 
 //IF(this = that, true, false) -> 
