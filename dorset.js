@@ -11805,13 +11805,13 @@ else
 
 var comE = "";
 //=IF(B59-D59<0,C59,C59+(B59-D59))
-if(comB - comD < 0)
+if((comB - comD) < 0)
 {
   comE = comC;
 }
 else
 {
-  comC + (comB-comD);
+  comE = comC + (comB-comD);
 }
 
 var comF = "";
@@ -11948,7 +11948,7 @@ comP = scGM;
 
 var comQ = "";
 //=E59+I59+K59+M59+O59
-comQ = comE + comI + comK + comM + comO;
+comQ = (comE) + (comI) + (comK) + (comM) + (comO);
 
 var comR = "";
 //=IF('Clean data'!EQ59=0.25,H59+J59+L59+N59,H59+J59+L59+N59+P59)
@@ -13064,6 +13064,23 @@ else
   caAK = 0;
 }
 
+var caAL = "";
+//=IF(Dynamic_Care_home=1,AA59,
+//IF(AND(Dynamic_Care_home=0,Community!Q59>MAX('Care home calc'!AG59:AK59)),MAX('Care home calc'!AG59:AK59),Community!Q59))
+if(Dynamic_Care_home == 1)
+{
+  caAL = caAA;
+}
+else if(Dynamic_Care_home == 0 && comQ > Math.max(caAG,caAK))
+{
+  caAL = Math.max(caAG,caAK);
+}
+else
+{
+  caAL = comQ;
+}
+
+
 
 
 
@@ -13807,6 +13824,7 @@ console.log('caAH', caAH);
 console.log('caAI', caAI);
 console.log('caAJ', caAJ);
 console.log('caAK', caAK);
+console.log('caAL', caAL);
 //James reference
 
 //IF(this = that, true, false) -> 
