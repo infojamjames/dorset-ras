@@ -479,8 +479,10 @@ var Res_LD_Return_Investment = 0;
 var Res_MH_Return_Investment = 0;
 var Res_Return_Investment = 0;
 var Ceiling_Res_PD = 0;
-
-
+var Ceiling_Res_LD = 0;
+var Ceiling_Res_MH = 0;
+var Ceiling_Res_Default = 0;
+var Nurs_hours_PD_Rate = 0;
 
 
 
@@ -12837,6 +12839,28 @@ else
   caAA = caZ;
 }
 
+var caAB = "";
+//=IF(Scores!C59=1,W59*Nurs_hours_PD_Rate,
+//IF(Scores!B59=1,W59*Nurs_hours_LD_Rate,
+//IF(Scores!B59=2,W59*Nurs_hours_MH_Rate,W59*Nurs_Hours_Rate)))
+if(scC == 1)
+{
+  caAB = caW*Nurs_hours_PD_Rate;
+}
+else if(scB == 1)
+{
+  caAB = caW*Nurs_hours_LD_Rate;
+}
+else if(scB == 2)
+{
+  caAB = caW*Nurs_hours_MH_Rate;
+}
+else
+{
+  caAB = caW*Nurs_Hours_Rate;
+}
+
+
 
 
 
@@ -13570,6 +13594,7 @@ console.log('caX', caX);
 console.log('caY', caY);
 console.log('caZ', caZ);
 console.log('caAA', caAA);
+console.log('caAB', caAB);
 //James reference
 
 //IF(this = that, true, false) -> 
