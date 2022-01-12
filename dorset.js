@@ -478,6 +478,14 @@ var Res_PD_Return_Investment = 0;
 var Res_LD_Return_Investment = 0;
 var Res_MH_Return_Investment = 0;
 var Res_Return_Investment = 0;
+var Ceiling_Res_PD = 0;
+
+
+
+
+
+
+
 
 
 var clF = "";
@@ -12803,6 +12811,32 @@ else
   caZ = caY+Res_Return_Investment;
 }
 
+var caAA = "";
+//=IF(AND(Scores!C59=1,Ceiling_Res_PD>0,Z59>Ceiling_Res_PD),Ceiling_Res_PD,
+//IF(AND(Scores!B59=1,Ceiling_Res_LD>0,Z59>Ceiling_Res_LD),Ceiling_Res_LD,
+//IF(AND(Scores!B59=2,Ceiling_Res_MH>0,Z59>Ceiling_Res_MH),Ceiling_Res_MH,
+//IF(AND(Scores!B59=0,Scores!C59=0,Z59>Ceiling_Res_Default,Ceiling_Res_Default>0),Ceiling_Res_Default,Z59))))
+if(scC == 1 && Ceiling_Res_PD > 0 && caZ > Ceiling_Res_PD)
+{
+  caAA = Ceiling_Res_PD;
+}
+else if(scB == 1 && Ceiling_Res_LD > 0 && caZ > Ceiling_Res_LD)
+{
+  caAA = Ceiling_Res_LD;
+}
+else if(scB == 2 && Ceiling_Res_MH > 0 && caZ > Ceiling_Res_MH)
+{
+  caAA = Ceiling_Res_MH;
+}
+else if(scB == 0 && scC == 0 && caZ>Ceiling_Res_Default && Ceiling_Res_Default>0)
+{
+  caAA = Ceiling_Res_Default;
+}
+else
+{
+  caAA = caZ;
+}
+
 
 
 
@@ -13535,6 +13569,7 @@ console.log('caW', caW);
 console.log('caX', caX);
 console.log('caY', caY);
 console.log('caZ', caZ);
+console.log('caAA', caAA);
 //James reference
 
 //IF(this = that, true, false) -> 
