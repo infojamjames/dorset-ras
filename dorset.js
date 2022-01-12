@@ -500,6 +500,11 @@ var Ceiling_Nurse_MH = 0;
 var Ceiling_Nurse_Default = 0;
 var Residential_home_Standard = 571.86;
 var Residential_Dementia = 618.89;
+var Tier2_Residential_home = 571.86;
+var Tier3_Residential_home = 571.86;
+
+
+
 
 
 
@@ -12980,6 +12985,33 @@ else
   caAG = 0;
 }
 
+var caAH = "";
+//=IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,Scores!E59=1,Tier2_Residential_home>0),Tier2_Residential_home,
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,Scores!E59=2,Tier3_Residential_home>0),Tier3_Residential_home,
+//IF(AND(ModelType>=2,Scores!D59=1,Tier2_Residential_home>0),Tier2_Residential_home,
+//IF(AND(ModelType>=2,Scores!D59=2,Tier3_Residential_home>0),Tier3_Residential_home,0))))
+if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && scE == 1 && Tier2_Residential_home > 0)
+{
+  caAH = Tier2_Residential_home;
+}
+else if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && scE == 2 && Tier3_Residential_home > 0)
+{
+  caAH = Tier3_Residential_home;
+}
+else if(ModelType>=2 && scD == 1 && Tier2_Residential_home > 0)
+{
+  caAH = Tier2_Residential_home;
+}
+else if(ModelType>=2 && scD == 2 && Tier3_Residential_home > 0)
+{
+  caAH = Tier3_Residential_home;
+}
+else
+{
+  caAH = 0;
+}
+
+
 
 
 console.log('----RAW----')
@@ -13718,6 +13750,7 @@ console.log('caAD', caAD);
 console.log('caAE', caAE);
 console.log('caAF', caAF);
 console.log('caAG', caAG);
+console.log('caAH', caAH);
 //James reference
 
 //IF(this = that, true, false) -> 
