@@ -13071,15 +13071,15 @@ if(Dynamic_Care_home == 1)
 {
   caAL = caAA;
 }
-else if(Dynamic_Care_home == 0 && comQ > Math.max(caAG,caAK))
+else if(Dynamic_Care_home == 0 && comQ > Math.max(caAG,caAH,caHI,caAJ,caAK))
 {
-  caAL = Math.max(caAG,caAK);
+  caAL = Math.max(caAG,caAH,caHI,caAJ,caAK);
 }
 else
 {
   caAL = comQ;
 }
-
+//caHI needs to be defined
 
 
 
