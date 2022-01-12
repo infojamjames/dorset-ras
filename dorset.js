@@ -12940,6 +12940,31 @@ else
   caAE = caAD;
 }
 
+var caAF = "";
+//=IF('Clean data'!DK59=1,Scores!GK59*7,
+//IF('Clean data'!DK59=2,(Scores!GK59*7)*2,
+//IF('Clean data'!DK59=3,(Scores!GK59*7)*3,Scores!GK59*7)))
+if(clDK == 1)
+{
+  caAF = scGK*7;
+}
+else if(clDK == 2)
+{
+  caAF = (scGK*7)*2;
+}
+else if(clDK == 3)
+{
+  caAF = (scGK*7)*3;
+}
+else
+{
+  caAF = scGK*7;
+}
+
+
+
+
+
 
 
 console.log('----RAW----')
@@ -13676,6 +13701,7 @@ console.log('caAB', caAB);
 console.log('caAC', caAC);
 console.log('caAD', caAD);
 console.log('caAE', caAE);
+console.log('caAF', caAF);
 //James reference
 
 //IF(this = that, true, false) -> 
