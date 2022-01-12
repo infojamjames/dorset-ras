@@ -498,6 +498,9 @@ var Ceiling_Nurse_PD = 0;
 var Ceiling_Nurse_LD = 0;
 var Ceiling_Nurse_MH = 0;
 var Ceiling_Nurse_Default = 0;
+var Residential_home_Standard = 571.86;
+var Residential_Dementia = 618.89;
+
 
 
 
@@ -12961,9 +12964,21 @@ else
   caAF = scGK*7;
 }
 
-
-
-
+var caAG = "";
+//=IF(AND(NOT(Scores!B59=1),NOT(Scores!B59=2),NOT(Scores!C59=1),Scores!H59=0,Residential_home_Standard>0),Residential_home_Standard,
+//IF(AND(NOT(Scores!B59=1),NOT(Scores!B59=2),NOT(Scores!C59=1),Scores!H59=1,Residential_Dementia>0),Residential_Dementia,0))
+if((scB != 1)&& (scB != 2)&& (scC != 1)&& scH == 0 && Residential_home_Standard > 0)
+{
+  caAG = Residential_home_Standard;
+}
+else if((scB != 1)&& (scB != 2)&& (scC != 1)&& scH == 1 && Residential_Dementia > 0)
+{
+  caAG = Residential_Dementia;
+}
+else
+{
+  caAG = 0;
+}
 
 
 
@@ -13702,6 +13717,7 @@ console.log('caAC', caAC);
 console.log('caAD', caAD);
 console.log('caAE', caAE);
 console.log('caAF', caAF);
+console.log('caAG', caAG);
 //James reference
 
 //IF(this = that, true, false) -> 
