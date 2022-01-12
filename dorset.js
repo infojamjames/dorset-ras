@@ -494,7 +494,10 @@ var Nurs_PD_Return_Investment = 0;
 var Nurs_LD_Return_Investment = 0;
 var Nurs_MH_Return_Investment = 0;
 var Nurs_Return_Investment = 0;
-
+var Ceiling_Nurse_PD = 0;
+var Ceiling_Nurse_LD = 0;
+var Ceiling_Nurse_MH = 0;
+var Ceiling_Nurse_Default = 0;
 
 
 
@@ -12911,6 +12914,32 @@ else
   caAD = caAC+Nurs_Return_Investment;
 }
 
+var caAE = "";
+//=IF(AND(Scores!C59=1,Ceiling_Nurse_PD>0,AD59>Ceiling_Nurse_PD),Ceiling_Nurse_PD,
+//IF(AND(Scores!B59=1,Ceiling_Nurse_LD>0,AD59>Ceiling_Nurse_LD),Ceiling_Nurse_LD,
+//IF(AND(Scores!B59=2,Ceiling_Nurse_MH>0,AD59>Ceiling_Nurse_MH),Ceiling_Nurse_MH,
+//IF(AND(Scores!B59=0,Scores!C59=0, AD59>Ceiling_Nurse_Default,Ceiling_Nurse_Default>0),Ceiling_Nurse_Default,AD59))))
+if(scC == 1 && Ceiling_Nurse_PD > 0 && caAD > Ceiling_Nurse_PD)
+{
+  caAE = Ceiling_Nurse_PD;
+}
+else if(scB == 1 && Ceiling_Nurse_LD > 0 && caAD > Ceiling_Nurse_LD)
+{
+  caAE = Ceiling_Nurse_LD;
+}
+else if(scB == 2 && Ceiling_Nurse_MH > 0 && caAD > Ceiling_Nurse_MH)
+{
+  caAE = Ceiling_Nurse_MH;
+}
+else if(scB == 0 && scC == 0 && caAD > Ceiling_Nurse_Default && Ceiling_Nurse_Default > 0)
+{
+  caAE = Ceiling_Nurse_Default;
+}
+else
+{
+  caAE = caAD;
+}
+
 
 
 console.log('----RAW----')
@@ -13646,6 +13675,7 @@ console.log('caAA', caAA);
 console.log('caAB', caAB);
 console.log('caAC', caAC);
 console.log('caAD', caAD);
+console.log('caAE', caAE);
 //James reference
 
 //IF(this = that, true, false) -> 
