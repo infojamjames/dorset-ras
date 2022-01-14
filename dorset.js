@@ -516,6 +516,10 @@ var WA_Nursing_home_value = 624.11;
 var WA_Nursing_Dementia = 671.14;
 var LD_Nursing_home_value = 0;
 var LD_Nursing_Dementia = 0;
+var MH_Nursing_home_value = 0;
+var MH_Nursing_Dementia = 0;
+
+
 
 
 var clF = "";
@@ -13158,10 +13162,21 @@ else
   caAP = 0;
 }
 
-
-
-
-
+var caAQ = "";
+//=IF(AND(Scores!B59=2,Scores!H59=0,MH_Nursing_home_value>0),MH_Nursing_home_value,
+//IF(AND(Scores!B59=2,Scores!H59=1,MH_Nursing_Dementia>0),MH_Nursing_Dementia,0))
+if(scB == 2 && scH == 0 && MH_Nursing_home_value>0)
+{
+  caAQ = MH_Nursing_home_value;
+}
+else if(scB == 2 && scH == 1 && MH_Nursing_Dementia>0)
+{
+  caAQ = MH_Nursing_Dementia;
+}
+else
+{
+  caAQ = 0;
+}
 
 
 
@@ -13912,6 +13927,7 @@ console.log('caAM', caAM);
 console.log('caAN', caAN);
 console.log('caAO', caAO);
 console.log('caAP', caAP);
+console.log('caAQ', caAQ);
 //James reference
 
 //IF(this = that, true, false) -> 
