@@ -13194,6 +13194,21 @@ else
   caAR = comQ;
 }
 
+var caAS = "";
+//=IF(AND(B59="Yes",'Clean data'!FW59=12), AL59,
+//IF(AND(B59="Yes",'Clean data'!FW59=15), AR59,Community!Q59))
+if(caB == "Yes" && clFW == 12)
+{
+  caAS = caAL;
+}
+else if(caB == "Yes" && clFW == 15)
+{
+  caAS = caAR;
+}
+else
+{
+  caAS = comQ;
+}
 
 
 
@@ -13945,6 +13960,7 @@ console.log('caAO', caAO);
 console.log('caAP', caAP);
 console.log('caAQ', caAQ);
 console.log('caAR', caAR);
+console.log('caAS', caAS);
 //James reference
 
 //IF(this = that, true, false) -> 
