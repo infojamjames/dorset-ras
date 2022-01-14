@@ -510,7 +510,8 @@ var MH_Residential_home_Standard = 0;
 var MH_Residential_Dementia = 0;
 var Nursing_home_value = 624.11;
 var Nursing_Dementia = 671.14;
-
+var Tier2_Nursing_home = 624.11;
+var Tier3_Nursing_home = 624.11;
 
 
 
@@ -13098,6 +13099,38 @@ else
   caAM = 0;
 }
 
+var caAN = "";
+//=IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,Scores!E59=1,Tier2_Nursing_home>0),Tier2_Nursing_home,
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,Scores!E59=2,Tier3_Nursing_home>0),Tier3_Nursing_home,
+//IF(AND(ModelType>=2,Scores!D59=1,Tier2_Nursing_home>0),Tier2_Nursing_home,
+//IF(AND(ModelType>=2,Scores!D59=2,Tier3_Nursing_home>0),Tier3_Nursing_home,0))))
+if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && scE == 1 && Tier2_Nursing_home>0)
+{
+  caAN = Tier2_Nursing_home;
+}
+else if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && scE == 2 && Tier3_Nursing_home>0)
+{
+  caAN = Tier3_Nursing_home;
+}
+else if(ModelType>=2 && scD == 1 && Tier2_Nursing_home>0)
+{
+  caAN = Tier2_Nursing_home;
+}
+else if(ModelType>=2 && scD == 2 && Tier3_Nursing_home>0)
+{
+  caAN = Tier3_Nursing_home;
+}
+else
+{
+  caAN = 0;
+}
+
+
+
+
+
+
+
 
 
 
@@ -13845,6 +13878,7 @@ console.log('caAJ', caAJ);
 console.log('caAK', caAK);
 console.log('caAL', caAL);
 console.log('caAM', caAM);
+console.log('caAN', caAN);
 //James reference
 
 //IF(this = that, true, false) -> 
