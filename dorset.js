@@ -13178,6 +13178,22 @@ else
   caAQ = 0;
 }
 
+var caAR = "";
+//=IF(Dynamic_Care_home=1,AE59,
+//IF(AND(Dynamic_Care_home=0,Community!Q59>MAX('Care home calc'!AM59:AQ59)),MAX('Care home calc'!AM59:AQ59),Community!Q59))
+if(Dynamic_Care_home == 1)
+{
+  caAR = caAE;
+}
+else if(Dynamic_Care_home == 0 && comQ > Math.max(caAM, caAN, caAO, caAP, caAQ))
+{
+  caAR = Math.max(caAM, caAN, caAO, caAP, caAQ)
+}
+else
+{
+  caAR = comQ;
+}
+
 
 
 
@@ -13928,6 +13944,7 @@ console.log('caAN', caAN);
 console.log('caAO', caAO);
 console.log('caAP', caAP);
 console.log('caAQ', caAQ);
+console.log('caAR', caAR);
 //James reference
 
 //IF(this = that, true, false) -> 
