@@ -512,7 +512,8 @@ var Nursing_home_value = 624.11;
 var Nursing_Dementia = 671.14;
 var Tier2_Nursing_home = 624.11;
 var Tier3_Nursing_home = 624.11;
-
+var WA_Nursing_home_value = 624.11;
+var WA_Nursing_Dementia = 671.14;
 
 
 
@@ -13125,8 +13126,21 @@ else
   caAN = 0;
 }
 
-
-
+var caAO = "";
+//=IF(AND(Scores!C59=1,Scores!H59=0,WA_Nursing_home_value>0),WA_Nursing_home_value,
+//IF(AND(Scores!C59=1,Scores!H59=1,WA_Nursing_Dementia>0),WA_Nursing_Dementia,0))
+if(scC == 1 && scH == 0 && WA_Nursing_home_value>0)
+{
+  caAO = WA_Nursing_home_value;
+}
+else if(scC == 1 && scH == 1 && WA_Nursing_Dementia>0)
+{
+  caAO = WA_Nursing_Dementia;
+}
+else
+{
+  caAO = 0;
+}
 
 
 
@@ -13879,6 +13893,7 @@ console.log('caAK', caAK);
 console.log('caAL', caAL);
 console.log('caAM', caAM);
 console.log('caAN', caAN);
+console.log('caAO', caAO);
 //James reference
 
 //IF(this = that, true, false) -> 
