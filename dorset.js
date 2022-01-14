@@ -12083,6 +12083,7 @@ var comAE = "";
 //=IF(AND('Clean data'!EW59=0.25,'Clean data'!EY59=0.25),0,
 //IF(AND('Clean data'!DJ59=9,(((5*8)*Scores!Z59)*2)>=(Scores!GF59+Scores!GG59)),0,
 //IF(AND('Clean data'!DJ59=9,(((5*8)*Scores!Z59)*2)<(Scores!GF59+Scores!GG59)),(Scores!GF59+Scores!GG59)-((5*8)*Scores!Z59),
+
 //IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<9,Scores!ER59=1,((0*8)*Scores!Z59)>=(Scores!GF59)),(Scores!GG59),
 //IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<9,Scores!EQ59=0,((5*8)*Scores!Z59)>=(Scores!GF59)),(Scores!GG59),
 //IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<9,Scores!EQ59=1),(Scores!GF59+Scores!GG59),
@@ -12097,9 +12098,9 @@ else if((clDJ == 9 &&((5*8)*scZ)*2)>=(scGF + scGG))
 }
 else if((clDJ == 9 &&((5*8)*scZ)*2)<(scGF + scGG))
 {
-  comAE = (scGF + scGG)-((5*8)*scZ);
+  comAE = (scGF+scGG)-((5*8)*scZ);
 }
-else if((clDJ > 5 && clDJ < 9 && scER == 1 && ((0*8)*scZ)>=(scGF)))
+else if(clDJ > 5 && clDJ < 9 && scER == 1 && ((0*8)*scZ)>=(scGF))
 {
   comAE = scGG;
 }
