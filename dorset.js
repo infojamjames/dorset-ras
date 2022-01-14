@@ -508,7 +508,8 @@ var LD_Residential_home_Standard = 0;
 var LD_Residential_Dementia = 0;
 var MH_Residential_home_Standard = 0;
 var MH_Residential_Dementia = 0;
-
+var Nursing_home_value = 624.11;
+var Nursing_Dementia = 671.14;
 
 
 
@@ -13080,6 +13081,24 @@ else
   caAL = comQ;
 }
 
+var caAM = "";
+
+//=IF(AND(NOT(Scores!B59=1),NOT(Scores!B59=2),NOT(Scores!C59=1),Scores!H59=0,Nursing_home_value>0),Nursing_home_value,
+//IF(AND(NOT(Scores!B59=1),NOT(Scores!B59=2),NOT(Scores!C59=1),Scores!H59=1,Nursing_Dementia>0),Nursing_Dementia,0))
+if((scB != 1)&& (scB != 2)&& (scC != 1)&& scH == 0 && Nursing_home_value>0)
+{
+  caAM = Nursing_home_value;
+}
+else if((scB != 1)&& (scB != 2)&& (scC != 1)&& scH == 1 && Nursing_Dementia>0)
+{
+  caAM = Nursing_Dementia;
+}
+else
+{
+  caAM = 0;
+}
+
+
 
 
 
@@ -13825,6 +13844,7 @@ console.log('caAI', caAI);
 console.log('caAJ', caAJ);
 console.log('caAK', caAK);
 console.log('caAL', caAL);
+console.log('caAM', caAM);
 //James reference
 
 //IF(this = that, true, false) -> 
