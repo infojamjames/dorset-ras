@@ -13366,7 +13366,7 @@ else
   supF = supD+(supB-supE);
 }
 
-supG = "";
+var supG = "";
 //=IF(AND(NOT(Scores!B59=1),Supported_weekly_Background>0,'Clean data'!DJ59>5),Supported_weekly_Background,
 //IF(AND(Scores!B59=1,LD_Supported_weekly_Background>0,'Clean data'!DJ59>5),LD_Supported_weekly_Background,(Scores!EV59*Scores!W59)+(Scores!EW59*Second_carer_safety_rate)+(Scores!EX59*Scores!Y59)+(Scores!EY59*Scores!Y59)))
 if((scB != 1)&& Supported_weekly_Background>0 && clDJ > 5)
@@ -13380,6 +13380,37 @@ else if(scB == 1 && LD_Supported_weekly_Background>0 && clDJ > 5)
 else
 {
   supG = (scEV*scW)+(scEW*Second_carer_safety_rate)+(scEX*scY)+(scEY*scY);
+}
+
+var supH = "";
+//=IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,Supported_number_reduction=2),G59*Support_two_sharing_ratio,
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,Supported_number_reduction=3),G59*Support_three_sharing_ratio,
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,Supported_number_reduction=4),G59*Support_four_sharing_ratio,
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,Supported_number_reduction=5),G59*Support_five_sharing_ratio,
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,Supported_number_reduction=6),G59*Support_six_sharing_ratio,G59)))))
+if(clDJ > 5 && clDJ < 8 && Supported_number_reduction == 2)
+{
+  supH = supG*Support_two_sharing_ratio;
+}
+else if(clDJ > 5 && clDJ < 8 && Supported_number_reduction == 3)
+{
+  supH = supG*Support_three_sharing_ratio;
+}
+else if(clDJ > 5 && clDJ < 8 && Supported_number_reduction == 4)
+{
+  supH = supG*Support_four_sharing_ratio;
+}
+else if(clDJ > 5 && clDJ < 8 && Supported_number_reduction == 5)
+{
+  supH = supG*Support_five_sharing_ratio;
+}
+else if(clDJ > 5 && clDJ < 8 && Supported_number_reduction == 6)
+{
+  supH = supG*Support_six_sharing_ratio;
+}
+else
+{
+  supH = supG;
 }
 
 
@@ -14139,6 +14170,7 @@ console.log('supD', supD);
 console.log('supE', supE);
 console.log('supF', supF);
 console.log('supG', supG);
+console.log('supH', supH);
 //James reference
 
 //IF(this = that, true, false) -> 
