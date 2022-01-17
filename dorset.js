@@ -361,6 +361,7 @@ var comB = 468.69;
 var comM = 0;
 var comT = 974;
 var comAD = 0;
+var comAE = 55.14;
 var comV = 468.69;
 var comI = 0;
 var supF = 469;
@@ -12079,7 +12080,7 @@ var comAD = "";
 //=Scores!IT59*Scores!AA59
 comAD = scIT*scAA;
 
-var comAE = "";
+//var comAE = "";
 //=IF(AND('Clean data'!EW59=0.25,'Clean data'!EY59=0.25),0,
 //IF(AND('Clean data'!DJ59=9,(((5*8)*Scores!Z59)*2)>=(Scores!GF59+Scores!GG59)),0,
 //IF(AND('Clean data'!DJ59=9,(((5*8)*Scores!Z59)*2)<(Scores!GF59+Scores!GG59)),(Scores!GF59+Scores!GG59)-((5*8)*Scores!Z59),
@@ -12088,38 +12089,38 @@ var comAE = "";
 //IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<9,Scores!EQ59=0,((5*8)*Scores!Z59)>=(Scores!GF59)),(Scores!GG59),
 //IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<9,Scores!EQ59=1),(Scores!GF59+Scores!GG59),
 //IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<9,Scores!EQ59=0),(Scores!GF59+Scores!GG59)-((5*8)*Scores!Z59),Scores!GF59+Scores!GG59)))))))
-if(clEW == 0.25 && clEY == 0.25)
-{
-  comAE = 0;
-}
-else if((clDJ == 9 &&((5*8)*scZ)*2)>=(scGF + scGG))
-{
-  comAE = 0;
-}
-else if((clDJ == 9 &&((5*8)*scZ)*2)<(scGF + scGG))
-{
-  comAE = (scGF+scGG)-((5*8)*scZ);
-}
-else if(clDJ > 5 && clDJ < 9 && scER == 1 && ((0*8)*scZ)>=(scGF))
-{
-  comAE = scGG;
-}
-else if(clDJ > 5 && clDJ < 9 && scEQ == 0 && ((5*8)*scZ)>=(scGF))
-{
-  comAE = scGG;
-}
-else if(clDJ > 5 && clDJ < 9 && scEQ == 1)
-{
-  comAE = (scGF + scGG);
-}
-else if(clDJ > 5 && clDJ < 9 && scEQ == 0)
-{
-  comAE = (scGF + scGG)-((5*8)*scZ);
-}
-else
-{
-  comAE = scGF + scGG;
-}
+//if(clEW == 0.25 && clEY == 0.25)
+//{
+// comAE = 0;
+//}
+//else if((clDJ == 9 &&((5*8)*scZ)*2)>=(scGF + scGG))
+//{
+//  comAE = 0;
+//}
+//else if((clDJ == 9 &&((5*8)*scZ)*2)<(scGF + scGG))
+//{
+//  comAE = (scGF+scGG)-((5*8)*scZ);
+//}
+////else if(clDJ > 5 && clDJ < 9 && scER == 1 && ((0*8)*scZ)>=(scGF))
+//{
+ // comAE = scGG;
+//}
+//else if(clDJ > 5 && clDJ < 9 && scEQ == 0 && ((5*8)*scZ)>=(scGF))
+//{
+//  comAE = scGG;
+//}
+//else if(clDJ > 5 && clDJ < 9 && scEQ == 1)
+//{
+ /// comAE = (scGF + scGG);
+//}
+//else if(clDJ > 5 && clDJ < 9 && scEQ == 0)
+//{
+//  comAE = (scGF + scGG)-((5*8)*scZ);
+//}
+///else
+//{
+ // comAE = scGF + scGG;
+//}
 
 var comAF = "";
 //=Scores!IB59*Scores!AA59
