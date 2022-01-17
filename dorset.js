@@ -13485,6 +13485,16 @@ var supK = "";
 //=Calculator!Z59*Scores!Y59
 supK = calZ*scY;
 
+var supL = "";
+//=Calculator!Y59*Scores!Y59
+supL = calY*scY;
+
+var supM = "";
+//=Calculator!AB59*Scores!Y59
+supM = calAB*scY;
+
+
+
 
 
 console.log('----RAW----')
@@ -14245,6 +14255,8 @@ console.log('supH', supH);
 console.log('supI', supI);
 console.log('supJ', supJ);
 console.log('supK', supK);
+console.log('supL', supL);
+console.log('supM', supM);
 //James reference
 
 //IF(this = that, true, false) -> 
