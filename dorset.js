@@ -13653,6 +13653,18 @@ else
   supS = (1-scGI)*supR;
 }
 
+var supT = "";
+//=IF(OR('Clean data'!FW59=7,'Clean data'!FW59=9),F59+K59+M59+O59+S59,Community!Q59)
+if(clFW == 7 || clFW == 9)
+{
+  supT = supF+supK+supM+supO+supS;
+}
+else
+{
+  supT = comQ;
+}
+
+
 
 
 
@@ -14426,6 +14438,7 @@ console.log('supP', supP);
 console.log('supQ', supQ);
 console.log('supR', supR);
 console.log('supS', supS);
+console.log('supT', supT);
 //James reference
 
 //IF(this = that, true, false) -> 
