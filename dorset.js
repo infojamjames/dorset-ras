@@ -13686,11 +13686,21 @@ var oalB = "";
   oalB = calO*scX;
 }
 
-
-
-
-
-
+var oalC = "";
+//=IF(AND(OUT_DSTNeedsProfile=1, Scores!E59=0,PA_Homecare_rate>0),(Scores!ER59*Scores!W59)+(Scores!ES59*Second_carer_safety_rate)+(Scores!EU59*PA_Homecare_rate),
+//IF(AND(Scores!D59=0,PA_Homecare_rate>0),(Scores!ER59*Scores!W59)+(Scores!ES59*Second_carer_safety_rate)+(Scores!EU59*PA_Homecare_rate),(Scores!ER59*Scores!W59)+(Scores!ES59*Second_carer_safety_rate)+(Scores!EU59*Scores!X59)))
+if(OUT_DSTNeedsProfile == 1 && scE == 0 && PA_Homecare_rate>0)
+{
+  oalC = (scER*scW)+(scES*Second_carer_safety_rate)+(scEU*PA_Homecare_rate);
+}
+else if(scD == 0 && PA_Homecare_rate>0)
+{
+  oalC = (scER*scW)+(scES*Second_carer_safety_rate)+(scEU*PA_Homecare_rate);
+}
+else
+{
+  oalC = (scER*scW)+(scES*Second_carer_safety_rate)+(scEU*scX);
+}
 
 
 
@@ -14465,6 +14475,7 @@ console.log('supS', supS);
 console.log('supT', supT);
 console.log('supU', supU);
 console.log('oalB', oalB);
+console.log('oalC', oalC);
 //James reference
 
 //IF(this = that, true, false) -> 
