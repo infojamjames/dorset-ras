@@ -13785,6 +13785,10 @@ else
   oalH = oalF+(((calK+scDT)*scX)-oalG);
 }
 
+var oalI = "";
+//=Calculator!Z59*Scores!X59
+oalI = calZ*scX;
+
 
 
 
@@ -14564,6 +14568,7 @@ console.log('oalE', oalE);
 console.log('oalF', oalF);
 console.log('oalG', oalG);
 console.log('oalH', oalH);
+console.log('oalI', oalI);
 //James reference
 
 //IF(this = that, true, false) -> 
