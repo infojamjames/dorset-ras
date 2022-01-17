@@ -13827,6 +13827,13 @@ else
 {
   oalQ = comQ;
 }
+ 
+var oalR = "";
+//=H59+J59+L59+N59+P59
+oalR = oalH + oalJ + oalL + oalN + oalP;
+
+
+
 
 
 
@@ -14614,6 +14621,7 @@ console.log('oalN', oalN);
 console.log('oalO', oalO);
 console.log('oalP', oalP);
 console.log('oalQ', oalQ);
+console.log('oalR', oalR);
 //James reference
 
 //IF(this = that, true, false) -> 
