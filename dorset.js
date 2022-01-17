@@ -13817,9 +13817,16 @@ var oalP = "";
 //=Community!P59
 oalP = comP;
 
-
-
-
+var oalQ = "";
+//=IF('Clean data'!FW59=9.5,E59+I59+K59+M59+O59, Community!Q59)
+if(clFW == 9.5)
+{
+  oalQ = oalE+oalI+oalK+oalM+oalO;
+}
+else
+{
+  oalQ = comQ;
+}
 
 
 
@@ -14606,6 +14613,7 @@ console.log('oalM', oalM);
 console.log('oalN', oalN);
 console.log('oalO', oalO);
 console.log('oalP', oalP);
+console.log('oalQ', oalQ);
 //James reference
 
 //IF(this = that, true, false) -> 
