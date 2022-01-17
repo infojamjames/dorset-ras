@@ -528,7 +528,8 @@ var Support_four_sharing_ratio = 0.25;
 var Support_five_sharing_ratio = 0.2;
 var Support_six_sharing_ratio = 0.1667;
 var Supported_24hr_addPCare = 0;
-
+var Live_in_cap = 860;
+var LD_Live_in_cap = 860;
 
 
 
@@ -13832,8 +13833,87 @@ var oalR = "";
 //=H59+J59+L59+N59+P59
 oalR = oalH + oalJ + oalL + oalN + oalP;
 
+var oalS = "";
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,Scores!E59=2),Enhc_Tier3_Live_in_cap,
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,Scores!E59=1),Enhc_Tier2_Live_in_cap,
+//IF(AND(ModelType>=2,Scores!D59=2),Enhc_Tier3_Live_in_cap,
+//IF(AND(ModelType>=2,Scores!D59=1),Enhc_Tier2_Live_in_cap,
+//IF(Scores!B59=1,LD_Live_in_cap,Live_in_cap)))))
+if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && scE == 2)
+{
+  oalS = Enhc_Tier3_Live_in_cap;
+}
+else if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && scE == 1)
+{
+  oalS = Enhc_Tier2_Live_in_cap;
+}
+else if(ModelType>=2 && scD == 2)
+{
+  oalS = Enhc_Tier3_Live_in_cap;
+}
+else if(ModelType>=2 && scD == 1)
+{
+  oalS = Enhc_Tier2_Live_in_cap;
+}
+else if(scB == 1)
+{
+  oalS = LD_Live_in_cap;
+}
+else
+{
+  oalS = Live_in_cap;
+}
 
-
+var oalT = "";
+//=IF(AND('Clean data'!FW59=3,Live_in_Carer_Allocation=1,OR(AND(ModelType<=2,Live_in_cap=0,LD_Live_in_cap=0),AND(ModelType=3,Enhc_Tier2_Live_in_cap=0,Enhc_Tier3_Live_in_cap=0))),Community!Q59,
+//IF(AND(OUT_DSTNeedsProfile=1,NOT(Scores!B59=1),NOT(Scores!E59>=1),'Clean data'!FW59=3,Community!Q59>S59),S59,
+//IF(AND(NOT(Scores!B59=1),NOT(Scores!D59>=1),'Clean data'!FW59=3,Community!Q59>S59),S59,
+//IF(AND(OUT_DSTNeedsProfile=1,Scores!E59=2,'Clean data'!FW59=3,Community!Q59>S59),S59,
+//IF(AND(Scores!D59=2,'Clean data'!FW59=3,Community!Q59>S59),S59,
+//IF(AND(OUT_DSTNeedsProfile=1,Scores!E59=1,'Clean data'!FW59=3,Community!Q59>S59),S59,
+//IF(AND(Scores!D59=1,'Clean data'!FW59=3,Community!Q59>S59),S59,
+//IF(AND(OUT_DSTNeedsProfile=1,NOT(Scores!E59>=1),Scores!B59=1,'Clean data'!FW59=3,Community!Q59>S59),S59,
+//IF(AND(NOT(Scores!D59>=1),Scores!B59=1,'Clean data'!FW59=3,Community!Q59>S59),S59,Community!Q59)))))))))
+if(clFW == 3 && Live_in_Carer_Allocation == 1 && (ModelType<=2 && Live_in_cap == 0 && LD_Live_in_cap == 0)|| ModelType == 3 && Enhc_Tier2_Live_in_cap == 0 && Enhc_Tier3_Live_in_cap == 0)
+{
+  oalT = comQ;
+}
+else if(OUT_DSTNeedsProfile == 1 && (scB !=1) && (scE < 1) && clFW == 3 && comQ>comS)
+{
+  oalT = oalS;
+}
+else if(((scB == 1) && (scD < 1) && clFW == 3 && comQ > comS))
+{
+  oalT = oalS;
+}
+else if(OUT_DSTNeedsProfile == 1 && scE == 2 && clFW == 3 &&comQ>comS)
+{
+  oalT = oalS;
+}
+else if(scD == 2 && clFW == 3 && comQ>comS)
+{
+  oalT = oalS;
+}
+else if(OUT_DSTNeedsProfile == 1 && scE == 1 && clFW == 3 && comQ>comS)
+{
+  oalT = oalS;
+}
+else if(scD == 1 && clFW == 3 && comQ>comS)
+{
+  oalT = oalS;
+}
+else if(OUT_DSTNeedsProfile == 1 && (scE < 1) && scB == 1 && clFW == 3 && comQ>comS)
+{
+  oalT = oalS;
+}
+else if((scD < 1) && scB == 1 && clFW == 3 && comQ>comS)
+{
+  oalT = oalS;
+}
+else
+{
+  oalT = comQ;
+}
 
 
 
@@ -14622,6 +14702,8 @@ console.log('oalO', oalO);
 console.log('oalP', oalP);
 console.log('oalQ', oalQ);
 console.log('oalR', oalR);
+console.log('oalS', oalS);
+console.log('oalT', oalT);
 //James reference
 
 //IF(this = that, true, false) -> 
