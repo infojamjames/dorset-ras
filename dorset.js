@@ -13915,6 +13915,25 @@ else
   oalT = comQ;
 }
 
+var oalU = "";
+//=IF(AND('Clean data'!FW59=3,Live_in_Carer_Allocation=1,T59<Community!Q59,'Clean data'!DJ59=9,'Clean data'!DK59=7,'Clean data'!EP59=0),T59*2,
+//IF(AND('Clean data'!FW59=3,Live_in_Carer_Allocation=1,T59<Community!Q59),T59+Community!I59,T59))
+if(clFW == 3 && Live_in_Carer_Allocation == 1 && oalT<comQ && clDJ == 9 && clDK == 7 && clE == 0)
+{
+  oalU = oalT*2;
+}
+else if(clFW == 3 && Live_in_Carer_Allocation == 1 && oalT < comQ)
+{
+  oalU = oalT+comI;
+}
+else
+{
+  oalU = oalT;
+}
+
+
+
+
 
 
 console.log('----RAW----')
@@ -14704,6 +14723,7 @@ console.log('oalQ', oalQ);
 console.log('oalR', oalR);
 console.log('oalS', oalS);
 console.log('oalT', oalT);
+console.log('oalU', oalU);
 //James reference
 
 //IF(this = that, true, false) -> 
