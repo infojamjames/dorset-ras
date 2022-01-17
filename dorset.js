@@ -13616,6 +13616,32 @@ else
   supQ = scGL;
 }
 
+var supR = "";
+//=IF('Clean data'!DK59=1,Scores!GL59*7,
+//IF('Clean data'!DK59=2,(Scores!GL59*7)*2,
+//IF('Clean data'!DK59=3,(Scores!GL59*7)*3,
+//IF(Q59>0,Q59*7, Scores!GL59*7))))
+if(clDK == 1)
+{
+  supR = scGL*7;
+}
+else if(clDK == 2)
+{
+  supR = (scGL*7)*2;
+}
+else if(clDK == 3)
+{
+  supR = (scGL*7)*3;
+}
+else if(supQ > 0)
+{
+  supR = supQ*7;
+}
+else
+{
+  supR = scGL*7;
+}
+
 
 
 
@@ -14386,6 +14412,7 @@ console.log('supN', supN);
 console.log('supO', supO);
 console.log('supP', supP);
 console.log('supQ', supQ);
+console.log('supR', supR);
 //James reference
 
 //IF(this = that, true, false) -> 
