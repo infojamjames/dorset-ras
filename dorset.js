@@ -527,7 +527,7 @@ var Support_three_sharing_ratio = 0.3333;
 var Support_four_sharing_ratio = 0.25;
 var Support_five_sharing_ratio = 0.2;
 var Support_six_sharing_ratio = 0.1667;
-
+var Supported_24hr_addPCare = 0;
 
 
 
@@ -13330,6 +13330,41 @@ else
   supE = ((scFA+scFB+scFC+scFD)*scY)
 }
 
+var supF = "";
+//=IF(AND('Clean data'!DJ59>=8,Supported_24hr_addPCare=1,NOT('Clean data'!FY59=1)),D59,
+//IF(AND('Clean data'!DJ59>=8,Supported_24hr_addPCare=1,'Clean data'!FY59=1),D59,
+//IF(AND('Clean data'!DJ59>=8,Supported_24hr_addPCare=0),D59,
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,OR(AND(NOT('Clean data'!FY59=1), SH_Default_Reduction=0),AND(SH_Default_Reduction=1,NOT(Supported_number_reduction=1)))),D59+B59,
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,'Clean data'!FY59=1),D59,
+//IF(B59-E59<0,D59,D59+(B59-E59)))))))
+if(clDJ >= 8 && Supported_24hr_addPCare == 1 && (clFY != 1))
+{
+  supF = supD;
+}
+else if(clDJ>=8 && Supported_24hr_addPCare == 1 && clFY == 1)
+{
+  supF = supD;
+}
+else if(clDJ >=8 && Supported_24hr_addPCare == 0)
+{
+  supF = supD;
+}
+else if(clDJ>5 && clDJ<8 &&((clFY == 1) && SH_Default_Reduction == 0)|| (SH_Default_Reduction == 1 && (Supported_number_reduction != 1)))
+{
+  supF = supD+supB;
+}
+else if(clDJ > 5 && clDJ < 8 && clFY == 1)
+{
+  supF = supD;
+}
+else if(supB-supE < 0)
+{
+  supF = supD;
+}
+else
+{
+  supF = supD+(supB-supE);
+}
 
 
 
@@ -14087,6 +14122,7 @@ console.log('supB', supB);
 console.log('supC', supC);
 console.log('supD', supD);
 console.log('supE', supE);
+console.log('supF', supF);
 //James reference
 
 //IF(this = that, true, false) -> 
