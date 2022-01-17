@@ -13434,6 +13434,56 @@ else
   supI = (scFA+scFB+scFC+scFD)*scY;
 }
 
+var supJ = "";
+//=IF(AND('Clean data'!DJ59>=8,Supported_24hr_addPCare=1),H59,
+//IF(AND('Clean data'!DJ59>=8,Supported_24hr_addPCare=1),H59,
+//IF(AND('Clean data'!DJ59>=8,Supported_24hr_addPCare=0),H59, 
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8, EDL_Round_Output=1),H59+((ROUND(((Calculator!K59+Scores!DT59)*4),0)/4)*Scores!Y59), 
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8),H59+((Calculator!K59+Scores!DT59)*Scores!Y59),
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8),H59,
+//IF(((Calculator!K59+Scores!DT59)*Scores!Y59)-I59<0,H59,
+
+//IF(EDL_Round_Output=1,(H59+((ROUND(((Calculator!K59+Scores!DT59)*4),0)/4)*Scores!Y59)-I59), H59+(((Calculator!K59+Scores!DT59)*Scores!Y59)-I59)))))))))
+if(clDJ >= 8 && Supported_24hr_addPCare == 1)
+{
+  supJ = supH;
+}
+else if(clDJ >= 8 && Supported_24hr_addPCare == 1)
+{
+  supJ = supH;
+}
+else if(clDJ >= 8 && Supported_24hr_addPCare == 0)
+{
+  supJ = supH;
+}
+else if(clDJ > 5 && clDJ < 8 && EDL_Round_Output == 1)
+{
+  supJ = supH+((Math.round(((calK+scDT)*4),0)/4)*scY);
+}
+else if(clDJ > 5&& clDJ < 8)
+{
+  supJ = supH+((calK+scDT)*scY);
+}
+else if(clDJ > 5 && clDJ < 8)
+{
+  supJ = supH;
+}
+else if(((calK+scDT)*scY)-supI<0)
+{
+  supJ = supH;
+}
+else if(EDL_Round_Output == 1)
+{
+  supJ = (supH+((Math.round(((calK+scDT)*4),0)/4)*scY)-supI);
+}
+else
+{
+  supJ = supH+(((calK+scDT)*scY)-supI);
+}
+
+
+
+
 
 
 console.log('----RAW----')
@@ -14192,6 +14242,7 @@ console.log('supF', supF);
 console.log('supG', supG);
 console.log('supH', supH);
 console.log('supI', supI);
+console.log('supJ', supJ);
 //James reference
 
 //IF(this = that, true, false) -> 
