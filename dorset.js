@@ -13493,6 +13493,12 @@ var supM = "";
 //=Calculator!AB59*Scores!Y59
 supM = calAB*scY;
 
+var supN = "";
+//Calculator!AA59*Scores!Y59
+supN = calAA*scY;
+
+
+
 
 
 
@@ -14257,6 +14263,7 @@ console.log('supJ', supJ);
 console.log('supK', supK);
 console.log('supL', supL);
 console.log('supM', supM);
+console.log('supN', supN);
 //James reference
 
 //IF(this = that, true, false) -> 
