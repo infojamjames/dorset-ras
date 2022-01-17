@@ -13680,6 +13680,18 @@ else
   supU = supN+supL+supR+supP+supJ;
 }
 
+var oalB = "";
+//=Calculator!O59*Scores!X59
+{
+  oalB = calO*scX;
+}
+
+
+
+
+
+
+
 
 
 
@@ -14452,6 +14464,7 @@ console.log('supR', supR);
 console.log('supS', supS);
 console.log('supT', supT);
 console.log('supU', supU);
+console.log('oalB', oalB);
 //James reference
 
 //IF(this = that, true, false) -> 
