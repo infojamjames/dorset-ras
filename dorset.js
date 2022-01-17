@@ -13733,6 +13733,17 @@ else
   oalD = ((scFA+scFB+scFC+scFD)*scX);
 }
 
+var oalE = "";
+//=IF(B59-D59<0,C59,C59+(B59-D59))
+if(oalB - oalD < 0)
+{
+  oalE = oalC;
+}
+else
+{
+  oalE = oalC+(oalB-oalD);
+}
+
 
 
 
@@ -14508,6 +14519,7 @@ console.log('supU', supU);
 console.log('oalB', oalB);
 console.log('oalC', oalC);
 console.log('oalD', oalD);
+console.log('oalE', oalE);
 //James reference
 
 //IF(this = that, true, false) -> 
