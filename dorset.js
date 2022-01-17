@@ -13413,6 +13413,26 @@ else
   supH = supG;
 }
 
+var supI = "";
+//=IF(AND('Clean data'!DJ59>=6,H59>0, NOT('Clean data'!FE59=0.25), EDL_Round_Output=1),((ROUND(((Calculator!K59+Scores!DT59)*4),0)/4)*Scores!Y59), 
+//IF(AND('Clean data'!DJ59>=6,H59>0, NOT('Clean data'!FE59=0.25)),((Calculator!K59+Scores!DT59)*Scores!Y59),
+//IF(EDL_Round_Output=1, (ROUND((SUM(Scores!FA59:FD59)*4),0)/4),SUM(Scores!FA59:FD59)*Scores!Y59)))
+if(clDJ >= 6 && supH > 0 && (clFE != 0.25)&& EDL_Round_Output == 1)
+{
+  supI = ((Math.round(((calK+scDT)*4),0)/4)*scY);
+}
+else if(clDJ >= 6 && supH > 0 && (clFE != 0.25))
+{
+  supI = ((calK+scDT)*scY);
+}
+else if(EDL_Round_Output == 1)
+{
+  supI =  (Math.round(((scFA+scFB+scFC+scFD)*4),0)/4);
+}
+else
+{
+  supI = (scFA+scFB+scFC+scFD)*scY;
+}
 
 
 
@@ -14171,6 +14191,7 @@ console.log('supE', supE);
 console.log('supF', supF);
 console.log('supG', supG);
 console.log('supH', supH);
+console.log('supI', supI);
 //James reference
 
 //IF(this = that, true, false) -> 
