@@ -13748,6 +13748,26 @@ var oalF = "";
 //=(Scores!EV59*Scores!W59)+(Scores!EW59*Second_carer_safety_rate)+(Scores!EX59*Scores!X59)+(Scores!EY59*Scores!X59)
 oalF = (scEV*scW)+(scEW*Second_carer_safety_rate)+(scEX*scX)+(scEY*scX);
 
+var oalG = "";
+//=IF(AND('Clean data'!DJ59>=6,F59>0,NOT('Clean data'!FE59=0.25),EDL_Round_Output=1),((ROUND(((Calculator!K59+Scores!DT59)*4),0)/4)*Scores!X59),
+//IF(AND('Clean data'!DJ59>=6,F59>0,NOT('Clean data'!FE59=0.25)),((Calculator!K59+Scores!DT59)*Scores!X59),
+//IF(EDL_Round_Output=1,((ROUND((SUM(Scores!FA59:FD59)*4),0)/4)*Scores!X59),SUM(Scores!FA59:FD59)*Scores!X59)))
+if(clDJ>=6 && oalF>0 && (clFE!=0.25) && EDL_Round_Output == 1)
+{
+  oalG = ((Math.round((calK+scDT)*4),0)/4)*scX;
+}
+else if(clDJ>=6 && oalF > 0 && (clFE == 0.25))
+{
+ oalG = (calK+scDT)*scX;
+}
+else if(EDL_Round_Output == 1)
+{
+  oalG = ((Math.round(((scFA+scFB+scFC+scFD)*4),0)/4)*scX);
+}
+else
+{
+  oalG = (scFA+scFB+scFC+scFD)*scX;
+}
 
 
 
@@ -14527,6 +14547,7 @@ console.log('oalC', oalC);
 console.log('oalD', oalD);
 console.log('oalE', oalE);
 console.log('oalF', oalF);
+console.log('oalG', oalG);
 //James reference
 
 //IF(this = that, true, false) -> 
