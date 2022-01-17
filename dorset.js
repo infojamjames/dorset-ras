@@ -13642,6 +13642,18 @@ else
   supR = scGL*7;
 }
 
+var supS = "";
+//=IF(Scores!GI59=0,R59,(1-Scores!GI59)*R59)
+if(scGI == 0)
+{
+  supS = supR;
+}
+else
+{
+  supS = (1-scGI)*supR;
+}
+
+
 
 
 
@@ -14413,6 +14425,7 @@ console.log('supO', supO);
 console.log('supP', supP);
 console.log('supQ', supQ);
 console.log('supR', supR);
+console.log('supS', supS);
 //James reference
 
 //IF(this = that, true, false) -> 
