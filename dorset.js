@@ -13744,6 +13744,12 @@ else
   oalE = oalC+(oalB-oalD);
 }
 
+var oalF = "";
+//=(Scores!EV59*Scores!W59)+(Scores!EW59*Second_carer_safety_rate)+(Scores!EX59*Scores!X59)+(Scores!EY59*Scores!X59)
+oalF = (scEV*scW)+(scEW*Second_carer_safety_rate)+(scEX*scX)+(scEY*scX);
+
+
+
 
 
 
@@ -14520,6 +14526,7 @@ console.log('oalB', oalB);
 console.log('oalC', oalC);
 console.log('oalD', oalD);
 console.log('oalE', oalE);
+console.log('oalF', oalF);
 //James reference
 
 //IF(this = that, true, false) -> 
