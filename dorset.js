@@ -13801,6 +13801,16 @@ var oalL = "";
 //=Calculator!AA59*Scores!X59
 oalL = calAA*scX;
 
+var oalM = "";
+//=Community!M59
+oalM = comM;
+
+var oalN = "";
+//=Community!N59
+oalN = comN;
+
+
+
 
 
 
@@ -14585,6 +14595,8 @@ console.log('oalI', oalI);
 console.log('oalJ', oalJ);
 console.log('oalK', oalK);
 console.log('oalL', oalL);
+console.log('oalM', oalM);
+console.log('oalN', oalN);
 //James reference
 
 //IF(this = that, true, false) -> 
