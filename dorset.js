@@ -13366,6 +13366,21 @@ else
   supF = supD+(supB-supE);
 }
 
+supG = "";
+//=IF(AND(NOT(Scores!B59=1),Supported_weekly_Background>0,'Clean data'!DJ59>5),Supported_weekly_Background,
+//IF(AND(Scores!B59=1,LD_Supported_weekly_Background>0,'Clean data'!DJ59>5),LD_Supported_weekly_Background,(Scores!EV59*Scores!W59)+(Scores!EW59*Second_carer_safety_rate)+(Scores!EX59*Scores!Y59)+(Scores!EY59*Scores!Y59)))
+if((scB != 1)&& Supported_weekly_Background>0 && clDJ > 5)
+{
+  supG = Supported_weekly_Background;
+}
+else if(scB == 1 && LD_Supported_weekly_Background>0 && clDJ > 5)
+{
+  supG = LD_Supported_weekly_Background;
+}
+else
+{
+  supG = (scEV*scW)+(scEW*Second_carer_safety_rate)+(scEX*scY)+(scEY*scY);
+}
 
 
 
@@ -14123,6 +14138,7 @@ console.log('supC', supC);
 console.log('supD', supD);
 console.log('supE', supE);
 console.log('supF', supF);
+console.log('supG', supG);
 //James reference
 
 //IF(this = that, true, false) -> 
