@@ -13534,6 +13534,92 @@ else
   supP = comN;
 }
 
+var supQ = "";
+//=IF(AND(SH_Default_Reduction=1,'Clean data'!DK59>=5,Supported_number_reduction=2),(Scores!GL59*Support_two_sharing_ratio),
+//IF(AND(SH_Default_Reduction=1,'Clean data'!DK59>=5,Supported_number_reduction=3),(Scores!GL59*Support_three_sharing_ratio),
+//IF(AND(SH_Default_Reduction=1,'Clean data'!DK59>=5,Supported_number_reduction=4),(Scores!GL59*Support_four_sharing_ratio),
+//IF(AND(SH_Default_Reduction=1,'Clean data'!DK59>=5,Supported_number_reduction=5),(Scores!GL59*Support_five_sharing_ratio),
+//IF(AND(SH_Default_Reduction=1,'Clean data'!DK59>=5,Supported_number_reduction=6),(Scores!GL59*Support_six_sharing_ratio),
+//IF(AND(SH_Default_Reduction=0,'Clean data'!DK59>=5,'Clean data'!FY59=2),(Scores!GL59*Support_two_sharing_ratio),
+//IF(AND(SH_Default_Reduction=0,'Clean data'!DK59>=5,'Clean data'!FY59=3),(Scores!GL59*Support_three_sharing_ratio),
+//IF(AND(SH_Default_Reduction=0,'Clean data'!DK59>=5,'Clean data'!FY59=4),(Scores!GL59*Support_four_sharing_ratio),
+//IF(AND(SH_Default_Reduction=0,'Clean data'!DK59>=5,'Clean data'!FY59=5),(Scores!GL59*Support_five_sharing_ratio),
+//IF(AND(SH_Default_Reduction=0,'Clean data'!DK59>=5,'Clean data'!FY59=6),(Scores!GL59*Support_six_sharing_ratio),
+//IF(AND('Clean data'!DK59>=5,Supported_number_reduction=2),(Scores!GL59*Support_two_sharing_ratio),
+//IF(AND('Clean data'!DK59>=5,Supported_number_reduction=3),(Scores!GL59*Support_three_sharing_ratio),
+//IF(AND('Clean data'!DK59>=5,Supported_number_reduction=4),(Scores!GL59*Support_four_sharing_ratio),
+//IF(AND('Clean data'!DK59>=5,Supported_number_reduction=5),(Scores!GL59*Support_five_sharing_ratio),
+
+//IF(AND('Clean data'!DK59>=5,Supported_number_reduction=6),(Scores!GL59*Support_six_sharing_ratio),Scores!GL59)))))))))))))))
+if(SH_Default_Reduction == 1 && clDK>=5 && Supported_number_reduction == 2)
+{
+  supQ = (scGL*Support_two_sharing_ratio);
+}
+else if(SH_Default_Reduction == 1 && clDK>=5 && Supported_number_reduction == 3)
+{
+  supQ = (scGL*Support_three_sharing_ratio);
+}
+else if(SH_Default_Reduction == 1 && clDK>=5 && Supported_number_reduction == 4)
+{
+  supQ = (scGL*Support_four_sharing_ratio);
+}
+else if(SH_Default_Reduction == 1 && clDK >=5 && Supported_number_reduction == 5)
+{
+  supQ = (scGL*Support_five_sharing_ratio);
+}
+else if(SH_Default_Reduction == 1 && clDK >=5 && Supported_number_reduction == 6)
+{
+  supQ = (scGL*Support_six_sharing_ratio);
+}
+else if(SH_Default_Reduction == 0 && clDK >=5 && clFY == 2)
+{
+  supQ = (scGL*Support_two_sharing_ratio);
+}
+else if(SH_Default_Reduction == 0 && clDK >=5 && clFY == 3)
+{
+  supQ = (scGL*Support_three_sharing_ratio);
+}
+else if(SH_Default_Reduction == 0 && clDK>=5 && clFY == 4)
+{
+  supQ = (scGL*Support_four_sharing_ratio);
+}
+else if(SH_Default_Reduction == 0 && clDK >=5 && clFY == 5)
+{
+  supQ = (scGL*Support_five_sharing_ratio);
+}
+else if(SH_Default_Reduction == 0 && clDK >=5 && clFY == 6)
+{
+  supQ = (scGL*Support_six_sharing_ratio);
+}
+else if(clDK >=5 && Supported_number_reduction == 2)
+{
+  supQ = (scGL*Support_two_sharing_ratio);
+}
+else if(clDK >=5 && Supported_number_reduction == 3)
+{
+  supQ = (scGL*Support_three_sharing_ratio)
+}
+else if(clDK >=5 && Supported_number_reduction == 4)
+{
+  supQ = (scGL*Support_four_sharing_ratio);
+}
+else if(clDK>=5 && Supported_number_reduction == 5)
+{
+  supQ = (scGL*Support_five_sharing_ratio);
+}
+else if(clDK >=5 && Supported_number_reduction == 6)
+{
+  supQ = (scGL*Support_six_sharing_ratio);
+}
+else
+{
+  supQ = scGL;
+}
+
+
+
+
+
 
 
 console.log('----RAW----')
@@ -14299,6 +14385,7 @@ console.log('supM', supM);
 console.log('supN', supN);
 console.log('supO', supO);
 console.log('supP', supP);
+console.log('supQ', supQ);
 //James reference
 
 //IF(this = that, true, false) -> 
