@@ -521,6 +521,17 @@ var MH_Nursing_home_value = 0;
 var MH_Nursing_Dementia = 0;
 var Supported_weekly_Background = 0;
 var LD_Supported_weekly_Background = 0;
+var Supported_number_reduction = 4;
+var Support_two_sharing_ratio = 0.5;
+var Support_three_sharing_ratio = 0.3333;
+var Support_four_sharing_ratio = 0.25;
+var Support_five_sharing_ratio = 0.2;
+var Support_six_sharing_ratio = 0.1667;
+
+
+
+
+
 
 
 var clF = "";
@@ -13232,6 +13243,61 @@ else
   supC = (scER*scW)+(scES*Second_carer_safety_rate)+(scEU*scY);
 }
 
+var supD = "";
+//=IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,SH_Default_Reduction=1,Supported_number_reduction=2),C59*Support_two_sharing_ratio,
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,SH_Default_Reduction=1,Supported_number_reduction=3),C59*Support_three_sharing_ratio,
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,SH_Default_Reduction=1,Supported_number_reduction=4),C59*Support_four_sharing_ratio,
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,SH_Default_Reduction=1,Supported_number_reduction=5),C59*Support_five_sharing_ratio,
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,SH_Default_Reduction=1,Supported_number_reduction=6),C59*Support_six_sharing_ratio,
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,SH_Default_Reduction=0,'Clean data'!FY59=2),C59*Support_two_sharing_ratio,
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,SH_Default_Reduction=0,'Clean data'!FY59=3),C59*Support_three_sharing_ratio,
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,SH_Default_Reduction=0,'Clean data'!FY59=4),C59*Support_four_sharing_ratio,
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,SH_Default_Reduction=0,'Clean data'!FY59=5),C59*Support_five_sharing_ratio,
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,SH_Default_Reduction=0,'Clean data'!FY59=6),C59*Support_six_sharing_ratio,C59))))))))))
+if(clDJ>5 && clDJ<8 && SH_Default_Reduction == 1 && Supported_number_reduction == 2)
+{
+  supD = supC*Support_two_sharing_ratio;
+}
+else if(clDJ>5 && clDJ<8 && SH_Default_Reduction == 1 && Supported_number_reduction == 3)
+{
+  supD = supC*Support_three_sharing_ratio;
+}
+else if(clDJ>5 && clDJ<8 && SH_Default_Reduction == 1 && Supported_number_reduction == 4)
+{
+  supD = supC*Support_four_sharing_ratio;
+}
+else if(clDJ>5 && clDJ<8 && SH_Default_Reduction == 1 && Supported_number_reduction == 5)
+{
+  supD = supC*Support_five_sharing_ratio;
+}
+else if(clDJ>5 && clDJ<8 && SH_Default_Reduction == 1 && Supported_number_reduction == 6)
+{
+  supD = supC*Support_six_sharing_ratio;
+}
+else if(clDJ > 5 && clDJ < 8 && SH_Default_Reduction == 0 && clFY == 2)
+{
+  supD = supC *Support_two_sharing_ratio;
+}
+else if(clDJ > 5 && clDJ < 8 && SH_Default_Reduction == 0 && clFY == 3)
+{
+  supD = supC*Support_three_sharing_ratio;
+}
+else if(clDJ > 5 && clDJ < 8 && SH_Default_Reduction == 0 && clFY == 4)
+{
+  supD = supC*Support_four_sharing_ratio;
+}
+else if(clDJ > 5 && clDJ < 8 && SH_Default_Reduction == 0 && clFY == 5)
+{
+  supD  = supC*Support_five_sharing_ratio;
+}
+else if(clDJ > 5 && clDJ < 8 && SH_Default_Reduction == 0 && clFY == 6)
+{
+  supD = supC*Support_six_sharing_ratio;
+}
+else 
+{
+  supD = supC;
+}
 
 
 
@@ -13988,6 +14054,7 @@ console.log('caAR', caAR);
 console.log('caAS', caAS);
 console.log('supB', supB);
 console.log('supC', supC);
+console.log('supD', supD);
 //James reference
 
 //IF(this = that, true, false) -> 
