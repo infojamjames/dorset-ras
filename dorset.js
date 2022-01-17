@@ -13769,6 +13769,21 @@ else
   oalG = (scFA+scFB+scFC+scFD)*scX;
 }
 
+var oalH = "";
+//=IF(((Calculator!K59+Scores!DT59)*Scores!X59)-G59<0,F59,
+//IF(EDL_Round_Output=1, (F59+((ROUND((Calculator!K59+Scores!DT59)*4,0)/4)*Scores!X59)-G59),F59+(((Calculator!K59+Scores!DT59)*Scores!X59)-G59)))
+if(((calK+scDT)*scX)-oalG < 0)
+{
+  oalH = oalF;
+}
+else if(EDL_Round_Output == 1)
+{
+  oalH = (oalF+((Math.round((calK+scDT)*4,0)/4)*scX)-oalG);
+}
+else
+{
+  oalH = oalF+(((calK+scDT)*scX)-oalG);
+}
 
 
 
@@ -14548,6 +14563,7 @@ console.log('oalD', oalD);
 console.log('oalE', oalE);
 console.log('oalF', oalF);
 console.log('oalG', oalG);
+console.log('oalH', oalH);
 //James reference
 
 //IF(this = that, true, false) -> 
