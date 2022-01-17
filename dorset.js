@@ -519,8 +519,8 @@ var LD_Nursing_home_value = 0;
 var LD_Nursing_Dementia = 0;
 var MH_Nursing_home_value = 0;
 var MH_Nursing_Dementia = 0;
-
-
+var Supported_weekly_Background = 0;
+var LD_Supported_weekly_Background = 0;
 
 
 var clF = "";
@@ -13216,6 +13216,22 @@ var supB = "";
 //=Calculator!O59*Scores!Y59
 supB = calO*scY;
 
+var supC = "";
+//=IF(AND(NOT(Scores!B59=1),Supported_weekly_Background>0,OR('Clean data'!FW59=9,'Clean data'!FW59=7),'Clean data'!DJ59>5),Supported_weekly_Background,
+//IF(AND(Scores!B59=1,LD_Supported_weekly_Background>0,OR('Clean data'!FW59=9,'Clean data'!FW59=7),'Clean data'!DJ59>5),LD_Supported_weekly_Background,(Scores!ER59*Scores!W59)+(Scores!ES59*Second_carer_safety_rate)+(Scores!EU59*Scores!Y59)))
+if((scB != 1)&& Supported_weekly_Background>0 && (clFW == 9 || clFW == 7)&& clDJ > 5)
+{
+  supC = Supported_weekly_Background;
+}
+else if(scB == 1 && LD_Supported_weekly_Background>0 && (clFW == 9 && clFW == 7)&& clDJ > 5)
+{
+  supC = LD_Supported_weekly_Background;
+}
+else
+{
+  supC = (scER*scW)+(scES*Second_carer_safety_rate)+(scEU*scY);
+}
+
 
 
 
@@ -13971,6 +13987,7 @@ console.log('caAQ', caAQ);
 console.log('caAR', caAR);
 console.log('caAS', caAS);
 console.log('supB', supB);
+console.log('supC', supC);
 //James reference
 
 //IF(this = that, true, false) -> 
