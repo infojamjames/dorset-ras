@@ -13481,8 +13481,9 @@ else
   supJ = supH+(((calK+scDT)*scY)-supI);
 }
 
-
-
+var supK = "";
+//=Calculator!Z59*Scores!Y59
+supK = calZ*scY;
 
 
 
@@ -14243,6 +14244,7 @@ console.log('supG', supG);
 console.log('supH', supH);
 console.log('supI', supI);
 console.log('supJ', supJ);
+console.log('supK', supK);
 //James reference
 
 //IF(this = that, true, false) -> 
