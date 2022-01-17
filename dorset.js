@@ -13513,7 +13513,26 @@ else
   supO = scGD;
 }
 
-
+var supP = "";
+//=IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,OR('Clean data'!FW59=9,'Clean data'!FW59=7),SH_Default_Reduction=1,Supported_number_reduction>=2),(Scores!GA59+Scores!GB59),
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,OR('Clean data'!FW59=9,'Clean data'!FW59=7),SH_Default_Reduction=0,'Clean data'!FY59>=2),(Scores!GA59+Scores!GB59),
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,Supported_number_reduction>=2),(Scores!GA59+Scores!GB59),Community!N59)))
+if(clDJ > 5 && clDJ < 8 && (clFW == 9 || clFW == 7)&& SH_Default_Reduction == 1 && Supported_number_reduction>=2)
+{
+  supP = (scGA+scGB);
+}
+else if(clDJ > 5 && clDJ <8 && (clFW == 9 || clFW == 7) && SH_Default_Reduction == 0 && clFY >=2)
+{
+  supP = (scGA+scGB)
+}
+else if(clDJ>5 && clDJ<8 && Supported_number_reduction>=2)
+{
+  supP = (scGA+scGB);
+}
+else
+{
+  supP = comN;
+}
 
 
 
@@ -14279,6 +14298,7 @@ console.log('supL', supL);
 console.log('supM', supM);
 console.log('supN', supN);
 console.log('supO', supO);
+console.log('supP', supP);
 //James reference
 
 //IF(this = that, true, false) -> 
