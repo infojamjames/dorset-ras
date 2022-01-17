@@ -13664,9 +13664,21 @@ else
   supT = comQ;
 }
 
-
-
-
+var supU = "";
+//=IF(AND(ModelType<=2,Scores!I59=0),"Does not apply",
+//IF(AND('Clean data'!DJ59<6, 'Clean data'!DK59<5),"Does not apply",N59+L59+R59+P59+J59))
+if(ModelType<=2 && scI == 0)
+{
+  supU = "Does not apply";
+}
+else if(clDJ < 6 && clDK < 5)
+{
+  supU = "Does not apply";
+}
+else
+{
+  supU = supN+supL+supR+supP+supJ;
+}
 
 
 
@@ -14439,6 +14451,7 @@ console.log('supQ', supQ);
 console.log('supR', supR);
 console.log('supS', supS);
 console.log('supT', supT);
+console.log('supU', supU);
 //James reference
 
 //IF(this = that, true, false) -> 
