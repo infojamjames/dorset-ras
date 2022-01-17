@@ -13212,6 +13212,13 @@ else
   caAS = comQ;
 }
 
+var supB = "";
+//=Calculator!O59*Scores!Y59
+supB = calO*scY;
+
+
+
+
 
 
 
@@ -13963,6 +13970,7 @@ console.log('caAP', caAP);
 console.log('caAQ', caAQ);
 console.log('caAR', caAR);
 console.log('caAS', caAS);
+console.log('supB', supB);
 //James reference
 
 //IF(this = that, true, false) -> 
