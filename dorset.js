@@ -13497,7 +13497,21 @@ var supN = "";
 //Calculator!AA59*Scores!Y59
 supN = calAA*scY;
 
-
+var supO = "";
+//=IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,OR('Clean data'!FW59=9,'Clean data'!FW59=7),SH_Default_Reduction=1,Supported_number_reduction>=2),(Scores!FY59+Scores!FZ59),
+//IF(AND('Clean data'!DJ59>5,'Clean data'!DJ59<8,OR('Clean data'!FW59=9,'Clean data'!FW59=7),SH_Default_Reduction=0,'Clean data'!FY59>=2),(Scores!FY59+Scores!FZ59),Scores!GD59))
+if(clDJ > 5 && clDJ < 8 && (clFW == 9 || clFW == 7)&& SH_Default_Reduction == 1 && Supported_number_reduction>=2)
+{
+  supO = (scFY+scFZ)
+}
+else if(clDJ > 5 && clDJ < 8 &&(clFW == 9 || clFW == 7)&& SH_Default_Reduction == 0 && clFY>=2)
+{
+  supO = (scFY+scFZ);
+}
+else
+{
+  supO = scGD;
+}
 
 
 
@@ -14264,6 +14278,7 @@ console.log('supK', supK);
 console.log('supL', supL);
 console.log('supM', supM);
 console.log('supN', supN);
+console.log('supO', supO);
 //James reference
 
 //IF(this = that, true, false) -> 
