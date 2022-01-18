@@ -14559,6 +14559,10 @@ else
   calF = calE;
 }
 
+var calG ="";
+//=(F59-B59)/7
+calG = (calF - calB)/7;
+
 
 
 
@@ -15380,6 +15384,7 @@ console.log('calC', calC);
 console.log('calD', calD);
 console.log('calE', calE);
 console.log('calF', calF);
+console.log('calG', calG);
 //James reference
 
 //IF(this = that, true, false) -> 
