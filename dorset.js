@@ -14238,13 +14238,26 @@ else
   oalAI = 0;
 }
 
-
-
-
-
-
-
-
+var oalAJ = "";
+//=IF(OR(AND('Clean data'!M59=1,'Clean data'!O59>=1), AND('Clean data'!M59=1,'Clean data'!O59>=1,'Clean data'!V59>=1)),10,
+//IF(OR('Clean data'!M59=1,'Clean data'!O59>=1,'Clean data'!V59>=1),8,
+//IF('Clean data'!M59=1,6,0)))
+if((clM == 1 && clO >=1)|| (clM == 1 && clO>=1 && clV>=1))
+{
+  oalAJ = 10;
+}
+else if(clM == 1 || clO >=1 || clV>=1)
+{
+  oalAJ = 8;
+}
+else if(clM == 1)
+{
+  oalAJ = 6;
+}
+else
+{
+  oalAJ = 0;
+}
 
 
 
@@ -15056,6 +15069,7 @@ console.log('oalAF', oalAF);
 console.log('oalAG', oalAG);
 console.log('oalAH', oalAH);
 console.log('oalAI', oalAI);
+console.log('oalAJ', oalAJ);
 //James reference
 
 //IF(this = that, true, false) -> 
