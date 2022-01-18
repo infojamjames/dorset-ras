@@ -537,7 +537,7 @@ var SharedLives_Band_3 = 490;
 var SharedLives_Band_2 = 441;
 var SharedLives_Band_1 = 392;
 var Shared_lives_addition = 0;
-
+var Shared_Lives_Allocation = 1;
 
 
 
@@ -14327,6 +14327,39 @@ else
   oalAN = comQ
 }
 
+var oalAO = "";
+//=IF(AND(ModelType<=2,Scores!I59=0),"Does not apply",
+//IF(Shared_Lives_Allocation=0,"Does not apply",
+//IF(Community!R59<AM59,"Does not apply",
+//IF(AND(Shared_lives_addition=1,AM59<Community!R59),AM59+Scores!FP59,
+//IF(Community!R59>AM59,AM59,Community!R59)))))
+if(ModelType<=2 && scI == 0)
+{
+  oalAO = "Does not apply";
+}
+else if(Shared_Lives_Allocation == 0)
+{
+  oalAO = "Does not apply";
+}
+else if(comR < oalAM)
+{
+  oalAO = "Does not apply";
+}
+else if(Shared_lives_addition == 1 && oalAM<comR)
+{
+  oalAO = oalAM + scFP;
+}
+else if(comR > oalAM)
+{
+  oalAO = oalAM;
+}
+else
+{
+  oalAO = comR;
+}
+
+
+
 
 
 console.log('----RAW----')
@@ -15136,6 +15169,7 @@ console.log('oalAK', oalAK);
 console.log('oalAL', oalAL);
 console.log('oalAM', oalAM);
 console.log('oalAN', oalAN);
+console.log('oalAO', oalAO);
 //James reference
 
 //IF(this = that, true, false) -> 
