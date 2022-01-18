@@ -536,7 +536,7 @@ var SharedLives_Band_4 = 539;
 var SharedLives_Band_3 = 490;
 var SharedLives_Band_2 = 441;
 var SharedLives_Band_1 = 392;
-
+var Shared_lives_addition = 0;
 
 
 
@@ -14311,7 +14311,21 @@ else
   oalAM = SharedLives_Band_1;
 }
 
-
+var oalAN = "";
+//=IF(AND(Shared_lives_addition=1,'Clean data'!FW59=10,Community!Q59>AM59),AM59+Scores!FP59,
+//IF(AND('Clean data'!FW59=10,Community!Q59>AM59),AM59,Community!Q59))
+if(Shared_lives_addition == 1 && clFW == 10 && comQ > oalAM)
+{
+  oalAN = oalAM+scFP;
+}
+else if(clFW == 10 && comQ > oalAM)
+{
+  oalAN = oalAM;
+}
+else
+{
+  oalAN = comQ
+}
 
 
 
@@ -15121,6 +15135,7 @@ console.log('oalAJ', oalAJ);
 console.log('oalAK', oalAK);
 console.log('oalAL', oalAL);
 console.log('oalAM', oalAM);
+console.log('oalAN', oalAN);
 //James reference
 
 //IF(this = that, true, false) -> 
