@@ -549,9 +549,9 @@ var Memory_Severe = 1.45;
 var Sensory_Severe = 1.15;
 var Engagement_Moderate = 1.05;
 var Memory_Moderate = 1;
-
-
-
+var Breathing_Severe = 1;
+var Breathing_Significant = 1;
+var Breathing_Mild = 1;
 
 var clF = "";
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),0,
@@ -14482,6 +14482,49 @@ else
   calD = calC;
 }
 
+var calE = "";
+//=IF(ModelType<=2,D59, 
+//IF(AND(ModelType>2,OUT_DSTNeedsProfile=1,'Clean data'!GB59>=4),D59*Breathing_Severe, 
+//IF(AND(ModelType>2,OUT_DSTNeedsProfile=1,'Clean data'!GB59=3),D59*Breathing_Significant, 
+//IF(AND(ModelType>2,OUT_DSTNeedsProfile=1,'Clean data'!GB59=2),D59*Breathing_Mild, 
+//IF(AND(ModelType>2,'Clean data'!CR59=4),D59*Breathing_Severe, 
+//IF(AND(ModelType>2,'Clean data'!CR59=3),D59*Breathing_Significant, 
+//IF(AND(ModelType>2,'Clean data'!CR59=2),D59*Breathing_Mild,D59)))))))
+if(ModelType<=2)
+{
+  calE = calD;
+}
+else if(ModelType>2 && OUT_DSTNeedsProfile == 1 && clGB>=4)
+{
+  calE  = calD*Breathing_Severe;
+}
+else if(ModelType>2 && OUT_DSTNeedsProfile == 1 && clGB == 3)
+{
+  calE = clAD*Breathing_Significant;
+}
+else if(ModelType>2 && OUT_DSTNeedsProfile == 1 && clGB == 2)
+{
+  calE = calD*Breathing_Mild;
+}
+else if(ModelType>2 && clCR == 4)
+{
+  calE = calD*Breathing_Severe;
+}
+else if(ModelType>2 && clCR == 3)
+{
+  calE = calD*Breathing_Significant;
+}
+else if(ModelType>2 && clCR == 2)
+{
+  calE = calD*Breathing_Mild;
+}
+else
+{
+  calE = calD;
+}
+
+
+
 
 
 
@@ -15296,6 +15339,7 @@ console.log('oalAO', oalAO);
 console.log('calB', calB);
 console.log('calC', calC);
 console.log('calD', calD);
+console.log('calE', calE);
 //James reference
 
 //IF(this = that, true, false) -> 
