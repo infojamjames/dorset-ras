@@ -552,6 +552,11 @@ var Memory_Moderate = 1;
 var Breathing_Severe = 1;
 var Breathing_Significant = 1;
 var Breathing_Mild = 1;
+var Pain_Severe = 1;
+var Pain_Moderate = 1;
+
+
+
 
 var clF = "";
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),0,
@@ -14523,6 +14528,40 @@ else
   calE = calD;
 }
 
+var calF = "";
+//=IF(ModelType<=2,E59, 
+//IF(AND(ModelType>2,OUT_DSTNeedsProfile=1,'Clean data'!GK59>=4),E59*Pain_Severe, 
+//IF(AND(ModelType>2,OUT_DSTNeedsProfile=1,'Clean data'!GK59=3),E59*Pain_Moderate, 
+//IF(AND(ModelType>2,'Clean data'!CK59=1,'Clean data'!CI59=2),E59*Pain_Severe, 
+//IF(AND(ModelType>2,'Clean data'!CK59=1,'Clean data'!CI59=1),E59*Pain_Moderate,E59)))))
+if(ModelType <= 2)
+{
+  calF = calE;
+}
+else if(ModelType>2 && OUT_DSTNeedsProfile == 1 && clGK>=4)
+{
+  calF = calE*Pain_Severe;
+}
+else if(ModelType>2 && OUT_DSTNeedsProfile == 1 && clGK == 3)
+{
+  calF = calE*Pain_Moderate;
+}
+else if(ModelType>2 && clCK == 1 && clCI == 2)
+{
+  calF = calE*Pain_Severe;
+}
+else if(ModelType>2 && clCK == 1 && clCI == 1)
+{
+  calF = calE*Pain_Moderate;
+}
+else
+{
+  calF = calE;
+}
+
+
+
+
 
 
 
@@ -15340,6 +15379,7 @@ console.log('calB', calB);
 console.log('calC', calC);
 console.log('calD', calD);
 console.log('calE', calE);
+console.log('calF', calF);
 //James reference
 
 //IF(this = that, true, false) -> 
