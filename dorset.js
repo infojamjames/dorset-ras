@@ -14030,6 +14030,28 @@ else
   oalY = 0;
 }
 
+var oalZ = "";
+//=IF(OR(AND('Clean data'!AJ59>=3,'Clean data'!AL59>=21,'Clean data'!J59>=3), AND('Clean data'!AJ59>=3,'Clean data'!AL59>21), AND('Clean data'!AJ59>=3,'Clean data'!AL59>=21,'Clean data'!AT59>=1)),10,
+//IF(AND('Clean data'!AJ59>=3,'Clean data'!AL59>=21),8,
+//IF(AND('Clean data'!AJ59>0,'Clean data'!AJ59<=3,'Clean data'!AL59>0,'Clean data'!AL59<21),6,0)))
+if((clAJ>=3 && clAL>=21 && clJ>=3)|| (clAJ>=3 && clAL>21)|| (clAJ>=3 && clAL>=21 && clAT>=1))
+{
+  oalZ = 10;
+}
+else if(clAJ>=3 && clAL>=21)
+{
+  oalZ = 8;
+}
+else if(clAJ>0 && clAJ<=3 && clAL>0 && clAL<21)
+{
+  oalZ = 6;
+}
+else
+{
+  oalZ = 0;
+}
+
+
 
 
 
@@ -14826,6 +14848,7 @@ console.log('oalV', oalV);
 console.log('oalW', oalW);
 console.log('oalX', oalX);
 console.log('oalY', oalY);
+console.log('oalZ', oalZ);
 //James reference
 
 //IF(this = that, true, false) -> 
