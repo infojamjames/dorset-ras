@@ -14259,7 +14259,9 @@ else
   oalAJ = 0;
 }
 
-
+var oalAK = "";
+//=SUM(W59:AJ59)
+oalAK = oalW + oalX + oalY + oalZ + oalAA + oalAB + oalAC + oalAD + oalAE + oalAF + oalAG + oalAH + oalAI + oalAJ;
 
 
 
@@ -15070,6 +15072,7 @@ console.log('oalAG', oalAG);
 console.log('oalAH', oalAH);
 console.log('oalAI', oalAI);
 console.log('oalAJ', oalAJ);
+console.log('oalAK', oalAK);
 //James reference
 
 //IF(this = that, true, false) -> 
