@@ -14640,6 +14640,19 @@ else
   calH = 0;
 }
 
+var calI = "";
+//=B59+(H59*7)
+calI = calB+(calH*7);
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -15459,6 +15472,7 @@ console.log('calE', calE);
 console.log('calF', calF);
 console.log('calG', calG);
 console.log('calH', calH);
+console.log('calI', calI);
 //James reference
 
 //IF(this = that, true, false) -> 
