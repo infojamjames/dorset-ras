@@ -14358,6 +14358,14 @@ else
   oalAO = comR;
 }
 
+var calB = "";
+//=Scores!AV59+Scores!AW59
+calB = scAV+scAW;
+
+
+
+
+
 
 
 
@@ -15170,6 +15178,7 @@ console.log('oalAL', oalAL);
 console.log('oalAM', oalAM);
 console.log('oalAN', oalAN);
 console.log('oalAO', oalAO);
+console.log('calB', calB);
 //James reference
 
 //IF(this = that, true, false) -> 
