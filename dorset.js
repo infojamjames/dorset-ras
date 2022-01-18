@@ -13988,7 +13988,26 @@ else
   oalW = 0;
 }
 
-
+var oalX = "";
+//=IF(AND('Clean data'!DJ59>=6,'Clean data'!DK59>=5,'Clean data'!DA59>=2),10,
+//IF(OR('Clean data'!DJ59>=6,AND('Clean data'!DK59>0, 'Clean data'!DK59<=5)),8,
+//IF(AND('Clean data'!DJ59>=2,'Clean data'!DJ59<=4),6, 0)))
+if(clDJ>=6 && clDK>=5 && clDA>=2)
+{
+  oalX = 10;
+}
+else if((clDJ >= 6)|| (clDK > 0 && clDK <=5))
+{
+  oalX = 8;
+}
+else if(clDJ >= 2 && clDJ<=4)
+{
+  oalX = 6;
+}
+else
+{
+  oalX = 0;
+}
 
 
 
@@ -14784,6 +14803,7 @@ console.log('oalT', oalT);
 console.log('oalU', oalU);
 console.log('oalV', oalV);
 console.log('oalW', oalW);
+console.log('oalX', oalX);
 //James reference
 
 //IF(this = that, true, false) -> 
