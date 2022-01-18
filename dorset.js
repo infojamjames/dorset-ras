@@ -14828,6 +14828,87 @@ else
   calQ = calP;
 }
 
+var calR = "";
+//=IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!GH59=3),Q59*Engagement_VerySevere, 
+//IF('Clean data'!DH59=4,Q59*Engagement_VerySevere, 
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!GI59=4),Q59*Memory_VerySevere, 
+//IF('Clean data'!CY59=4,Q59*Memory_VerySevere,
+//IF('Clean data'!H59=4,Q59*Sensory_VerySevere,
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!GH59=2),Q59*Engagement_Severe,  
+//IF('Clean data'!DH59=3,Q59*Engagement_Severe, 
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!GI59=3),Q59*Memory_Severe, 
+//IF('Clean data'!CY59=3,Q59*Memory_Severe,
+//IF('Clean data'!H59=3,Q59*Sensory_Severe,
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!GH59=1),Q59*Engagement_Moderate,
+//IF('Clean data'!DH59=2,Q59*Engagement_Moderate, 
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!GI59=2),Q59*Memory_Moderate, 
+//IF('Clean data'!CY59=2,Q59*Memory_Moderate,
+//IF('Clean data'!H59=2,Q59*Sensory_Moderate,Q59)))))))))))))))
+if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && clGH == 3)
+{
+  calR = calQ*Engagement_VerySevere;
+}
+else if(clDH == 4)
+{
+  calR = calQ*Engagement_VerySevere;
+}
+else if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && clGI == 4)
+{
+  calR = calQ*Memory_VerySevere
+}
+else if(clCY == 4)
+{
+  calR = calQ*Memory_VerySevere;
+}
+else if(clH == 4)
+{
+  calR = calQ*Sensory_VerySevere;
+}
+else if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && clGH == 2)
+{
+  calR = calQ*Engagement_Severe;
+}
+else if(clDH == 3)
+{
+  calR = calQ*Engagement_Severe;
+}
+else if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && clGI == 3)
+{
+  calR = calQ*Memory_Severe;
+}
+else if(clCY == 3)
+{
+  calR = calQ*Memory_Severe;
+}
+else if(clH == 3)
+{
+  calR = calQ*Sensory_Severe;
+}
+else if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && clGH == 1)
+{
+  calR = calQ*Engagement_Moderate;
+}
+else if(clDH == 2)
+{
+  calR = calQ*Engagement_Moderate;
+}
+else if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && clGI == 2)
+{
+  calR = calQ*Memory_Moderate;
+}
+else if(clCY == 2)
+{
+  calR = calQ*Memory_Moderate;
+}
+else if(clH == 2)
+{
+  calR = calQ*Sensory_Moderate;
+}
+else
+{
+  calR = calQ;
+}
+
 
 
 
@@ -15656,6 +15737,7 @@ console.log('calN', calN);
 console.log('calO', calO);
 console.log('calP', calP);
 console.log('calQ', calQ);
+console.log('calR', calR);
 //James reference
 
 //IF(this = that, true, false) -> 
