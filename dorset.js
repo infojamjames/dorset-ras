@@ -127,7 +127,7 @@ var rAV=3;
 var rAW=3;
 var rAX= "Once a day";
 var rAY= "No";
-var rAZ=3;
+var rAZ=5;
 var rBA= "Every 2-3 hours+";
 var rBB= "Monitor";
 var rBC= "No";
@@ -14790,6 +14790,11 @@ else
   calO = calN;
 }
 
+var calP = "";
+//=(Scores!ED59+Scores!EE59)
+calP = scED+scEE;
+
+
 
 
 console.log('----RAW----')
@@ -15614,6 +15619,7 @@ console.log('calL', calL);
 console.log('calM', calM);
 console.log('calN', calN);
 console.log('calO', calO);
+console.log('calP', calP);
 //James reference
 
 //IF(this = that, true, false) -> 
