@@ -14759,9 +14759,36 @@ var calN = "";
 //=M59+Scores!DU59
 calN = calM + scDU;
 
-
-
-
+var calO = "";
+//=IF(AND(Scores!B59=1,Scores!G59=1,'Clean data'!DJ59=6,'Clean data'!FY59>1,EDL_Round_Output=1),(ROUND(((N59*SH_LD_Personal_Care_multiplier)*4),0)/4),
+//IF(AND(Scores!B59=1,EDL_Round_Output=1),(ROUND(((N59*LD_Personal_Care_multiplier)*4),0)/4),
+//IF(AND(Scores!B59=1,Scores!G59=1,'Clean data'!DJ59=6,'Clean data'!FY59>1),N59*SH_LD_Personal_Care_multiplier,
+//IF(Scores!B59=1,N59*LD_Personal_Care_multiplier,
+//IF(EDL_Round_Output=1,(ROUND((N59*4),0)/4),N59)))))
+if(scB == 1 && scG == 1 && clDJ == 6 && clFY > 1 && EDL_Round_Output == 1)
+{
+  calO = (Math.round(((calN*SH_LD_Personal_Care_multiplier)*4),0)/4);
+}
+else if(scB == 1 && EDL_Round_Output == 1)
+{
+  calO = (Math.round(((calN*LD_Personal_Care_multiplier)*4),0)/4);
+}
+else if(scB == 1 && scG == 1 && clDJ == 6 && clFY > 1)
+{
+  calO = calN*SH_LD_Personal_Care_multiplier;
+}
+else if(scB == 1)
+{
+  calO = calN*LD_Personal_Care_multiplier;
+}
+else if(EDL_Round_Output == 1)
+{
+  calO = (Math.round((calN*4),0)/4);
+}
+else
+{
+  calO = calN;
+}
 
 
 
@@ -15586,6 +15613,7 @@ console.log('calK', calK);
 console.log('calL', calL);
 console.log('calM', calM);
 console.log('calN', calN);
+console.log('calO', calO);
 //James reference
 
 //IF(this = that, true, false) -> 
