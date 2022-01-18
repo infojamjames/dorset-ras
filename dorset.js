@@ -14263,6 +14263,26 @@ var oalAK = "";
 //=SUM(W59:AJ59)
 oalAK = oalW + oalX + oalY + oalZ + oalAA + oalAB + oalAC + oalAD + oalAE + oalAF + oalAG + oalAH + oalAI + oalAJ;
 
+var oalAL = "";
+//=IF(AK59>=126,4,
+//IF(AND(AK59>=98,AK59<=125),3,
+//IF(AND(AK59>=70,AK59<=97),2,1)))
+if(oalAK >= 126)
+{
+  oalAL = 4;
+}
+else if(oalAK >= 98 && oalAK <= 125)
+{
+  oalAL = 3;
+}
+else if(oalAK >= 70 && oalAK <= 97)
+{
+  oalAL = 2;
+}
+else
+{
+  oalAL = 1;
+}
 
 
 
@@ -15073,6 +15093,7 @@ console.log('oalAH', oalAH);
 console.log('oalAI', oalAI);
 console.log('oalAJ', oalAJ);
 console.log('oalAK', oalAK);
+console.log('oalAL', oalAL);
 //James reference
 
 //IF(this = that, true, false) -> 
