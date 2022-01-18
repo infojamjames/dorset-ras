@@ -169,7 +169,7 @@ var rCL= "Yes";
 var rCM= "Yes";
 var rCN= "Yes";
 var rCO= "Yes";
-var rCP=3;
+var rCP=5;
 var rCQ=5;
 var rCR=3;
 var rCS=7;
@@ -14755,6 +14755,13 @@ else
   calM = (1-calL)*calK;
 }
 
+var calN = "";
+//=M59+Scores!DU59
+calN = calM + scDU;
+
+
+
+
 
 
 
@@ -15578,6 +15585,7 @@ console.log('calJ', calJ);
 console.log('calK', calK);
 console.log('calL', calL);
 console.log('calM', calM);
+console.log('calN', calN);
 //James reference
 
 //IF(this = that, true, false) -> 
