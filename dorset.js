@@ -541,6 +541,15 @@ var Shared_Lives_Allocation = 1;
 var Mobility_DST_Severe = 1.7;
 var TransfersMajorAdj = 1.7;
 var TransfersMinorAdj = 1.5;
+var Engagement_VerySevere = 1.25;
+var Memory_VerySevere = 1.6;
+var Sensory_VerySevere = 1.25;
+var Engagement_Severe = 1.15;
+var Memory_Severe = 1.45;
+var Sensory_Severe = 1.15;
+var Engagement_Moderate = 1.05;
+var Memory_Moderate = 1;
+
 
 
 
@@ -14391,6 +14400,88 @@ else
   calC = calB;
 }
 
+var calD = "";
+//=IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!GH59=3),C59*Engagement_VerySevere,
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!GI59=4),C59*Memory_VerySevere,
+//IF('Clean data'!H59=4,C59*Sensory_VerySevere,
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!GH59=2),C59*Engagement_Severe,
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!GI59=3),C59*Memory_Severe,
+//IF('Clean data'!H59=3,C59*Sensory_Severe,
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!GH59=1),C59*Engagement_Moderate,
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!GI59=2),C59*Memory_Moderate,
+//IF('Clean data'!DH59=4,C59*Engagement_VerySevere,
+//IF('Clean data'!CY59=4,C59*Memory_VerySevere,
+//IF('Clean data'!DH59=3,C59*Engagement_Severe,
+//IF('Clean data'!CY59=3,C59*Memory_Severe,
+//IF('Clean data'!DH59=2,C59*Engagement_Moderate,
+//IF('Clean data'!CY59=2,C59*Memory_Moderate,
+
+//IF('Clean data'!H59=2,C59*Sensory_Moderate,C59)))))))))))))))
+if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && clGH == 3)
+{
+  calD = calC*Engagement_VerySevere;
+}
+else if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && clGI == 4)
+{
+  calD = calC*Memory_VerySevere;
+}
+else if(clH == 4)
+{
+  calD = calC*Sensory_VerySevere;
+}
+else if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && clGH == 2)
+{
+  calD = calC*Engagement_Severe
+}
+else if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && clGI == 3)
+{
+  calD = calC*Memory_Severe;
+}
+else if(clH == 3)
+{
+  calD = calC*Sensory_Severe;
+}
+else if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && clGH == 1)
+{
+  calD = calC*Engagement_Moderate;
+}
+else if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && clGH == 2)
+{
+  calD = calC*Memory_Moderate;
+}
+else if(clDH == 4)
+{
+  calD = calC*Engagement_VerySevere;
+}
+else if(clCY == 4)
+{
+  calD = calC*Memory_VerySevere;
+}
+else if(clDH == 3)
+{
+  calD = calC*Engagement_Severe;
+}
+else if(clCY == 3)
+{
+  calD = calC*Memory_Severe;
+}
+else if(clDH == 2)
+{
+  calD = calC*Engagement_Moderate;
+}
+else if(clCY == 2)
+{
+  calD = calC*Memory_Moderate;
+}
+else if(clH == 2)
+{
+  calD = calC*Sensory_Moderate;
+}
+else 
+{
+  calD = calC;
+}
+
 
 
 
@@ -15204,6 +15295,7 @@ console.log('oalAN', oalAN);
 console.log('oalAO', oalAO);
 console.log('calB', calB);
 console.log('calC', calC);
+console.log('calD', calD);
 //James reference
 
 //IF(this = that, true, false) -> 
