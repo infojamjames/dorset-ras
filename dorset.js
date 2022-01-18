@@ -532,6 +532,12 @@ var Live_in_cap = 860;
 var LD_Live_in_cap = 860;
 var Live_in_Carer_Allocation = 1;
 var Care_home_20Sharing = 0.05;
+var SharedLives_Band_4 = 539;
+var SharedLives_Band_3 = 490;
+var SharedLives_Band_2 = 441;
+var SharedLives_Band_1 = 392;
+
+
 
 
 
@@ -14284,6 +14290,26 @@ else
   oalAL = 1;
 }
 
+var oalAM = "";
+//=IF(AL59=4,SharedLives_Band_4, 
+//IF(AL59=3,SharedLives_Band_3, 
+//IF(AL59=2, SharedLives_Band_2, SharedLives_Band_1)))
+if(oalAL == 4)
+{
+  oalAM = SharedLives_Band_4;
+}
+else if(oalAL == 3)
+{
+  oalAM = SharedLives_Band_3;
+}
+else if(oalAL == 2)
+{
+  oalAM = SharedLives_Band_2;
+}
+else
+{
+  oalAM = SharedLives_Band_1;
+}
 
 
 
@@ -15094,6 +15120,7 @@ console.log('oalAI', oalAI);
 console.log('oalAJ', oalAJ);
 console.log('oalAK', oalAK);
 console.log('oalAL', oalAL);
+console.log('oalAM', oalAM);
 //James reference
 
 //IF(this = that, true, false) -> 
