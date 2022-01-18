@@ -164,13 +164,13 @@ var rCG= "n/a";
 var rCH= "PartEff";
 var rCI= "No";
 var rCJ= "No";
-var rCK= "Yes";
+var rCK= "No";
 var rCL= "Yes";
 var rCM= "Yes";
 var rCN= "Yes";
 var rCO= "Yes";
 var rCP=3;
-var rCQ=3;
+var rCQ=5;
 var rCR=3;
 var rCS=7;
 var rCT= "Yes";
@@ -3144,7 +3144,6 @@ var clDY = "";
 //IF(AND(BI58=0,OR('Clean data'!BL58>=0.05,'Clean data'!BF58>0.05),'Clean data'!BL58<=7,'Clean data'!BF58<=7,NOT(AND(Scores!AE58>=1.5,Scores!AF58>=1.5)),'Raw data'!CP58=7,'Raw data'!CR58=7,OR('Raw data'!CI58="Yes",'Raw data'!CJ58="Yes",'Raw data'!CK58="Yes")),'Raw data'!CQ58,
 //IF(OR(AND(BI58>=2,'Raw data'!CK58="No")),0,
 //IF(OR(AND(BI58>=2,'Raw data'!CK58="Yes")),'Raw data'!CQ58,0)))))
-
 if(((ISNONTEXT(rCQ)&& NOT_ISNUMBER(rCQ))||rCQ ===""))
 {
   clDY = 0;
@@ -14724,6 +14723,29 @@ else
   calK = calJ;
 }
 
+var calL = "";
+//=IF(Scores!F59=1,0,
+//IF(AND(Scores!BR59>=0.99,Scores!BR59<1),1,
+//IF(Scores!BR59>1,1,Scores!BR59)))
+if(scF == 1)
+{
+  calL = 0;
+}
+else if(scBR>=0.99 && scBR<1)
+{
+  calL = 1;
+}
+else if(scBR > 1)
+{
+  calL = 1;
+}
+else
+{
+  calL = scBR;
+}
+
+
+
 
 
 console.log('----RAW----')
@@ -15544,6 +15566,7 @@ console.log('calH', calH);
 console.log('calI', calI);
 console.log('calJ', calJ);
 console.log('calK', calK);
+console.log('calL', calL);
 //James reference
 
 //IF(this = that, true, false) -> 
