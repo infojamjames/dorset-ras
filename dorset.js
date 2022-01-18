@@ -538,6 +538,9 @@ var SharedLives_Band_2 = 441;
 var SharedLives_Band_1 = 392;
 var Shared_lives_addition = 0;
 var Shared_Lives_Allocation = 1;
+var Mobility_DST_Severe = 1.7;
+var TransfersMajorAdj = 1.7;
+var TransfersMinorAdj = 1.5;
 
 
 
@@ -14362,10 +14365,31 @@ var calB = "";
 //=Scores!AV59+Scores!AW59
 calB = scAV+scAW;
 
-
-
-
-
+var calC = "";
+//=IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!GF59=4),Calculator!B59*Mobility_DST_Severe,
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!GF59=3),Calculator!B59*TransfersMajorAdj,
+//IF(OR(AND('Clean data'!BW59>=3,'Clean data'!BQ59>=2),'Clean data'!BX59=1,'Clean data'!BV59=2),Calculator!B59*TransfersMajorAdj,
+//IF('Clean data'!BV59=1,Calculator!B59*TransfersMinorAdj,B59))))
+if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && clGF == 4)
+{
+  calC = calB*Mobility_DST_Severe;
+}
+else if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && clGF == 3)
+{
+  calC = calB*TransfersMajorAdj;
+}
+else if((clBW >=3 && clBQ>=2)|| clBX == 1 || clBV == 2)
+{
+  calC = calB*TransfersMajorAdj;
+}
+else if(clBV == 1)
+{
+  calC = calB*TransfersMinorAdj;
+}
+else
+{
+  calC = calB;
+}
 
 
 
@@ -15179,6 +15203,7 @@ console.log('oalAM', oalAM);
 console.log('oalAN', oalAN);
 console.log('oalAO', oalAO);
 console.log('calB', calB);
+console.log('calC', calC);
 //James reference
 
 //IF(this = that, true, false) -> 
