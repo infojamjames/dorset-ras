@@ -14563,9 +14563,82 @@ var calG ="";
 //=(F59-B59)/7
 calG = (calF - calB)/7;
 
-
-
-
+var calH = "";
+//=IF(G59>=1.875, 2, 
+//IF(AND(G59>1.75, G59<1.875), 1.75, 
+//IF(G59>=1.625, 1.75, 
+//IF(AND(G59>1.5, G59<1.625), 1.5, 
+//IF(G59>=1.375,1.5,
+//IF(AND(G59>1.25,G59<1.375),1.25,
+//IF(G59>=1.125,1.25,
+//IF(AND(G59>1,G59<1.125),1,
+//IF(G59>=0.875,1,
+//IF(AND(G59>0.75,G59<0.875),0.75,
+//IF(G59>=0.625,0.75,
+//IF(AND(G59>0.5,G59<0.625),0.5,
+//IF(G59>=0.375,0.5,
+//IF(AND(G59>0.25,G59<0.375),0.25,
+//IF(G59>=0.125,0.25,0)))))))))))))))
+if(calG >= 1.875)
+{
+  calH = 2;
+}
+else if(calG > 1.75 && calG < 1.875)
+{
+  calH = 1.75
+}
+else if(calG >= 1.625)
+{
+  calH = 1.5;
+}
+else if(calG >= 1.375)
+{
+  calH = 1.5;
+}
+else if(calG > 1.25 && calG < 1.375)
+{
+  calH = 1.25;
+}
+else if(calG >= 1.125)
+{
+  calH = 1.25;
+}
+else if(calG > 1 && calG < 1.125)
+{
+  calH = 1;
+}
+else if(calG >= 0.875)
+{
+  calH = 1;
+}
+else if(calG > 0.75 && calG < 0.875)
+{
+  calH = 0.75;
+}
+else if(calG >= 0.625)
+{
+  calH = 0.75;
+}
+else if(calG > 0.5 && calG < 0.625)
+{
+  calH = 0.5;
+}
+else if(calG >= 0.375)
+{
+  calH = 0.5;
+}
+else if(calG > 0.25 && calG<0.375)
+{
+  calH = 0.25;
+}
+else if(calG >= 0.125)
+{
+  calH = 0.25;
+}
+else
+{
+  calH = 0;
+}
 
 
 
@@ -15385,6 +15458,7 @@ console.log('calD', calD);
 console.log('calE', calE);
 console.log('calF', calF);
 console.log('calG', calG);
+console.log('calH', calH);
 //James reference
 
 //IF(this = that, true, false) -> 
