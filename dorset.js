@@ -530,7 +530,7 @@ var Support_six_sharing_ratio = 0.1667;
 var Supported_24hr_addPCare = 0;
 var Live_in_cap = 860;
 var LD_Live_in_cap = 860;
-
+var Live_in_Carer_Allocation = 1;
 
 
 
@@ -13931,6 +13931,43 @@ else
   oalU = oalT;
 }
 
+var oalV = "";
+//=IF(AND(ModelType<=2,Scores!I59=0),"Does not apply",
+//IF(Live_in_Carer_Allocation=0,"Does not apply",
+//IF(AND(Live_in_Carer_Allocation=1,OR(AND(ModelType<=2,Live_in_cap=0,LD_Live_in_cap=0),AND(ModelType=3,Enhc_Tier2_Live_in_cap=0,Enhc_Tier3_Live_in_cap=0))),"Does not apply",
+//IF(Community!R59<S59,"Does not apply",
+//IF(AND(Live_in_Carer_Allocation=1,S59<Community!R59,'Clean data'!DJ59=9,'Clean data'!DK59=7,'Clean data'!EP59=0),S59*2,
+//IF(AND(Live_in_Carer_Allocation=1,S59<Community!R59),S59+Community!J59,S59))))))
+if(ModelType<=2 && scI == 0)
+{
+  oalV = "Does not apply";
+}
+else if(Live_in_Carer_Allocation == 0)
+{
+  oalV = "Does not apply";
+}
+else if(Live_in_Carer_Allocation == 1 &&(ModelType<=2 && Live_in_cap == 0 && LD_Live_in_cap == 0)|| (ModelType == 3 && Enhc_Tier2_Live_in_cap == 0 && Enhc_Tier3_Live_in_cap == 0))
+{
+  oalV = "Does not apply";
+}
+else if(comR < oalS)
+{
+  oalV = "Does not apply";
+}
+else if(Live_in_Carer_Allocation == 1 && oalS<comR && clDJ == 9 && clDK == 7 && clEP == 0)
+{
+  oalV = oalS*2;
+}
+else if(Live_in_Carer_Allocation == 1 && oalS<comR)
+{
+  oalV = oalS+comJ;
+}
+else
+{
+  oalV = oalS;
+}
+
+
 
 
 
@@ -14724,6 +14761,7 @@ console.log('oalR', oalR);
 console.log('oalS', oalS);
 console.log('oalT', oalT);
 console.log('oalU', oalU);
+console.log('oalV', oalV);
 //James reference
 
 //IF(this = that, true, false) -> 
