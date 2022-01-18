@@ -14713,6 +14713,18 @@ else
 calJ = calF;
 }
 
+var calK = "";
+//= IF(OR('Clean data'!FW59=6, 'Clean data'!FW59=9.5), J59*SupportHousingAdj,J59)
+if(clFW == 6 || clFW == 9.5)
+{
+  calK = calJ*SupportHousingAdj;
+}
+else
+{
+  calK = calJ;
+}
+
+
 
 console.log('----RAW----')
 console.log('rN', rN);
@@ -15531,6 +15543,7 @@ console.log('calG', calG);
 console.log('calH', calH);
 console.log('calI', calI);
 console.log('calJ', calJ);
+console.log('calK', calK);
 //James reference
 
 //IF(this = that, true, false) -> 
