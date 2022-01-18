@@ -13967,6 +13967,27 @@ else
   oalV = oalS;
 }
 
+var oalW = "";
+//=IF(AND('Clean data'!AV59>=3,'Clean data'!AX59>=3,'Clean data'!BA59>=3,'Clean data'!BC59>=3,'Clean data'!BI59>=3,'Clean data'!DK59>=1),10,
+//IF(AND('Clean data'!AV59>=3,'Clean data'!AX59>=3,'Clean data'!BA59>=3,'Clean data'!BC59>=3,'Clean data'!BI59>=3),8,
+//IF(OR(AND('Clean data'!AV59>0,'Clean data'!AV59<=2),AND('Clean data'!AX59>0,'Clean data'!AX59<=2),AND('Clean data'!BA59>0,'Clean data'!BA59<=2),AND('Clean data'!BC59>0,'Clean data'!BC59<=2),AND('Clean data'!BI59>0,'Clean data'!BI59<=2)),6,0)))
+if(clAV>=3 && clAX>=3 && clBA>=3 && clBC>=3 && clBI>=3 && clDK>=1)
+{
+  oalW = 10;
+}
+else if(clAV>=3 && clAX>=3 && clBA>=3 && clBC>=3 && clBI>=3)
+{
+  oalW = 8;
+}
+else if((clAV > 0 && clAV<=2)|| (clAX > 0 && clAX<=2)|| (clBA>0 && clBA<=2)|| (clBC>0 && clBC<=2)|| (clBI>0 && clBI<=2))
+{
+  oalW = 6;
+}
+else
+{
+  oalW = 0;
+}
+
 
 
 
@@ -14762,6 +14783,7 @@ console.log('oalS', oalS);
 console.log('oalT', oalT);
 console.log('oalU', oalU);
 console.log('oalV', oalV);
+console.log('oalW', oalW);
 //James reference
 
 //IF(this = that, true, false) -> 
