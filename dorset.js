@@ -14744,6 +14744,16 @@ else
   calL = scBR;
 }
 
+var calM = "";
+//=IF(L59=0,K59,(1-L59)*K59)
+if(calL == 0)
+{
+  calM = calK;
+}
+else
+{
+  calM = (1-calL)*calK;
+}
 
 
 
@@ -15567,6 +15577,7 @@ console.log('calI', calI);
 console.log('calJ', calJ);
 console.log('calK', calK);
 console.log('calL', calL);
+console.log('calM', calM);
 //James reference
 
 //IF(this = that, true, false) -> 
