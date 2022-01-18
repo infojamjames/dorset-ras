@@ -558,6 +558,9 @@ var Block_adjustments = 0;
 
 
 
+
+
+
 var clF = "";
 //=IF(OR(AND(ISNONTEXT('Raw data'!N58),NOT(ISNUMBER('Raw data'!N58))),'Raw data'!N58=""),0,
 //IF('Raw data'!N58="",0,VLOOKUP('Raw data'!N58,Age_Bands,2,FALSE)))
@@ -14794,6 +14797,38 @@ var calP = "";
 //=(Scores!ED59+Scores!EE59)
 calP = scED+scEE;
 
+var calQ = "";
+//=IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!GF59=4),P59*Mobility_DST_Severe, 
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!GF59=3),P59*TransfersMajorAdj, 
+//IF(AND(ModelType>=2,OUT_DSTNeedsProfile=1,'Clean data'!GF59=2),P59*TransfersMinorAdj, 
+//IF(OR(AND('Clean data'!BW59>=3,'Clean data'!BQ59>=2),'Clean data'!BX59=1,'Clean data'!BV59=2),P59*TransfersMajorAdj, 
+//IF('Clean data'!BV59=1,P59*TransfersMinorAdj,P59)))))
+if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && clGF == 4)
+{
+  calQ = calP*Mobility_DST_Severe;
+}
+else if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && clGF == 3)
+{
+  calQ = calP*TransfersMajorAdj;
+}
+else if(ModelType>=2 && OUT_DSTNeedsProfile == 1 && clGF == 2)
+{
+  calQ = calP*TransfersMinorAdj;
+}
+else if((clBW>=3 && clBQ>=2)|| clBX == 1 || clBV == 2)
+{
+  calQ = calP*TransfersMajorAdj;
+}
+else if(clBV == 1)
+{
+  calQ = calP*TransfersMinorAdj;
+}
+else
+{
+  calQ = calP;
+}
+
+
 
 
 
@@ -15620,6 +15655,7 @@ console.log('calM', calM);
 console.log('calN', calN);
 console.log('calO', calO);
 console.log('calP', calP);
+console.log('calQ', calQ);
 //James reference
 
 //IF(this = that, true, false) -> 
