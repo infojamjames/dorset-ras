@@ -101,7 +101,7 @@ var rV= "1act";
 var rW= "Retired";
 var rX= "None";
 var rY= "n/a";
-var rZ= "";
+var rZ= "2to1";
 var rAA= "";
 var rAB= "n/a";
 var rAC= "";
@@ -186,7 +186,7 @@ var rDC=2;
 var rDD= "No";
 var rDE= "No";
 var rDF= "Yes";
-var rDG= "No";
+var rDG= "Yes";
 var rDH= "No";
 var rDI= "Yes";
 var rDJ= "Yes";
@@ -531,7 +531,7 @@ var Supported_24hr_addPCare = 0;
 var Live_in_cap = 860;
 var LD_Live_in_cap = 860;
 var Live_in_Carer_Allocation = 1;
-
+var Care_home_20Sharing = 0.05;
 
 
 
@@ -843,9 +843,8 @@ else
 {
   clU = "";
 }
-clV = ""
+var clV = ""
 //=IF(OR(AND(ISNONTEXT('Raw data'!Z58),NOT(ISNUMBER('Raw data'!Z58))),'Raw data'!Z58=""),0,VLOOKUP('Raw data'!Z58,Work_Degree,2,FALSE))
-
 if (((ISNONTEXT(rZ)&& NOT_ISNUMBER(rZ))||rZ ===""))
 {
   clV = 0;
@@ -870,8 +869,6 @@ var clX = "";
 //=IF(AND(ModelType<=2,'Raw data'!DG58="No"),0,
 //IF(OR(AND(ISNONTEXT('Raw data'!AA58),NOT(ISNUMBER('Raw data'!AA58))),'Raw data'!AA58=""),0,
 //VLOOKUP('Raw data'!AA58,Social_Howoften,2,FALSE)))
-
-
 if(ModelType<=2 && rDG == "No")
 {
 clX = 0;
@@ -14220,6 +14217,42 @@ else
 }
 
 
+var oalAI = "";
+//=IF(AND('Clean data'!V59>=3, 'Clean data'!X59>=5), 10,
+//IF(AND('Clean data'!V59>=2, 'Clean data'!X59<=5),8,
+//IF(AND('Clean data'!V59>0, 'Clean data'!V59<=2, 'Clean data'!X59>0, 'Clean data'!X59<2),6,0)))
+if(clV >= 3 && clX >= 5)
+{
+  oalAI = 10;
+}
+else if(clV >= 2 && clX <= 5)
+{
+  oalAI = 8;
+}
+else if(clV > 0 && clV <=2 && clX > 0 && clX < 2)
+{
+  oalAI = 6;
+}
+else
+{
+  oalAI = 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 console.log('----RAW----')
 console.log('rN', rN);
@@ -15022,6 +15055,7 @@ console.log('oalAE', oalAE);
 console.log('oalAF', oalAF);
 console.log('oalAG', oalAG);
 console.log('oalAH', oalAH);
+console.log('oalAI', oalAI);
 //James reference
 
 //IF(this = that, true, false) -> 
