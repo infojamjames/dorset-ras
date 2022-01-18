@@ -116,9 +116,9 @@ var rAK=2;
 var rAL= "Once a day";
 var rAM=2;
 var rAN= "Yes";
-var rAO= "Upto30m";
-var rAP= "No";
-var rAQ= "No";
+var rAO= "n/a";
+var rAP= "Yes";
+var rAQ= "Yes";
 var rAR= "No";
 var rAS=3;
 var rAT=3;
@@ -14009,6 +14009,27 @@ else
   oalX = 0;
 }
 
+var oalY = "";
+//=IF(OR('Clean data'!AN59>=3, 'Clean data'!AR59>=1,'Clean data'!AS59=1,'Clean data'!AQ59=1),10,
+//IF(AND('Clean data'!AN59>=2,NOT('Clean data'!AS59>=1),NOT('Clean data'!AQ59=1)),8,
+//IF('Clean data'!AN59>=2,6,0)))
+if(clAN>=3 || clAR>=1 || clAS == 1 || clAQ == 1)
+{
+  oalY = 10;
+}
+else if(clAN>=2 && (clAS<1) && (clAQ !=1))
+{
+  oalY = 8;
+}
+else if(clAN >= 2)
+{
+  oalY = 6;
+}
+else
+{
+  oalY = 0;
+}
+
 
 
 
@@ -14804,6 +14825,7 @@ console.log('oalU', oalU);
 console.log('oalV', oalV);
 console.log('oalW', oalW);
 console.log('oalX', oalX);
+console.log('oalY', oalY);
 //James reference
 
 //IF(this = that, true, false) -> 
