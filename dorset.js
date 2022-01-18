@@ -128,7 +128,7 @@ var rAW=3;
 var rAX= "Once a day";
 var rAY= "No";
 var rAZ=3;
-var rBA= "Three times a day";
+var rBA= "Every 2-3 hours+";
 var rBB= "Monitor";
 var rBC= "No";
 var rBD=3;
@@ -554,7 +554,7 @@ var Breathing_Significant = 1;
 var Breathing_Mild = 1;
 var Pain_Severe = 1;
 var Pain_Moderate = 1;
-
+var Block_adjustments = 0;
 
 
 
@@ -1800,8 +1800,6 @@ else
 var clBL = "";
 //=IF(AND(ModelType<=2,'Raw data'!DM58="No"),0,
 //IF(OR(AND(ISNONTEXT('Raw data'!BA58),NOT(ISNUMBER('Raw data'!BA58))),'Raw data'!BA58=""),0,VLOOKUP('Raw data'!BA58,Toilet_Prep_Freq,2,FALSE)))
-
-
 if(ModelType <= 2 && rDM == "No")
 {
   clBL = 0;
@@ -14644,17 +14642,76 @@ var calI = "";
 //=B59+(H59*7)
 calI = calB+(calH*7);
 
-
-
-
-
-
-
-
-
-
-
-
+var calJ = "";
+//=IF(AND('Clean data'!BL59=21,FullTime_Education_switch=1,'Clean data'!FZ59=1,'Clean data'!T59=2,Block_adjustments=1,NOT('Clean data'!FW59=12),NOT('Clean data'!FW59=15)),I59+(1*1),
+//IF(AND('Clean data'!BL59=21,Block_adjustments=1,NOT('Clean data'!FW59=12),NOT('Clean data'!FW59=15)),I59+(3.5*1),
+//IF(AND('Clean data'!BL59=28,FullTime_Education_switch=1,'Clean data'!FZ59=1,'Clean data'!T59=2,Block_adjustments=1,NOT('Clean data'!FW59=12),NOT('Clean data'!FW59=15)),I59+(1*2),
+//IF(AND(Block_adjustments=1,'Clean data'!BL59=28,NOT('Clean data'!FW59=12),NOT('Clean data'!FW59=15)),I59+(3.5*2),
+//IF(AND('Clean data'!BL59=35,FullTime_Education_switch=1,'Clean data'!FZ59=1,'Clean data'!T59=2,Block_adjustments=1,NOT('Clean data'!FW59=12),NOT('Clean data'!FW59=15)),I59+(1*3),
+//IF(AND(Block_adjustments=1,'Clean data'!BL59=35,NOT('Clean data'!FW59=12),NOT('Clean data'!FW59=15)),I59+(3.5*3),
+//IF(AND(Block_adjustments=1,NOT('Clean data'!FW59=12),NOT('Clean data'!FW59=15)),I59,
+//IF(AND('Clean data'!BL59=21,FullTime_Education_switch=1,'Clean data'!FZ59=1,'Clean data'!T59=2),F59+(1*1),
+//IF('Clean data'!BL59=21,F59+(3.5*1),
+//IF(AND('Clean data'!BL59=28,FullTime_Education_switch=1,'Clean data'!FZ59=1,'Clean data'!T59=2),F59+(1*2),
+//IF('Clean data'!BL59=28,F59+(3.5*2),
+//IF(AND('Clean data'!BL59=35,FullTime_Education_switch=1,'Clean data'!FZ59=1,'Clean data'!T59=2),F59+(1*3),
+//IF('Clean data'!BL59=35,F59+(3.5*3),F59)))))))))))))
+if(clBL == 21 && FullTime_Education_switch == 1 && clFZ == 1 && clT == 2 && Block_adjustments == 1 && (clFW != 12)&& (clFW != 15))
+{
+  calJ = calI+(1*1);
+}
+else if(clBL == 21 && Block_adjustments == 1 && (clFW != 12)&& (clFW != 15))
+{
+  calJ = calI+(3.5*1);
+}
+else if(clBL == 28 && FullTime_Education_switch == 1 && clFZ == 1 && clT == 2 && Block_adjustments == 1 && (clFW != 12) && (clFW != 15))
+{
+  calJ = calI+(1*2);
+}
+else if(Block_adjustments == 1 && clBL == 28 && (clFW !=12) && (clFW != 15))
+{
+  calJ = calI+(3.5*2);
+}
+else if(clBL == 35 && FullTime_Education_switch == 1 && clFZ == 1 && clT == 2 && Block_adjustments == 1 && (clFW != 12)&& (clFW != 15))
+{
+  calJ = calI+(1*3);
+}
+else if(Block_adjustments == 1 && clBL == 35 && (clFW != 12) && (clFW != 15))
+{
+  calJ = calI+(3.5*3);
+}
+else if(Block_adjustments == 1 && (clFW != 12) && (clFW != 15))
+{
+  calJ = calI;
+}
+else if(clBL == 21 && FullTime_Education_switch == 1 && clFZ == 1 && clT == 2)
+{
+  calJ = calF+(1*1);
+}
+else if(clBL == 21)
+{
+  calJ = calF+(3.5*1);
+}
+else if(clBL == 28 && FullTime_Education_switch == 1 && clFZ == 1 && clT == 2)
+{
+  calJ = calF+(1*2);
+}
+else if(clBL == 28)
+{
+  calJ = calF+(3.5*2);
+}
+else if(clBL == 35 && FullTime_Education_switch == 1 && clFZ == 1 && clT == 2)
+{
+  calJ = calF+(1*3);
+}
+else if(clBL == 35)
+{
+  calJ = calF+(3.5*3);
+}
+else
+{
+calJ = calF;
+}
 
 
 console.log('----RAW----')
@@ -15473,6 +15530,7 @@ console.log('calF', calF);
 console.log('calG', calG);
 console.log('calH', calH);
 console.log('calI', calI);
+console.log('calJ', calJ);
 //James reference
 
 //IF(this = that, true, false) -> 
