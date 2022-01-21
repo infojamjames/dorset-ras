@@ -15067,6 +15067,11 @@ else
   calV = 0;
 }
 
+var calW = "";
+//=P59+(V59*7)
+calW = calP+(calV*7);
+
+
 
 
 
@@ -15901,6 +15906,7 @@ console.log('calS', calS);
 console.log('calT', calT);
 console.log('calU', calU);
 console.log('calV', calV);
+console.log('calW', calW);
 //James reference
 
 //IF(this = that, true, false) -> 
