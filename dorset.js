@@ -14909,6 +14909,53 @@ else
   calR = calQ;
 }
 
+var calS = "";
+//=IF(ModelType<=2,R59, 
+//IF(AND(ModelType>2,OUT_DSTNeedsProfile=1,'Clean data'!GB59>=4),R59*Breathing_Severe, 
+//IF(AND(ModelType>2,OUT_DSTNeedsProfile=1,'Clean data'!GB59=3),R59*Breathing_Significant, 
+//IF(AND(ModelType>2,OUT_DSTNeedsProfile=1,'Clean data'!GB59=2),R59*Breathing_Mild, 
+//IF(AND(ModelType>2,'Clean data'!CR59=4),R59*Breathing_Severe, 
+//IF(AND(ModelType>2,'Clean data'!CR59=3),R59*Breathing_Significant, 
+//IF(AND(ModelType>2,'Clean data'!CR59=2),R59*Breathing_Mild,R59)))))))
+if(ModelType<=2)
+{
+  calS = calR;
+}
+else if(ModelType>2 && OUT_DSTNeedsProfile == 1 && clGB>=4)
+{
+  calS = calR*Breathing_Severe;
+}
+else if(ModelType>2 && OUT_DSTNeedsProfile == 1 && clGB == 3)
+{
+  calS = calR*Breathing_Significant;
+}
+else if(ModelType>2 && OUT_DSTNeedsProfile == 1 && clGB == 2)
+{
+  calS = calR*Breathing_Mild;
+}
+else if(ModelType>2 && clCR == 4)
+{
+  calS = calR*Breathing_Severe;
+}
+else if(ModelType>2 && clCR == 3)
+{
+  calS = calR*Breathing_Significant;
+}
+else if(ModelType>2 && clCR == 2)
+{
+  calS = calR*Breathing_Mild;
+}
+else
+{
+  calS = calR;
+}
+
+
+
+
+
+
+
 
 
 
@@ -15738,6 +15785,7 @@ console.log('calO', calO);
 console.log('calP', calP);
 console.log('calQ', calQ);
 console.log('calR', calR);
+console.log('calS', calS);
 //James reference
 
 //IF(this = that, true, false) -> 
