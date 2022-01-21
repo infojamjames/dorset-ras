@@ -14950,11 +14950,36 @@ else
   calS = calR;
 }
 
-
-
-
-
-
+var calT = "";
+//=IF(ModelType<=2,S59, 
+//IF(AND(ModelType>2,OUT_DSTNeedsProfile=1,'Clean data'!GK59>=4),S59*Pain_Severe, 
+//IF(AND(ModelType>2,OUT_DSTNeedsProfile=1,'Clean data'!GK59=3),S59*Pain_Moderate, 
+//IF(AND(ModelType>2,'Clean data'!CK59=1,'Clean data'!CI59=2),S59*Pain_Severe, 
+//IF(AND(ModelType>2,'Clean data'!CK59=1,'Clean data'!CI59=1),S59*Pain_Moderate,S59)))))
+if(ModelType<=2)
+{
+  calT = calS;
+}
+else if(ModelType>2 && OUT_DSTNeedsProfile == 1 && clGK>=4)
+{
+  calT = calS*Pain_Severe;
+}
+else if(ModelType>2 && OUT_DSTNeedsProfile == 1 && clGK == 3)
+{
+  calT = calS*Pain_Moderate;
+}
+else if(ModelType>2 && clCK == 1 && clCI == 2)
+{
+  calT = calS*Pain_Severe;
+}
+else if(ModelType>2 && clCK == 1 && clCI == 1)
+{
+  calT = calS*Pain_Moderate;
+}
+else
+{
+  calT = calS;
+}
 
 
 
@@ -15786,6 +15811,7 @@ console.log('calP', calP);
 console.log('calQ', calQ);
 console.log('calR', calR);
 console.log('calS', calS);
+console.log('calT', calT);
 //James reference
 
 //IF(this = that, true, false) -> 
