@@ -14985,9 +14985,87 @@ var calU = "";
 //=(T59-P59)/7
 calU = (calT-calP)/7;
 
+var calV = "";
+//=IF(U59>=1.875, 2, 
+//IF(AND(U59>1.75, U59<1.875), 1.75, 
+//IF(U59>=1.625, 1.75, 
+//IF(AND(U59>1.5, U59<1.625), 1.5, 
+//IF(U59>=1.375,1.5,
+//IF(AND(U59>1.25,U59<1.375),1.25,
+//IF(U59>=1.125,1.25,
+//IF(AND(U59>1,U59<1.125),1,
+//IF(U59>=0.875,1,
+//IF(AND(U59>0.75,U59<0.875),0.75,
+//IF(U59>=0.625,0.75,
+//IF(AND(U59>0.5,U59<0.625),0.5,
+//IF(U59>=0.375,0.5,
+//IF(AND(U59>0.25,U59<0.375),0.25,
 
-
-
+//IF(U59>=0.125,0.25,0)))))))))))))))
+if(calU >= 1.875)
+{
+  calV = 2;
+}
+else if(calU>1.75 && calU<1.875)
+{
+  calV = 1.75;
+}
+else if(calU >= 1.625)
+{
+  calV = 1.75;
+}
+else if(calU>1.5 && calU<1.625)
+{
+  calV = 1.5;
+}
+else if(calU >= 1.375)
+{
+  calV = 1.5;
+}
+else if(calU>1.25 && calU<1.375)
+{
+  calV = 1.25;
+}
+else if(calU >= 1.125)
+{
+  calV = 1.25;
+}
+else if(calU > 1 && calU < 1.125)
+{
+  calV = 1;
+}
+else if(calU >= 0.875)
+{
+  calV = 1;
+}
+else if(calU > 0.75 && calU < 0.875)
+{
+  calV = 0.75;
+}
+else if(calU >= 0.625)
+{
+  calV = 0.75;
+}
+else if(calU > 0.5 && calU<0.625)
+{
+  calV = 0.5;
+}
+else if(calU>=0.375)
+{
+  calV = 0.5;
+}
+else if(calU > 0.25 && calU < 0.375)
+{
+  calV = 0.25;
+}
+else if(calU >= 0.125)
+{
+  calV = 0.25;
+}
+else
+{
+  calV = 0;
+}
 
 
 
@@ -15822,6 +15900,7 @@ console.log('calR', calR);
 console.log('calS', calS);
 console.log('calT', calT);
 console.log('calU', calU);
+console.log('calV', calV);
 //James reference
 
 //IF(this = that, true, false) -> 
