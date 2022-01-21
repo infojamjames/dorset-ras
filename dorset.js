@@ -15071,8 +15071,77 @@ var calW = "";
 //=P59+(V59*7)
 calW = calP+(calV*7);
 
+var calX = "";
+//=IF(AND('Clean data'!BL59=21, 'Clean data'!BJ59=1,FullTime_Education_switch=1,'Clean data'!FZ59=1,'Clean data'!T59=2,Block_adjustments=1,NOT('Clean data'!FW59=12),NOT('Clean data'!FW59=15)),I59+(1*1),
+//IF(AND(Block_adjustments=1,'Clean data'!BJ59=1,'Clean data'!BL59=21, NOT('Clean data'!FW59=12),NOT('Clean data'!FW59=15)),W59+((3.5)*1),
+//IF(AND('Clean data'!BL59=28, 'Clean data'!BJ59=1,FullTime_Education_switch=1,'Clean data'!FZ59=1,'Clean data'!T59=2,Block_adjustments=1,NOT('Clean data'!FW59=12),NOT('Clean data'!FW59=15)),I59+(1*2),
+//IF(AND(Block_adjustments=1,'Clean data'!BJ59=1,'Clean data'!BL59=28, NOT('Clean data'!FW59=12),NOT('Clean data'!FW59=15)),W59+((3.5)*2),
+//IF(AND('Clean data'!BL59=35, 'Clean data'!BJ59=1,FullTime_Education_switch=1,'Clean data'!FZ59=1,'Clean data'!T59=2,Block_adjustments=1,NOT('Clean data'!FW59=12),NOT('Clean data'!FW59=15)),I59+(1*1),
+//IF(AND(Block_adjustments=1,'Clean data'!BJ59=1,'Clean data'!BL59=35, NOT('Clean data'!FW59=12),NOT('Clean data'!FW59=15)),W59+((3.5)*3),
+//IF(AND(Block_adjustments=1, NOT('Clean data'!FW59=12),NOT('Clean data'!FW59=15)),W59,
+//IF(AND('Clean data'!BL59=21,'Clean data'!BJ59=1,FullTime_Education_switch=1,'Clean data'!FZ59=1,'Clean data'!T59=2),F59+(1*1),
+//IF(AND('Clean data'!BJ59=1,'Clean data'!BL59=21),R59+((3.5)*1),
+//IF(AND('Clean data'!BL59=28,'Clean data'!BJ59=1,FullTime_Education_switch=1,'Clean data'!FZ59=1,'Clean data'!T59=2),F59+(1*2),
+//IF(AND('Clean data'!BJ59=1,'Clean data'!BL59=28),R59+((3.5)*2),
+//IF(AND('Clean data'!BL59=35,'Clean data'!BJ59=1,FullTime_Education_switch=1,'Clean data'!FZ59=1,'Clean data'!T59=2),F59+(1*3),
 
-
+//IF(AND('Clean data'!BJ59=1,'Clean data'!BL59=35),R59+((3.5)*3),R59)))))))))))))
+if((clBL == 21 && clBJ == 1 && FullTime_Education_switch == 1 && clFZ == 1 && clT == 2 && Block_adjustments == 1 && (clFW!=12) && (clFW!=15)))
+{
+  calX = calI+(1*1);
+}
+else if(Block_adjustments == 1 && clBJ == 1 && clBL == 21 &&  (clFW != 12) && (clFW == 15))
+{
+  calX = calW+((3.5)*1);
+}
+else if(clBL == 28 && clBJ == 1 && FullTime_Education_switch == 1 && clFZ == 1 && clT == 2 && Block_adjustments == 1 && (clFW != 12) && (clFW != 15))
+{
+  calX = calI+(1*2);
+}
+else if(Block_adjustments == 1 && clBJ == 1 && clBL == 28 && (clFW != 12) && (clFW != 15))
+{
+  calX = calW+((3.5)*2);
+}
+else if(clBL == 35 && clBJ == 1 && FullTime_Education_switch == 1 && clFZ == 1 && clT == 2 && Block_adjustments == 1 && (clFW !=12) && (clFW!=15))
+{
+  calX = calI+(1*1);
+}
+else if(Block_adjustments == 1 && clBJ == 1 && clBL == 35 && (clFW!=12) && (clFW != 15))
+{
+  calX = calW+((3.5)*3);
+}
+else if(Block_adjustments == 1 && (clFW != 12) && (clFW != 15))
+{
+  calX = calW;
+}
+else if(clBL == 21 && clBJ == 1 && FullTime_Education_switch == 1 && clFZ == 1 && clT == 2)
+{
+  calX = calF+(1*1);
+}
+else if(clBJ == 1 && clBL == 21)
+{
+  calX = calR+((3.5)*1);
+}
+else if(clBL == 28 && clBJ == 1 && FullTime_Education_switch == 1 && clFZ == 1 && clT == 2)
+{
+  calX = calF+(1*2);
+}
+else if(clBJ == 1 && clBL == 28)
+{
+  calX = calR+((3.5)*2);
+}
+else if(clBL == 35 && clBJ == 1 && FullTime_Education_switch == 1 && clFZ == 1 && clT == 2)
+{
+  calX = calF+(1*3);
+}
+else if(clBJ == 1 && clBL == 35)
+{
+  calX = calR+((3.5)*3);
+}
+else
+{
+  calX = calR;
+}
 
 
 
@@ -15907,6 +15976,7 @@ console.log('calT', calT);
 console.log('calU', calU);
 console.log('calV', calV);
 console.log('calW', calW);
+console.log('calX', calX);
 //James reference
 
 //IF(this = that, true, false) -> 
