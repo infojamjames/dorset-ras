@@ -14981,6 +14981,15 @@ else
   calT = calS;
 }
 
+var calU = "";
+//=(T59-P59)/7
+calU = (calT-calP)/7;
+
+
+
+
+
+
 
 
 
@@ -15812,6 +15821,7 @@ console.log('calQ', calQ);
 console.log('calR', calR);
 console.log('calS', calS);
 console.log('calT', calT);
+console.log('calU', calU);
 //James reference
 
 //IF(this = that, true, false) -> 
