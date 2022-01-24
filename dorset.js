@@ -555,8 +555,8 @@ var Pain_Severe = 1;
 var Pain_Moderate = 1;
 var Block_adjustments = 0;
 var Care_home_allocation = 1;
-
-
+var Minimum_IB_Deflator = 0;
+var Minimum_IB_Inflator = 0;
 
 
 
@@ -15323,6 +15323,38 @@ else
   calAG = comR;
 }
 
+var calAH = "";
+//=IF(AND(OR('Clean data'!EE59<100,'Clean data'!EI59<100,'Clean data'!EM59<100,'Clean data'!ED59<100,'Clean data'!EH59<100,'Clean data'!EL59<100),Minimum_IB_Inflator>0,AF59<Minimum_IB_Inflator),Minimum_IB_Inflator,
+///IF(AND(Minimum_IB_Deflator>0,AF59<Minimum_IB_Deflator),0,AF59))
+if((clEE<100 || clEI<100 || clEM<100 || clED<100 || clEH<100 || clEL<100)&& Minimum_IB_Inflator>0 && calAF<Minimum_IB_Inflator)
+{
+  calAH = Minimum_IB_Inflator;
+}
+else if(Minimum_IB_Deflator > 0 && calAF < Minimum_IB_Deflator)
+{
+  calAH = 0;
+}
+else
+{
+  calAH = calAF;
+}
+
+var calAI = "";
+//=IF(AND(ModelType<=2,SUM('Clean data'!FI59:FR59)<2),0,
+//IF(AND(ModelType<=2,SUM('Clean data'!FI59:FR59)>1,'Clean data'!FT59=0),0,AH59))
+if(ModelType<=2 && (clFI + clFJ + clFK +  clFL + clFM + clFN + clFO + clFP + clFQ + clFR)<2)
+{
+  calAI = 0;
+}
+else if(ModelType<=2 && (clFI + clFJ + clFK +  clFL + clFM + clFN + clFO + clFP + clFQ + clFR)> 1 && clFT == 0)
+{
+  calAI = 0;
+}
+else
+{
+  calAI = calAH;
+}
+
 
 
 
@@ -16167,6 +16199,8 @@ console.log('calAD', calAD);
 console.log('calAE', calAE);
 console.log('calAF', calAF);
 console.log('calAG', calAG);
+console.log('calAH', calAH);
+console.log('calAI', calAI);
 //James reference
 
 //IF(this = that, true, false) -> 
