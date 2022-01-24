@@ -346,7 +346,8 @@ var WA_High_end_cap = 0;
 var LD_High_end_cap = 0;
 var MH_High_end_cap = 0;
 var High_end_cap = 0;
-var calAC = 974;
+var calAA = 3.5;
+var calAB = 2;
 var calAE = 974;
 var calAF = 974;
 var calO = 25.50;
@@ -13509,6 +13510,7 @@ var supL = "";
 supL = calY*scY;
 
 var supM = "";
+var x = scY;
 //=Calculator!AB59*Scores!Y59
 supM = calAB*scY;
 
@@ -15206,7 +15208,41 @@ var calAB = "";
 //=Scores!FI59
 calAB = scFI;
 
-
+var calAC = "";
+//=IF(OR('Clean data'!FW59=7,'Clean data'!FW59=9), 'Supp. Living'!T59, 
+//IF(OR( 'Clean data'!FW59=12,'Clean data'!FW59=15), 'Care home calc'!AS59, 
+//IF('Clean data'!FW59=9.5, 'Other ALS'!Q59,  
+//IF('Clean data'!FW59=3, 'Other ALS'!U59,
+//IF('Clean data'!FW59=10, 'Other ALS'!AN59, 
+//IF(AND('Clean data'!GA59=1,PA_Dom_Tasks_Switch=1), Community!AH59, Community!Q59))))))
+if(clFW == 7 || clFW == 9)
+{
+  calAC = supT;
+}
+else if(clFW == 12 || clFW == 15)
+{
+  calAC = carcAS;
+}
+else if(clFW == 9.5)
+{
+  calAC = oalQ;
+}
+else if(clFW == 3)
+{
+  calAC = oalU;
+}
+else if(clFW == 10)
+{
+  calAC = oalAN;
+}
+else if(clGA == 1 && PA_Dom_Tasks_Switch == 1)
+{
+  calAC = comAH;
+}
+else
+{
+  calAC = comQ;
+}
 
 
 
@@ -16046,6 +16082,7 @@ console.log('calY', calY);
 console.log('calZ', calZ);
 console.log('calAA', calAA);
 console.log('calAB', calAB);
+console.log('calAC', calAC);
 //James reference
 
 //IF(this = that, true, false) -> 
