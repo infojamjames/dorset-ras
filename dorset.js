@@ -15179,6 +15179,28 @@ else
   calY = calX;
 }
 
+var calZ = "";
+//=IF(Scores!EI59=0,Y59,
+//IF(((1-Scores!EI59)*Y59)>O59,O59,
+//IF(EDL_Round_Output=1,(ROUND((((1-Scores!EI59)*Y59)*4),0)/4),(1-Scores!EI59)*Y59)))
+if(scEI == 0)
+{
+  calZ = calY;
+}
+else if(((1-scEI)*calY)>calO)
+{
+  calZ = calO
+}
+else if(EDL_Round_Output == 1)
+{
+  calZ = (Math.round((((1-scEI)*calY)*4),0)/4);
+}
+else
+{
+  calZ = (1-scEI)*calY;
+}
+
+
 
 
 
@@ -16016,6 +16038,7 @@ console.log('calV', calV);
 console.log('calW', calW);
 console.log('calX', calX);
 console.log('calY', calY);
+console.log('calZ', calZ);
 //James reference
 
 //IF(this = that, true, false) -> 
