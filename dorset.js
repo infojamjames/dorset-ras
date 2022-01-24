@@ -15291,6 +15291,16 @@ else
   calAE = calAD+scHI;
 }
 
+var calAF = "";
+//=IF(AND(Scores!HJ59>0,Calculator!AE59>Scores!HJ59),Scores!HJ59,Calculator!AE59)
+if(scHI > 0 && calAE > scHJ)
+{
+  calAF = scHJ;
+}
+else
+{
+  calAF = calAE;
+}
 
 
 
@@ -16133,6 +16143,7 @@ console.log('calAB', calAB);
 console.log('calAC', calAC);
 console.log('calAD', calAD);
 console.log('calAE', calAE);
+console.log('calAF', calAF);
 //James reference
 
 //IF(this = that, true, false) -> 
