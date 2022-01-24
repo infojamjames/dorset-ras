@@ -10375,31 +10375,31 @@ if(clDK == 0.5)
 }
 else if(clDK == 1)
 {
-  scDK = "Pop-ins once per night,";
+  scHX = "Pop-ins once per night,";
 }
 else if(clDK == 2)
 {
-  scDK = "Pop-ins twice per night,";
+  scHX = "Pop-ins twice per night,";
 }
 else if(clDK == 3)
 {
-  scDK = "Pop-ins three times per night,";
+  scHX = "Pop-ins three times per night,";
 }
 else if(clDK == 5 && clDL < WakingImpactLevel)
 {
-  scDK = "Sleep-ins required";
+  scHX = "Sleep-ins required";
 }
 else if(clDK == 5 && clDL >= WakingImpactLevel)
 {
-  scDK = "Waking nights required";
+  scHX = "Waking nights required";
 }
 else if(clDK == 7)
 {
-  scDK = "Support of two care workers at night required";
+  scHX = "Support of two care workers at night required";
 }
 else
 {
-  scDK = "No night support";
+  scHX = "No night support";
 }
 
 var scHY = "";
@@ -15986,7 +15986,6 @@ console.log('scHT', scHT);
 console.log('scHU', scHU);
 console.log('scHV', scHV);
 console.log('scHW', scHW);
-console.log('scDK', scDK);
 console.log('scHY', scHY);
 console.log('scHZ', scHZ);
 console.log('scIA', scIA);
