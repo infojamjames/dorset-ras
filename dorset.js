@@ -554,7 +554,7 @@ var Breathing_Mild = 1;
 var Pain_Severe = 1;
 var Pain_Moderate = 1;
 var Block_adjustments = 0;
-
+var Care_home_allocation = 1;
 
 
 
@@ -15244,6 +15244,43 @@ else
   calAC = comQ;
 }
 
+var calAD = "";
+//=IF(AND(Live_in_Carer_Allocation=0,'Clean data'!FW59=3),0,
+//IF(AND(Shared_Lives_Allocation=0,'Clean data'!FW59=10),0,
+//IF(AND(Care_home_allocation=0,Scores!F59=1),0,
+//IF(AND(Scores!F59=1,'Care home calc'!AS59>0),'Care home calc'!AS59,
+//IF('Clean data'!FW59=3,'Other ALS'!U59,
+//IF('Clean data'!FW59=10,'Other ALS'!AN59,AC59))))))
+if(Live_in_Carer_Allocation == 0 && clFW == 3)
+{
+  calAD = 0;
+}
+else if(Shared_Lives_Allocation == 0 && clFW == 10)
+{
+  calAD = 0;
+}
+else if(Care_home_allocation == 0 && scF == 1)
+{
+  calAD = 0;
+}
+else if(scF == 1 && carcAS > 0)
+{
+  calAD = carcAS;
+}
+else if(clFW == 3)
+{
+  calAD = oalU;
+}
+else if(clFW == 10)
+{
+  calAD = oalAN;
+}
+else
+{
+  calAD = calAC;
+}
+
+
 
 
 
@@ -16083,6 +16120,7 @@ console.log('calZ', calZ);
 console.log('calAA', calAA);
 console.log('calAB', calAB);
 console.log('calAC', calAC);
+console.log('calAD', calAD);
 //James reference
 
 //IF(this = that, true, false) -> 
