@@ -15280,6 +15280,17 @@ else
   calAD = calAC;
 }
 
+var calAE = "";
+//=IF(OR(Scores!F59=1,Scores!G59=1,'Clean data'!FW59=3,'Clean data'!FW59=10),AD59,AD59+Scores!HI59)
+if(scF == 1 || scG == 1 || clFW == 3 || clFW == 10)
+{
+  calAE = calAD;
+}
+else
+{
+  calAE = calAD+scHI;
+}
+
 
 
 
@@ -16121,6 +16132,7 @@ console.log('calAA', calAA);
 console.log('calAB', calAB);
 console.log('calAC', calAC);
 console.log('calAD', calAD);
+console.log('calAE', calAE);
 //James reference
 
 //IF(this = that, true, false) -> 
