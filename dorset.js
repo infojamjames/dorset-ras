@@ -15143,6 +15143,44 @@ else
   calX = calR;
 }
 
+var calY = "";
+//=IF(AND(OR('Clean data'!FW59=7,'Clean data'!FW59=9),'Supp. Living'!C59>0,'Clean data'!DJ59=9,OR('Clean data'!FE59=1,'Clean data'!FE59=-17)),0,
+//IF(AND('Clean data'!FW59=9.5,'Clean data'!DJ59=9,'Other ALS'!C59>0,OR('Clean data'!FE59=1,'Clean data'!FE59=-17)),0,
+//IF(AND('Clean data'!DJ59=9,Community!C59>0,OR('Clean data'!FE59=1,'Clean data'!FE59=-17)),0,
+//IF(AND(X59>Calculator!J59,EDL_Round_Output=1),(ROUND((Calculator!J59*4),0)/4),
+//IF(X59>Calculator!J59,Calculator!J59,
+//IF(EDL_Round_Output=1,(ROUND((X59*4),0)/4),X59))))))
+if((clFW == 7 || clFW == 9)&& supC > 0 && clDJ == 9 && (clFE == 1 || clFE == -17))
+{
+  calY = 0;
+}
+else if(clFW == 9.5 && clDJ == 9 && oalC > 0)
+{
+  calY = 0;
+}
+else if(clDJ == 9 && comC > 0 && OR(clFE == 1 || clFE == -17))
+{
+  calY = 0;
+}
+else if(calX > calJ && EDL_Round_Output == 1)
+{
+  calY = (Math.round((calJ*4),0)/4);
+}
+else if(calX > calJ)
+{
+  calY = calJ;
+}
+else if(EDL_Round_Output == 1)
+{
+  calY = (Math.round((calX*4),0)/4);
+}
+else
+{
+  calY = calX;
+}
+
+
+
 
 
 
@@ -15977,6 +16015,7 @@ console.log('calU', calU);
 console.log('calV', calV);
 console.log('calW', calW);
 console.log('calX', calX);
+console.log('calY', calY);
 //James reference
 
 //IF(this = that, true, false) -> 
