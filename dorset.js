@@ -15302,6 +15302,28 @@ else
   calAF = calAE;
 }
 
+var calAG = "";
+//=IF(AND(ModelType<=2,SUM('Clean data'!FI59:FR59)<2),0,
+//IF(AND(ModelType<=2,SUM('Clean data'!FI59:FR59)>1,'Clean data'!FT59=0),0,
+//IF(AND(Scores!HJ59>0,Community!R59>Scores!HJ59),Scores!HJ59,Community!R59)))
+if(ModelType <= 2 && (clFI + clFJ + clFK +  clFL + clFM + clFN + clFO + clFP + clFQ + clFR)<2)
+{
+  calAG = 0;
+}
+else if((ModelType <= 2 && (clFI + clFJ + clFK +  clFL + clFM + clFN + clFO + clFP + clFQ + clFR)>1 && clFT == 0))
+{
+  calAG = 0;
+}
+else if(scHJ > 0 && comR > scHJ)
+{
+  calAG = scHJ;
+}
+else
+{
+  calAG = comR;
+}
+
+
 
 
 
@@ -16144,6 +16166,7 @@ console.log('calAC', calAC);
 console.log('calAD', calAD);
 console.log('calAE', calAE);
 console.log('calAF', calAF);
+console.log('calAG', calAG);
 //James reference
 
 //IF(this = that, true, false) -> 
