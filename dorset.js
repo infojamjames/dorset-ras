@@ -346,7 +346,6 @@ var WA_High_end_cap = 0;
 var LD_High_end_cap = 0;
 var MH_High_end_cap = 0;
 var High_end_cap = 0;
-var calAA = 3.5;
 var calAC = 974;
 var calAE = 974;
 var calAF = 974;
@@ -15200,8 +15199,9 @@ else
   calZ = (1-scEI)*calY;
 }
 
-
-
+var calAA = "";
+//=Scores!FE59+Scores!FF59+Scores!FG59+Scores!FH59
+calAA = scFE+scFF+scFG+scFH;
 
 
 
@@ -16039,6 +16039,7 @@ console.log('calW', calW);
 console.log('calX', calX);
 console.log('calY', calY);
 console.log('calZ', calZ);
+console.log('calAA', calAA);
 //James reference
 
 //IF(this = that, true, false) -> 
