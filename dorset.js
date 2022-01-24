@@ -174,7 +174,7 @@ var rCQ=5;
 var rCR=3;
 var rCS=7;
 var rCT= "Yes";
-var rCU= "Yes";
+var rCU= "No";
 var rCV= "Yes";
 var rCW= "Yes";
 var rCX= "1act";
@@ -349,7 +349,6 @@ var High_end_cap = 0;
 var calAC = 974;
 var calAE = 974;
 var calAF = 974;
-var calAB = 2.0;
 var calO = 25.50;
 var calZ = 25.50;
 var calY = 25.50
@@ -15203,6 +15202,12 @@ var calAA = "";
 //=Scores!FE59+Scores!FF59+Scores!FG59+Scores!FH59
 calAA = scFE+scFF+scFG+scFH;
 
+var calAB = "";
+//=Scores!FI59
+calAB = scFI;
+
+
+
 
 
 
@@ -16040,6 +16045,7 @@ console.log('calX', calX);
 console.log('calY', calY);
 console.log('calZ', calZ);
 console.log('calAA', calAA);
+console.log('calAB', calAB);
 //James reference
 
 //IF(this = that, true, false) -> 
