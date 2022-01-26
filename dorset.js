@@ -4973,7 +4973,7 @@ else
 
 var scH = "";
 //=IF(AND('Clean data'!CY58>=3,OR('Clean data'!BZ58=7,'Clean data'!CA58=7,'Clean data'!FU58=3)),1,0)
-if(clCY >= 3 || clBZ == 7 || clCA == 7 || clFU == 3)
+if(clCY >= 3 && (clBZ == 7 || clCA == 7 || clFU == 3))
 {
   scH = 1;
 }
