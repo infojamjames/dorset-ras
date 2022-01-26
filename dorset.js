@@ -10778,7 +10778,7 @@ var scIG = "";
 //=IF(AND(OR('Clean data'!FW59=9,'Clean data'!FW59=7),'Clean data'!DJ59>5),0,
 //IF(U59=0,0,
 //IF('Clean data'!EV59=50,ROUND(((Community!M59-GE59)/(U59))*2,0)/2,ROUND(((Community!M59-GE59)/(U59+M59))*2,0)/2)))
-if(clFW == 9 || clFW == 7 && (clDJ > 5))
+if((clFW == 9 || clFW == 7) && (clDJ > 5))
 {
   scIG = 0;
 }
@@ -15985,6 +15985,7 @@ console.log('scHT', scHT);
 console.log('scHU', scHU);
 console.log('scHV', scHV);
 console.log('scHW', scHW);
+console.log('scHX', scHX);
 console.log('scHY', scHY);
 console.log('scHZ', scHZ);
 console.log('scIA', scIA);
