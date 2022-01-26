@@ -76,7 +76,7 @@ var Meds_Freq = "Meds_Freq";
 var Wash_Freq = "Wash_Freq";
 var Homecare_30_min_minimum = 1;
 //Raw Data
-var rA= 'TCT9' ;
+var rA= 'TCT14' ;
 var rB='' ;
 var rC='' ;
 var rD='' ;
@@ -89,105 +89,105 @@ var rJ='' ;
 var rK='' ;
 var rL='' ;
 var rM='' ;
-var rN= "45-54";
-var rO=3;
-var rP= "Yes";
-var rQ=1;
-var rR= "Yes";
-var rS= "Yes";
+var rN= "75-84";
+var rO=2;
+var rP= "No";
+var rQ=2;
+var rR= "No";
+var rS= "No";
 var rT= "No";
-var rU= "Transport";
-var rV= "2to3act";
-var rW= "NotWorkingNotSeeking";
-var rX= "FullTime";
-var rY= "No";
-var rZ= "Background";
-var rAA= "4to5act";
-var rAB= "No";
-var rAC= "LotSupportMost";
-var rAD= "Supp24h";
+var rU= "Background";
+var rV= "Less1act";
+var rW= "Retired";
+var rX= "None";
+var rY= "n/a";
+var rZ= "";
+var rAA= "";
+var rAB= "n/a";
+var rAC= "";
+var rAD= "Nurs";
 var rAE= "No";
-var rAF=3;
-var rAG= "Yes";
-var rAH= "No";
+var rAF=4;
+var rAG= "No";
+var rAH= "Yes";
 var rAI= "No";
-var rAJ=4;
-var rAK=3;
-var rAL= "Once a day";
-var rAM=3;
+var rAJ=3;
+var rAK=4;
+var rAL= "Three times a day";
+var rAM=4;
 var rAN= "Yes";
-var rAO= "n/a";
-var rAP= "Yes";
-var rAQ= "Yes";
+var rAO= "Upto30m";
+var rAP= "No";
+var rAQ= "No";
 var rAR= "No";
-var rAS=4;
-var rAT=4;
+var rAS=3;
+var rAT=3;
 var rAU= "No";
-var rAV=4;
-var rAW=4;
-var rAX= "Three times a day";
+var rAV=3;
+var rAW=3;
+var rAX= "Five or six times a week";
 var rAY= "No";
-var rAZ=4;
-var rBA= "Every 2-3 hours+";
+var rAZ=3;
+var rBA= "Three times a day";
 var rBB= "Monitor";
 var rBC= "No";
-var rBD=4;
-var rBE= "No";
-var rBF=2;
-var rBG=4;
+var rBD=3;
+var rBE= "Yes";
+var rBF=1;
+var rBG=3;
 var rBH= "No";
-var rBI= "COPD";
-var rBJ= "Demen";
-var rBK= "DeprAnx";
-var rBL= "Diabetes";
-var rBM= "Monthly";
-var rBN= "Supervise";
-var rBO= "Less than daily";
-var rBP=0;
-var rBQ= "n/a";
-var rBR= "RiskDaily";
-var rBS=1;
+var rBI= "HeadInj";
+var rBJ= "HearImp";
+var rBK= "HIV";
+var rBL= "LD";
+var rBM= "Weekly";
+var rBN= "Admin";
+var rBO= "Three times a day";
+var rBP=1;
+var rBQ= "Yes";
+var rBR= "TreatLessDaily";
+var rBS=2;
 var rBT= "Yes";
-var rBU=2;
-var rBV= "Inhaler";
+var rBU=3;
+var rBV= "LowLevel";
 var rBW= "No";
-var rBX=2;
-var rBY=1;
-var rBZ=1;
-var rCA=1;
-var rCB=1;
+var rBX=3;
+var rBY=2;
+var rBZ=2;
+var rCA=2;
+var rCB=2;
 var rCC= "No";
-var rCD=1;
-var rCE= "OccasChecks";
-var rCF= "1visit";
+var rCD=2;
+var rCE= "DailyChecks";
+var rCF= "3visits";
 var rCG= "n/a";
-var rCH= "FullEff";
-var rCI= "Yes";
-var rCJ= "No";
-var rCK= "Yes";
+var rCH= "PartEff";
+var rCI= "No";
+var rCJ= "Yes";
+var rCK= "No";
 var rCL= "Yes";
 var rCM= "Yes";
 var rCN= "Yes";
 var rCO= "Yes";
-var rCP=5;
-var rCQ=5;
-var rCR=5;
+var rCP=2;
+var rCQ=2;
+var rCR=2;
 var rCS=7;
 var rCT= "Yes";
 var rCU= "Yes";
-var rCV= "";
+var rCV= "Yes";
 var rCW= "Yes";
-var rCX= "1act";
-var rCY= "2to3act";
-var rCZ= "Weekly";
-var rDA= "LittleSupportMost";
+var rCX=0;
+var rCY= "NoNeed";
+var rCZ= "2to3times";
+var rDA= "NoNeed";
 var rDB= "NoConstant";
-var rDC=1;
+var rDC=2;
 var rDD= "No";
-var rDE= "No";
+var rDE= "Yes";
 var rDF= "Yes";
-var rDG= "Yes";
-var rDH= "Yes";
+var rDG= "No";
+var rDH= "No";
 var rDI= "Yes";
 var rDJ= "Yes";
 var rDK= "Yes";
@@ -196,10 +196,10 @@ var rDM= "Yes";
 var rDN= "Yes";
 var rDO= "Yes";
 var rDP= "Yes";
-var rDQ= "Hearing";
-var rDR= "Supp24h";
-var rDS= "5sharing";
-var rDT= "Yes";
+var rDQ= "LD";
+var rDR= "Nurs";
+var rDS= "CareHomeOver9";
+var rDT= "n/a";
 var rDU= "";
 var rDV= "";
 var rDW= "";
@@ -213,32 +213,32 @@ var rED= "";
 var rEE= "";
 var rEF= "";
 var rEG= "";
-var rEH= "Under 18";
-var rEI= "Yes";
-var rEJ= "NoChallenges";
-var rEK= "NotDueToCaring";
-var rEL= "YesLittle";
-var rEM= "YesModerate";
-var rEN= "YesSignificant";
-var rEO= "YesSevere";
-var rEP= "n/a";
-var rEQ= "NoChallenges";
-var rER= "MoreThanDay";
-var rES= "No";
-var rET=0;
-var rEU=0;
+var rEH= "55-64";
+var rEI= "No";
+var rEJ= "YesSevere";
+var rEK= "n/a";
+var rEL= "NoChallenges";
+var rEM= "NotDueToCaring";
+var rEN= "YesLittle";
+var rEO= "NotDueToCaring";
+var rEP= "YesLittle";
+var rEQ= "YesSevere";
+var rER= "2Hours";
+var rES= "Yes";
+var rET=2;
+var rEU=1;
 var rEV= "Yes";
-var rEW= "No";
-var rEX= "No";
-var rEY= "No";
-var rEZ= "No";
-var rFA= "No";
-var rFB= "No";
-var rFC= "No";
+var rEW= "Yes";
+var rEX= "Yes";
+var rEY= "Yes";
+var rEZ= "Yes";
+var rFA= "Yes";
+var rFB= "Yes";
+var rFC= "Yes";
 var rFD= "No";
-var rFE= "No";
-var rFF= "No";
-var rFG= "No";
+var rFE= "Yes";
+var rFF= "Yes";
+var rFG= "Yes";
 var rFH= "";
 var rFI= "";
 
@@ -301,6 +301,7 @@ var MH_Safety_Day_Standard = 116;
 var WA_Safety_Day_Standard = 116;
 var Default_Social_Transport = 10;
 var clG = 0;
+var clB = 0;
 var Extracare_Homecare_rate = 0;
 var SH_Homecare_rate = 0;
 var Homecare_Rate = 18.38;
@@ -560,9 +561,14 @@ var Minimum_IB_Deflator = 0;
 var Minimum_IB_Inflator = 0;
 var Care_home_activity_length_Under65 = 1;
 var SupportHousingAdj = 1;
-
-
-
+var Care_home_9orMoreSharing = 0.111
+var LD_Social_Background = 25;
+var Default_Social_Background = 24;
+var Tier2_Social_Background = 24;
+var Tier3_Social_Background = 24;
+var Default_Social_Background = 24;
+var WA_Social_Background = 24;
+var MH_Social_Background = 25;
 
 
 
@@ -5029,7 +5035,7 @@ var scK = "";
 //IF(AND(J58="Background",B58=0,C58=1),WA_Social_Background,
 //IF(AND(J58="Background",B58=1),LD_Social_Background,
 //IF(AND(J58="Background",B58=2),MH_Social_Background,0)))))))))))
-if(ModelType == 3 && CHC_LD_Safety_Switch == 1 && clJ == "Background"&& ( clBZ == 13 || clCA == 13 || clBZ == 30 || clCA == 30 || clBZ == 3 || clCA == 3 || clBZ == 4 || clCA == 4))
+if(ModelType == 3 && CHC_LD_Safety_Switch == 1 && scJ == "Background"&& ( clBZ == 13 || clCA == 13 || clBZ == 30 || clCA == 30 || clBZ == 3 || clCA == 3 || clBZ == 4 || clCA == 4))
 {
   scK = LD_Social_Background;
 }
@@ -5037,11 +5043,11 @@ else if(ModelType == 3 && CHC_LD_Safety_Switch == 0 && clJ == "Background" && OU
 {
   scK = Default_Social_Background;
 }
-else if(clJ == "Background" && ModelType >= 2 && OUT_DSTNeedsProfile == 1 && clE == 1)
+else if(scJ == "Background" && ModelType >= 2 && OUT_DSTNeedsProfile == 1 && clE == 1)
 {
   scK = Tier2_Social_Background;
 }
-else if(clJ == "Background" && ModelType >= 2 && OUT_DSTNeedsProfile == 1 && clE == 2)
+else if(scJ == "Background" && ModelType >= 2 && OUT_DSTNeedsProfile == 1 && clE == 2)
 {
   scK = Tier3_Social_Background;
 }
@@ -5049,27 +5055,27 @@ else if(ModelType == 3 && CHC_LD_SafetySocial_Switch == 0 && clJ == "Background"
 {
   scK = Default_Social_Background;
 }
-else if(clJ == "Background" && ModelType >= 2 && clD == 1)
+else if(scJ == "Background" && ModelType >= 2 && clD == 1)
 {
   scK = Tier2_Social_Background;
 }
-else if(clJ == "Background" && ModelType >= 2 && clD == 2)
+else if(scJ == "Background" && ModelType >= 2 && clD == 2)
 {
   scK = Tier3_Social_Background;
 }
-else if(clJ == "Background" && clB == 0 && clC == 0)
+else if(scJ == "Background" && clB == 0 && clC == 0)
 {
   scK = Default_Social_Background;
 }
-else if(clJ == "Background" && clB == 0 && clC == 1)
+else if(scJ == "Background" && clB == 0 && clC == 1)
 {
   scK = WA_Social_Background;
 }
-else if(clJ == "Background" && clB == 1)
+else if(scJ == "Background" && clB == 1)
 {
   scK = LD_Social_Background;
 }
-else if(clJ == "Background" && clB == 2)
+else if(scJ == "Background" && clB == 2)
 {
   scK = MH_Social_Background;
 }
