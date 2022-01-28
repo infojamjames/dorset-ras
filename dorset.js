@@ -9990,7 +9990,7 @@ var scHK = "";
 //IF(OR(AND('Clean data'!FW59=12,Dynamic_Care_home=1, 'Care home calc'!AA59<'Care home calc'!Z59), AND('Clean data'!FW59=15,Dynamic_Care_home=1, 'Care home calc'!AE59<'Care home calc'!AD59)),"Capped",
 //IF(OR(AND('Clean data'!FW59=12,Dynamic_Care_home=1, NOT('Care home calc'!AA59<'Care home calc'!Z59)), AND('Clean data'!FW59=15,Dynamic_Care_home=1, NOT('Care home calc'!AE59<'Care home calc'!AD59))),"",
 //IF(OR(AND(OR('Clean data'!FW59=12,'Clean data'!FW59=15),Calculator!AC59<Community!Q59),AND(OR('Clean data'!FW59=12,'Clean data'!FW59=15),Care_home_allocation=0),AND('Clean data'!FW59=3,OR(Live_in_Carer_Allocation=0,Calculator!AC59<Community!Q59)),AND('Clean data'!FW59=10,OR(Shared_Lives_Allocation=0,Calculator!AC59<Community!Q59)),Calculator!AF59<Calculator!AE59),"Capped",""))))
-if((clFW == 12 || clFW == 15) && Dynamic_Care_home == 1 && (Dynamic_Hours_Cap > 0 &&  carcW > Dynamic_Hours_Cap))
+if((clFW == 12 || clFW == 15) && Dynamic_Care_home == 1 && (Dynamic_Hours_Cap > 0 ||  carcW > Dynamic_Hours_Cap))
 {
   scHK = "Capped";
 }
@@ -10002,7 +10002,7 @@ else if((clFW == 12 && Dynamic_Care_home == 1 && carcAA >= carcZ)|| (clFW == 15 
 {
   scHK = "";
 }
-else if((clFW == 12 || clFW == 15)&& (calAC < comQ)&& ((clFW == 12 || clFW == 15)&&Care_home_allocation == 0 )&& (clFW == 3 && (Live_in_Carer_Allocation == 0 || calAC < comQ))&& (clFW == 10 && (Shared_Lives_Allocation == 0 || calAC < comQ))&& calAF < calAE)
+else if((clFW == 12 || clFW == 15)|| (calAC < comQ)|| ((clFW == 12 || clFW == 15)&&Care_home_allocation == 0 )|| (clFW == 3 && (Live_in_Carer_Allocation == 0 || calAC < comQ))&& (clFW == 10 && (Shared_Lives_Allocation == 0 || calAC < comQ))&& calAF < calAE)
 {
   scHK = "Capped";
 }
