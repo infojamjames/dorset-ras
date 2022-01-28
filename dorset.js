@@ -5051,31 +5051,31 @@ else if(scJ == "Background" && ModelType >= 2 && OUT_DSTNeedsProfile == 1 && clE
 {
   scK = Tier3_Social_Background;
 }
-else if(ModelType == 3 && CHC_LD_SafetySocial_Switch == 0 && clJ == "Background" && clD == 0)
+else if(ModelType == 3 && CHC_LD_SafetySocial_Switch == 0 && scJ == "Background" && clD == 0)
 {
   scK = Default_Social_Background;
 }
-else if(scJ == "Background" && ModelType >= 2 && clD == 1)
+else if(scJ == "Background" && ModelType >= 2 && scD == 1)
 {
   scK = Tier2_Social_Background;
 }
-else if(scJ == "Background" && ModelType >= 2 && clD == 2)
+else if(scJ == "Background" && ModelType >= 2 && scD == 2)
 {
   scK = Tier3_Social_Background;
 }
-else if(scJ == "Background" && clB == 0 && clC == 0)
+else if(scJ == "Background" && scB == 0 && scC == 0)
 {
   scK = Default_Social_Background;
 }
-else if(scJ == "Background" && clB == 0 && clC == 1)
+else if(scJ == "Background" && scB == 0 && scC == 1)
 {
   scK = WA_Social_Background;
 }
-else if(scJ == "Background" && clB == 1)
+else if(scJ == "Background" && scB == 1)
 {
   scK = LD_Social_Background;
 }
-else if(scJ == "Background" && clB == 2)
+else if(scJ == "Background" && scB == 2)
 {
   scK = MH_Social_Background;
 }
@@ -5124,11 +5124,11 @@ else if(clJ == "1to1" && ModelType >= 2 && clO >= 3 && clD == 2)
 {
   scL = Tier3_Social_1to1;
 }
-else if(clJ == "1to1" && clO >= 3 && clB == 0 && clC == 0)
+else if(clJ == "1to1" && clO >= 3 && clB == 0 && scC == 0)
 {
   scL = Default_Social_1to1;
 }
-else if(clJ == "1to1" && clO >= 3 && clB == 0 && clC == 1)
+else if(clJ == "1to1" && clO >= 3 && clB == 0 && scC == 1)
 {
   scL = WA_Social_1to1;
 }
@@ -5186,11 +5186,11 @@ else if(clJ == "1to1" && ModelType >= 2 && clO == 4 && clD == 2)
 {
   scM = Tier3_Social_1to1;
 }
-else if(clJ == "1to1" && clO == 4 && clB == 0 && clC == 0)
+else if(clJ == "1to1" && clO == 4 && clB == 0 && scC == 0)
 {
   scM = Default_Social_1to1;
 }
-else if(clJ == "1to1" && clO == 4 && clB == 0 && clC == 1)
+else if(clJ == "1to1" && clO == 4 && clB == 0 && scC == 1)
 {
   scM = WA_Social_1to1;
 }
@@ -5263,12 +5263,12 @@ else if(clN == "Background" && ModelType >= 2 &&  clD == 2)
 {
   scO = Tier3_Social_1to1;
 }
-else if(clN == "Background" && clB == 0 && clC == 0)
+else if(clN == "Background" && clB == 0 && scC == 0)
 {
   scO = Default_Work_edu_Background;
 }
 
-else if(clN == "Background" && clB == 0 && clC == 1)
+else if(clN == "Background" && clB == 0 && scC == 1)
 {
   scO = WA_Work_edu_Background;
 }
@@ -5327,11 +5327,11 @@ else if(clN == "1to1" && ModelType >= 2 &&  clV >= 3 && clD == 2 )
 {
   scP = Tier3_Work_edu_1to1;
 }
-else if(clN == "1to1" && clV == 3 && clB == 0 && clC == 0)
+else if(clN == "1to1" && clV == 3 && clB == 0 && scC == 0)
 {
   scP  = Default_Work_edu_1to1;
 }
-else if(clN == "1to1" && clV >= 3 && clB == 0 && clC == 1)
+else if(clN == "1to1" && clV >= 3 && clB == 0 && scC == 1)
 {
   scP = WA_Work_edu_1to1;
 }
@@ -5390,11 +5390,11 @@ else if(clN == "1to1" && ModelType >= 2 &&  clV == 4 && clD == 2 )
 {
   scQ = Tier3_Work_edu_1to1;
 }
-else if(clN == "1to1" && clV == 4 && clB == 0 && clC == 0)
+else if(clN == "1to1" && clV == 4 && clB == 0 && scC == 0)
 {
   scQ  = Default_Work_edu_1to1;
 }
-else if(clN == "1to1" && clV == 4 && clB == 0 && clC == 1)
+else if(clN == "1to1" && clV == 4 && clB == 0 && scC == 1)
 {
   scQ = WA_Work_edu_1to1;
 }
@@ -6684,7 +6684,7 @@ if(clDX == "NoNeed")
 {
   scBX = 0;
 }
-else if(((clAL == 7 && scBD == 2) || clAL >= 21 || (clAL >= 14 && scBU != 2) && clAN >= 2 && clAR == 1))
+else if(((clAL == 7 && scBD == 2) && clAL >= 21 || (clAL >= 14 && scBU != 2) && clAN >= 2 && clAR == 1))
 {
   scBX = 3;
 }
@@ -11368,11 +11368,11 @@ else if((carcC != Care_home_FulltimeCarer_Activities)&& scIY == "")
 }
 else if(carcC == Care_home_FulltimeCarer_Activities)
 {
-  scJD = (Care_home_FulltimeCarer_Activities + "h shared support")
+  scJD = (Care_home_FulltimeCarer_Activities + "h shared support");
 }
 else
 {
-  scJD = (HOUR(scIY),"h ",MINUTE(scIY),"m shared support")
+  scJD = (HOUR(scIY)+"h "+ MINUTE(scIY)+"m shared support");
 }
 
 var scJE = "";
