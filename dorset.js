@@ -9739,7 +9739,7 @@ scGY = scGN + scGO + scGP + scGS + scGT + scGW;
 
 var scGZ = "";
 //=(GY59/PC_Dom_respite_adj)*GX59
-scGZ = (scGY/PC_Dom_respite_adj)*scGZ;
+scGZ = (scGY/PC_Dom_respite_adj)*scGX;
 
 var scHA = "";
 //=IF('Clean data'!DL59=0,0,
