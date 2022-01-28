@@ -7877,7 +7877,7 @@ else
 
 var scEB = "";
 //=SUM(DV59:EA59)
-scEB = (scDV + scEA)
+scEB = (scDV + scDW + scDX + scDY + scDZ + scEA);
 
 var scEC = "";
 //=IF(AND('Clean data'!BD59=1,'Clean data'!BF59>=7),3.5,
