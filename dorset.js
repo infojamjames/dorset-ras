@@ -287,7 +287,7 @@ var rFI= "";
 
 
 //Clean Data = cl
-var clAL = 7;
+var clAL = 21;
 var clGC = 0;
 var clGK = 0;
 var clGI = 0;
@@ -312,8 +312,8 @@ var Medication_Visit_Adjustment = 0;
 var Prep_Visit_Adjustment = 0;
 var FullTime_Education_switch = 1;
 var Eating_addition_adj = 0.25;
-var calL = 0.54;
-var calK = 16.69;
+var calL = 0.00;
+var calK = 16.00;
 var Housework = 1;
 var Shopping = 1; 
 var Paperwork_finances = 1;
@@ -323,6 +323,8 @@ var Work_edu_Overlap = 0;
 var Max_non_overlap = 5;
 var Social_activity_hours = 3;
 var NightOnce = 14.5;
+var LD_NightOnce = 15.4;
+var MH_NightOnce = 15.4;
 var CHNightOnce = 14.5;
 var SHNightOnce = 14.5;
 var PC_Dom_respite_adj = 1.5;
@@ -330,17 +332,16 @@ var Safety_respite_adj = 3.75;
 var Max_days_respite = 42;
 var carcAA = 0;
 var carcAE = 0;
-var carcW = 23.185;
+var carcW = 29.37;
 var carcZ = 0;
-var carcAE = 0;
 var carcAD = 0;
-var carcAS = 157.04;
-var carcR = 18.435;
-var carcD = 1.75;
+var carcAS = 0.00;
+var carcR = 23.87;
+var carcD = 4;
 var carcJ = 0;
-var carcM = 1;
+var carcM = 0.5;
 var carcL = 0;
-var carcC = 1.75;
+var carcC = 4;
 var carcK = 0;
 var Dynamic_Care_home = 0;
 var WA_Respite_weekly = 571.86;
@@ -350,31 +351,31 @@ var MH_High_end_cap = 0;
 var High_end_cap = 0;
 var calAA = 3;
 var calAB = 0;
-var calAE = 157;
-var calAF = 157;
-var calO = 8;
+var calAE = 0;
+var calAF = 0;
+var calO = 17.75;
 var calZ = 0;
 var calY = 0;
-var comQ = 157;
-var comE = 147.04;
+var comQ = 273;
+var comE = 273.35;
 var comC = 0.00;
-var comB = 147.04;
-var comM = 10;
+var comB = 273.35;
+var comM = 0;
 var comT = 0;
-var comAD = 55;
-var comAE = 110.28;
-var comV = 147.04;
+var comAD = 0;
+var comAE = 0;
+var comV = 273.35;
 var comI = 0;
-var supF = 147;
+var supF = 273;
 var supD = 0;
-var supB = 147;
+var supB = 273;
 var supK = 0;
-var supO = 10;
+var supO = 0;
 var supQ = 15;
 var supC = 0;
-var oalE = 147;
+var oalE = 273;
 var oalC = 0;
-var oalB = 147;
+var oalB = 273;
 var oalI = 0;
 var Res_Hours_PD_Rate = 0;
 var Res_Hours_MH_Rate = 0;
@@ -9423,7 +9424,7 @@ else if(scD == 1 && clFK>=1 && clDK<=3)
 {
   scGJ = Enhc_Tier2_NightOnce;
 }
-else if(((scB != 1) && (scB != 2),(scD < 1) && clDK >=1 && clDK <=3))
+else if(((scB != 1) && (scB != 2)&&(scD < 1) && clDK >=1 && clDK <=3))
 {
   scGJ = NightOnce;
 }
@@ -9734,7 +9735,7 @@ else
 
 var scGY = "";
 //=Scores!GN59+Scores!GO59+Scores!GP59+Scores!GS59+Scores!GT59+Scores!GW59
-scGY = scGN + scGO + scGP + scGT + scGW;
+scGY = scGN + scGO + scGP + scGS + scGT + scGW;
 
 var scGZ = "";
 //=(GY59/PC_Dom_respite_adj)*GX59
