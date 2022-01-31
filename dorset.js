@@ -12478,7 +12478,7 @@ else
 
 var caI = "";
 //=SUM(E59:H59)
-caI = caE + caH;
+caI = caE + caF + caG + caH;
 
 var caJ = "";
 //=IF(AND(Scores!B59=0,Scores!C59=0,Care_Home_PsychBlock_Over65Switch=0),0,
