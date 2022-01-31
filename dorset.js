@@ -13588,7 +13588,6 @@ var supQ = "";
 //IF(AND('Clean data'!DK59>=5,Supported_number_reduction=3),(Scores!GL59*Support_three_sharing_ratio),
 //IF(AND('Clean data'!DK59>=5,Supported_number_reduction=4),(Scores!GL59*Support_four_sharing_ratio),
 //IF(AND('Clean data'!DK59>=5,Supported_number_reduction=5),(Scores!GL59*Support_five_sharing_ratio),
-
 //IF(AND('Clean data'!DK59>=5,Supported_number_reduction=6),(Scores!GL59*Support_six_sharing_ratio),Scores!GL59)))))))))))))))
 if(SH_Default_Reduction == 1 && clDK>=5 && Supported_number_reduction == 2)
 {
