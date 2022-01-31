@@ -313,7 +313,7 @@ var Prep_Visit_Adjustment = 0;
 var FullTime_Education_switch = 1;
 var Eating_addition_adj = 0.25;
 var calL = 0.00;
-var calK = 16.00;
+var calK = 15.995;
 var Housework = 1;
 var Shopping = 1; 
 var Paperwork_finances = 1;
@@ -11906,13 +11906,17 @@ else
 
 var comH = "";
 //=IF(((Calculator!K59+Scores!DT59)*Scores!AC59)-G59<0,F59,
-//IF(EDL_Round_Output=1,(F59+((ROUND(((Calculator!K59+Scores!DT59)*4),0)/4)*Scores!AC59)-G59),F59+(((Calculator!K59+Scores!DT59)*Scores!AC59)-G59)))
+//IF(EDL_Round_Output=1,
+//(F59+((ROUND(((Calculator!K59+Scores!DT59)*4),0)/4)*Scores!AC59)-G59),F59+(((Calculator!K59+Scores!DT59)*Scores!AC59)-G59)))
 if(((calK+scDT)*scAC)-comG<0)
 {
   comH = comF;
 }
 else if(EDL_Round_Output == 1)
 {
+  var test = scAC;
+  //comH = (comF+(((calK + scDT)*4)/4)*scAC)- comG
+  //F65+((ROUND(((Calculator!K65+Scores!DT65)*4),0)/4)*Scores!AC65)-G65
   comH = (comF+((Math.round(((calK+scDT)*4),0)/4)*scAC)-comG);
 }
 else
