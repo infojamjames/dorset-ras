@@ -10002,7 +10002,7 @@ else if((clFW == 12 && Dynamic_Care_home == 1 && carcAA >= carcZ)|| (clFW == 15 
 {
   scHK = "";
 }
-else if((clFW == 12 || clFW == 15)|| (calAC < comQ)|| ((clFW == 12 || clFW == 15)&&Care_home_allocation == 0 )|| (clFW == 3 && (Live_in_Carer_Allocation == 0 || calAC < comQ))&& (clFW == 10 && (Shared_Lives_Allocation == 0 || calAC < comQ))&& calAF < calAE)
+else if((clFW == 12 || clFW == 15)|| (calAC < comQ)|| ((clFW == 12 || clFW == 15)&&Care_home_allocation == 0 ) (clFW == 3 && (Live_in_Carer_Allocation == 0 || calAC < comQ))&& (clFW == 10 && (Shared_Lives_Allocation == 0 || calAC < comQ))&& calAF < calAE)
 {
   scHK = "Capped";
 }
@@ -10171,13 +10171,13 @@ var scHP = "";
 //IF(OR('Clean data'!FW59=7,'Clean data'!FW59=9),ROUND(('Supp. Living'!D59+('Supp. Living'!O59-Scores!GE59)),2),
 //IF('Clean data'!FW59=9.5,ROUND(('Other ALS'!C59+(Community!M59-Scores!GE59)),2),
 //IF(AND(PA_Dom_Tasks_Switch=1,'Clean data'!GA59=1),ROUND((Community!T59+(Community!AD59-Scores!GE59)),2),ROUND((Community!C59+(Community!M59-Scores!GE59)),2))))))
-if(Work_edu_Overlap == 0 && (clFW == 7 || clFW == 9)&& ((supD + (supO - scGE)==0)) && (Work_edu_Overlap == 0 && clFW == 9.5)&& ((oalC + comM - scGE)== 0)&& ((Work_edu_Overlap == 0 && comC + comM - scGE)==0))
+if(Work_edu_Overlap == 0 && (clFW == 7 || clFW == 9)&& ((supD + (supO - scGE)==0)) || (Work_edu_Overlap == 0 && clFW == 9.5)&& ((oalC + comM - scGE)== 0)&& ((Work_edu_Overlap == 0 && comC + comM - scGE)==0))
 {
   scHP = 0;
 }
-else if((clFW == 7 || clFW == 9) && Math.round((supD+(supO-scGE)),2)== 0 && (clFW == 9.5 && Math.round((oalC+(comM-scGE)),2)== 0)&& Math.round(comC+(comM-scGE),2)== 0)
+else if((clFW == 7 || clFW == 9) && Math.round((supD+(supO-scGE)),2)== 0 || (clFW == 9.5 && Math.round((oalC+(comM-scGE)),2)== 0)&& Math.round(comC+(comM-scGE),2)== 0)
 {
-  scHP = 0;
+  scHP = 0; 
 }
 else if((clFW == 7 || clFW == 9))
 {
@@ -10187,13 +10187,13 @@ else if(clFW == 9.5)
 {
   scHP = Math.round((oalC+(comM-scGE)),2);
 }
-else if(PA_Dom_Tasks_Switch == 1 && clGA == 1 && (Math.round((comT+(comAD-scGE)),2)))
+else if(PA_Dom_Tasks_Switch == 1 && clGA == 1)
 {
-  scHP = Math.round((comC+(comM-scGE)))
+  scHP = Mtah.round((comT+(comAD-scGE)),2);
 }
 else
 {
-  scHP = 2;
+  scHP = Math.round((comC+(comM-scGE)),2);
 }
 
 var scHQ = "";
